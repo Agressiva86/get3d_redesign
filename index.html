@@ -6,6 +6,10 @@
   <title>get3D — drukarki, filamenty i akcesoria</title>
   <meta name="description" content="get3D sprzedaje drukarki 3D, materiały eksploatacyjne i akcesoria. Zestawy dla pracowni, biur projektowych i produkcji.">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-sans-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-sans-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-sans-italic-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -20,7 +24,7 @@
       <a class="logo" href="#start" aria-label="get3D, strona główna">
         <img src="assets/get3d%20logo.svg" alt="get3D">
       </a>
-      <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-cats"><span></span></button>
+      <button class="burger" type="button" aria-label="Kategorie" aria-expanded="false" aria-controls="nav-cats"><span></span><em class="burger-label">Kategorie</em></button>
       <form class="nav-search" role="search">
         <label class="sr" for="search-input">Czego szukasz?</label>
         <input id="search-input" type="search" placeholder="Czego szukasz?" autocomplete="off" aria-autocomplete="list" aria-controls="search-pop" aria-expanded="false">
@@ -95,10 +99,9 @@
             </div>
             <div class="help-social">
               <a href="https://www.facebook.com/get3dpl" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="icon icon-facebook" aria-hidden="true"></span></a>
-              <a href="https://www.instagram.com/get3d/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="icon icon-instagram" aria-hidden="true"></span></a>
+              <a href="https://x.com/get3dpl" target="_blank" rel="noopener noreferrer" aria-label="X"><span class="icon icon-x" aria-hidden="true"></span></a>
               <a href="https://www.youtube.com/@get3dlab" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><span class="icon icon-youtube" aria-hidden="true"></span></a>
               <a href="https://www.linkedin.com/company/18726552/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><span class="icon icon-linkedin" aria-hidden="true"></span></a>
-              <a href="https://www.tiktok.com/@get3d_lab" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><span class="icon icon-tiktok" aria-hidden="true"></span></a>
             </div>
           </div>
         </div>
@@ -313,12 +316,20 @@
       </div>
       <div class="drop">
         <button class="drop-btn" type="button" aria-expanded="false">Formierki 3D <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
-        <div class="drop-panel">
+        <div class="drop-panel drop-formierki">
           <a class="drawer-all" href="#drukarki">Pokaż formierki 3D</a>
           <div class="mega">
             <div class="mega-side">
-              <a class="mega-all" href="#drukarki">Wszystkie</a>
-              <div class="mega-branch"><a class="mega-name" href="#drukarki">Formierki</a></div>
+              <a class="mega-all" href="#kontakt">Wszystkie</a>
+              <div class="mega-branch">
+                <a class="mega-name" href="#kontakt">Formierki <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Formierki</p>
+                  <a href="#kontakt">Poznaj Mayku</a>
+                  <a href="#kontakt">Dla stomatologii</a>
+                  <a href="#kontakt">Mayku Pioneer Program</a>
+                </div>
+              </div>
               <div class="mega-branch"><a class="mega-name" href="#kontakt">Zapytaj o stanowisko</a></div>
             </div>
           </div>
@@ -465,89 +476,114 @@
 
   <main id="tresc" class="sheet">
     <section class="hero">
-      <div class="wrap">
-        <span class="eyebrow"><i>nowość</i> pracownia druku 3D</span>
-        <h1>Druk, który myśli do przodu,<br><em>dowozi efekt.</em></h1>
-        <p class="lead">get3D spina pracownię w jeden rytm — drukarki, materiały eksploatacyjne i akcesoria dobrane tak, żeby część schodziła ze stołu za pierwszym razem.</p>
-        <div class="hero-actions">
-          <a class="btn btn-red" href="#cennik">Zacznij</a>
-          <a class="btn btn-line" href="#o-nas">Poznaj get3D</a>
+      <div class="wrap hero-layout">
+        <div class="hero-copy">
+          <span class="eyebrow"><i>nowości</i> drukarki 3D</span>
+          <h1>Druk, który myśli do przodu, dowozi efekt.</h1>
+          <p class="lead">get3D spina pracownię w jeden rytm — drukarki, materiały eksploatacyjne i akcesoria dobrane tak, żeby część schodziła ze stołu za pierwszym razem.</p>
+          <div class="hero-actions">
+            <a class="btn btn-red" href="#cennik">Zacznij</a>
+            <a class="btn btn-line" href="#o-nas">Poznaj get3D</a>
+          </div>
         </div>
-        <ul class="checks">
-          <li>
-            <span class="icon icon-check" aria-hidden="true"></span>
-            Drukarki FDM i żywiczne
-          </li>
-          <li>
-            <span class="icon icon-check" aria-hidden="true"></span>
-            Filamenty i żywice
-          </li>
-          <li>
-            <span class="icon icon-check" aria-hidden="true"></span>
-            Akcesoria i części zamienne
-          </li>
-        </ul>
 
-        <div class="hero-cards">
-          <article class="panel">
-            <div class="panel-inner">
-              <p class="kicker">Podgląd wydruków</p>
-              <svg class="gauge" viewBox="0 0 260 140" aria-hidden="true">
-                <path d="M30 120 A100 100 0 0 1 230 120" fill="none" stroke="#e7e5e4" stroke-width="18" stroke-linecap="butt"/>
-                <path d="M30 120 A100 100 0 0 1 214 68" fill="none" stroke="#242220" stroke-width="18" stroke-linecap="butt"/>
-                <path d="M30 120 A100 100 0 0 1 70 42" fill="none" stroke="#ff2055" stroke-width="18" stroke-linecap="butt"/>
-              </svg>
-              <div class="gauge-label">
-                <strong>98,6%</strong>
-                <span>udanych wydruków</span>
-              </div>
-              <div class="mini-stats">
-                <div>
-                  <small>AKTYWNE ZLECENIA</small>
-                  <strong>186 <em>↑ 12%</em></strong>
-                </div>
-                <div>
-                  <small>GODZINY DRUKU</small>
-                  <strong>42 h <em>↑ 8%</em></strong>
-                </div>
+        <div class="hero-stage">
+          <img src="assets/hero-drukarka.jpg" alt="Drukarka Bambu Lab na stanowisku w pracowni">
+          <aside class="hero-float">
+            <strong>20k+</strong>
+            <span>sprzedanych drukarek 3D przez get3D.</span>
+          </aside>
+        </div>
+
+        <div class="hero-rail">
+          <div class="hero-catalog">
+            <div>
+              <p class="hero-catalog-title">Katalog drukarek</p>
+              <p>Marki i modele z menu, od biurka po krótką serię.</p>
+            </div>
+            <a class="hero-orbit" href="#drukarki" aria-label="Zobacz katalog drukarek">
+              <span class="icon icon-arrow-corner" aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="hero-slider" data-hero-slider>
+            <div class="hero-slider-viewport">
+              <div class="hero-slider-track">
+                <article class="hero-slide">
+                  <img src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab A1 Combo">
+                  <p class="hero-slide-name">Bambu Lab A1 Combo</p>
+                  <ul class="mega-specs">
+                    <li><span>Obszar roboczy:</span> 256 × 256 × 256 mm</li>
+                    <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                  </ul>
+                  <div class="mega-buy">
+                    <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
+                    <button class="mega-cart" type="button" data-add data-id="a1-combo" data-name="Bambu Lab A1 Combo" data-price="1160" aria-label="Dodaj do koszyka">
+                      <span class="icon icon-cart-plus" aria-hidden="true"></span>
+                    </button>
+                    <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
+                  </div>
+                </article>
+                <article class="hero-slide">
+                  <img src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab A1">
+                  <p class="hero-slide-name">Bambu Lab A1</p>
+                  <ul class="mega-specs">
+                    <li><span>Obszar roboczy:</span> 256 × 256 × 256 mm</li>
+                    <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                  </ul>
+                  <div class="mega-buy">
+                    <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span></p>
+                    <button class="mega-cart" type="button" data-add data-id="a1" data-name="Bambu Lab A1" data-price="1160" aria-label="Dodaj do koszyka">
+                      <span class="icon icon-cart-plus" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </article>
+                <article class="hero-slide">
+                  <img src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab A1 mini">
+                  <p class="hero-slide-name">Bambu Lab A1 mini</p>
+                  <ul class="mega-specs">
+                    <li><span>Obszar roboczy:</span> 180 × 180 × 180 mm</li>
+                    <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                  </ul>
+                  <div class="mega-buy">
+                    <p class="mega-price"><span class="mega-amount"><small>od</small> 845<sup>00</sup> <span class="mega-currency">zł</span></span></p>
+                    <button class="mega-cart" type="button" data-add data-id="a1-mini" data-name="Bambu Lab A1 mini" data-price="845" aria-label="Dodaj do koszyka">
+                      <span class="icon icon-cart-plus" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </article>
+                <article class="hero-slide">
+                  <img src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab X2D Combo">
+                  <p class="hero-slide-name">Bambu Lab X2D Combo</p>
+                  <ul class="mega-specs">
+                    <li><span>Obszar roboczy:</span> 256 × 256 × 260 mm</li>
+                    <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                  </ul>
+                  <div class="mega-buy">
+                    <p class="mega-price"><span class="mega-amount">3&nbsp;379<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-400&nbsp;zł</span></p>
+                    <button class="mega-cart" type="button" data-add data-id="x2d-combo" data-name="Bambu Lab X2D Combo" data-price="3379" aria-label="Dodaj do koszyka">
+                      <span class="icon icon-cart-plus" aria-hidden="true"></span>
+                    </button>
+                    <p class="mega-low">Najniższa cena: 3&nbsp;779,00&nbsp;zł</p>
+                  </div>
+                </article>
               </div>
             </div>
-          </article>
-          <article class="panel panel-photo" aria-label="Ilustracja drukarki get3D">
-            <svg class="printer" viewBox="0 0 420 420" role="img" aria-label="Drukarka 3D get3D">
-              <rect x="70" y="78" width="280" height="250" rx="28" fill="#fff"/>
-              <rect x="96" y="104" width="228" height="150" rx="16" fill="#f5f5f4"/>
-              <path d="M120 230h180l-18 36H138z" fill="#242220"/>
-              <rect x="168" y="196" width="84" height="34" rx="6" fill="#ff2055"/>
-              <rect x="150" y="118" width="120" height="8" rx="4" fill="#242220"/>
-              <rect x="206" y="118" width="8" height="78" fill="#242220"/>
-              <circle cx="210" cy="196" r="6" fill="#fff"/>
-              <rect x="92" y="300" width="236" height="16" rx="8" fill="#e7e5e4"/>
-              <rect x="118" y="328" width="28" height="36" rx="6" fill="#242220"/>
-              <rect x="274" y="328" width="28" height="36" rx="6" fill="#242220"/>
-              <text x="210" y="168" text-anchor="middle" font-family="Host Grotesk, Arial" font-size="13" fill="#8b918e" font-weight="400">FORGE</text>
-            </svg>
-          </article>
-          <article class="panel">
-            <div class="panel-inner">
-              <div class="stat-head">
-                <p class="kicker">Wydruki w miesiącu</p>
+            <div class="hero-slider-bar">
+              <button class="hero-slider-arrow" type="button" data-hero-dir="-1" aria-label="Poprzedni produkt">
+                <span class="icon icon-back" aria-hidden="true"></span>
+              </button>
+              <div class="hero-slider-dots">
+                <button type="button" class="is-on" data-hero-go="0" aria-label="Bambu Lab A1 Combo"></button>
+                <button type="button" data-hero-go="1" aria-label="Bambu Lab A1"></button>
+                <button type="button" data-hero-go="2" aria-label="Bambu Lab A1 mini"></button>
+                <button type="button" data-hero-go="3" aria-label="Bambu Lab X2D Combo"></button>
               </div>
-              <strong style="font-family:var(--serif);font-size:42px;color:var(--ink);letter-spacing:-0.04em">1 240</strong>
-              <div class="meter">
-                <span><span>Wykorzystanie stołu</span><span>76%</span></span>
-                <div class="track"><i></i></div>
-              </div>
-              <p class="kicker" style="margin-top:18px">Zrealizowane zlecenia</p>
-              <div class="bars" aria-hidden="true">
-                <div><i style="height:28px"></i><small>STY</small></div>
-                <div><i style="height:40px"></i><small>LUT</small></div>
-                <div><i style="height:36px"></i><small>MAR</small></div>
-                <div><i style="height:58px"></i><small>KWI</small></div>
-                <div><i style="height:78px"></i><small>MAJ</small></div>
-              </div>
+              <button class="hero-slider-arrow" type="button" data-hero-dir="1" aria-label="Następny produkt">
+                <span class="icon icon-arrow" aria-hidden="true"></span>
+              </button>
             </div>
-          </article>
+          </div>
         </div>
       </div>
     </section>
