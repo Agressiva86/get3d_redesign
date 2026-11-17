@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>get3D — drukarki, filamenty i akcesoria</title>
+  <meta name="description" content="get3D sprzedaje drukarki 3D, materiały eksploatacyjne i akcesoria. Zestawy dla pracowni, biur projektowych i produkcji.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#tresc">Przejdź do treści</a>
+  <header class="nav" id="start">
+    <ul class="info-bar">
+      <li><span class="icon icon-house" aria-hidden="true"></span>Darmowa dostawa do showroomu od 250 zł</li>
+      <li><span class="icon icon-card" aria-hidden="true"></span>Zniżka z Kartą Łodzianina</li>
+      <li><span class="icon icon-flag" aria-hidden="true"></span>Polski sklep od <span data-since="2015">11 lat</span> na rynku</li>
+    </ul>
+    <div class="nav-top">
+      <a class="logo" href="#start" aria-label="get3D, strona główna">
+        <img src="assets/get3d%20logo.svg" alt="get3D">
+      </a>
+      <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-cats"><span></span></button>
+      <form class="nav-search" role="search">
+        <label class="sr" for="search-input">Czego szukasz?</label>
+        <input id="search-input" type="search" placeholder="Czego szukasz?" autocomplete="off" aria-autocomplete="list" aria-controls="search-pop" aria-expanded="false">
+        <button type="submit" aria-label="Szukaj"><span class="icon icon-search" aria-hidden="true"></span></button>
+        <div class="search-pop" id="search-pop" hidden></div>
+      </form>
+      <div class="nav-tools">
+        <div class="tool" id="account-tool">
+          <button class="tool-btn" type="button" id="account-open" aria-expanded="false" aria-label="Konto">
+            <span class="icon icon-user" aria-hidden="true"></span>
+            <span class="tool-label">Konto</span>
+          </button>
+          <div class="account-pop" id="account-pop">
+            <div class="sheet-bar">
+              <p class="sheet-title">Konto</p>
+              <button class="sheet-x" type="button" data-close-sheet aria-label="Zamknij"><span></span></button>
+            </div>
+            <div id="account-guest">
+              <button class="account-login" type="button" id="show-login">Zaloguj się</button>
+              <p class="account-or"><span>Nie masz konta?</span></p>
+              <button class="account-register" type="button" id="show-register">Załóż konto</button>
+            </div>
+            <form id="login-form" hidden>
+              <input type="email" name="email" required placeholder="E-mail*" aria-label="E-mail">
+              <input type="password" name="password" required placeholder="Hasło*" aria-label="Hasło" minlength="4">
+              <button class="account-login" type="submit">Zaloguj się</button>
+              <button class="account-back" type="button" id="login-back">Wróć</button>
+              <p class="form-note" id="login-note"></p>
+            </form>
+            <nav class="account-menu" aria-label="Konto">
+              <button type="button" id="account-home"><span class="icon icon-user" aria-hidden="true"></span>Twoje konto</button>
+              <a href="#cennik"><span class="icon icon-receipt" aria-hidden="true"></span>Zamówienia</a>
+              <a href="#pytania"><span class="icon icon-refresh" aria-hidden="true"></span>Zwroty i reklamacje</a>
+              <a href="#serwis"><span class="icon icon-box" aria-hidden="true"></span>Serwis</a>
+              <a href="#opinie"><span class="icon icon-comment" aria-hidden="true"></span>Opinie</a>
+              <a href="#kontakt"><span class="icon icon-pin" aria-hidden="true"></span>Dane do zamówień</a>
+              <button type="button" id="logout" hidden><span class="icon icon-out" aria-hidden="true"></span>Wyloguj</button>
+            </nav>
+            <button class="account-tone" type="button" id="account-tone" aria-pressed="false">
+              <span class="icon icon-mode" aria-hidden="true"></span>
+              <span>Jaśniejsze tło<small id="tone-state">Wyłączone</small></span>
+            </button>
+          </div>
+        </div>
+        <div class="tool drop">
+          <button class="tool-btn drop-btn" type="button" aria-expanded="false" aria-label="Pomoc">
+            <span class="icon icon-headphones" aria-hidden="true"></span>
+            <span class="tool-label">Pomoc</span>
+          </button>
+          <div class="drop-panel help-pop">
+            <div class="sheet-bar">
+              <p class="sheet-title">Pomoc</p>
+              <button class="sheet-x" type="button" data-close-sheet aria-label="Zamknij"><span></span></button>
+            </div>
+            <p class="help-kicker">Popularne tematy</p>
+            <nav class="help-topics" aria-label="Popularne tematy">
+              <a href="#pytania">Dostawa</a>
+              <a href="#cennik">Raty</a>
+              <a href="#cennik">Leasing</a>
+              <a href="#kontakt">Zakupy dla firm</a>
+              <a href="#pytania">Zwroty</a>
+              <a href="#serwis">Reklamacje</a>
+              <a href="#serwis">Serwis</a>
+              <a href="#pytania">Najczęściej zadawane pytania</a>
+            </nav>
+            <p class="help-kicker">Skontaktuj się z nami</p>
+            <div class="help-contact">
+              <a href="#kontakt"><span class="icon icon-headphones" aria-hidden="true"></span>Kontakt</a>
+              <a href="#kontakt"><span class="icon icon-house" aria-hidden="true"></span><span>Showroom<small>Wróblewskiego 70/72, 93-566 Łódź</small></span></a>
+              <a href="mailto:biuro@get3d.pl"><span class="icon icon-mail" aria-hidden="true"></span>biuro@get3d.pl</a>
+              <a href="tel:+48426305050"><span class="icon icon-phone" aria-hidden="true"></span>42 630 50 50</a>
+            </div>
+            <div class="help-social">
+              <a href="https://www.facebook.com/get3dpl" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="icon icon-facebook" aria-hidden="true"></span></a>
+              <a href="https://www.instagram.com/get3d/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="icon icon-instagram" aria-hidden="true"></span></a>
+              <a href="https://www.youtube.com/@get3dlab" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><span class="icon icon-youtube" aria-hidden="true"></span></a>
+              <a href="https://www.linkedin.com/company/18726552/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><span class="icon icon-linkedin" aria-hidden="true"></span></a>
+              <a href="https://www.tiktok.com/@get3d_lab" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><span class="icon icon-tiktok" aria-hidden="true"></span></a>
+            </div>
+          </div>
+        </div>
+        <div class="tool" id="cart-tool">
+          <button class="tool-btn cart-btn" type="button" id="cart-open" aria-expanded="false" aria-label="Koszyk">
+            <span class="ico">
+              <span class="icon icon-cart" aria-hidden="true"></span>
+              <span class="cart-count" data-count="0">0</span>
+            </span>
+            <span class="tool-label">Koszyk</span>
+          </button>
+          <div class="cart-pop" id="cart-pop">
+            <div class="sheet-bar">
+              <p class="sheet-title">Koszyk</p>
+              <button class="sheet-x" type="button" data-close-sheet aria-label="Zamknij"><span></span></button>
+            </div>
+            <div class="cart-empty" id="cart-empty">
+              <p class="cart-empty-title">Koszyk jest pusty</p>
+              <p class="cart-empty-copy"><button type="button" id="cart-login">Zaloguj się</button>, aby sprawdzić zapisane produkty lub zainspiruj się</p>
+              <a class="cart-outline" href="#cennik">Przejdź do promocji</a>
+            </div>
+            <div class="cart-filled" id="cart-filled" hidden>
+              <div class="cart-mini" id="cart-mini"></div>
+              <button class="cart-outline" type="button" id="cart-go">Przejdź do koszyka</button>
+            </div>
+          </div>
+        </div>
+        <button class="tool-btn tone-btn" type="button" aria-label="Jaśniejsze tło" aria-pressed="false">
+          <span class="icon icon-mode" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <button class="nav-shade" type="button" aria-label="Zamknij menu"></button>
+    <div class="cat-bar">
+    <nav class="nav-cats" id="nav-cats" aria-label="Oferta">
+      <div class="drawer-bar">
+        <button class="drawer-back" type="button" aria-label="Wróć"><span class="icon icon-back" aria-hidden="true"></span></button>
+        <p class="drawer-title" id="drawer-title">Menu</p>
+        <button class="drawer-close" type="button" aria-label="Zamknij menu"><span></span></button>
+      </div>
+      <div class="drawer-body">
+        <p class="drawer-kicker">Kategorie</p>
+      <div class="drop">
+        <button class="drop-btn" type="button" aria-expanded="false">Drukarki 3D <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
+        <div class="drop-panel">
+          <a class="drawer-all" href="#drukarki">Pokaż drukarki 3D</a>
+          <div class="mega">
+            <div class="mega-side">
+              <a class="mega-all" href="#drukarki">Wszystkie</a>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">Bambu Lab <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Bambu Lab</p>
+                  <a href="#drukarki">A1 Mini</a>
+                  <a href="#drukarki">A1</a>
+                  <a href="#drukarki">A2L <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">P1S</a>
+                  <a href="#drukarki">P2S <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">X1E Combo</a>
+                  <a href="#drukarki">X2D Combo <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">H2S</a>
+                  <a href="#drukarki">H2D</a>
+                  <a href="#drukarki">H2D Pro <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">H2C <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">H3C</a>
+                  <a href="#drukarki">AMS lite</a>
+                  <a href="#drukarki">AMS</a>
+                  <a href="#drukarki">AMS 2 Pro</a>
+                  <a href="#drukarki">AMS HT</a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">BigRep <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">BigRep</p>
+                  <a href="#drukarki">ALTRA 280 <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">IPSO 105 <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">Pro <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">VIIO 250 <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">One <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">Studio <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">Drycon <span class="mega-new">Nowe</span></a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">Desktop Metal <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Desktop Metal</p>
+                  <a href="#drukarki">PureSinter <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">Shop System</a>
+                  <a href="#drukarki">Studio System</a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">eufyMake <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">eufyMake</p>
+                  <a href="#drukarki">eufyMake E1 <span class="mega-new">Nowe</span></a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">Formlabs <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Formlabs</p>
+                  <a href="#drukarki">Form 3+</a>
+                  <a href="#drukarki">Form 3B+</a>
+                  <a href="#drukarki">Form 3BL</a>
+                  <a href="#drukarki">Form 3L</a>
+                  <a href="#drukarki">Form 4</a>
+                  <a href="#drukarki">Form 4L</a>
+                  <a href="#drukarki">Form Cure L</a>
+                  <a href="#drukarki">Form Wash L</a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">miniFactory <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">miniFactory</p>
+                  <a href="#drukarki">Ignite</a>
+                  <a href="#drukarki">Ultra 2</a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">Prusa <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Prusa</p>
+                  <a href="#drukarki">CW1S</a>
+                  <a href="#drukarki">SL1S Speed</a>
+                  <a href="#drukarki">SL1S Speed Bundle</a>
+                  <a href="#drukarki">MK4S</a>
+                  <a href="#drukarki">CORE One+ <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">CORE One L <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">XL</a>
+                  <a href="#drukarki">Pro HT90</a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">Raise3D <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Raise3D</p>
+                  <a href="#drukarki">E3 <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">Pro3</a>
+                  <a href="#drukarki">Pro3 HS</a>
+                  <a href="#drukarki">Pro3 Plus HS</a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">Sinterit <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Sinterit</p>
+                  <a href="#drukarki">Lisa X</a>
+                  <a href="#drukarki">Suzy <span class="mega-new">Nowe</span></a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">UltiMaker <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">UltiMaker</p>
+                  <a href="#drukarki">Factor 4</a>
+                  <a href="#drukarki">PVA Removal Station</a>
+                  <a href="#drukarki">S3</a>
+                  <a href="#drukarki">S5</a>
+                  <a href="#drukarki">S6 <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">S6 Pro Bundle <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">S7</a>
+                  <a href="#drukarki">S7 Pro Bundle</a>
+                  <a href="#drukarki">S8 <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">S8 Pro Bundle <span class="mega-new">Nowe</span></a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">AMT <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">AMT</p>
+                  <a href="#drukarki">PostPro DPX <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">PostPro SFX <span class="mega-new">Nowe</span></a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">Technologie druku 3D <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Technologie druku 3D</p>
+                  <a href="#drukarki">Filamentowe</a>
+                  <a href="#drukarki">Żywiczne</a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">Outlet drukarek 3D</a>
+              </div>
+            </div>
+          </div>
+          <div class="mega-feature">
+            <img class="mega-photo" src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab A1 Combo">
+            <a class="mega-offer" href="#drukarki">
+              <p class="mega-offer-name">Bambu Lab A1 Combo</p>
+              <ul class="mega-specs">
+                <li><span>Technologia druku:</span> FDM</li>
+                <li><span>Obszar roboczy:</span> 256 × 256 × 256 mm</li>
+                <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                <li><span>Interfejsy:</span> Wi-Fi, microSD</li>
+              </ul>
+            </a>
+            <div class="mega-buy">
+              <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
+              <button class="mega-cart" type="button" data-add data-id="a1-combo" data-name="Bambu Lab A1 Combo" data-price="1160" aria-label="Dodaj do koszyka">
+                <span class="icon icon-cart-plus" aria-hidden="true"></span>
+              </button>
+              <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <button class="drop-btn" type="button" aria-expanded="false">Formierki 3D <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
+        <div class="drop-panel">
+          <a class="drawer-all" href="#drukarki">Pokaż formierki 3D</a>
+          <div class="mega">
+            <div class="mega-side">
+              <a class="mega-all" href="#drukarki">Wszystkie</a>
+              <div class="mega-branch"><a class="mega-name" href="#drukarki">Formierki</a></div>
+              <div class="mega-branch"><a class="mega-name" href="#kontakt">Zapytaj o stanowisko</a></div>
+            </div>
+          </div>
+          <div class="mega-feature">
+            <img class="mega-photo" src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab A1 Combo">
+            <a class="mega-offer" href="#drukarki">
+              <p class="mega-offer-name">Bambu Lab A1 Combo</p>
+              <ul class="mega-specs">
+                <li><span>Technologia druku:</span> FDM</li>
+                <li><span>Obszar roboczy:</span> 256 × 256 × 256 mm</li>
+                <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                <li><span>Interfejsy:</span> Wi-Fi, microSD</li>
+              </ul>
+            </a>
+            <div class="mega-buy">
+              <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
+              <button class="mega-cart" type="button" data-add data-id="a1-combo" data-name="Bambu Lab A1 Combo" data-price="1160" aria-label="Dodaj do koszyka">
+                <span class="icon icon-cart-plus" aria-hidden="true"></span>
+              </button>
+              <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <button class="drop-btn" type="button" aria-expanded="false">Materiały <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
+        <div class="drop-panel">
+          <a class="drawer-all" href="#materialy">Pokaż materiały</a>
+          <div class="mega">
+            <div class="mega-side">
+              <a class="mega-all" href="#materialy">Wszystkie</a>
+              <div class="mega-branch">
+                <a class="mega-name" href="#materialy">Filamenty <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Filamenty</p>
+                  <a href="#materialy">PLA</a>
+                  <a href="#materialy">PET / PETG</a>
+                  <a href="#materialy">ABS</a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#materialy">Żywice <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Żywice</p>
+                  <a href="#materialy">Standard</a>
+                  <a href="#materialy">Tough</a>
+                  <a href="#materialy">Water-wash</a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#materialy">Marki <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Marki</p>
+                  <a href="#materialy">Bambu Lab</a>
+                  <a href="#materialy">Polymaker</a>
+                  <a href="#materialy">3DXTech</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mega-feature">
+            <img class="mega-photo" src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab A1 Combo">
+            <a class="mega-offer" href="#drukarki">
+              <p class="mega-offer-name">Bambu Lab A1 Combo</p>
+              <ul class="mega-specs">
+                <li><span>Technologia druku:</span> FDM</li>
+                <li><span>Obszar roboczy:</span> 256 × 256 × 256 mm</li>
+                <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                <li><span>Interfejsy:</span> Wi-Fi, microSD</li>
+              </ul>
+            </a>
+            <div class="mega-buy">
+              <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
+              <button class="mega-cart" type="button" data-add data-id="a1-combo" data-name="Bambu Lab A1 Combo" data-price="1160" aria-label="Dodaj do koszyka">
+                <span class="icon icon-cart-plus" aria-hidden="true"></span>
+              </button>
+              <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <button class="drop-btn" type="button" aria-expanded="false">Akcesoria <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
+        <div class="drop-panel">
+          <a class="drawer-all" href="#akcesoria">Pokaż akcesoria</a>
+          <div class="mega">
+            <div class="mega-side">
+              <a class="mega-all" href="#akcesoria">Wszystkie</a>
+              <div class="mega-branch">
+                <a class="mega-name" href="#akcesoria">Części zamienne <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Części zamienne</p>
+                  <a href="#akcesoria">Dysze</a>
+                  <a href="#akcesoria">Ekstrudery</a>
+                  <a href="#akcesoria">Zestawy serwisowe</a>
+                </div>
+              </div>
+              <div class="mega-branch"><a class="mega-name" href="#akcesoria">Chemia</a></div>
+              <div class="mega-branch"><a class="mega-name" href="#akcesoria">Kleje do druku 3D</a></div>
+              <div class="mega-branch"><a class="mega-name" href="#akcesoria">Platformy do druku</a></div>
+              <div class="mega-branch"><a class="mega-name" href="#akcesoria">Urządzenia</a></div>
+            </div>
+          </div>
+          <div class="mega-feature">
+            <img class="mega-photo" src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab A1 Combo">
+            <a class="mega-offer" href="#drukarki">
+              <p class="mega-offer-name">Bambu Lab A1 Combo</p>
+              <ul class="mega-specs">
+                <li><span>Technologia druku:</span> FDM</li>
+                <li><span>Obszar roboczy:</span> 256 × 256 × 256 mm</li>
+                <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                <li><span>Interfejsy:</span> Wi-Fi, microSD</li>
+              </ul>
+            </a>
+            <div class="mega-buy">
+              <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
+              <button class="mega-cart" type="button" data-add data-id="a1-combo" data-name="Bambu Lab A1 Combo" data-price="1160" aria-label="Dodaj do koszyka">
+                <span class="icon icon-cart-plus" aria-hidden="true"></span>
+              </button>
+              <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <button class="drop-btn" type="button" aria-expanded="false">Szkolenia <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
+        <div class="drop-panel">
+          <a class="drawer-all" href="#serwis">Pokaż szkolenia</a>
+          <div class="mega">
+            <div class="mega-side">
+              <a class="mega-all" href="#serwis">Wszystkie</a>
+              <div class="mega-branch"><a class="mega-name" href="#serwis">Operatorzy</a></div>
+              <div class="mega-branch"><a class="mega-name" href="#kontakt">Grupy i szkoły</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="nav-link" href="#serwis">Serwis</a>
+      </div>
+    </nav>
+    <a class="bf-cta" href="#cennik"><span class="icon icon-fire" aria-hidden="true"></span>Black Friday</a>
+    </div>
+  </header>
+
+  <main id="tresc" class="sheet">
+    <section class="hero">
+      <div class="wrap">
+        <span class="eyebrow"><i>nowość</i> pracownia druku 3D</span>
+        <h1>Druk, który myśli do przodu,<br><em>dowozi efekt.</em></h1>
+        <p class="lead">get3D spina pracownię w jeden rytm — drukarki, materiały eksploatacyjne i akcesoria dobrane tak, żeby część schodziła ze stołu za pierwszym razem.</p>
+        <div class="hero-actions">
+          <a class="btn btn-red" href="#cennik">Zacznij</a>
+          <a class="btn btn-line" href="#o-nas">Poznaj get3D</a>
+        </div>
+        <ul class="checks">
+          <li>
+            <span class="icon icon-check" aria-hidden="true"></span>
+            Drukarki FDM i żywiczne
+          </li>
+          <li>
+            <span class="icon icon-check" aria-hidden="true"></span>
+            Filamenty i żywice
+          </li>
+          <li>
+            <span class="icon icon-check" aria-hidden="true"></span>
+            Akcesoria i części zamienne
+          </li>
+        </ul>
+
+        <div class="hero-cards">
+          <article class="panel">
+            <div class="panel-inner">
+              <p class="kicker">Podgląd wydruków</p>
+              <svg class="gauge" viewBox="0 0 260 140" aria-hidden="true">
+                <path d="M30 120 A100 100 0 0 1 230 120" fill="none" stroke="#e7e5e4" stroke-width="18" stroke-linecap="butt"/>
+                <path d="M30 120 A100 100 0 0 1 214 68" fill="none" stroke="#242220" stroke-width="18" stroke-linecap="butt"/>
+                <path d="M30 120 A100 100 0 0 1 70 42" fill="none" stroke="#ff2055" stroke-width="18" stroke-linecap="butt"/>
+              </svg>
+              <div class="gauge-label">
+                <strong>98,6%</strong>
+                <span>udanych wydruków</span>
+              </div>
+              <div class="mini-stats">
+                <div>
+                  <small>AKTYWNE ZLECENIA</small>
+                  <strong>186 <em>↑ 12%</em></strong>
+                </div>
+                <div>
+                  <small>GODZINY DRUKU</small>
+                  <strong>42 h <em>↑ 8%</em></strong>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="panel panel-photo" aria-label="Ilustracja drukarki get3D">
+            <svg class="printer" viewBox="0 0 420 420" role="img" aria-label="Drukarka 3D get3D">
+              <rect x="70" y="78" width="280" height="250" rx="28" fill="#fff"/>
+              <rect x="96" y="104" width="228" height="150" rx="16" fill="#f5f5f4"/>
+              <path d="M120 230h180l-18 36H138z" fill="#242220"/>
+              <rect x="168" y="196" width="84" height="34" rx="6" fill="#ff2055"/>
+              <rect x="150" y="118" width="120" height="8" rx="4" fill="#242220"/>
+              <rect x="206" y="118" width="8" height="78" fill="#242220"/>
+              <circle cx="210" cy="196" r="6" fill="#fff"/>
+              <rect x="92" y="300" width="236" height="16" rx="8" fill="#e7e5e4"/>
+              <rect x="118" y="328" width="28" height="36" rx="6" fill="#242220"/>
+              <rect x="274" y="328" width="28" height="36" rx="6" fill="#242220"/>
+              <text x="210" y="168" text-anchor="middle" font-family="Host Grotesk, Arial" font-size="13" fill="#8b918e" font-weight="400">FORGE</text>
+            </svg>
+          </article>
+          <article class="panel">
+            <div class="panel-inner">
+              <div class="stat-head">
+                <p class="kicker">Wydruki w miesiącu</p>
+              </div>
+              <strong style="font-family:var(--serif);font-size:42px;color:var(--ink);letter-spacing:-0.04em">1 240</strong>
+              <div class="meter">
+                <span><span>Wykorzystanie stołu</span><span>76%</span></span>
+                <div class="track"><i></i></div>
+              </div>
+              <p class="kicker" style="margin-top:18px">Zrealizowane zlecenia</p>
+              <div class="bars" aria-hidden="true">
+                <div><i style="height:28px"></i><small>STY</small></div>
+                <div><i style="height:40px"></i><small>LUT</small></div>
+                <div><i style="height:36px"></i><small>MAR</small></div>
+                <div><i style="height:58px"></i><small>KWI</small></div>
+                <div><i style="height:78px"></i><small>MAJ</small></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee-wrap" aria-hidden="true">
+      <div class="marquee">
+        <span>Precyzyjny druk</span><span>Filamenty premium</span><span>Serwis w Polsce</span><span>Wysyłka 24 h</span><span>Części zamienne</span><span>Wdrożenie pracowni</span>
+        <span>Precyzyjny druk</span><span>Filamenty premium</span><span>Serwis w Polsce</span><span>Wysyłka 24 h</span><span>Części zamienne</span><span>Wdrożenie pracowni</span>
+      </div>
+    </div>
+
+    <section class="logos">
+      <div class="wrap">
+        <p>[ 800+ PRACOWNI ]</p>
+        <div class="logo-row">
+          <span>Formownia</span>
+          <span>ProtoAtelier</span>
+          <span>Warstwa</span>
+          <span>Modelarnia</span>
+          <span>Szkic</span>
+        </div>
+        <p class="rating">Ocena <strong>4,9/5</strong> z ponad 500 opinii</p>
+      </div>
+    </section>
+
+    <section class="trust" id="zaufanie">
+      <div class="wrap">
+        <div class="trust-top">
+          <h2>Dlaczego pracownie wybierają get3D, żeby <em>drukować, skalować</em> i dowozić części szybciej</h2>
+          <div class="trust-card">
+            <div class="avatar" aria-hidden="true">MK</div>
+            <div>
+              <h3>get3D uporządkował naszą codzienną produkcję.</h3>
+              <p>Przejście na jeden zestaw maszyn i filamentów było najlepszą decyzją kwartału.</p>
+              <a class="linkish" href="#opinie">Zobacz historie</a>
+            </div>
+          </div>
+        </div>
+        <div class="stat-grid">
+          <article class="stat-card">
+            <span class="kicker">Powtarzalność</span>
+            <h4><span data-count="98" data-suffix="%">0%</span><span>Mało poprawek. Ten sam profil, ten sam wynik.</span></h4>
+          </article>
+          <article class="stat-card">
+            <span class="kicker">Szybsze prototypy</span>
+            <h4><span data-count="12" data-suffix="×">0×</span><span>Krótsza droga od pliku do części w dłoni.</span></h4>
+          </article>
+          <article class="stat-card">
+            <span class="kicker">Materiały na stanie</span>
+            <h4><span data-count="140" data-suffix="+">0+</span><span>Filamenty, żywice i akcesoria w jednej dostawie.</span></h4>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="o-nas">
+      <div class="wrap about-grid">
+        <div class="copy">
+          <h2>get3D jest po to, żeby druk był <em>spokojny i powtarzalny</em></h2>
+          <p>Zaczęliśmy od prostej obserwacji: dobra drukarka bez dobrego filamentu i dyszy i tak stoi. Dlatego sprzedajemy maszyny razem z materiałami eksploatacyjnymi i akcesoriami, które do nich pasują.</p>
+          <p>Od biurka konstruktora po krótką serię — dobieramy zestaw, który da się utrzymać, a nie tylko uruchomić w dniu dostawy.</p>
+          <div class="about-actions">
+            <a class="btn btn-red" href="#cennik">Zacznij</a>
+            <a class="btn btn-line" href="#oferta">Zobacz katalog</a>
+          </div>
+          <ul class="ticks">
+            <li><span class="icon icon-check" aria-hidden="true"></span> Profile druku sprawdzone na naszych maszynach.</li>
+            <li><span class="icon icon-box" aria-hidden="true"></span> Materiały, które zachowują się tak samo w kolejnej szpuli.</li>
+            <li><span class="icon icon-trend" aria-hidden="true"></span> Wysyłka z Polski i części zamienne bez czekania na import.</li>
+            <li><span class="icon icon-shield" aria-hidden="true"></span> Wdrożenie dla pracowni, szkół i małych produkcji.</li>
+          </ul>
+        </div>
+        <div class="about-visual">
+          <div class="about-photo">
+            <svg viewBox="0 0 560 260" width="100%" height="260" aria-hidden="true">
+              <rect width="560" height="260" fill="#f5f5f4"/>
+              <rect x="70" y="48" width="180" height="150" rx="16" fill="#fff"/>
+              <rect x="250" y="78" width="240" height="120" rx="16" fill="#fff"/>
+              <circle cx="160" cy="110" r="28" fill="#ff2055"/>
+              <rect x="280" y="108" width="170" height="10" rx="5" fill="#e7e5e4"/>
+              <rect x="280" y="130" width="120" height="10" rx="5" fill="#242220"/>
+              <rect x="280" y="152" width="90" height="10" rx="5" fill="#e7e5e4"/>
+            </svg>
+          </div>
+          <div class="about-split">
+            <div class="lift">
+              <strong>+71%</strong>
+              <p>mniej poprawek, gdy maszyna, filament i dysza pochodzą z jednego zestawu.</p>
+            </div>
+            <div class="chart-card">
+              <div class="panel-inner">
+                <p class="kicker">Zużycie filamentu</p>
+                <svg viewBox="0 0 280 120" width="100%" height="110" aria-hidden="true">
+                  <polyline points="10,90 50,78 90,82 130,60 170,64 210,40 250,28" fill="none" stroke="#ff2055" stroke-width="3"/>
+                  <polyline points="10,96 50,92 90,88 130,84 170,80 210,76 250,70" fill="none" stroke="#242220" stroke-width="3"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits" id="korzysci">
+      <div class="wrap">
+        <span class="eyebrow"><i>nowość</i> korzyści</span>
+        <h2>Dlaczego get3D jest spokojniejszym wyborem</h2>
+        <div class="stack">
+          <article class="stack-card">
+            <div class="icon-sq" aria-hidden="true">
+              <span class="icon icon-lightning"></span>
+            </div>
+            <h3>Mniej godzin przy poprawkach</h3>
+            <p>Profil, temperatura i materiał są dobrane razem. Zespół wraca do projektu, a nie do kalibracji od zera.</p>
+          </article>
+          <article class="stack-card">
+            <div class="icon-sq" aria-hidden="true">
+              <span class="icon icon-star"></span>
+            </div>
+            <h3>Decyzja o materiale od razu</h3>
+            <p>PLA, PETG, ABS, TPU albo żywica — podpowiadamy, co udźwignie detal, a co ma tylko ładnie wyglądać.</p>
+          </article>
+          <article class="stack-card">
+            <div class="icon-sq" aria-hidden="true">
+              <span class="icon icon-briefcase"></span>
+            </div>
+            <h3>Skala bez bałaganu w magazynie</h3>
+            <p>Dokładasz kolejne maszyny i szpule, a lista części zamiennych zostaje ta sama.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-banner" aria-label="Opinia klienta">
+      <div>
+        <h2>„Forge ściął nam czas prototypu o połowę. Filament z tej samej półki schodzi powtarzalnie, a serwis odpisuje tego samego dnia.”</h2>
+        <div class="who">
+          <div class="avatar" aria-hidden="true">MK</div>
+          <div>
+            <strong>Maja Król</strong>
+            <span>Kierowniczka pracowni, Atelier Północ</span>
+          </div>
+        </div>
+      </div>
+      <div class="quote-stat">
+        <h3>12×</h3>
+        <p>szybsze kolejne iteracje po wdrożeniu zestawu get3D.</p>
+      </div>
+    </section>
+
+    <section class="features" id="oferta">
+      <div class="wrap">
+        <div class="section-intro">
+          <span class="eyebrow"><i>nowość</i> oferta</span>
+          <h2>Wszystko, czego potrzebuje pracownia. <em>Nic ponad to.</em></h2>
+          <p>Drukarki, materiały eksploatacyjne i akcesoria w jednym katalogu — tak, żeby zamówienie nie rozjeżdżało się na trzy sklepy.</p>
+        </div>
+        <div class="feature-layout">
+          <nav class="feature-nav" aria-label="Sekcje oferty">
+            <a href="#drukarki" class="is-active">Drukarki</a>
+            <a href="#materialy">Filamenty i żywice</a>
+            <a href="#akcesoria">Akcesoria</a>
+            <a href="#serwis">Serwis i wdrożenie</a>
+          </nav>
+          <div class="feature-stack">
+            <article class="feature-block" id="drukarki">
+              <div class="feature-visual">
+                <p class="kicker">Park maszyn</p>
+                <svg viewBox="0 0 360 220" width="100%" height="200" aria-hidden="true">
+                  <rect x="20" y="30" width="90" height="140" rx="12" fill="#fff"/>
+                  <rect x="130" y="20" width="110" height="160" rx="14" fill="#fff"/>
+                  <rect x="258" y="48" width="82" height="122" rx="12" fill="#fff"/>
+                  <rect x="148" y="78" width="74" height="46" rx="6" fill="#ff2055"/>
+                  <rect x="36" y="70" width="58" height="8" rx="4" fill="#242220"/>
+                  <rect x="274" y="86" width="50" height="8" rx="4" fill="#242220"/>
+                </svg>
+                <p>Pulse na biurko, Forge do pracowni, Axis do krótkiej serii.</p>
+              </div>
+              <div class="feature-copy">
+                <p class="kicker">Drukarki</p>
+                <h3>Maszyny, które kończą wydruk</h3>
+                <p>FDM do części użytkowych i żywica do detalu. Każdy model ma sprawdzony zestaw materiałowy, żeby pierwszy tydzień nie był tygodniem kalibracji.</p>
+                <ul class="pills">
+                  <li>Pole robocze od 220 mm</li>
+                  <li>Czujnik filamentu</li>
+                  <li>Profile startowe</li>
+                  <li>Szkolenie zdalne</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="feature-block" id="materialy">
+              <div class="feature-visual">
+                <p class="kicker">Szpule i żywice</p>
+                <svg viewBox="0 0 360 160" width="100%" height="150" aria-hidden="true">
+                  <rect x="16" y="40" width="70" height="90" rx="10" fill="#fff"/>
+                  <rect x="102" y="28" width="70" height="102" rx="10" fill="#ff2055"/>
+                  <rect x="188" y="48" width="70" height="82" rx="10" fill="#242220"/>
+                  <rect x="274" y="36" width="70" height="94" rx="10" fill="#fff" stroke="#e7e5e4"/>
+                </svg>
+                <ul class="product-list">
+                  <li>
+                    <div><strong><i class="swatch" style="background:#f4f1ec"></i>PLA Matte</strong><span>1 kg · 1,75 mm</span></div>
+                    <em>89 zł</em>
+                    <button class="add-mini" type="button" data-add data-id="pla" data-name="PLA Matte 1 kg" data-price="89">Dodaj</button>
+                  </li>
+                  <li>
+                    <div><strong><i class="swatch" style="background:#ff2055"></i>PETG Pro</strong><span>1 kg · 1,75 mm</span></div>
+                    <em>109 zł</em>
+                    <button class="add-mini" type="button" data-add data-id="petg" data-name="PETG Pro 1 kg" data-price="109">Dodaj</button>
+                  </li>
+                  <li>
+                    <div><strong><i class="swatch" style="background:#242220"></i>ABS Tech</strong><span>1 kg · 1,75 mm</span></div>
+                    <em>99 zł</em>
+                    <button class="add-mini" type="button" data-add data-id="abs" data-name="ABS Tech 1 kg" data-price="99">Dodaj</button>
+                  </li>
+                  <li>
+                    <div><strong><i class="swatch" style="background:#f6c7d1"></i>Żywica Standard</strong><span>1 kg</span></div>
+                    <em>189 zł</em>
+                    <button class="add-mini" type="button" data-add data-id="resin" data-name="Żywica Standard 1 kg" data-price="189">Dodaj</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="feature-copy">
+                <p class="kicker">Materiały eksploatacyjne</p>
+                <h3>Szpula, która zachowuje się jak poprzednia</h3>
+                <p>Filamenty suszone przed wysyłką i żywice o stabilnym czasie naświetlania. Kolor i średnica są opisane tak, żeby magazyn nie zgadywał.</p>
+                <ul class="pills">
+                  <li>PLA, PETG, ABS, TPU</li>
+                  <li>Żywice standard i tough</li>
+                  <li>Średnica 1,75 mm</li>
+                  <li>Karty parametrów</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="feature-block" id="akcesoria">
+              <div class="feature-visual">
+                <p class="kicker">Części, które trzymają jakość</p>
+                <ul class="product-list">
+                  <li>
+                    <div><strong>Dysza hartowana 0,4</strong><span>Stal, gwint MK8</span></div>
+                    <em>49 zł</em>
+                    <button class="add-mini" type="button" data-add data-id="nozzle" data-name="Dysza hartowana 0,4" data-price="49">Dodaj</button>
+                  </li>
+                  <li>
+                    <div><strong>Stół PEI</strong><span>Dwustronny, 235 mm</span></div>
+                    <em>159 zł</em>
+                    <button class="add-mini" type="button" data-add data-id="pei" data-name="Stół PEI 235 mm" data-price="159">Dodaj</button>
+                  </li>
+                  <li>
+                    <div><strong>Suszarka filamentu</strong><span>Pojedyncza szpula</span></div>
+                    <em>349 zł</em>
+                    <button class="add-mini" type="button" data-add data-id="dryer" data-name="Suszarka filamentu" data-price="349">Dodaj</button>
+                  </li>
+                  <li>
+                    <div><strong>Zestaw serwisowy</strong><span>Klucze, smar, igły</span></div>
+                    <em>79 zł</em>
+                    <button class="add-mini" type="button" data-add data-id="kit" data-name="Zestaw serwisowy" data-price="79">Dodaj</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="feature-copy">
+                <p class="kicker">Akcesoria</p>
+                <h3>Drobiazgi, przez które druk staje</h3>
+                <p>Dysza, stół i suchy filament robią większą różnicę niż kolejny profil z forum. Trzymamy części pasujące do maszyn z katalogu.</p>
+                <ul class="pills">
+                  <li>Dysze i extrudery</li>
+                  <li>Stoły i kleje</li>
+                  <li>Suszenie</li>
+                  <li>Narzędzia serwisowe</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="feature-block" id="serwis">
+              <div class="feature-visual">
+                <p class="kicker">Opieka po dostawie</p>
+                <svg viewBox="0 0 360 200" width="100%" height="180" aria-hidden="true">
+                  <circle cx="180" cy="100" r="70" fill="none" stroke="#fff" stroke-width="18"/>
+                  <circle cx="180" cy="100" r="46" fill="none" stroke="#ff2055" stroke-width="10"/>
+                  <path d="M164 102l12 12 24-28" fill="none" stroke="#242220" stroke-width="6" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="feature-copy">
+                <p class="kicker">Serwis</p>
+                <h3>Ktoś, kto widział tę maszynę wcześniej</h3>
+                <p>Uruchomienie, wymiana głowicy i przegląd floty. Dla szkół i produkcji układamy stanowiska tak, żeby operator nie został sam z pierwszym błędem.</p>
+                <ul class="pills">
+                  <li>Uruchomienie</li>
+                  <li>Części w 24 h</li>
+                  <li>Przegląd floty</li>
+                  <li>Szkolenie operatorów</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing" id="cennik">
+      <div class="wrap">
+        <div class="center">
+          <span class="eyebrow"><i>nowość</i> cennik</span>
+          <h2>Zestawy na każdy <em>etap pracowni</em></h2>
+          <div class="toggle" role="group" aria-label="Sposób płatności">
+            <button type="button" class="is-active" data-billing="buy">Zakup</button>
+            <button type="button" data-billing="lease">Raty 24 mies.</button>
+          </div>
+        </div>
+        <div class="plans">
+          <article class="plan">
+            <div class="plan-top">
+              <div class="plan-icon" aria-hidden="true">
+                <span class="icon icon-star"></span>
+              </div>
+            </div>
+            <h3>Pulse</h3>
+            <p class="desc">Biurko konstruktora i pierwsze zlecenia.</p>
+            <p class="price"><span data-buy="2490" data-lease="119">2 490</span> <small data-unit>zł</small></p>
+            <button class="btn btn-line btn-block" type="button" data-add data-id="pulse" data-name="Drukarka get3D Pulse" data-price="2490">Wybierz Pulse</button>
+            <p class="guarantee">14 dni na zwrot nieskalibrowanej maszyny</p>
+            <ul>
+              <li><span class="icon icon-check" aria-hidden="true"></span> Pole 220 × 220 × 250 mm</li>
+              <li><span class="icon icon-check" aria-hidden="true"></span> Dwie szpule PLA na start</li>
+              <li><span class="icon icon-check" aria-hidden="true"></span> Profil do PLA i PETG</li>
+              <li><span class="icon icon-check" aria-hidden="true"></span> Wsparcie mailowe 30 dni</li>
+            </ul>
+          </article>
+          <article class="plan is-pop">
+            <div class="plan-top">
+              <div class="plan-icon" aria-hidden="true">
+                <span class="icon icon-chart"></span>
+              </div>
+              <span class="badge">Najczęściej wybierany</span>
+            </div>
+            <h3>Forge</h3>
+            <p class="desc">Pracownia, która drukuje codziennie.</p>
+            <p class="price"><span data-buy="6890" data-lease="319">6 890</span> <small data-unit>zł</small></p>
+            <button class="btn btn-red btn-block" type="button" data-add data-id="forge" data-name="Drukarka get3D Forge" data-price="6890">Wybierz Forge</button>
+            <p class="guarantee">14 dni na zwrot nieskalibrowanej maszyny</p>
+            <ul>
+              <li><span class="icon icon-check" aria-hidden="true"></span> Pole 300 × 300 × 320 mm</li>
+              <li><span class="icon icon-check" aria-hidden="true"></span> Obudowa i filtr</li>
+              <li><span class="icon icon-check" aria-hidden="true"></span> Zestaw PETG, ABS i dysza hartowana</li>
+              <li><span class="icon icon-check" aria-hidden="true"></span> Uruchomienie zdalne</li>
+            </ul>
+          </article>
+          <article class="plan">
+            <div class="plan-top">
+              <div class="plan-icon" aria-hidden="true">
+                <span class="icon icon-crown"></span>
+              </div>
+            </div>
+            <h3>Axis</h3>
+            <p class="desc">Krótka seria i kilka zmian dziennie.</p>
+            <p class="price"><span data-buy="14900" data-lease="679">14 900</span> <small data-unit>zł</small></p>
+            <button class="btn btn-line btn-block" type="button" data-add data-id="axis" data-name="Drukarka get3D Axis" data-price="14900">Wybierz Axis</button>
+            <p class="guarantee">14 dni na zwrot nieskalibrowanej maszyny</p>
+            <ul>
+              <li><span class="icon icon-check" aria-hidden="true"></span> Dwie głowice, pole 350 mm</li>
+              <li><span class="icon icon-check" aria-hidden="true"></span> Suszarka i cztery szpule</li>
+              <li><span class="icon icon-check" aria-hidden="true"></span> Profil pod materiały techniczne</li>
+              <li><span class="icon icon-check" aria-hidden="true"></span> Przegląd po 90 dniach</li>
+            </ul>
+          </article>
+        </div>
+        <div class="enterprise">
+          <div>
+            <h3>Flota i pracownia pod klucz</h3>
+            <p>Kilka maszyn, stanowiska, szkolenie operatorów i zapas materiałów na pierwszy miesiąc.</p>
+          </div>
+          <a class="btn btn-dark" href="#kontakt">Porozmawiajmy</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" id="opinie">
+      <div class="wrap">
+        <div class="section-intro">
+          <span class="eyebrow"><i>nowość</i> opinie</span>
+          <h2>Historie z prawdziwych <em>pracowni</em></h2>
+          <p>Krótko, od ludzi, którzy drukują na get3D w tygodniu, a nie tylko w dniu rozpakowania.</p>
+        </div>
+        <div class="carousel" aria-roledescription="karuzela">
+          <div class="track-row">
+            <article class="t-card">
+              <h3>„Szpule z jednej dostawy wreszcie zachowują się tak samo. Przestaliśmy tracić poranki na suszenie przypadkowego filamentu.”</h3>
+              <div class="person"><div class="avatar">AL</div><div><strong>Anna Lis</strong><span>Właścicielka, Modelarnia Lis</span></div></div>
+              <div class="t-metrics"><div><strong>−28%</strong><span>czasu przygotowania</span></div><div><strong>+41%</strong><span>mniej odpadu</span></div></div>
+            </article>
+            <article class="t-photo" aria-hidden="true">AL</article>
+            <article class="t-card">
+              <h3>„Forge wstawiliśmy w piątek, w poniedziałek szła już obudowa klienta. Serwis odesłał profil, zanim zdążyliśmy zapytać drugi raz.”</h3>
+              <div class="person"><div class="avatar">PW</div><div><strong>Piotr Wójcik</strong><span>Konstruktor, ProtoAtelier</span></div></div>
+              <div class="t-metrics"><div><strong>99%</strong><span>udanych zleceń</span></div><div><strong>3</strong><span>maszyny w kwartał</span></div></div>
+            </article>
+            <article class="t-photo" aria-hidden="true">PW</article>
+            <article class="t-card">
+              <h3>„Szkoła dostała Pulse i zestaw serwisowy. Uczniowie wymieniają dyszę sami, a my nie czekamy na część z drugiego końca Europy.”</h3>
+              <div class="person"><div class="avatar">ZM</div><div><strong>Zofia Maj</strong><span>Nauczycielka, pracownia szkolna</span></div></div>
+              <div class="t-metrics"><div><strong>18</strong><span>zestawów na klasę</span></div><div><strong>48 h</strong><span>dostawa filamentu</span></div></div>
+            </article>
+            <article class="t-photo" aria-hidden="true">ZM</article>
+          </div>
+        </div>
+        <div class="carousel-nav">
+          <button type="button" data-slide="-1" aria-label="Poprzednia opinia">←</button>
+          <button type="button" data-slide="1" aria-label="Następna opinia">→</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="pytania">
+      <div class="wrap">
+        <h2>Pytania? <em>Dobrze, że padły.</em></h2>
+        <div class="tabs" role="tablist">
+          <button type="button" class="is-active" role="tab" aria-selected="true" data-tab="drukarki">Drukarki</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="materialy">Materiały</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="wsparcie">Wsparcie</button>
+        </div>
+        <div class="accordion" data-panel="drukarki">
+          <article class="acc is-open"><button type="button">Czym różni się Pulse od Forge?<span class="plus">+</span></button><p>Pulse stoi na biurku i drukuje PLA oraz PETG. Forge ma większe pole, obudowę i zestaw pod materiały techniczne, więc nadaje się do codziennej pracowni.</p></article>
+          <article class="acc"><button type="button">Czy maszyna przyjeżdża z profilem?<span class="plus">+</span></button><p>Tak. Do każdej drukarki dołączamy profil startowy pod filamenty z katalogu get3D oraz krótką listę pierwszego wydruku testowego.</p></article>
+          <article class="acc"><button type="button">Czy mogę dobrać żywicę zamiast FDM?<span class="plus">+</span></button><p>Tak, w rozmowie o flocie. W cenniku na stronie są zestawy FDM. Żywicę i akcesoria do niej dodasz od razu z katalogu materiałów.</p></article>
+          <article class="acc"><button type="button">Ile trwa dostawa drukarki?<span class="plus">+</span></button><p>Modele z magazynu wyjeżdżają w 24 godziny robocze. Axis i zestawy flotowe potwierdzamy terminem w wiadomości zwrotnej.</p></article>
+          <article class="acc"><button type="button">Czy raty są dostępne od razu?<span class="plus">+</span></button><p>Na stronie pokazujemy orientacyjną ratę 24-miesięczną. Zamówienie w koszyku liczymy w cenie zakupu, a harmonogram rat ustalamy przy potwierdzeniu.</p></article>
+        </div>
+        <div class="accordion" data-panel="materialy" hidden>
+          <article class="acc is-open"><button type="button">Jakie materiały macie na stanie?<span class="plus">+</span></button><p>PLA, PETG, ABS i TPU w średnicy 1,75 mm oraz żywice standard i tough. Kolory i karty parametrów są przy każdej szpuli.</p></article>
+          <article class="acc"><button type="button">Czy filament jest suszony?<span class="plus">+</span></button><p>Szpule techniczne pakujemy po suszeniu, z wilgotnościomierzem w karcie partii. Do PETG i nylonu warto dodać suszarkę z akcesoriów.</p></article>
+          <article class="acc"><button type="button">Czy żywica pasuje do każdej maszyny?<span class="plus">+</span></button><p>Podajemy czas naświetlania dla popularnych długości fali. Jeśli maszyny nie ma na liście, dobierzemy ustawienie przed wysyłką.</p></article>
+          <article class="acc"><button type="button">Jak przechowywać otwartą szpulę?<span class="plus">+</span></button><p>W worku z pochłaniaczem albo w suszarce. W zestawie serwisowym jest klips i worek na pierwszą otwartą szpulę.</p></article>
+          <article class="acc"><button type="button">Czy mogę zamówić sam materiał, bez drukarki?<span class="plus">+</span></button><p>Tak. Filamenty, żywice i akcesoria dodasz do koszyka niezależnie od maszyny.</p></article>
+        </div>
+        <div class="accordion" data-panel="wsparcie" hidden>
+          <article class="acc is-open"><button type="button">Co obejmuje wsparcie po zakupie?<span class="plus">+</span></button><p>Pulse: 30 dni maila. Forge: uruchomienie zdalne. Axis: przegląd po 90 dniach. Flota: szkolenie operatorów na miejscu.</p></article>
+          <article class="acc"><button type="button">Jak szybko idą części zamienne?<span class="plus">+</span></button><p>Dysze, stoły i zestawy serwisowe z magazynu wysyłamy w 24 godziny robocze na terenie Polski.</p></article>
+          <article class="acc"><button type="button">Czy pomagacie przy pierwszym błędzie druku?<span class="plus">+</span></button><p>Tak. Wystarczy zdjęcie pierwszej warstwy i nazwa materiału. Odsyłamy korektę profilu, nie ogólną listę z forum.</p></article>
+          <article class="acc"><button type="button">Czy szkolicie grupy?<span class="plus">+</span></button><p>Tak, dla szkół i zakładów. Układamy stanowiska, listę materiałów i krótką procedurę wymiany dyszy.</p></article>
+          <article class="acc"><button type="button">Jak zgłosić serwis?<span class="plus">+</span></button><p>Przez formularz kontaktu albo zamówienie w koszyku z dopiskiem „serwis”. Wracamy z terminem tego samego dnia roboczego.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-wrap" id="kontakt">
+      <section class="cta">
+        <span class="eyebrow"><i>nowość</i> kontakt</span>
+        <h2>Gotowi postawić druk <em>na spokojnym torze?</em></h2>
+        <p class="lead">Dobierzemy maszynę, materiał i akcesoria do tego, co naprawdę schodzi z Waszego stołu.</p>
+        <div class="hero-actions">
+          <a class="btn btn-dark" href="#cennik">Zacznij</a>
+          <a class="btn btn-line" href="#oferta">Zobacz katalog</a>
+        </div>
+        <div class="faces" aria-hidden="true"><span>AL</span><span>PW</span><span>ZM</span><span>MK</span></div>
+        <p class="note">800+ PRACOWNI DRUKUJE Z GET3D</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="foot-cols">
+        <div>
+          <p>STRONY</p>
+          <a href="#start">Start</a>
+          <a href="#o-nas">O nas</a>
+          <a href="#drukarki">Drukarki</a>
+          <a href="#materialy">Materiały</a>
+        </div>
+        <div>
+          <p>SKLEP</p>
+          <a href="#akcesoria">Akcesoria</a>
+          <a href="#cennik">Cennik</a>
+          <a href="#opinie">Opinie</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+        <div>
+          <p>POMOC</p>
+          <a href="#pytania">Pytania</a>
+          <a href="#serwis">Serwis</a>
+          <a href="#pytania">Dostawa</a>
+          <a href="#pytania">Zwroty</a>
+        </div>
+      </div>
+      <div class="news">
+        <p>NEWSLETTER PRACOWNI</p>
+        <form id="newsletter">
+          <input type="email" name="email" required placeholder="E-mail*" aria-label="E-mail">
+          <button class="btn btn-red" type="submit">Zapisz mnie</button>
+        </form>
+        <p class="form-note" id="news-note" role="status"></p>
+        <div class="socials">
+          <a href="#kontakt" aria-label="Udostępnij"><span class="icon icon-share" aria-hidden="true"></span></a>
+          <a href="#kontakt" aria-label="Sieć"><span class="icon icon-network" aria-hidden="true"></span></a>
+          <a href="#kontakt" aria-label="Wyślij"><span class="icon icon-send" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </div>
+    <div class="giant">
+      <img src="assets/wordmark.svg" alt="">
+    </div>
+    <div class="legal">
+      <span>© 2026 get3D</span>
+      <span>Drukarki, materiały eksploatacyjne i akcesoria</span>
+    </div>
+  </footer>
+
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="cart" id="cart" aria-hidden="true" aria-labelledby="cart-title">
+    <div class="cart-head">
+      <h2 id="cart-title">Koszyk</h2>
+      <button class="icon-btn" type="button" data-close-cart aria-label="Zamknij koszyk">×</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-foot">
+      <div class="row"><span>Razem</span><strong id="cart-total">0 zł</strong></div>
+      <form class="checkout" id="checkout">
+        <input name="name" required placeholder="Imię i nazwisko*" aria-label="Imię i nazwisko">
+        <input type="email" name="email" required placeholder="E-mail*" aria-label="E-mail">
+        <textarea name="note" rows="2" placeholder="Dopisek do zamówienia" aria-label="Dopisek"></textarea>
+        <button class="btn btn-red" type="submit">Złóż zamówienie</button>
+      </form>
+      <p class="form-note" id="order-note" role="status"></p>
+    </div>
+  </aside>
+  <script src="js/main.js"></script>
+</body>
+</html>
