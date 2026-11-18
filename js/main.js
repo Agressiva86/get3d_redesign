@@ -13,7 +13,7 @@
   const accountTool = document.getElementById("account-tool");
   const loginSubmit = loginForm.querySelector("button[type=submit]");
 
-  document.querySelectorAll(".btn, .bf-cta, .add-mini, .account-login, .account-register, .cart-outline, .mega-cart").forEach((el) => {
+  document.querySelectorAll(".btn, .bf-cta, .add-mini, .account-login, .account-register, .cart-outline, .mega-cart, .hero-caption-btn").forEach((el) => {
     const text = [...el.childNodes].find((node) => node.nodeType === 3 && node.textContent.trim());
     if (!text || el.querySelector(".btn-clip")) return;
     const label = text.textContent.trim();
@@ -222,7 +222,7 @@
     const menuHeight = () => {
       const side = mega.querySelector(".mega-side");
       const card = drop.querySelector(".mega-feature");
-      if (!side || !card || mobileNav()) return;
+      if (!side || mobileNav()) return;
       const sideStyle = getComputedStyle(side);
       const names = [...side.querySelectorAll(":scope > .mega-all, :scope > .mega-branch > .mega-name")];
       if (!names.length || names[0].offsetHeight === 0) return;
@@ -239,13 +239,16 @@
           + parseFloat(kidsStyle.paddingTop)
           + parseFloat(kidsStyle.paddingBottom);
       }
-      const panel = card.offsetParent;
-      const panelStyle = getComputedStyle(panel);
-      const cardTop = parseFloat(getComputedStyle(card).top) || 0;
-      const above = cardTop - (parseFloat(panelStyle.paddingTop) || 0);
-      const below = cardTop - (parseFloat(panelStyle.paddingBottom) || 0);
       const menuH = Math.max(namesH + sidePad, kidsH);
-      const fitted = card.offsetHeight + above + below;
+      let fitted = 0;
+      if (card && card.offsetParent) {
+        const panel = card.offsetParent;
+        const panelStyle = getComputedStyle(panel);
+        const cardTop = parseFloat(getComputedStyle(card).top) || 0;
+        const above = cardTop - (parseFloat(panelStyle.paddingTop) || 0);
+        const below = cardTop - (parseFloat(panelStyle.paddingBottom) || 0);
+        fitted = card.offsetHeight + above + below;
+      }
       mega.style.minHeight = `${Math.max(menuH, fitted)}px`;
     };
     const setCurrent = (branch) => {
@@ -764,25 +767,27 @@
   counters.forEach((node) => countObserver.observe(node));
 
   const row = document.querySelector(".track-row");
-  const slides = [...row.children];
-  let index = 0;
-  const visible = () => (window.innerWidth < 980 ? 1 : 2);
-  const updateCarousel = () => {
-    const max = Math.max(0, slides.length - visible());
-    index = Math.max(0, Math.min(index, max));
-    const width = slides[0].getBoundingClientRect().width + 16;
-    row.style.transform = `translateX(${-index * width}px)`;
-  };
-  document.querySelectorAll("[data-slide]").forEach((button) => {
-    button.addEventListener("click", () => {
-      index += Number(button.dataset.slide);
+  if (row) {
+    const slides = [...row.children];
+    let index = 0;
+    const visible = () => (window.innerWidth < 980 ? 1 : 2);
+    const updateCarousel = () => {
       const max = Math.max(0, slides.length - visible());
-      if (index > max) index = 0;
-      if (index < 0) index = max;
-      updateCarousel();
+      index = Math.max(0, Math.min(index, max));
+      const width = slides[0].getBoundingClientRect().width + 16;
+      row.style.transform = `translateX(${-index * width}px)`;
+    };
+    document.querySelectorAll("[data-slide]").forEach((button) => {
+      button.addEventListener("click", () => {
+        index += Number(button.dataset.slide);
+        const max = Math.max(0, slides.length - visible());
+        if (index > max) index = 0;
+        if (index < 0) index = max;
+        updateCarousel();
+      });
     });
-  });
-  window.addEventListener("resize", updateCarousel);
+    window.addEventListener("resize", updateCarousel);
+  }
 
   const cart = [];
   const cartEl = document.getElementById("cart");
@@ -1114,6 +1119,115 @@
     showHero(0);
     startHero();
   }
+
+  document.querySelectorAll("[data-pair-slider]").forEach((root) => {
+    const track = root.querySelector(".pair-slider-track");
+    const slides = [...track.children];
+    const viewport = root.querySelector(".pair-slider-viewport");
+    const dotsWrap = root.querySelector(".pair-slider-dots");
+    const wide = window.matchMedia("(min-width: 761px)");
+    const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let index = 0;
+    let drag = 0;
+    let grab = null;
+    const visible = () => (wide.matches ? 2 : 1);
+    const maxIndex = () => Math.max(0, slides.length - visible());
+    const gap = () => parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
+    const step = () => (slides[0] ? slides[0].getBoundingClientRect().width + gap() : 0);
+    const renderDots = () => {
+      const count = maxIndex() + 1;
+      if (dotsWrap.childElementCount === count) return;
+      dotsWrap.replaceChildren(...Array.from({ length: count }, (_, dotIndex) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.dataset.pairGo = String(dotIndex);
+        button.setAttribute("aria-label", `Pozycja ${dotIndex + 1}`);
+        return button;
+      }));
+    };
+    const place = () => {
+      const max = maxIndex();
+      if (index > max) index = max;
+      renderDots();
+      const distance = step();
+      track.style.transform = distance ? `translate3d(${-(index + drag) * distance}px, 0, 0)` : "";
+      slides.forEach((slide, slideIndex) => {
+        const shown = slideIndex >= index && slideIndex < index + visible();
+        slide.setAttribute("aria-hidden", shown ? "false" : "true");
+      });
+      [...dotsWrap.children].forEach((dot, dotIndex) => {
+        const on = dotIndex === index;
+        dot.classList.toggle("is-on", on);
+        if (on) dot.setAttribute("aria-current", "true");
+        else dot.removeAttribute("aria-current");
+      });
+      root.querySelectorAll("[data-pair-dir]").forEach((button) => {
+        const next = index + Number(button.dataset.pairDir);
+        const off = next < 0 || next > max;
+        button.toggleAttribute("aria-disabled", off);
+      });
+    };
+    const show = (next) => {
+      const max = maxIndex();
+      index = Math.min(max, Math.max(0, next));
+      drag = 0;
+      track.style.transition = "";
+      place();
+    };
+    const release = (event) => {
+      if (!grab || event.pointerId !== grab.id) return;
+      const moved = grab.moved;
+      grab = null;
+      viewport.classList.remove("is-grabbing");
+      track.style.transition = "";
+      let shift = 0;
+      if (drag > 0.18) shift = 1;
+      else if (drag < -0.18) shift = -1;
+      if (moved) viewport.dataset.pairSwiped = "1";
+      show(index + shift);
+    };
+    viewport.addEventListener("dragstart", (event) => event.preventDefault());
+    viewport.addEventListener("pointerdown", (event) => {
+      if (event.button !== 0 || maxIndex() < 1) return;
+      if (event.target.closest("button, .mega-cart")) return;
+      grab = { id: event.pointerId, x: event.clientX, drag, moved: false };
+      viewport.setPointerCapture(event.pointerId);
+      viewport.classList.add("is-grabbing");
+      track.style.transition = "none";
+    });
+    viewport.addEventListener("pointermove", (event) => {
+      if (!grab || event.pointerId !== grab.id) return;
+      const dx = event.clientX - grab.x;
+      if (Math.abs(dx) > 5) grab.moved = true;
+      const distance = step() || viewport.offsetWidth || 1;
+      drag = grab.drag - dx / distance;
+      place();
+    });
+    viewport.addEventListener("pointerup", release);
+    viewport.addEventListener("pointercancel", release);
+    viewport.addEventListener("click", (event) => {
+      if (viewport.dataset.pairSwiped !== "1") return;
+      delete viewport.dataset.pairSwiped;
+      event.preventDefault();
+      event.stopPropagation();
+    }, true);
+    root.querySelectorAll("[data-pair-dir]").forEach((button) => {
+      button.addEventListener("click", () => {
+        if (button.hasAttribute("aria-disabled")) return;
+        show(index + Number(button.dataset.pairDir));
+      });
+    });
+    dotsWrap.addEventListener("click", (event) => {
+      const dot = event.target.closest("[data-pair-go]");
+      if (!dot) return;
+      show(Number(dot.dataset.pairGo));
+    });
+    if (!motionOk) track.style.transition = "none";
+    wide.addEventListener("change", () => show(index));
+    window.addEventListener("resize", place);
+    if (document.fonts) document.fonts.ready.then(place);
+    show(0);
+  });
 
   renderCart();
 })();

@@ -1,5 +1,5 @@
 (() => {
-  document.querySelectorAll(".btn, .bf-cta, .account-login, .account-register, .cart-outline").forEach((el) => {
+  document.querySelectorAll(".btn, .bf-cta, .account-login, .account-register, .cart-outline, .hero-caption-btn").forEach((el) => {
     const text = [...el.childNodes].find((node) => node.nodeType === 3 && node.textContent.trim());
     if (!text || el.querySelector(".btn-clip")) return;
     const label = text.textContent.trim();
