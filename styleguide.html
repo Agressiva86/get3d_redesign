@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Styleguide — get3D</title>
+  <meta name="description" content="Typografia, kolory, przyciski, karta produktu, header i hero strony get3D.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-sans-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styleguide.css">
+</head>
+<body class="sg">
+  <a class="skip" href="#tresc">Przejdź do treści</a>
+  <header class="sg-bar">
+    <a class="sg-brand" href="index.html">
+      <img src="assets/get3d%20logo.svg" alt="get3D">
+      <span>Styleguide</span>
+    </a>
+    <nav aria-label="Sekcje przewodnika">
+      <a href="#kolory">Kolory</a>
+      <a href="#typografia">Typografia</a>
+      <a href="#przyciski">Przyciski</a>
+      <a href="#karta">Karta</a>
+      <a href="#header">Header</a>
+      <a href="#hero">Hero</a>
+    </nav>
+  </header>
+
+  <main id="tresc">
+    <header class="sg-intro sg-wrap">
+      <h1>Styleguide</h1>
+      <p class="lead">Typografia, kolory i komponenty z branchu main, które zostają przy przebudowie: przyciski, karta produktu, header i hero.</p>
+    </header>
+
+    <section class="sg-block" id="kolory">
+      <div class="sg-wrap">
+        <div class="sg-head">
+          <h2>Kolory</h2>
+          <p>Skala stone zasila tekst, tła i linie. Akcent i zieleń ceny stoją obok tej skali.</p>
+        </div>
+        <h3 class="sg-sub">Skala stone</h3>
+        <ul class="sg-colors">
+          <li><i style="background: var(--stone-50)"></i><div><strong>50</strong><span>--stone-50</span><span>#fafaf9</span></div></li>
+          <li><i style="background: var(--stone-100)"></i><div><strong>100</strong><span>--stone-100</span><span>#f5f5f4</span></div></li>
+          <li><i style="background: var(--stone-200)"></i><div><strong>200</strong><span>--stone-200</span><span>#e7e5e4</span></div></li>
+          <li><i style="background: var(--stone-300)"></i><div><strong>300</strong><span>--stone-300</span><span>#d6d3d1</span></div></li>
+          <li><i style="background: var(--stone-400)"></i><div><strong>400</strong><span>--stone-400</span><span>#a6a09b</span></div></li>
+          <li><i style="background: var(--stone-500)"></i><div><strong>500</strong><span>--stone-500</span><span>#79716b</span></div></li>
+          <li><i style="background: var(--stone-600)"></i><div><strong>600</strong><span>--stone-600</span><span>#57534d</span></div></li>
+          <li><i style="background: var(--stone-700)"></i><div><strong>700</strong><span>--stone-700</span><span>#44403b</span></div></li>
+          <li><i style="background: var(--stone-800)"></i><div><strong>800</strong><span>--stone-800</span><span>#292524</span></div></li>
+          <li><i style="background: var(--stone-900)"></i><div><strong>900</strong><span>--stone-900</span><span>#1c1917</span></div></li>
+          <li><i style="background: var(--stone-950)"></i><div><strong>950</strong><span>--stone-950</span><span>#0c0a09</span></div></li>
+        </ul>
+
+        <h3 class="sg-sub">Role</h3>
+        <ul class="sg-colors">
+          <li><i style="background: var(--paper)"></i><div><strong>Papier</strong><span>--paper</span><span>#ffffff</span></div></li>
+          <li><i style="background: var(--ink)"></i><div><strong>Atrament</strong><span>--ink · stone 950</span><span>Nagłówki</span></div></li>
+          <li><i style="background: var(--gray)"></i><div><strong>Tekst</strong><span>--gray · stone 600</span><span>Akapity</span></div></li>
+          <li><i style="background: var(--muted)"></i><div><strong>Wyciszone</strong><span>--muted · stone 500</span><span>Parametry, dopiski</span></div></li>
+          <li><i style="background: var(--line)"></i><div><strong>Linia</strong><span>--line · stone 200</span><span>Obramowania</span></div></li>
+          <li><i style="background: var(--accent)"></i><div><strong>Akcent</strong><span>--accent</span><span>#ff2055</span></div></li>
+          <li><i style="background: var(--accent-deep)"></i><div><strong>Akcent ciemny</strong><span>--accent-deep</span><span>#e00040</span></div></li>
+          <li><i style="background: #25a244"></i><div><strong>Cena</strong><span>#25a244</span><span>Promocja na karcie</span></div></li>
+          <li><i style="background: rgba(37, 162, 68, 0.12)"></i><div><strong>Tło obniżki</strong><span>rgba(37, 162, 68, 0.12)</span><span>Plakietka .mega-save</span></div></li>
+        </ul>
+        <p class="sg-meta" style="margin-top: 12px">--cream to alias stone 50. --beige to alias stone 100. --dark to stone 800, --dark-2 to stone 900.</p>
+
+        <h3 class="sg-sub">Powierzchnia</h3>
+        <div class="sg-surface">
+          <div class="sg-radius">promień 8px</div>
+          <div class="sg-shadow">cień karty</div>
+        </div>
+        <p class="sg-meta" style="margin-top: 10px"><code>--radius: 8px</code> <code>--shadow: 0 18px 50px rgba(28, 26, 23, 0.08)</code></p>
+      </div>
+    </section>
+
+    <section class="sg-block" id="typografia">
+      <div class="sg-wrap">
+        <div class="sg-head">
+          <h2>Typografia</h2>
+          <p>Jedna rodzina: Instrument Sans, z Arial jako zapasem. Plik obejmuje wagi 400–700, zwykły krój i kursywę. Tekst bieżący jest ustawiony na 300, więc przeglądarka rysuje go najbliższą dostępną wagą, czyli 400.</p>
+        </div>
+        <h3 class="sg-sub">Wagi</h3>
+        <div class="sg-sample">
+          <p class="sg-weights">
+            <span style="font-weight: 300">300 tekst</span>
+            <span style="font-weight: 400">400 UI</span>
+            <span style="font-weight: 500">500 dopisek</span>
+            <span style="font-weight: 600">600 nagłówek</span>
+          </p>
+          <p class="sg-meta">300 i 400 wyglądają tak samo, bo font zaczyna się od 400. 500 to „od” i waluta w cenie. 600 to nagłówki, przyciski i nazwy kategorii.</p>
+        </div>
+
+        <h3 class="sg-sub">Skala</h3>
+        <div class="sg-type">
+          <div class="sg-sample">
+            <h1>Druk, który myśli do przodu</h1>
+            <p class="sg-meta">h1 · 600 · clamp(44px, 5.2vw, 66px) · line-height 1.05 · --ink</p>
+          </div>
+          <div class="sg-sample">
+            <div class="hero">
+              <h1>Druk, który myśli do przodu, dowozi efekt.</h1>
+            </div>
+            <p class="sg-meta">h1 w hero · 600 · clamp(40px, 4.4vw, 58px) · max-width 520px</p>
+          </div>
+          <div class="sg-sample">
+            <h2>Zestawy na każdy etap pracowni</h2>
+            <p class="sg-meta">h2 · 600 · clamp(34px, 4vw, 50px) · line-height 1.12</p>
+          </div>
+          <div class="sg-sample">
+            <h2>Druk <em>spokojny i powtarzalny</em></h2>
+            <p class="sg-meta">em w nagłówku · kursywa Instrument Sans · ta sama waga</p>
+          </div>
+          <div class="sg-sample">
+            <h3>Maszyny, które kończą wydruk</h3>
+            <p class="sg-meta">h3 · 600 · clamp(26px, 2.4vw, 32px) · line-height 1.2</p>
+          </div>
+          <div class="sg-sample">
+            <div class="hero"><p class="lead">get3D spina pracownię w jeden rytm — drukarki, materiały eksploatacyjne i akcesoria dobrane tak, żeby część schodziła ze stołu za pierwszym razem.</p></div>
+            <p class="sg-meta">.lead w hero · 17px · waga tekstu · --gray · max-width 440px</p>
+          </div>
+          <div class="sg-sample">
+            <p>Zwykły akapit. Szpule, dysze i profile, które da się utrzymać po dniu dostawy.</p>
+            <p class="sg-meta">body · 16px · waga 300 · line-height 1.6 · --gray</p>
+          </div>
+          <div class="sg-sample">
+            <span class="eyebrow"><i>nowości</i> drukarki 3D</span>
+            <p class="sg-meta">.eyebrow · 12px · 400 · uppercase · tracking 0.08em. Chip <code>i</code> · 10px · tło --accent</p>
+          </div>
+          <div class="sg-sample">
+            <div class="nav-cats">
+              <span class="drop"><button class="drop-btn" type="button">Drukarki 3D <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button></span>
+              <a class="nav-link" href="#header">Serwis</a>
+            </div>
+            <p class="sg-meta">Kategoria · 17px / 600 · --stone-700. Link obok dziedziczy --gray.</p>
+          </div>
+          <div class="sg-sample">
+            <ul class="info-bar sg-info">
+              <li><span class="icon icon-house" aria-hidden="true"></span>Darmowa dostawa do showroomu od 250 zł</li>
+            </ul>
+            <p class="sg-meta">Pasek informacyjny · 13px / 400 · --stone-400</p>
+          </div>
+          <div class="sg-sample">
+            <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span></p>
+            <p class="sg-meta">Cena · 26px / 600. „od” 13px / 500, grosze 12px, waluta 14px / 500.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-block" id="przyciski">
+      <div class="sg-wrap">
+        <div class="sg-head">
+          <h2>Przyciski</h2>
+          <p>Wysokość tekstowych to 48px, promień 8px, waga 600. Najazd przesuwa litery. Tło zmieniają Black Friday i przycisk koszyka.</p>
+        </div>
+        <h3 class="sg-sub">Tekstowe</h3>
+        <div class="sg-row">
+          <div class="sg-item">
+            <a class="btn btn-red" href="#hero">Zacznij</a>
+            <p class="sg-meta"><code>.btn.btn-red</code><br>Akcja główna · --accent</p>
+          </div>
+          <div class="sg-item">
+            <a class="btn btn-line" href="#hero">Poznaj get3D</a>
+            <p class="sg-meta"><code>.btn.btn-line</code><br>Druga akcja · obrys stone 300</p>
+          </div>
+          <div class="sg-item">
+            <a class="btn btn-dark" href="#header">Porozmawiajmy</a>
+            <p class="sg-meta"><code>.btn.btn-dark</code><br>Ciemna akcja · --dark-2</p>
+          </div>
+          <div class="sg-item">
+            <a class="bf-cta" href="#header"><span class="icon icon-fire" aria-hidden="true"></span>Black Friday</a>
+            <p class="sg-meta"><code>.bf-cta</code><br>Kampania w pasku kategorii. Najazd: --accent-deep</p>
+          </div>
+        </div>
+
+        <h3 class="sg-sub">Z headera</h3>
+        <div class="sg-row">
+          <div class="sg-item">
+            <button class="account-login" type="button">Zaloguj się</button>
+            <p class="sg-meta"><code>.account-login</code><br>Pełna szerokość panelu · stone 900</p>
+          </div>
+          <div class="sg-item">
+            <button class="account-register" type="button">Załóż konto</button>
+            <p class="sg-meta"><code>.account-register</code><br>Druga akcja konta · stone 100</p>
+          </div>
+          <div class="sg-item">
+            <button class="cart-outline" type="button">Przejdź do koszyka</button>
+            <p class="sg-meta"><code>.cart-outline</code><br>Obrys jak .btn-line, bez strzałki</p>
+          </div>
+          <div class="sg-item">
+            <div class="nav-tools sg-tools">
+              <button class="tool-btn" type="button" aria-label="Konto"><span class="icon icon-user" aria-hidden="true"></span></button>
+              <button class="tool-btn" type="button" aria-label="Pomoc"><span class="icon icon-headphones" aria-hidden="true"></span></button>
+              <button class="tool-btn cart-btn" type="button" aria-label="Koszyk">
+                <span class="ico">
+                  <span class="icon icon-cart" aria-hidden="true"></span>
+                  <span class="cart-count" data-count="2">2</span>
+                </span>
+              </button>
+              <button class="tool-btn tone-btn" type="button" aria-label="Jaśniejsze tło"><span class="icon icon-mode" aria-hidden="true"></span></button>
+            </div>
+            <p class="sg-meta"><code>.tool-btn</code><br>40×40. Licznik koszyka to --accent, chowa się przy 0.</p>
+          </div>
+        </div>
+
+        <h3 class="sg-sub">Z hero i karty</h3>
+        <div class="sg-row">
+          <div class="sg-item">
+            <button class="mega-cart" type="button" aria-label="Dodaj do koszyka"><span class="icon icon-cart" aria-hidden="true"></span> Do koszyka</button>
+            <p class="sg-meta"><code>.mega-cart</code><br>40×40. Najazd wypełnia --accent.</p>
+          </div>
+          <div class="sg-item">
+            <a class="hero-orbit" href="#hero" aria-label="Zobacz katalog drukarek"><span class="icon icon-arrow-corner" aria-hidden="true"></span></a>
+            <p class="sg-meta"><code>.hero-orbit</code><br>86×86. Najazd: obrys --ink, ikona --accent.</p>
+          </div>
+          <div class="sg-item">
+            <div class="hero-slider-bar sg-slider-bar">
+              <button class="hero-slider-arrow" type="button" aria-label="Poprzedni produkt"><span class="icon icon-back" aria-hidden="true"></span></button>
+              <div class="hero-slider-dots">
+                <button type="button" class="is-on" aria-label="Slajd 1"></button>
+                <button type="button" aria-label="Slajd 2"></button>
+                <button type="button" aria-label="Slajd 3"></button>
+                <button type="button" aria-label="Slajd 4"></button>
+              </div>
+              <button class="hero-slider-arrow" type="button" aria-label="Następny produkt"><span class="icon icon-arrow" aria-hidden="true"></span></button>
+            </div>
+            <p class="sg-meta"><code>.hero-slider-arrow</code> 36×36 · kropki 7px, aktywna --accent</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-block" id="karta">
+      <div class="sg-wrap">
+        <div class="sg-head">
+          <h2>Karta produktu</h2>
+          <p>Te same klasy składają kartę w sliderze hero i kartę w menu kategorii. W hero cena bez obniżki jest w stone 900. Cena z obniżką zostaje zielona. Gdy cena ma przedrostek „od”, przycisk to Wybierz wariant, a na zdjęciu jest badge z liczbą wariantów.</p>
+        </div>
+        <h3 class="sg-sub">Składowe</h3>
+        <div class="sg-parts">
+          <div class="sg-part">
+            <p class="sg-badge-line">P2S <span class="mega-new">Nowe</span></p>
+            <p class="sg-meta"><code>.mega-new</code><br>9px / 600 · uppercase · obrys --accent</p>
+          </div>
+          <div class="sg-part">
+            <p class="mega-offer-name">Bambu Lab A1 Combo</p>
+            <p class="sg-meta"><code>.mega-offer-name</code> 16px w menu<br><code>.hero-slide-name</code> 18px w hero</p>
+          </div>
+          <div class="sg-part">
+            <ul class="mega-specs">
+              <li><span>Obszar roboczy:</span> 256 × 256 × 256 mm</li>
+              <li><span>Średnica dyszy:</span> 0,4 mm</li>
+            </ul>
+            <p class="sg-meta"><code>.mega-specs</code><br>12px. Etykieta w --stone-500.</p>
+          </div>
+          <div class="sg-part">
+            <div class="mega-buy">
+              <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
+              <a class="mega-cart" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a>
+              <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
+            </div>
+            <p class="sg-meta"><code>.mega-price</code> <code>.mega-save</code> <code>.mega-low</code></p>
+          </div>
+        </div>
+
+        <h3 class="sg-sub">Złożone karty</h3>
+        <div class="sg-cards">
+          <figure class="sg-item">
+            <div class="sg-card-frame">
+              <article class="hero-slide">
+                <div class="product-shot">
+                  <img src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab A1 Combo">
+                  <span class="variant-count">3 warianty</span>
+                </div>
+                <p class="hero-slide-name">Bambu Lab A1 Combo</p>
+                <ul class="mega-specs">
+                  <li><span>Obszar roboczy:</span> 256 × 256 × 256 mm</li>
+                  <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                </ul>
+                <div class="mega-buy">
+                  <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
+                  <a class="mega-cart" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a>
+                  <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
+                </div>
+              </article>
+            </div>
+            <figcaption class="sg-meta"><code>.hero-slide</code> z obniżką. Cena zielona.</figcaption>
+          </figure>
+          <figure class="sg-item">
+            <div class="sg-card-frame">
+              <article class="hero-slide">
+                <div class="product-shot">
+                  <img src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab A1">
+                  <span class="variant-count">2 warianty</span>
+                </div>
+                <p class="hero-slide-name">Bambu Lab A1</p>
+                <ul class="mega-specs">
+                  <li><span>Obszar roboczy:</span> 256 × 256 × 256 mm</li>
+                  <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                </ul>
+                <div class="mega-buy">
+                  <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span></p>
+                  <a class="mega-cart" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a>
+                </div>
+              </article>
+            </div>
+            <figcaption class="sg-meta"><code>.hero-slide</code> bez obniżki. Cena stone 900.</figcaption>
+          </figure>
+          <figure class="sg-item">
+            <div class="sg-menu-card">
+              <div class="mega-feature">
+                <div class="product-shot">
+                <img class="mega-photo" src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab A1 Combo">
+                <span class="variant-count">3 warianty</span>
+              </div>
+                <a class="mega-offer" href="index.html#drukarki">
+                  <p class="mega-offer-name">Bambu Lab A1 Combo</p>
+                  <ul class="mega-specs">
+                    <li><span>Technologia druku:</span> FDM</li>
+                    <li><span>Obszar roboczy:</span> 256 × 256 × 256 mm</li>
+                    <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                    <li><span>Interfejsy:</span> Wi-Fi, microSD</li>
+                  </ul>
+                </a>
+                <div class="mega-buy">
+                  <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
+                  <a class="mega-cart" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a>
+                  <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
+                </div>
+              </div>
+            </div>
+            <figcaption class="sg-meta"><code>.mega-feature</code> w menu kategorii.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-block" id="header">
+      <div class="sg-wrap sg-head">
+        <h2>Header</h2>
+        <p>Trzy warstwy: pasek informacyjny, pasek z logo i szukaniem, pasek kategorii. Najedź na Drukarki 3D, konto, pomoc albo koszyk. Poniżej 980 px na stronie kategorie chowają się do szuflady — tutaj zostaje układ desktopowy.</p>
+      </div>
+      <div class="sg-scroll">
+        <header class="nav">
+          <ul class="info-bar">
+            <li><span class="icon icon-house" aria-hidden="true"></span>Darmowa dostawa do showroomu od 250 zł</li>
+            <li><span class="icon icon-card" aria-hidden="true"></span>Zniżka z Kartą Łodzianina</li>
+            <li><span class="icon icon-flag" aria-hidden="true"></span>Polski sklep od 11 lat na rynku</li>
+          </ul>
+          <div class="nav-top">
+            <a class="logo" href="index.html" aria-label="get3D, strona główna">
+              <img src="assets/get3d%20logo.svg" alt="get3D">
+            </a>
+            <button class="burger" type="button" aria-label="Kategorie"><span></span><em class="burger-label">Kategorie</em></button>
+            <form class="nav-search" role="search">
+              <label class="sr" for="sg-search">Czego szukasz?</label>
+              <input id="sg-search" type="search" placeholder="Czego szukasz?" autocomplete="off">
+              <button type="submit" aria-label="Szukaj"><span class="icon icon-search" aria-hidden="true"></span></button>
+            </form>
+            <div class="nav-tools">
+              <div class="tool">
+                <button class="tool-btn" type="button" aria-label="Konto">
+                  <span class="icon icon-user" aria-hidden="true"></span>
+                  <span class="tool-label">Konto</span>
+                </button>
+                <div class="account-pop">
+                  <button class="account-login" type="button">Zaloguj się</button>
+                  <p class="account-or"><span>Nie masz konta?</span></p>
+                  <button class="account-register" type="button">Załóż konto</button>
+                  <nav class="account-menu" aria-label="Konto">
+                    <a href="index.html#kontakt"><span class="icon icon-user" aria-hidden="true"></span>Twoje konto</a>
+                    <a href="index.html#cennik"><span class="icon icon-receipt" aria-hidden="true"></span>Zamówienia</a>
+                    <a href="index.html#serwis"><span class="icon icon-box" aria-hidden="true"></span>Serwis</a>
+                  </nav>
+                  <button class="account-tone" type="button" aria-pressed="false">
+                    <span class="icon icon-mode" aria-hidden="true"></span>
+                    <span>Jaśniejsze tło<small>Wyłączone</small></span>
+                  </button>
+                </div>
+              </div>
+              <div class="tool drop">
+                <button class="tool-btn drop-btn" type="button" aria-label="Pomoc">
+                  <span class="icon icon-headphones" aria-hidden="true"></span>
+                  <span class="tool-label">Pomoc</span>
+                </button>
+                <div class="drop-panel help-pop">
+                  <p class="help-kicker">Popularne tematy</p>
+                  <nav class="help-topics" aria-label="Popularne tematy">
+                    <a href="index.html#pytania">Dostawa</a>
+                    <a href="index.html#cennik">Raty</a>
+                    <a href="index.html#serwis">Serwis</a>
+                    <a href="index.html#pytania">Najczęściej zadawane pytania</a>
+                  </nav>
+                  <p class="help-kicker">Skontaktuj się z nami</p>
+                  <div class="help-contact">
+                    <a href="index.html#kontakt"><span class="icon icon-headphones" aria-hidden="true"></span>Kontakt</a>
+                    <a href="mailto:biuro@get3d.pl"><span class="icon icon-mail" aria-hidden="true"></span>biuro@get3d.pl</a>
+                    <a href="tel:+48426305050"><span class="icon icon-phone" aria-hidden="true"></span>42 630 50 50</a>
+                  </div>
+                  <div class="help-social">
+                    <a href="https://www.facebook.com/get3dpl" aria-label="Facebook"><span class="icon icon-facebook" aria-hidden="true"></span></a>
+                    <a href="https://x.com/get3dpl" aria-label="X"><span class="icon icon-x" aria-hidden="true"></span></a>
+                    <a href="https://www.youtube.com/@get3dlab" aria-label="YouTube"><span class="icon icon-youtube" aria-hidden="true"></span></a>
+                    <a href="https://www.linkedin.com/company/18726552/" aria-label="LinkedIn"><span class="icon icon-linkedin" aria-hidden="true"></span></a>
+                  </div>
+                </div>
+              </div>
+              <div class="tool">
+                <button class="tool-btn cart-btn" type="button" aria-label="Koszyk">
+                  <span class="ico">
+                    <span class="icon icon-cart" aria-hidden="true"></span>
+                    <span class="cart-count" data-count="1">1</span>
+                  </span>
+                  <span class="tool-label">Koszyk</span>
+                </button>
+                <div class="cart-pop">
+                  <div class="cart-filled">
+                    <div class="cart-mini">
+                      <div class="cart-mini-line">
+                        <span>Bambu Lab A1 Combo<small>1 szt.</small></span>
+                        <strong>1 160 zł</strong>
+                      </div>
+                    </div>
+                    <button class="cart-outline" type="button">Przejdź do koszyka</button>
+                  </div>
+                </div>
+              </div>
+              <button class="tool-btn tone-btn" type="button" aria-label="Jaśniejsze tło" aria-pressed="false">
+                <span class="icon icon-mode" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+          <button class="nav-shade" type="button" aria-label="Zamknij menu"></button>
+          <div class="cat-bar">
+            <nav class="nav-cats" aria-label="Oferta">
+              <div class="drop">
+                <button class="drop-btn" type="button">Drukarki 3D <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
+                <div class="drop-panel">
+                  <div class="mega">
+                    <div class="mega-side">
+                      <a class="mega-all" href="index.html#drukarki">Wszystkie</a>
+                      <div class="mega-branch is-current">
+                        <a class="mega-name" href="index.html#drukarki">Bambu Lab <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                        <div class="mega-kids">
+                          <p class="mega-kicker">Bambu Lab</p>
+                          <a href="index.html#drukarki">A1 Mini</a>
+                          <a href="index.html#drukarki">A1</a>
+                          <a href="index.html#drukarki">A2L <span class="mega-new">Nowe</span></a>
+                          <a href="index.html#drukarki">P2S <span class="mega-new">Nowe</span></a>
+                          <a href="index.html#drukarki">X1E Combo</a>
+                        </div>
+                      </div>
+                      <div class="mega-branch">
+                        <a class="mega-name" href="index.html#drukarki">Prusa <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                        <div class="mega-kids">
+                          <p class="mega-kicker">Prusa</p>
+                          <a href="index.html#drukarki">MK4S</a>
+                          <a href="index.html#drukarki">CORE One+ <span class="mega-new">Nowe</span></a>
+                          <a href="index.html#drukarki">XL</a>
+                        </div>
+                      </div>
+                      <div class="mega-branch">
+                        <a class="mega-name" href="index.html#drukarki">Formlabs <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                        <div class="mega-kids">
+                          <p class="mega-kicker">Formlabs</p>
+                          <a href="index.html#drukarki">Form 4</a>
+                          <a href="index.html#drukarki">Form 4L</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mega-feature">
+                    <div class="product-shot">
+                <img class="mega-photo" src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab A1 Combo">
+                <span class="variant-count">3 warianty</span>
+              </div>
+                    <a class="mega-offer" href="index.html#drukarki">
+                      <p class="mega-offer-name">Bambu Lab A1 Combo</p>
+                      <ul class="mega-specs">
+                        <li><span>Technologia druku:</span> FDM</li>
+                        <li><span>Obszar roboczy:</span> 256 × 256 × 256 mm</li>
+                        <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                        <li><span>Interfejsy:</span> Wi-Fi, microSD</li>
+                      </ul>
+                    </a>
+                    <div class="mega-buy">
+                      <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
+                      <a class="mega-cart" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a>
+                      <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="drop">
+                <button class="drop-btn" type="button">Formierki 3D <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
+              </div>
+              <div class="drop">
+                <button class="drop-btn" type="button">Materiały <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
+              </div>
+              <div class="drop">
+                <button class="drop-btn" type="button">Akcesoria <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
+              </div>
+              <div class="drop">
+                <button class="drop-btn" type="button">Szkolenia <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
+              </div>
+              <a class="nav-link" href="index.html#serwis">Serwis</a>
+            </nav>
+            <a class="bf-cta" href="index.html#cennik"><span class="icon icon-fire" aria-hidden="true"></span>Black Friday</a>
+          </div>
+        </header>
+      </div>
+    </section>
+
+    <section class="sg-block" id="hero">
+      <div class="sg-wrap sg-head">
+        <h2>Hero</h2>
+        <p>Tekst, zdjęcie ze statystyką, skrót katalogu i slider karty produktu. Poniżej 980 px kolumny składają się w jeden stos.</p>
+      </div>
+      <div class="sheet sg-hero">
+        <section class="hero">
+          <div class="wrap hero-layout">
+            <div class="hero-copy">
+              <span class="eyebrow"><i>nowości</i> drukarki 3D</span>
+              <h1>Druk, który myśli do przodu, dowozi efekt.</h1>
+              <p class="lead">get3D spina pracownię w jeden rytm — drukarki, materiały eksploatacyjne i akcesoria dobrane tak, żeby część schodziła ze stołu za pierwszym razem.</p>
+              <div class="hero-actions">
+                <a class="btn btn-red" href="index.html#cennik">Zacznij</a>
+                <a class="btn btn-line" href="index.html#o-nas">Poznaj get3D</a>
+              </div>
+            </div>
+            <div class="hero-stage">
+              <img src="assets/hero-drukarka.jpg" alt="Drukarka Bambu Lab na stanowisku w pracowni">
+              <aside class="hero-float">
+                <strong>20k+</strong>
+                <span>sprzedanych drukarek 3D przez get3D.</span>
+              </aside>
+            </div>
+            <div class="hero-rail">
+              <div class="hero-catalog">
+                <div>
+                  <p class="hero-catalog-title">Katalog drukarek</p>
+                  <p>Marki i modele z menu, od biurka po krótką serię.</p>
+                </div>
+                <a class="hero-orbit" href="index.html#drukarki" aria-label="Zobacz katalog drukarek">
+                  <span class="icon icon-arrow-corner" aria-hidden="true"></span>
+                </a>
+              </div>
+              <div class="hero-slider" data-hero-slider>
+                <div class="hero-slider-viewport">
+                  <div class="hero-slider-track">
+                    <article class="hero-slide">
+                      <div class="product-shot">
+                  <img src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab A1 Combo">
+                  <span class="variant-count">3 warianty</span>
+                </div>
+                      <p class="hero-slide-name">Bambu Lab A1 Combo</p>
+                      <ul class="mega-specs">
+                        <li><span>Obszar roboczy:</span> 256 × 256 × 256 mm</li>
+                        <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                      </ul>
+                      <div class="mega-buy">
+                        <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
+                        <a class="mega-cart" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a>
+                        <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
+                      </div>
+                    </article>
+                    <article class="hero-slide">
+                      <div class="product-shot">
+                  <img src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab A1">
+                  <span class="variant-count">2 warianty</span>
+                </div>
+                      <p class="hero-slide-name">Bambu Lab A1</p>
+                      <ul class="mega-specs">
+                        <li><span>Obszar roboczy:</span> 256 × 256 × 256 mm</li>
+                        <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                      </ul>
+                      <div class="mega-buy">
+                        <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span></p>
+                        <a class="mega-cart" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a>
+                      </div>
+                    </article>
+                    <article class="hero-slide">
+                      <div class="product-shot">
+                      <img src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab A1 mini">
+                      <span class="variant-count">4 warianty</span>
+                    </div>
+                      <p class="hero-slide-name">Bambu Lab A1 mini</p>
+                      <ul class="mega-specs">
+                        <li><span>Obszar roboczy:</span> 180 × 180 × 180 mm</li>
+                        <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                      </ul>
+                      <div class="mega-buy">
+                        <p class="mega-price"><span class="mega-amount"><small>od</small> 845<sup>00</sup> <span class="mega-currency">zł</span></span></p>
+                        <a class="mega-cart" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a>
+                      </div>
+                    </article>
+                    <article class="hero-slide">
+                      <img src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab X2D Combo">
+                      <p class="hero-slide-name">Bambu Lab X2D Combo</p>
+                      <ul class="mega-specs">
+                        <li><span>Obszar roboczy:</span> 256 × 256 × 260 mm</li>
+                        <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                      </ul>
+                      <div class="mega-buy">
+                        <p class="mega-price"><span class="mega-amount">3&nbsp;379<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-400&nbsp;zł</span></p>
+                        <button class="mega-cart" type="button" aria-label="Dodaj do koszyka"><span class="icon icon-cart" aria-hidden="true"></span> Do koszyka</button>
+                        <p class="mega-low">Najniższa cena: 3&nbsp;779,00&nbsp;zł</p>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+                <div class="hero-slider-bar">
+                  <button class="hero-slider-arrow" type="button" data-hero-dir="-1" aria-label="Poprzedni produkt"><span class="icon icon-back" aria-hidden="true"></span></button>
+                  <div class="hero-slider-dots">
+                    <button type="button" class="is-on" data-hero-go="0" aria-label="Bambu Lab A1 Combo"></button>
+                    <button type="button" data-hero-go="1" aria-label="Bambu Lab A1"></button>
+                    <button type="button" data-hero-go="2" aria-label="Bambu Lab A1 mini"></button>
+                    <button type="button" data-hero-go="3" aria-label="Bambu Lab X2D Combo"></button>
+                  </div>
+                  <button class="hero-slider-arrow" type="button" data-hero-dir="1" aria-label="Następny produkt"><span class="icon icon-arrow" aria-hidden="true"></span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <p class="sg-wrap sg-foot"><a href="index.html">Wróć na stronę główną</a></p>
+    </section>
+  </main>
+  <script src="js/styleguide.js"></script>
+</body>
+</html>

@@ -13,7 +13,7 @@
   const accountTool = document.getElementById("account-tool");
   const loginSubmit = loginForm.querySelector("button[type=submit]");
 
-  document.querySelectorAll(".btn, .bf-cta, .add-mini, .account-login, .account-register, .cart-outline").forEach((el) => {
+  document.querySelectorAll(".btn, .bf-cta, .add-mini, .account-login, .account-register, .cart-outline, .mega-cart").forEach((el) => {
     const text = [...el.childNodes].find((node) => node.nodeType === 3 && node.textContent.trim());
     if (!text || el.querySelector(".btn-clip")) return;
     const label = text.textContent.trim();
@@ -78,6 +78,39 @@
   const catBar = document.querySelector(".cat-bar");
   const clearCompactBar = () => {
     if (catBar) catBar.style.minHeight = "";
+    navCats?.querySelectorAll(".drop-panel").forEach((panel) => {
+      panel.style.height = "";
+    });
+  };
+  const compactPanels = () => navCats?.querySelectorAll(".drawer-body > .drop > .drop-panel") || [];
+  const measureCompactHeight = () => {
+    if (!catBar || !navCats) return 0;
+    const barMin = catBar.style.minHeight;
+    catBar.style.minHeight = "";
+    let max = catBar.offsetHeight;
+    compactPanels().forEach((panel) => {
+      const height = panel.style.height;
+      const display = panel.style.display;
+      const visibility = panel.style.visibility;
+      panel.style.height = "auto";
+      panel.style.visibility = "hidden";
+      panel.style.display = "block";
+      max = Math.max(max, panel.offsetHeight);
+      panel.style.height = height;
+      panel.style.display = display;
+      panel.style.visibility = visibility;
+    });
+    catBar.style.minHeight = barMin;
+    return max;
+  };
+  const applyCompactHeight = () => {
+    if (!catBar || !nav.classList.contains("is-compact") || !nav.classList.contains("is-open") || mobileNav()) return;
+    const height = measureCompactHeight();
+    if (!height) return;
+    catBar.style.minHeight = `${height}px`;
+    compactPanels().forEach((panel) => {
+      panel.style.height = `${height}px`;
+    });
   };
   const syncNav = () => {
     const sheet = mobileNav() && (
@@ -252,35 +285,27 @@
     });
   });
 
-  let compactTall = 0;
-  const tallCompactHeight = () => {
-    if (compactTall) return compactTall;
-    const probe = navCats?.querySelector(".drop-panel:has(.mega-feature)");
-    if (!probe) return 484;
-    const hidden = getComputedStyle(probe).display === "none";
-    if (hidden) probe.style.display = "block";
-    const height = probe.offsetHeight;
-    if (hidden) probe.style.display = "";
-    if (!height) return 484;
-    compactTall = height;
-    return compactTall;
-  };
   const placeCatPanel = (drop) => {
     const panel = drop.querySelector(".drop-panel");
     if (!panel || !navCats) return;
     if (mobileNav()) {
       panel.style.left = "";
       panel.style.top = "";
+      panel.style.height = "";
       return;
     }
     if (nav.classList.contains("is-compact")) {
-      panel.style.top = "-8px";
-      panel.style.left = "calc(100% + 12px)";
-      if (catBar && (drop.matches(":hover") || drop.classList.contains("is-open"))) {
-        catBar.style.minHeight = `${Math.max(panel.offsetHeight, tallCompactHeight())}px`;
-      }
+      panel.style.height = "";
+      if (catBar) catBar.style.minHeight = "";
+      const parent = panel.offsetParent || navCats;
+      const parentRect = parent.getBoundingClientRect();
+      const barRect = catBar.getBoundingClientRect();
+      panel.style.top = `${barRect.top - parentRect.top}px`;
+      panel.style.left = `${barRect.right - parentRect.left}px`;
+      applyCompactHeight();
       return;
     }
+    panel.style.height = "";
     panel.style.top = `${catBar.getBoundingClientRect().bottom - navCats.getBoundingClientRect().top}px`;
     clearCompactBar();
     const navRect = navCats.getBoundingClientRect();
@@ -319,13 +344,12 @@
   });
   document.querySelectorAll(".nav-cats .nav-link").forEach((link) => {
     link.addEventListener("mouseenter", () => {
-      if (!catBar || !nav.classList.contains("is-compact")) return;
-      catBar.style.minHeight = `${tallCompactHeight()}px`;
+      if (!nav.classList.contains("is-compact")) return;
+      applyCompactHeight();
     });
   });
   navCats?.addEventListener("mouseleave", clearCompactBar);
   window.addEventListener("resize", () => {
-    compactTall = 0;
     document.querySelectorAll(".nav-cats .drop").forEach(placeCatPanel);
   });
 
@@ -392,6 +416,7 @@
     closeAccount();
     closeCartPop();
     syncNav();
+    applyCompactHeight();
   };
   const queueCompactMenuClose = () => {
     if (!compactHover()) return;
