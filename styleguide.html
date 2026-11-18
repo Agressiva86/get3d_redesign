@@ -6,8 +6,10 @@
   <title>Styleguide — get3D</title>
   <meta name="description" content="Typografia, kolory, przyciski, karta produktu, header i hero strony get3D.">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/instrument-sans-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/geist-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/space-grotesk-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/styleguide.css">
 </head>
@@ -82,17 +84,26 @@
       <div class="sg-wrap">
         <div class="sg-head">
           <h2>Typografia</h2>
-          <p>Jedna rodzina: Instrument Sans, z Arial jako zapasem. Plik obejmuje wagi 400–700, zwykły krój i kursywę. Tekst bieżący jest ustawiony na 300, więc przeglądarka rysuje go najbliższą dostępną wagą, czyli 400.</p>
+          <p>Tekst, przyciski i interfejs używają Geist. Nagłówki oraz górny poziom menu kategorii używają Space Grotesk. Zapasem jest Arial. Geist ma wagi 100–900 i kursywę. Space Grotesk ma wagi 300–700, bez kursywy.</p>
         </div>
-        <h3 class="sg-sub">Wagi</h3>
+        <h3 class="sg-sub">Geist</h3>
         <div class="sg-sample">
           <p class="sg-weights">
             <span style="font-weight: 300">300 tekst</span>
             <span style="font-weight: 400">400 UI</span>
             <span style="font-weight: 500">500 dopisek</span>
-            <span style="font-weight: 600">600 nagłówek</span>
+            <span style="font-weight: 600">600 przycisk</span>
           </p>
-          <p class="sg-meta">300 i 400 wyglądają tak samo, bo font zaczyna się od 400. 500 to „od” i waluta w cenie. 600 to nagłówki, przyciski i nazwy kategorii.</p>
+          <p class="sg-meta">--sans, --display i --serif. 300 to tekst strony. 500 to „od” i waluta w cenie. 600 to przyciski, nazwy produktów i pozycje wewnątrz menu.</p>
+        </div>
+        <h3 class="sg-sub">Space Grotesk</h3>
+        <div class="sg-sample">
+          <p class="sg-weights sg-weights-heading">
+            <span style="font-weight: 500">500</span>
+            <span style="font-weight: 600">600 nagłówek</span>
+            <span style="font-weight: 700">700</span>
+          </p>
+          <p class="sg-meta">--heading. Nagłówki h1–h6 oraz przyciski i linki górnego paska kategorii. Letter-spacing -0.04em. Wyróżnienie <em>kursywą</em> w nagłówku przechodzi na Geist, bo Space Grotesk nie ma kursywy.</p>
         </div>
 
         <h3 class="sg-sub">Skala</h3>
@@ -103,7 +114,7 @@
           </div>
           <div class="sg-sample">
             <div class="hero">
-              <h1>Druk, który myśli do przodu, dowozi efekt.</h1>
+              <h1>Drukarki 3D, filamenty i akcesoria dla profesjonalistów</h1>
             </div>
             <p class="sg-meta">h1 w hero · 600 · clamp(40px, 4.4vw, 58px) · max-width 520px</p>
           </div>
@@ -113,14 +124,14 @@
           </div>
           <div class="sg-sample">
             <h2>Druk <em>spokojny i powtarzalny</em></h2>
-            <p class="sg-meta">em w nagłówku · kursywa Instrument Sans · ta sama waga</p>
+            <p class="sg-meta">em w nagłówku · kursywa Geist · ta sama waga. Reszta nagłówka zostaje w Space Grotesk.</p>
           </div>
           <div class="sg-sample">
             <h3>Maszyny, które kończą wydruk</h3>
             <p class="sg-meta">h3 · 600 · clamp(26px, 2.4vw, 32px) · line-height 1.2</p>
           </div>
           <div class="sg-sample">
-            <div class="hero"><p class="lead">get3D spina pracownię w jeden rytm — drukarki, materiały eksploatacyjne i akcesoria dobrane tak, żeby część schodziła ze stołu za pierwszym razem.</p></div>
+            <div class="hero"><p class="lead">Wybierz sprawdzone drukarki 3D, filamenty, żywice i części zamienne od wiodących producentów. Doradzamy, wdrażamy i serwisujemy rozwiązania do druku 3D dla firm, pracowni i inżynierów.</p></div>
             <p class="sg-meta">.lead w hero · 17px · waga tekstu · --gray · max-width 440px</p>
           </div>
           <div class="sg-sample">
@@ -136,7 +147,7 @@
               <span class="drop"><button class="drop-btn" type="button">Drukarki 3D <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button></span>
               <a class="nav-link" href="#header">Serwis</a>
             </div>
-            <p class="sg-meta">Kategoria · 17px / 600 · --stone-700. Link obok dziedziczy --gray.</p>
+            <p class="sg-meta">Górny poziom kategorii · Space Grotesk · 17px / 600 · letter-spacing -0.04em. Powyżej 1500px: 18px i odstęp 64px. Link obok dziedziczy --gray.</p>
           </div>
           <div class="sg-sample">
             <ul class="info-bar sg-info">
@@ -156,7 +167,7 @@
       <div class="sg-wrap">
         <div class="sg-head">
           <h2>Przyciski</h2>
-          <p>Wysokość tekstowych to 48px, promień 8px, waga 600. Najazd przesuwa litery. Tło zmieniają Black Friday i przycisk koszyka.</p>
+          <p>Wysokość tekstowych to 48px, promień 22px, waga 600. Najazd przesuwa litery. Tło zmieniają Black Friday i przycisk koszyka.</p>
         </div>
         <h3 class="sg-sub">Tekstowe</h3>
         <div class="sg-row">
@@ -232,6 +243,18 @@
             <p class="sg-meta"><code>.hero-slider-arrow</code> 36×36 · kropki 7px, aktywna --accent</p>
           </div>
         </div>
+
+        <h3 class="sg-sub">Mini linki</h3>
+        <div class="sg-row">
+          <div class="sg-item">
+            <a class="mini-link" href="#karta">Szczegóły</a>
+            <p class="sg-meta"><code>.mini-link</code><br>13px / 600 · stone 700, strzałka stone 400. Najazd: stone 850.</p>
+          </div>
+          <div class="sg-item">
+            <a class="mini-link" href="#karta">Wszystkie</a>
+            <p class="sg-meta">Ten sam link przy nagłówku sekcji i na karcie produktu.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -239,7 +262,7 @@
       <div class="sg-wrap">
         <div class="sg-head">
           <h2>Karta produktu</h2>
-          <p>Te same klasy składają kartę w sliderze hero i kartę w menu kategorii. W hero cena bez obniżki jest w stone 900. Cena z obniżką zostaje zielona. Gdy cena ma przedrostek „od”, przycisk to Wybierz wariant, a na zdjęciu jest badge z liczbą wariantów.</p>
+          <p>Ta sama karta jest w sliderze i w menu kategorii. Zdjęcie mieści się w ramce. Badge parametrów i wysyłki mają obrys stone 200 i tekst stone 400. Wiersz akcji ma z lewej mini link Szczegóły, z prawej Wybierz wariant albo czerwony Do koszyka. Cena bez obniżki jest w stone 900, cena z obniżką zostaje zielona. Przedrostek „od” daje badge wariantów.</p>
         </div>
         <h3 class="sg-sub">Składowe</h3>
         <div class="sg-parts">
@@ -252,23 +275,25 @@
             <p class="sg-meta"><code>.mega-offer-name</code> 16px w menu<br><code>.hero-slide-name</code> 18px w hero</p>
           </div>
           <div class="sg-part">
-            <ul class="mega-specs">
-              <li><span>Obszar roboczy:</span> 256 × 256 × 256 mm</li>
-              <li><span>Średnica dyszy:</span> 0,4 mm</li>
+            <ul class="product-badges">
+              <li>256×256×256 mm</li>
+              <li>AMS</li>
+              <li>WiFi</li>
+              <li><span class="icon icon-cube" aria-hidden="true"></span> Wysyłamy w 24h</li>
             </ul>
-            <p class="sg-meta"><code>.mega-specs</code><br>12px. Etykieta w --stone-500.</p>
+            <p class="sg-meta"><code>.product-badges</code><br>12px / 500 · tekst stone 400 · obrys stone 200</p>
           </div>
           <div class="sg-part">
             <div class="mega-buy">
               <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
-              <a class="mega-cart" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a>
+              <div class="card-actions"><a class="mini-link card-details" href="index.html#drukarki">Szczegóły</a><a class="mega-cart mega-cart-variant" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a></div>
               <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
             </div>
             <p class="sg-meta"><code>.mega-price</code> <code>.mega-save</code> <code>.mega-low</code></p>
           </div>
         </div>
 
-        <h3 class="sg-sub">Złożone karty</h3>
+        <h3 class="sg-sub">Modele</h3>
         <div class="sg-cards">
           <figure class="sg-item">
             <div class="sg-card-frame">
@@ -278,18 +303,27 @@
                   <span class="variant-count">3 warianty</span>
                 </div>
                 <p class="hero-slide-name">Bambu Lab A1 Combo</p>
-                <ul class="mega-specs">
-                  <li><span>Obszar roboczy:</span> 256 × 256 × 256 mm</li>
-                  <li><span>Średnica dyszy:</span> 0,4 mm</li>
-                </ul>
                 <div class="mega-buy">
                   <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
-                  <a class="mega-cart" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a>
+                  <div class="card-actions"><a class="mini-link card-details" href="index.html#drukarki">Szczegóły</a><a class="mega-cart mega-cart-variant" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a></div>
                   <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
                 </div>
               </article>
             </div>
-            <figcaption class="sg-meta"><code>.hero-slide</code> z obniżką. Cena zielona.</figcaption>
+            <figcaption class="sg-meta">Bez badge parametrów. Cena „od” w promocji, przycisk Wybierz wariant.</figcaption>
+          </figure>
+          <figure class="sg-item">
+            <div class="sg-card-frame">
+              <article class="hero-slide">
+                <img src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab P1S">
+                <p class="hero-slide-name">Bambu Lab P1S</p>
+                <div class="mega-buy">
+                  <p class="mega-price"><span class="mega-amount">2&nbsp;490<sup>00</sup> <span class="mega-currency">zł</span></span></p>
+                  <div class="card-actions"><a class="mini-link card-details" href="index.html#drukarki">Szczegóły</a><button class="mega-cart" type="button"><span class="icon icon-cart" aria-hidden="true"></span> Do koszyka</button></div>
+                </div>
+              </article>
+            </div>
+            <figcaption class="sg-meta">Bez badge i bez wariantów. Cena stała, czerwony Do koszyka.</figcaption>
           </figure>
           <figure class="sg-item">
             <div class="sg-card-frame">
@@ -299,42 +333,81 @@
                   <span class="variant-count">2 warianty</span>
                 </div>
                 <p class="hero-slide-name">Bambu Lab A1</p>
-                <ul class="mega-specs">
-                  <li><span>Obszar roboczy:</span> 256 × 256 × 256 mm</li>
-                  <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                <ul class="product-badges">
+                  <li>256×256×256 mm</li>
+                  <li>AMS</li>
+                  <li>WiFi</li>
+                  <li><span class="icon icon-cube" aria-hidden="true"></span> Wysyłamy w 24h</li>
                 </ul>
                 <div class="mega-buy">
                   <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span></p>
-                  <a class="mega-cart" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a>
+                  <div class="card-actions"><a class="mini-link card-details" href="index.html#drukarki">Szczegóły</a><a class="mega-cart mega-cart-variant" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a></div>
                 </div>
               </article>
             </div>
-            <figcaption class="sg-meta"><code>.hero-slide</code> bez obniżki. Cena stone 900.</figcaption>
+            <figcaption class="sg-meta">Cena „od”, bez promocji. Przycisk Wybierz wariant, kwota w stone 900.</figcaption>
           </figure>
           <figure class="sg-item">
-            <div class="sg-menu-card">
-              <div class="mega-feature">
+            <div class="sg-card-frame">
+              <article class="hero-slide">
                 <div class="product-shot">
-                <img class="mega-photo" src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab A1 Combo">
-                <span class="variant-count">3 warianty</span>
-              </div>
-                <a class="mega-offer" href="index.html#drukarki">
-                  <p class="mega-offer-name">Bambu Lab A1 Combo</p>
-                  <ul class="mega-specs">
-                    <li><span>Technologia druku:</span> FDM</li>
-                    <li><span>Obszar roboczy:</span> 256 × 256 × 256 mm</li>
-                    <li><span>Średnica dyszy:</span> 0,4 mm</li>
-                    <li><span>Interfejsy:</span> Wi-Fi, microSD</li>
-                  </ul>
-                </a>
-                <div class="mega-buy">
-                  <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
-                  <a class="mega-cart" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a>
-                  <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
+                  <img src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab A1 mini">
+                  <span class="variant-count">4 warianty</span>
                 </div>
-              </div>
+                <p class="hero-slide-name">Bambu Lab A1 mini</p>
+                <ul class="product-badges">
+                  <li>180×180×180 mm</li>
+                  <li>AMS</li>
+                  <li>WiFi</li>
+                  <li><span class="icon icon-cube" aria-hidden="true"></span> Wysyłamy w 24h</li>
+                </ul>
+                <div class="mega-buy">
+                  <p class="mega-price"><span class="mega-amount"><small>od</small> 845<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-90&nbsp;zł</span></p>
+                  <div class="card-actions"><a class="mini-link card-details" href="index.html#drukarki">Szczegóły</a><a class="mega-cart mega-cart-variant" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a></div>
+                  <p class="mega-low">Najniższa cena: 935,00&nbsp;zł</p>
+                </div>
+              </article>
             </div>
-            <figcaption class="sg-meta"><code>.mega-feature</code> w menu kategorii.</figcaption>
+            <figcaption class="sg-meta">Cena „od” w promocji. Przycisk Wybierz wariant, kwota zielona.</figcaption>
+          </figure>
+          <figure class="sg-item">
+            <div class="sg-card-frame">
+              <article class="hero-slide">
+                <img src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab P1S">
+                <p class="hero-slide-name">Bambu Lab P1S</p>
+                <ul class="product-badges">
+                  <li>256×256×256 mm</li>
+                  <li>AMS</li>
+                  <li>WiFi</li>
+                  <li><span class="icon icon-cube" aria-hidden="true"></span> Wysyłamy w 24h</li>
+                </ul>
+                <div class="mega-buy">
+                  <p class="mega-price"><span class="mega-amount">2&nbsp;490<sup>00</sup> <span class="mega-currency">zł</span></span></p>
+                  <div class="card-actions"><a class="mini-link card-details" href="index.html#drukarki">Szczegóły</a><button class="mega-cart" type="button"><span class="icon icon-cart" aria-hidden="true"></span> Do koszyka</button></div>
+                </div>
+              </article>
+            </div>
+            <figcaption class="sg-meta">Cena stała, bez „od”. Czerwony Do koszyka, kwota w stone 900.</figcaption>
+          </figure>
+          <figure class="sg-item">
+            <div class="sg-card-frame">
+              <article class="hero-slide">
+                <img src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab X2D Combo">
+                <p class="hero-slide-name">Bambu Lab X2D Combo</p>
+                <ul class="product-badges">
+                  <li>256×256×260 mm</li>
+                  <li>AMS</li>
+                  <li>WiFi</li>
+                  <li><span class="icon icon-cube" aria-hidden="true"></span> Wysyłamy w 24h</li>
+                </ul>
+                <div class="mega-buy">
+                  <p class="mega-price"><span class="mega-amount">3&nbsp;379<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-400&nbsp;zł</span></p>
+                  <div class="card-actions"><a class="mini-link card-details" href="index.html#drukarki">Szczegóły</a><button class="mega-cart" type="button"><span class="icon icon-cart" aria-hidden="true"></span> Do koszyka</button></div>
+                  <p class="mega-low">Najniższa cena: 3&nbsp;779,00&nbsp;zł</p>
+                </div>
+              </article>
+            </div>
+            <figcaption class="sg-meta">Cena w promocji. Czerwony Do koszyka, kwota zielona.</figcaption>
           </figure>
         </div>
       </div>
@@ -474,23 +547,24 @@
                       </div>
                     </div>
                   </div>
-                  <div class="mega-feature">
+                  <div class="mega-feature hero-slide">
                     <div class="product-shot">
-                <img class="mega-photo" src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab A1 Combo">
-                <span class="variant-count">3 warianty</span>
-              </div>
-                    <a class="mega-offer" href="index.html#drukarki">
-                      <p class="mega-offer-name">Bambu Lab A1 Combo</p>
-                      <ul class="mega-specs">
-                        <li><span>Technologia druku:</span> FDM</li>
-                        <li><span>Obszar roboczy:</span> 256 × 256 × 256 mm</li>
-                        <li><span>Średnica dyszy:</span> 0,4 mm</li>
-                        <li><span>Interfejsy:</span> Wi-Fi, microSD</li>
-                      </ul>
-                    </a>
+                      <img src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab A1 Combo">
+                      <span class="variant-count">3 warianty</span>
+                    </div>
+                    <p class="hero-slide-name">Bambu Lab A1 Combo</p>
+                    <ul class="product-badges">
+                      <li>256×256×256 mm</li>
+                      <li>AMS</li>
+                      <li>WiFi</li>
+                      <li><span class="icon icon-cube" aria-hidden="true"></span> Wysyłamy w 24h</li>
+                    </ul>
                     <div class="mega-buy">
                       <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
-                      <a class="mega-cart" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a>
+                      <div class="card-actions">
+                        <a class="mini-link card-details" href="index.html#drukarki">Szczegóły</a>
+                        <a class="mega-cart mega-cart-variant" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a>
+                      </div>
                       <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
                     </div>
                   </div>
@@ -526,10 +600,10 @@
           <div class="wrap hero-layout">
             <div class="hero-copy">
               <span class="eyebrow"><i>nowości</i> drukarki 3D</span>
-              <h1>Druk, który myśli do przodu, dowozi efekt.</h1>
-              <p class="lead">get3D spina pracownię w jeden rytm — drukarki, materiały eksploatacyjne i akcesoria dobrane tak, żeby część schodziła ze stołu za pierwszym razem.</p>
+              <h1>Drukarki 3D, filamenty i akcesoria dla profesjonalistów</h1>
+              <p class="lead">Wybierz sprawdzone drukarki 3D, filamenty, żywice i części zamienne od wiodących producentów. Doradzamy, wdrażamy i serwisujemy rozwiązania do druku 3D dla firm, pracowni i inżynierów.</p>
               <div class="hero-actions">
-                <a class="btn btn-red" href="index.html#cennik">Zacznij</a>
+                <a class="btn btn-red" href="index.html#cennik">Odkryj Drukarki 3D</a>
                 <a class="btn btn-line" href="index.html#o-nas">Poznaj get3D</a>
               </div>
             </div>
@@ -559,13 +633,15 @@
                   <span class="variant-count">3 warianty</span>
                 </div>
                       <p class="hero-slide-name">Bambu Lab A1 Combo</p>
-                      <ul class="mega-specs">
-                        <li><span>Obszar roboczy:</span> 256 × 256 × 256 mm</li>
-                        <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                      <ul class="product-badges">
+                        <li>256×256×256 mm</li>
+                        <li>AMS</li>
+                        <li>WiFi</li>
+                        <li><span class="icon icon-cube" aria-hidden="true"></span> Wysyłamy w 24h</li>
                       </ul>
                       <div class="mega-buy">
                         <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
-                        <a class="mega-cart" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a>
+                        <div class="card-actions"><a class="mini-link card-details" href="index.html#drukarki">Szczegóły</a><a class="mega-cart mega-cart-variant" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a></div>
                         <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
                       </div>
                     </article>
@@ -575,13 +651,15 @@
                   <span class="variant-count">2 warianty</span>
                 </div>
                       <p class="hero-slide-name">Bambu Lab A1</p>
-                      <ul class="mega-specs">
-                        <li><span>Obszar roboczy:</span> 256 × 256 × 256 mm</li>
-                        <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                      <ul class="product-badges">
+                        <li>256×256×256 mm</li>
+                        <li>AMS</li>
+                        <li>WiFi</li>
+                        <li><span class="icon icon-cube" aria-hidden="true"></span> Wysyłamy w 24h</li>
                       </ul>
                       <div class="mega-buy">
                         <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span></p>
-                        <a class="mega-cart" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a>
+                        <div class="card-actions"><a class="mini-link card-details" href="index.html#drukarki">Szczegóły</a><a class="mega-cart mega-cart-variant" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a></div>
                       </div>
                     </article>
                     <article class="hero-slide">
@@ -590,25 +668,29 @@
                       <span class="variant-count">4 warianty</span>
                     </div>
                       <p class="hero-slide-name">Bambu Lab A1 mini</p>
-                      <ul class="mega-specs">
-                        <li><span>Obszar roboczy:</span> 180 × 180 × 180 mm</li>
-                        <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                      <ul class="product-badges">
+                        <li>180×180×180 mm</li>
+                        <li>AMS</li>
+                        <li>WiFi</li>
+                        <li><span class="icon icon-cube" aria-hidden="true"></span> Wysyłamy w 24h</li>
                       </ul>
                       <div class="mega-buy">
                         <p class="mega-price"><span class="mega-amount"><small>od</small> 845<sup>00</sup> <span class="mega-currency">zł</span></span></p>
-                        <a class="mega-cart" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a>
+                        <div class="card-actions"><a class="mini-link card-details" href="index.html#drukarki">Szczegóły</a><a class="mega-cart mega-cart-variant" href="index.html#drukarki"><span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant</a></div>
                       </div>
                     </article>
                     <article class="hero-slide">
                       <img src="assets/drukarka-3d-bambu-lab-a1-combo.png" alt="Drukarka 3D Bambu Lab X2D Combo">
                       <p class="hero-slide-name">Bambu Lab X2D Combo</p>
-                      <ul class="mega-specs">
-                        <li><span>Obszar roboczy:</span> 256 × 256 × 260 mm</li>
-                        <li><span>Średnica dyszy:</span> 0,4 mm</li>
+                      <ul class="product-badges">
+                        <li>256×256×260 mm</li>
+                        <li>AMS</li>
+                        <li>WiFi</li>
+                        <li><span class="icon icon-cube" aria-hidden="true"></span> Wysyłamy w 24h</li>
                       </ul>
                       <div class="mega-buy">
                         <p class="mega-price"><span class="mega-amount">3&nbsp;379<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-400&nbsp;zł</span></p>
-                        <button class="mega-cart" type="button" aria-label="Dodaj do koszyka"><span class="icon icon-cart" aria-hidden="true"></span> Do koszyka</button>
+                        <div class="card-actions"><a class="mini-link card-details" href="index.html#drukarki">Szczegóły</a><button class="mega-cart" type="button" aria-label="Dodaj do koszyka"><span class="icon icon-cart" aria-hidden="true"></span> Do koszyka</button></div>
                         <p class="mega-low">Najniższa cena: 3&nbsp;779,00&nbsp;zł</p>
                       </div>
                     </article>

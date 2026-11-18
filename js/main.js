@@ -219,12 +219,44 @@
     let timer = 0;
     let trail = [];
 
+    const menuHeight = () => {
+      const side = mega.querySelector(".mega-side");
+      const card = drop.querySelector(".mega-feature");
+      if (!side || !card || mobileNav()) return;
+      const sideStyle = getComputedStyle(side);
+      const names = [...side.querySelectorAll(":scope > .mega-all, :scope > .mega-branch > .mega-name")];
+      if (!names.length || names[0].offsetHeight === 0) return;
+      const namesH = names.reduce((sum, item) => sum + item.offsetHeight, 0);
+      const sidePad = parseFloat(sideStyle.paddingTop) + parseFloat(sideStyle.paddingBottom);
+      const kids = mega.querySelector(".mega-branch.is-current > .mega-kids");
+      let kidsH = 0;
+      if (kids) {
+        const kidsStyle = getComputedStyle(kids);
+        const gap = parseFloat(kidsStyle.rowGap) || 0;
+        const items = [...kids.children];
+        kidsH = items.reduce((sum, item) => sum + item.offsetHeight, 0)
+          + Math.max(0, items.length - 1) * gap
+          + parseFloat(kidsStyle.paddingTop)
+          + parseFloat(kidsStyle.paddingBottom);
+      }
+      const panel = card.offsetParent;
+      const panelStyle = getComputedStyle(panel);
+      const cardTop = parseFloat(getComputedStyle(card).top) || 0;
+      const above = cardTop - (parseFloat(panelStyle.paddingTop) || 0);
+      const below = cardTop - (parseFloat(panelStyle.paddingBottom) || 0);
+      const menuH = Math.max(namesH + sidePad, kidsH);
+      const fitted = card.offsetHeight + above + below;
+      mega.style.minHeight = `${Math.max(menuH, fitted)}px`;
+    };
     const setCurrent = (branch) => {
       current = branch;
       pending = null;
       branches.forEach((item) => item.classList.toggle("is-current", item === branch));
+      requestAnimationFrame(menuHeight);
     };
     setCurrent(first);
+    drop.addEventListener("mouseenter", () => requestAnimationFrame(menuHeight));
+    window.addEventListener("resize", menuHeight);
 
     const towardSubmenu = () => {
       if (trail.length < 2) return false;
@@ -480,7 +512,7 @@
       nav.classList.add("is-away");
       window.clearTimeout(compactTimer);
       compactTimer = window.setTimeout(() => {
-        if (!nav.classList.contains("is-away") || window.scrollY <= 4) return;
+        if (!nav.classList.contains("is-away") || window.scrollY <= dockedHeight) return;
         nav.classList.add("is-compact");
         quietMenus();
       }, hideDelay);
@@ -491,16 +523,22 @@
   };
   const updateHeader = () => {
     const y = window.scrollY;
+    const parked = nav.classList.contains("is-away") || nav.classList.contains("is-compact");
+    if (!mobileNav() && parked && y <= dockedHeight) {
+      dockHeader();
+      dockedHeight = nav.offsetHeight;
+      scrollAnchor = y;
+      return;
+    }
     if (y <= 4) {
       dockHeader();
       dockedHeight = nav.offsetHeight;
       scrollAnchor = y;
       return;
     }
-    const parked = nav.classList.contains("is-away") || nav.classList.contains("is-compact");
     if (!parked) dockedHeight = nav.offsetHeight;
     if (y > scrollAnchor + 12) {
-      if (!nav.classList.contains("is-away") && y >= dockedHeight) beginHide(mobileNav());
+      if (!nav.classList.contains("is-away") && y > dockedHeight) beginHide(mobileNav());
       else if (nav.classList.contains("is-away")) hideCompactMenu();
       scrollAnchor = y;
     } else if (y < scrollAnchor - 12) {
@@ -896,24 +934,185 @@
     const track = heroSlider.querySelector(".hero-slider-track");
     const slides = [...track.children];
     const dots = [...heroSlider.querySelectorAll("[data-hero-go]")];
+    const viewport = heroSlider.querySelector(".hero-slider-viewport");
+    const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const canHover = window.matchMedia("(hover: hover)").matches;
     let heroIndex = 0;
-    const showHero = (next) => {
-      heroIndex = (next + slides.length) % slides.length;
-      track.style.transform = `translateX(${-heroIndex * 100}%)`;
+    let heroDrag = 0;
+    let heroTimer = 0;
+    let heroPaused = false;
+    let heroGrab = null;
+    const wrapDiff = (diff) => {
+      const count = slides.length;
+      let value = ((diff % count) + count) % count;
+      if (value > count / 2) value -= count;
+      return value;
+    };
+    const placeHero = () => {
+      let nearest = heroIndex;
+      let nearestDistance = Infinity;
+      const offsets = slides.map((_, index) => {
+        const offset = wrapDiff(index - heroIndex) - heroDrag;
+        const distance = Math.abs(offset);
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
+          nearest = index;
+        }
+        return offset;
+      });
+      slides.forEach((slide, index) => {
+        const offset = offsets[index];
+        const distance = Math.abs(offset);
+        const current = index === nearest;
+        const amount = Math.min(distance, 1);
+        const towardNext = offset > 0;
+        slide.classList.toggle("is-current", current);
+        slide.setAttribute("aria-hidden", current ? "false" : "true");
+        slide.style.zIndex = String(20 - Math.round(distance));
+        slide.style.pointerEvents = current && !heroGrab ? "auto" : "none";
+        if (!motionOk) {
+          slide.style.transform = "none";
+          slide.style.opacity = current ? "1" : "0";
+          slide.style.setProperty("--hero-shade", "0");
+          return;
+        }
+        const tx = ((towardNext ? 5 : -5) / 100) * slide.offsetWidth * amount;
+        const tz = -200 * amount;
+        const ry = (towardNext ? -100 : 100) * amount;
+        if (amount > 0.001) slide.style.transformOrigin = towardNext ? "right center" : "left center";
+        slide.style.opacity = distance > 1 ? "0" : "1";
+        slide.style.setProperty("--hero-shade", offset < 0 ? String(amount) : "0");
+        slide.style.transform = `perspective(1200px) translate3d(${tx}px, 0px, ${tz}px) rotateX(0deg) rotateY(${ry}deg) rotateZ(0deg)`;
+      });
+      track.style.height = `${slides[nearest].offsetHeight}px`;
+      syncStageHeight();
       dots.forEach((dot, index) => {
-        const on = index === heroIndex;
+        const on = index === nearest;
         dot.classList.toggle("is-on", on);
         if (on) dot.setAttribute("aria-current", "true");
         else dot.removeAttribute("aria-current");
       });
     };
+    const stopHero = () => {
+      window.clearInterval(heroTimer);
+      heroTimer = 0;
+    };
+    const startHero = () => {
+      stopHero();
+      if (heroPaused || !motionOk || document.hidden || slides.length < 2) return;
+      heroTimer = window.setInterval(() => showHero(heroIndex + 1), 5000);
+    };
+    const showHero = (next) => {
+      heroIndex = ((next % slides.length) + slides.length) % slides.length;
+      heroDrag = 0;
+      heroSlider.classList.add("is-ready");
+      placeHero();
+    };
+    const releaseHero = (event) => {
+      if (!heroGrab || event.pointerId !== heroGrab.id) return;
+      const moved = heroGrab.moved;
+      const velocity = heroGrab.velocity;
+      heroGrab = null;
+      viewport.classList.remove("is-grabbing");
+      slides.forEach((slide) => { slide.style.transition = ""; });
+      let shift = 0;
+      if (heroDrag > 0.5) shift = Math.max(1, Math.round(heroDrag));
+      else if (heroDrag < -0.5) shift = Math.min(-1, Math.round(heroDrag));
+      else if (heroDrag > 0.06 && velocity < -0.4) shift = 1;
+      else if (heroDrag < -0.06 && velocity > 0.4) shift = -1;
+      if (moved) viewport.dataset.heroSwiped = "1";
+      showHero(heroIndex + shift);
+      startHero();
+    };
+    viewport.addEventListener("dragstart", (event) => event.preventDefault());
+    viewport.addEventListener("pointerdown", (event) => {
+      if (event.button !== 0 || slides.length < 2) return;
+      if (event.target.closest("button, .mega-cart")) return;
+      heroGrab = {
+        id: event.pointerId,
+        x: event.clientX,
+        drag: heroDrag,
+        moved: false,
+        velocity: 0,
+        lastX: event.clientX,
+        lastT: performance.now()
+      };
+      viewport.setPointerCapture(event.pointerId);
+      viewport.classList.add("is-grabbing");
+      slides.forEach((slide) => { slide.style.transition = "none"; });
+      stopHero();
+    });
+    viewport.addEventListener("pointermove", (event) => {
+      if (!heroGrab || event.pointerId !== heroGrab.id) return;
+      const dx = event.clientX - heroGrab.x;
+      if (Math.abs(dx) > 5) heroGrab.moved = true;
+      const now = performance.now();
+      const dt = now - heroGrab.lastT;
+      if (dt > 0) heroGrab.velocity = (event.clientX - heroGrab.lastX) / dt;
+      heroGrab.lastX = event.clientX;
+      heroGrab.lastT = now;
+      heroDrag = heroGrab.drag - dx / (viewport.offsetWidth || 1);
+      placeHero();
+    });
+    viewport.addEventListener("pointerup", releaseHero);
+    viewport.addEventListener("pointercancel", releaseHero);
+    viewport.addEventListener("click", (event) => {
+      if (viewport.dataset.heroSwiped !== "1") return;
+      delete viewport.dataset.heroSwiped;
+      event.preventDefault();
+      event.stopPropagation();
+    }, true);
     heroSlider.querySelectorAll("[data-hero-dir]").forEach((button) => {
       button.addEventListener("click", () => showHero(heroIndex + Number(button.dataset.heroDir)));
     });
     dots.forEach((dot) => {
       dot.addEventListener("click", () => showHero(Number(dot.dataset.heroGo)));
     });
+    if (canHover) {
+      heroSlider.addEventListener("mouseenter", () => {
+        heroPaused = true;
+        stopHero();
+      });
+      heroSlider.addEventListener("mouseleave", () => {
+        heroPaused = false;
+        startHero();
+      });
+    }
+    heroSlider.addEventListener("focusin", () => {
+      heroPaused = true;
+      stopHero();
+    });
+    heroSlider.addEventListener("focusout", (event) => {
+      if (heroSlider.contains(event.relatedTarget)) return;
+      heroPaused = false;
+      startHero();
+    });
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) stopHero();
+      else startHero();
+    });
+    const stage = document.querySelector(".hero-stage");
+    const sliderBar = heroSlider.querySelector(".hero-slider-bar");
+    const desktopHero = window.matchMedia("(min-width: 981px)");
+    const syncStageHeight = () => {
+      if (!stage) return;
+      if (!desktopHero.matches) {
+        stage.style.height = "";
+        stage.style.minHeight = "";
+        stage.style.alignSelf = "";
+        return;
+      }
+      const tallest = Math.max(...slides.map((slide) => slide.offsetHeight));
+      const nav = sliderBar ? sliderBar.offsetHeight : 0;
+      const height = tallest + nav;
+      stage.style.height = `${height}px`;
+      stage.style.minHeight = `${height}px`;
+      stage.style.alignSelf = "start";
+    };
+    window.addEventListener("resize", syncStageHeight);
+    if (document.fonts) document.fonts.ready.then(syncStageHeight);
     showHero(0);
+    startHero();
   }
 
   renderCart();

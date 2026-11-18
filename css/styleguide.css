@@ -89,10 +89,11 @@
   gap: 10px 28px;
   margin: 0;
   color: var(--ink);
-  font-family: var(--display);
+  font-family: var(--sans);
   font-size: 22px;
   line-height: 1.2;
 }
+.sg-weights-heading { font-family: var(--heading); letter-spacing: -0.04em; }
 .sg-info.info-bar {
   justify-content: flex-start;
   width: max-content;
@@ -198,11 +199,12 @@
   gap: 18px;
   margin-top: 16px;
 }
+.sg-cards .sg-item { width: 320px; }
 .sg-card-frame {
   width: 320px;
   background: #fff;
   border: 1px solid var(--stone-200);
-  border-radius: var(--radius);
+  border-radius: 22px;
   overflow: hidden;
 }
 .sg-card-frame .hero-slide { flex: none; width: 100%; }
@@ -277,7 +279,10 @@
   .sg-scroll .nav { min-width: 1180px; padding: 0 0 18px; }
   .sg-scroll .info-bar {
     display: flex;
-    padding: 12px max(30px, calc((100% - var(--container)) / 2));
+    width: calc(100% - 40px);
+    margin: 0 20px;
+    padding: 12px max(16px, calc((100% - 1500px) / 2 - 20px));
+    border-radius: 0 0 22px 22px;
   }
   .sg-scroll .nav-top {
     display: grid;
@@ -300,14 +305,14 @@
   .sg-scroll .nav-tools { grid-column: 3; }
   .sg-scroll .cat-bar {
     display: flex;
-    width: min(var(--container), calc(100% - 60px));
-    margin: 0 auto;
+    width: calc(100% - 40px);
+    margin: 0 20px;
     align-items: center;
     gap: 12px;
     min-height: 64px;
-    padding: 10px 10px 10px 20px;
+    padding: 10px max(10px, calc((100% - 1500px) / 2 - 20px));
     background: var(--stone-100);
-    border-radius: var(--radius);
+    border-radius: 22px;
   }
   .sg-scroll .bf-cta { margin-left: auto; }
   .sg-scroll .nav-cats {
@@ -354,10 +359,10 @@
     inset: auto;
     top: calc(100% + 10px);
     left: 0;
-    width: min(712px, 100%);
+    width: min(860px, calc(100vw - 32px));
     height: auto;
     padding: 8px;
-    border-radius: 0 0 var(--radius) var(--radius);
+    border-radius: 0 0 22px 22px;
     box-shadow: var(--shadow);
     overflow: visible;
     visibility: visible;
@@ -370,9 +375,9 @@
   .sg-scroll .mega {
     display: grid;
     grid-template-columns: 240px minmax(0, 1fr);
-    height: 468px;
-    min-height: 468px;
-    max-height: 468px;
+    height: auto;
+    min-height: 0;
+    max-height: none;
     overflow: hidden;
   }
   .sg-scroll .mega-side {
@@ -392,7 +397,7 @@
     display: none;
     position: absolute;
     top: 0;
-    right: 214px;
+    right: 348px;
     bottom: 0;
     left: 240px;
     padding: 18px 22px;
