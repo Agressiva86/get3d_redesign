@@ -93,7 +93,7 @@
   font-size: 22px;
   line-height: 1.2;
 }
-.sg-weights-heading { font-family: var(--heading); letter-spacing: -0.04em; }
+.sg-weights-heading { font-family: var(--heading); letter-spacing: 0; }
 .sg-info.info-bar {
   justify-content: flex-start;
   width: max-content;

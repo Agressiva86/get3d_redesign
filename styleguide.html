@@ -8,8 +8,8 @@
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/geist-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/space-grotesk-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/familjen-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/familjen-grotesk-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/styleguide.css">
 </head>
@@ -33,28 +33,42 @@
   <main id="tresc">
     <header class="sg-intro sg-wrap">
       <h1>Styleguide</h1>
-      <p class="lead">Typografia, kolory i komponenty z branchu main, które zostają przy przebudowie: przyciski, karta produktu, header i hero.</p>
+      <p class="lead">Typografia, kolory i komponenty strony: przyciski z kwadratem ikony, karta produktu, header i hero.</p>
     </header>
 
     <section class="sg-block" id="kolory">
       <div class="sg-wrap">
         <div class="sg-head">
           <h2>Kolory</h2>
-          <p>Skala stone zasila tekst, tła i linie. Akcent i zieleń ceny stoją obok tej skali.</p>
+          <p>Stone wychodzi z #150029, czerwień z koloru logo #e1415a. Akcent to red 500, ciemniejszy stopień to red 600. Zieleń ceny stoi obok tych skal.</p>
         </div>
         <h3 class="sg-sub">Skala stone</h3>
         <ul class="sg-colors">
-          <li><i style="background: var(--stone-50)"></i><div><strong>50</strong><span>--stone-50</span><span>#fafaf9</span></div></li>
-          <li><i style="background: var(--stone-100)"></i><div><strong>100</strong><span>--stone-100</span><span>#f5f5f4</span></div></li>
-          <li><i style="background: var(--stone-200)"></i><div><strong>200</strong><span>--stone-200</span><span>#e7e5e4</span></div></li>
-          <li><i style="background: var(--stone-300)"></i><div><strong>300</strong><span>--stone-300</span><span>#d6d3d1</span></div></li>
-          <li><i style="background: var(--stone-400)"></i><div><strong>400</strong><span>--stone-400</span><span>#a6a09b</span></div></li>
-          <li><i style="background: var(--stone-500)"></i><div><strong>500</strong><span>--stone-500</span><span>#79716b</span></div></li>
-          <li><i style="background: var(--stone-600)"></i><div><strong>600</strong><span>--stone-600</span><span>#57534d</span></div></li>
-          <li><i style="background: var(--stone-700)"></i><div><strong>700</strong><span>--stone-700</span><span>#44403b</span></div></li>
-          <li><i style="background: var(--stone-800)"></i><div><strong>800</strong><span>--stone-800</span><span>#292524</span></div></li>
-          <li><i style="background: var(--stone-900)"></i><div><strong>900</strong><span>--stone-900</span><span>#1c1917</span></div></li>
-          <li><i style="background: var(--stone-950)"></i><div><strong>950</strong><span>--stone-950</span><span>#0c0a09</span></div></li>
+          <li><i style="background: var(--stone-50)"></i><div><strong>50</strong><span>--stone-50</span><span>#faf9fa</span></div></li>
+          <li><i style="background: var(--stone-100)"></i><div><strong>100</strong><span>--stone-100</span><span>#f4f3f6</span></div></li>
+          <li><i style="background: var(--stone-200)"></i><div><strong>200</strong><span>--stone-200</span><span>#e7e5ea</span></div></li>
+          <li><i style="background: var(--stone-300)"></i><div><strong>300</strong><span>--stone-300</span><span>#d4d1da</span></div></li>
+          <li><i style="background: var(--stone-400)"></i><div><strong>400</strong><span>--stone-400</span><span>#a49caf</span></div></li>
+          <li><i style="background: var(--stone-500)"></i><div><strong>500</strong><span>--stone-500</span><span>#786d88</span></div></li>
+          <li><i style="background: var(--stone-600)"></i><div><strong>600</strong><span>--stone-600</span><span>#5a4c6d</span></div></li>
+          <li><i style="background: var(--stone-700)"></i><div><strong>700</strong><span>--stone-700</span><span>#48395d</span></div></li>
+          <li><i style="background: var(--stone-800)"></i><div><strong>800</strong><span>--stone-800</span><span>#2d1b42</span></div></li>
+          <li><i style="background: var(--stone-900)"></i><div><strong>900</strong><span>--stone-900</span><span>#220d37</span></div></li>
+          <li><i style="background: var(--stone-950)"></i><div><strong>950</strong><span>--stone-950</span><span>#150029</span></div></li>
+        </ul>
+        <h3 class="sg-sub">Skala czerwieni</h3>
+        <ul class="sg-colors">
+          <li><i style="background: var(--red-50)"></i><div><strong>50</strong><span>--red-50</span><span>#fff1f1</span></div></li>
+          <li><i style="background: var(--red-100)"></i><div><strong>100</strong><span>--red-100</span><span>#ffe1e2</span></div></li>
+          <li><i style="background: var(--red-200)"></i><div><strong>200</strong><span>--red-200</span><span>#fdcacb</span></div></li>
+          <li><i style="background: var(--red-300)"></i><div><strong>300</strong><span>--red-300</span><span>#f9a6aa</span></div></li>
+          <li><i style="background: var(--red-400)"></i><div><strong>400</strong><span>--red-400</span><span>#ee747e</span></div></li>
+          <li><i style="background: var(--red-500)"></i><div><strong>500</strong><span>--red-500 · --accent</span><span>#e1415a</span></div></li>
+          <li><i style="background: var(--red-600)"></i><div><strong>600</strong><span>--red-600 · --accent-deep</span><span>#cf3b52</span></div></li>
+          <li><i style="background: var(--red-700)"></i><div><strong>700</strong><span>--red-700</span><span>#ac3043</span></div></li>
+          <li><i style="background: var(--red-800)"></i><div><strong>800</strong><span>--red-800</span><span>#912637</span></div></li>
+          <li><i style="background: var(--red-900)"></i><div><strong>900</strong><span>--red-900</span><span>#7b1f2e</span></div></li>
+          <li><i style="background: var(--red-950)"></i><div><strong>950</strong><span>--red-950</span><span>#430d15</span></div></li>
         </ul>
 
         <h3 class="sg-sub">Role</h3>
@@ -64,8 +78,8 @@
           <li><i style="background: var(--gray)"></i><div><strong>Tekst</strong><span>--gray · stone 600</span><span>Akapity</span></div></li>
           <li><i style="background: var(--muted)"></i><div><strong>Wyciszone</strong><span>--muted · stone 500</span><span>Parametry, dopiski</span></div></li>
           <li><i style="background: var(--line)"></i><div><strong>Linia</strong><span>--line · stone 200</span><span>Obramowania</span></div></li>
-          <li><i style="background: var(--accent)"></i><div><strong>Akcent</strong><span>--accent</span><span>#ff2055</span></div></li>
-          <li><i style="background: var(--accent-deep)"></i><div><strong>Akcent ciemny</strong><span>--accent-deep</span><span>#e00040</span></div></li>
+          <li><i style="background: var(--accent)"></i><div><strong>Akcent</strong><span>--accent · red 500</span><span>#e1415a</span></div></li>
+          <li><i style="background: var(--accent-deep)"></i><div><strong>Akcent ciemny</strong><span>--accent-deep · red 600</span><span>#cf3b52</span></div></li>
           <li><i style="background: #25a244"></i><div><strong>Cena</strong><span>#25a244</span><span>Promocja na karcie</span></div></li>
           <li><i style="background: rgba(37, 162, 68, 0.12)"></i><div><strong>Tło obniżki</strong><span>rgba(37, 162, 68, 0.12)</span><span>Plakietka .mega-save</span></div></li>
         </ul>
@@ -76,7 +90,7 @@
           <div class="sg-radius">promień 8px</div>
           <div class="sg-shadow">cień karty</div>
         </div>
-        <p class="sg-meta" style="margin-top: 10px"><code>--radius: 8px</code> <code>--shadow: 0 18px 50px rgba(28, 26, 23, 0.08)</code></p>
+        <p class="sg-meta" style="margin-top: 10px"><code>--radius: 8px</code> <code>--shadow: 0 18px 50px rgba(21, 0, 41, 0.08)</code></p>
       </div>
     </section>
 
@@ -84,7 +98,7 @@
       <div class="sg-wrap">
         <div class="sg-head">
           <h2>Typografia</h2>
-          <p>Tekst, przyciski i interfejs używają Geist. Nagłówki oraz górny poziom menu kategorii używają Space Grotesk. Zapasem jest Arial. Geist ma wagi 100–900 i kursywę. Space Grotesk ma wagi 300–700, bez kursywy.</p>
+          <p>Tekst i interfejs używają Geist. Nagłówki, przyciski oraz górny poziom menu kategorii używają Familjen Grotesk. Zapasem jest Arial. Geist ma wagi 100–900 i kursywę. Familjen Grotesk ma wagi 400–700 i kursywę.</p>
         </div>
         <h3 class="sg-sub">Geist</h3>
         <div class="sg-sample">
@@ -92,18 +106,18 @@
             <span style="font-weight: 300">300 tekst</span>
             <span style="font-weight: 400">400 UI</span>
             <span style="font-weight: 500">500 dopisek</span>
-            <span style="font-weight: 600">600 przycisk</span>
+            <span style="font-weight: 600">600 menu</span>
           </p>
-          <p class="sg-meta">--sans, --display i --serif. 300 to tekst strony. 500 to „od” i waluta w cenie. 600 to przyciski, nazwy produktów i pozycje wewnątrz menu.</p>
+          <p class="sg-meta">--sans, --display i --serif. 300 to tekst strony. 400–600 zostają w interfejsie, który nie jest nagłówkiem ani przyciskiem: pasek informacyjny, linki wewnątrz menu, badge parametrów.</p>
         </div>
-        <h3 class="sg-sub">Space Grotesk</h3>
+        <h3 class="sg-sub">Familjen Grotesk</h3>
         <div class="sg-sample">
           <p class="sg-weights sg-weights-heading">
             <span style="font-weight: 500">500</span>
             <span style="font-weight: 600">600 nagłówek</span>
             <span style="font-weight: 700">700</span>
           </p>
-          <p class="sg-meta">--heading. Nagłówki h1–h6 oraz przyciski i linki górnego paska kategorii. Letter-spacing -0.04em. Wyróżnienie <em>kursywą</em> w nagłówku przechodzi na Geist, bo Space Grotesk nie ma kursywy.</p>
+          <p class="sg-meta">--heading. Nagłówki h1–h6, przyciski, górny pasek kategorii, nazwy kategorii i kolumn w menu, nazwy produktów, ceny i link „Szczegóły”. Letter-spacing 0. Wyróżnienie <em>kursywą</em> w nagłówku zostaje w Familjen Grotesk. Przyciski mają wagę 500.</p>
         </div>
 
         <h3 class="sg-sub">Skala</h3>
@@ -124,7 +138,7 @@
           </div>
           <div class="sg-sample">
             <h2>Druk <em>spokojny i powtarzalny</em></h2>
-            <p class="sg-meta">em w nagłówku · kursywa Geist · ta sama waga. Reszta nagłówka zostaje w Space Grotesk.</p>
+            <p class="sg-meta">em w nagłówku · kursywa Familjen Grotesk · ta sama waga.</p>
           </div>
           <div class="sg-sample">
             <h3>Maszyny, które kończą wydruk</h3>
@@ -147,7 +161,7 @@
               <span class="drop"><button class="drop-btn" type="button">Drukarki 3D <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button></span>
               <a class="nav-link" href="#header">Serwis</a>
             </div>
-            <p class="sg-meta">Górny poziom kategorii · Space Grotesk · 17px / 600 · letter-spacing -0.04em. Powyżej 1500px: 18px i odstęp 64px. Link obok dziedziczy --gray.</p>
+            <p class="sg-meta">Górny poziom kategorii · Familjen Grotesk · 17px / 600 · letter-spacing 0. Powyżej 1500px: 18px i odstęp 64px. Link obok dziedziczy --gray.</p>
           </div>
           <div class="sg-sample">
             <ul class="info-bar sg-info">
@@ -157,7 +171,7 @@
           </div>
           <div class="sg-sample">
             <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span></p>
-            <p class="sg-meta">Cena · 26px / 600. „od” 13px / 500, grosze 12px, waluta 14px / 500.</p>
+            <p class="sg-meta">Cena · Familjen Grotesk · 26px / 600. „od” 13px / 500, grosze 12px, waluta 14px / 500.</p>
           </div>
         </div>
       </div>
@@ -167,25 +181,25 @@
       <div class="sg-wrap">
         <div class="sg-head">
           <h2>Przyciski</h2>
-          <p>Wysokość tekstowych to 48px, promień 22px, waga 600. Najazd przesuwa litery. Tło zmieniają Black Friday i przycisk koszyka.</p>
+          <p>Familjen Grotesk, waga 500, letter-spacing 0. Promień to 25% wysokości: 13 px przy 52 px, 12 px przy 48 px, 10 px przy 40 px. Tekst stoi z lewej, z prawej biały zaokrąglony kwadrat z ikoną. Strzałka idzie na skos w dół i w prawo. Najazd zmienia tło: ciemny przycisk na --accent, czerwony, Black Friday i „Kup teraz” na --dark-2. Linki tekstowe zostają tekstem ze strzałką.</p>
         </div>
         <h3 class="sg-sub">Tekstowe</h3>
         <div class="sg-row">
           <div class="sg-item">
             <a class="btn btn-red" href="#hero">Zacznij</a>
-            <p class="sg-meta"><code>.btn.btn-red</code><br>Akcja główna · --accent</p>
+            <p class="sg-meta"><code>.btn.btn-red</code><br>52 px · --accent. Najazd: --dark-2</p>
           </div>
           <div class="sg-item">
             <a class="btn btn-line" href="#hero">Poznaj get3D</a>
-            <p class="sg-meta"><code>.btn.btn-line</code><br>Druga akcja · obrys stone 300</p>
+            <p class="sg-meta"><code>.btn.btn-line</code><br>Link tekstowy ze strzałką. Najazd: --accent</p>
           </div>
           <div class="sg-item">
             <a class="btn btn-dark" href="#header">Porozmawiajmy</a>
-            <p class="sg-meta"><code>.btn.btn-dark</code><br>Ciemna akcja · --dark-2</p>
+            <p class="sg-meta"><code>.btn.btn-dark</code><br>52 px · --dark-2. Najazd: --accent</p>
           </div>
           <div class="sg-item">
             <a class="bf-cta" href="#header"><span class="icon icon-fire" aria-hidden="true"></span>Black Friday</a>
-            <p class="sg-meta"><code>.bf-cta</code><br>Kampania w pasku kategorii. Najazd: --accent-deep</p>
+            <p class="sg-meta"><code>.bf-cta</code><br>48 px · ikona ognia w kwadracie. Najazd: --dark-2</p>
           </div>
         </div>
 
@@ -201,7 +215,7 @@
           </div>
           <div class="sg-item">
             <button class="cart-outline" type="button">Przejdź do koszyka</button>
-            <p class="sg-meta"><code>.cart-outline</code><br>Obrys jak .btn-line, bez strzałki</p>
+            <p class="sg-meta"><code>.cart-outline</code><br>Pełna szerokość · obrys stone 300 · bez kwadratu ikony</p>
           </div>
           <div class="sg-item">
             <div class="nav-tools sg-tools">
@@ -222,8 +236,8 @@
         <h3 class="sg-sub">Z hero i karty</h3>
         <div class="sg-row">
           <div class="sg-item">
-            <button class="mega-cart" type="button" aria-label="Dodaj do koszyka"><span class="icon icon-cart" aria-hidden="true"></span> Do koszyka</button>
-            <p class="sg-meta"><code>.mega-cart</code><br>40×40. Najazd wypełnia --accent.</p>
+            <button class="mega-cart" type="button" aria-label="Kup teraz"><span class="icon icon-cart" aria-hidden="true"></span> Kup teraz</button>
+            <p class="sg-meta"><code>.mega-cart</code><br>40 px, szerokość treści. Koszyk w kwadracie. Najazd: --dark-2. „Wybierz wariant” jest stone 700 i też ma szerokość treści.</p>
           </div>
           <div class="sg-item">
             <a class="hero-orbit" href="#hero" aria-label="Zobacz katalog drukarek"><span class="icon icon-arrow-corner" aria-hidden="true"></span></a>
@@ -248,7 +262,7 @@
         <div class="sg-row">
           <div class="sg-item">
             <a class="mini-link" href="#karta">Szczegóły</a>
-            <p class="sg-meta"><code>.mini-link</code><br>13px / 600 · stone 700, strzałka stone 400. Najazd: stone 850.</p>
+            <p class="sg-meta"><code>.mini-link</code><br>Familjen Grotesk · 13px / 600 · stone 700, strzałka na skos. Najazd: stone 850.</p>
           </div>
           <div class="sg-item">
             <a class="mini-link" href="#karta">Wszystkie</a>
@@ -262,7 +276,7 @@
       <div class="sg-wrap">
         <div class="sg-head">
           <h2>Karta produktu</h2>
-          <p>Ta sama karta jest w sliderze i w menu kategorii. Zdjęcie mieści się w ramce. Badge parametrów i wysyłki mają obrys stone 200 i tekst stone 400. Wiersz akcji ma z lewej mini link Szczegóły, z prawej Wybierz wariant albo czerwony Do koszyka. Cena bez obniżki jest w stone 900, cena z obniżką zostaje zielona. Przedrostek „od” daje badge wariantów.</p>
+          <p>Ta sama karta jest w sliderze i w menu kategorii. Zdjęcie mieści się w ramce. Badge parametrów i wysyłki mają obrys stone 200 i tekst stone 400. Wiersz akcji ma z lewej mini link Szczegóły, z prawej Wybierz wariant albo czerwony „Kup teraz”. Cena bez obniżki jest w stone 900, cena z obniżką zostaje zielona. Przedrostek „od” daje badge wariantów.</p>
         </div>
         <h3 class="sg-sub">Składowe</h3>
         <div class="sg-parts">
@@ -272,7 +286,7 @@
           </div>
           <div class="sg-part">
             <p class="mega-offer-name">Bambu Lab A1 Combo</p>
-            <p class="sg-meta"><code>.mega-offer-name</code> 16px w menu<br><code>.hero-slide-name</code> 18px w hero</p>
+            <p class="sg-meta"><code>.mega-offer-name</code> Familjen Grotesk · 16px w menu<br><code>.hero-slide-name</code> Familjen Grotesk · 18px w hero</p>
           </div>
           <div class="sg-part">
             <ul class="product-badges">
@@ -321,11 +335,11 @@
                 <p class="hero-slide-name">Bambu Lab P1S</p>
                 <div class="mega-buy">
                   <p class="mega-price"><span class="mega-amount">2&nbsp;490<sup>00</sup> <span class="mega-currency">zł</span></span></p>
-                  <div class="card-actions"><a class="mini-link card-details" href="index.html#drukarki">Szczegóły</a><button class="mega-cart" type="button"><span class="icon icon-cart" aria-hidden="true"></span> Do koszyka</button></div>
+                  <div class="card-actions"><a class="mini-link card-details" href="index.html#drukarki">Szczegóły</a><button class="mega-cart" type="button"><span class="icon icon-cart" aria-hidden="true"></span> Kup teraz</button></div>
                 </div>
               </article>
             </div>
-            <figcaption class="sg-meta">Bez badge i bez wariantów. Cena stała, czerwony Do koszyka.</figcaption>
+            <figcaption class="sg-meta">Bez badge i bez wariantów. Cena stała, czerwony „Kup teraz”.</figcaption>
           </figure>
           <figure class="sg-item">
             <div class="sg-card-frame">
@@ -387,11 +401,11 @@
                 </ul>
                 <div class="mega-buy">
                   <p class="mega-price"><span class="mega-amount">2&nbsp;490<sup>00</sup> <span class="mega-currency">zł</span></span></p>
-                  <div class="card-actions"><a class="mini-link card-details" href="index.html#drukarki">Szczegóły</a><button class="mega-cart" type="button"><span class="icon icon-cart" aria-hidden="true"></span> Do koszyka</button></div>
+                  <div class="card-actions"><a class="mini-link card-details" href="index.html#drukarki">Szczegóły</a><button class="mega-cart" type="button"><span class="icon icon-cart" aria-hidden="true"></span> Kup teraz</button></div>
                 </div>
               </article>
             </div>
-            <figcaption class="sg-meta">Cena stała, bez „od”. Czerwony Do koszyka, kwota w stone 900.</figcaption>
+            <figcaption class="sg-meta">Cena stała, bez „od”. Czerwony „Kup teraz”, kwota w stone 900.</figcaption>
           </figure>
           <figure class="sg-item">
             <div class="sg-card-frame">
@@ -408,12 +422,12 @@
                 </ul>
                 <div class="mega-buy">
                   <p class="mega-price"><span class="mega-amount">3&nbsp;379<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-400&nbsp;zł</span></p>
-                  <div class="card-actions"><a class="mini-link card-details" href="index.html#drukarki">Szczegóły</a><button class="mega-cart" type="button"><span class="icon icon-cart" aria-hidden="true"></span> Do koszyka</button></div>
+                  <div class="card-actions"><a class="mini-link card-details" href="index.html#drukarki">Szczegóły</a><button class="mega-cart" type="button"><span class="icon icon-cart" aria-hidden="true"></span> Kup teraz</button></div>
                   <p class="mega-low">Najniższa cena: 3&nbsp;779,00&nbsp;zł</p>
                 </div>
               </article>
             </div>
-            <figcaption class="sg-meta">Cena w promocji. Czerwony Do koszyka, kwota zielona.</figcaption>
+            <figcaption class="sg-meta">Cena w promocji. Czerwony „Kup teraz”, kwota zielona.</figcaption>
           </figure>
         </div>
       </div>
@@ -422,7 +436,7 @@
     <section class="sg-block" id="header">
       <div class="sg-wrap sg-head">
         <h2>Header</h2>
-        <p>Trzy warstwy: pasek informacyjny, pasek z logo i szukaniem, pasek kategorii. Najedź na Drukarki 3D, konto, pomoc albo koszyk. Poniżej 980 px na stronie kategorie chowają się do szuflady — tutaj zostaje układ desktopowy.</p>
+        <p>Trzy warstwy: pasek informacyjny, pasek z logo i szukaniem, pasek kategorii. Pole szukania ma promień 25% wysokości, a przycisk lupy jest zaokrąglonym kwadratem. Belka kategorii ma tło stone 50, jak hero, i co najmniej 22 px odstępu od krawędzi. Najedź na Drukarki 3D, konto, pomoc albo koszyk. Poniżej 980 px na stronie kategorie chowają się do szuflady — tutaj zostaje układ desktopowy.</p>
       </div>
       <div class="sg-scroll">
         <header class="nav">
@@ -609,8 +623,8 @@
               <h1>Drukarki 3D, filamenty i akcesoria dla profesjonalistów</h1>
               <p class="lead">Wybierz sprawdzone drukarki 3D, filamenty, żywice i części zamienne od wiodących producentów. Doradzamy, wdrażamy i serwisujemy rozwiązania do druku 3D dla firm, pracowni i inżynierów.</p>
               <div class="hero-actions">
-                <a class="btn btn-red" href="index.html#cennik">Odkryj Drukarki 3D</a>
-                <a class="btn btn-line" href="index.html#o-nas">Poznaj get3D</a>
+                <a class="btn btn-dark" href="index.html#drukarki">Zobacz bestsellery!</a>
+                <a class="btn btn-line" href="index.html#kontakt">Zapytaj o ofertę!</a>
               </div>
             </div>
             <div class="hero-stage">
@@ -628,8 +642,8 @@
                 <h2>Nowe Bambu Lab do domu</h2>
                 <p>Maszyna, filament i akcesoria w jednym miejscu. Od pierwszego wydruku po codzienną serię.</p>
                 <div class="hero-caption-actions">
-                  <a class="hero-caption-btn hero-caption-btn-solid" href="index.html#drukarki">Poznaj Bambu Lab</a>
-                  <a class="hero-caption-btn hero-caption-btn-line" href="index.html#materialy">Znajdź filamenty</a>
+                  <a class="hero-caption-btn hero-caption-btn-solid" href="index.html#drukarki">Najczęściej kupowane drukarki</a>
+                  <a class="hero-caption-btn hero-caption-btn-line" href="index.html#cennik"><span class="icon icon-percent" aria-hidden="true"></span>Promocje Bambu Lab!</a>
                 </div>
               </div>
             </div>
@@ -711,7 +725,7 @@
                       </ul>
                       <div class="mega-buy">
                         <p class="mega-price"><span class="mega-amount">3&nbsp;379<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-400&nbsp;zł</span></p>
-                        <div class="card-actions"><a class="mini-link card-details" href="index.html#drukarki">Szczegóły</a><button class="mega-cart" type="button" aria-label="Dodaj do koszyka"><span class="icon icon-cart" aria-hidden="true"></span> Do koszyka</button></div>
+                        <div class="card-actions"><a class="mini-link card-details" href="index.html#drukarki">Szczegóły</a><button class="mega-cart" type="button" aria-label="Kup teraz"><span class="icon icon-cart" aria-hidden="true"></span> Kup teraz</button></div>
                         <p class="mega-low">Najniższa cena: 3&nbsp;779,00&nbsp;zł</p>
                       </div>
                     </article>
@@ -735,6 +749,6 @@
       <p class="sg-wrap sg-foot"><a href="index.html">Wróć na stronę główną</a></p>
     </section>
   </main>
-  <script src="js/styleguide.js"></script>
+  <script src="js/styleguide.js?v=2"></script>
 </body>
 </html>

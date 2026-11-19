@@ -13,34 +13,30 @@
   const accountTool = document.getElementById("account-tool");
   const loginSubmit = loginForm.querySelector("button[type=submit]");
 
-  document.querySelectorAll(".btn, .bf-cta, .add-mini, .account-login, .account-register, .cart-outline, .mega-cart, .hero-caption-btn").forEach((el) => {
+  document.querySelectorAll(".btn, .bf-cta, .mega-cart, .hero-caption-btn").forEach((el) => {
+    if (el.querySelector(".btn-chip")) return;
     const text = [...el.childNodes].find((node) => node.nodeType === 3 && node.textContent.trim());
-    if (!text || el.querySelector(".btn-clip")) return;
-    const label = text.textContent.trim();
-    const chars = [...label];
-    const center = (chars.length - 1) / 2;
-    const reach = Math.max(center, 1);
-    const face = (hidden) => {
-      const span = document.createElement("span");
-      span.className = "btn-face";
-      if (hidden) span.setAttribute("aria-hidden", "true");
-      chars.forEach((char, index) => {
-        const piece = document.createElement("span");
-        piece.className = "btn-char";
-        piece.textContent = char === " " ? "\u00a0" : char;
-        piece.style.transitionDelay = `${(Math.abs(index - center) / reach * 0.18).toFixed(3)}s`;
-        span.append(piece);
-      });
-      return span;
-    };
-    const clip = document.createElement("span");
-    clip.className = "btn-clip";
-    clip.setAttribute("aria-hidden", "true");
-    clip.append(face(false), face(true));
-    text.replaceWith(clip);
-    if (!el.getAttribute("aria-label") && !el.getAttribute("aria-labelledby")) {
-      el.setAttribute("aria-label", label);
-    }
+    if (!text) return;
+    const icon = el.querySelector(":scope > .icon");
+    const textLink = (el.classList.contains("btn-line") && !el.classList.contains("btn-block"))
+      || (el.classList.contains("hero-caption-btn-line") && !icon);
+    const chipHost = !textLink && (
+      el.matches(".btn-dark, .btn-red, .mega-cart, .bf-cta, .hero-caption-btn-solid, .btn-block")
+      || (el.classList.contains("hero-caption-btn") && icon)
+    );
+    if (!chipHost) return;
+    const label = document.createElement("span");
+    label.className = "btn-label";
+    label.textContent = text.textContent.trim();
+    text.replaceWith(label);
+    const chip = document.createElement("span");
+    chip.className = "btn-chip";
+    chip.setAttribute("aria-hidden", "true");
+    const glyph = document.createElement("span");
+    glyph.className = icon ? "btn-glyph" : "btn-glyph btn-glyph-arrow";
+    if (icon) glyph.append(icon);
+    chip.append(glyph);
+    el.append(chip);
   });
 
   const modelLimit = 8;
@@ -711,6 +707,17 @@
 
   const tabs = document.querySelectorAll("[data-tab]");
   const panels = document.querySelectorAll("[data-panel]");
+  const placeTabPill = () => {
+    document.querySelectorAll(".faq .tabs").forEach((list) => {
+      const active = list.querySelector(".is-active");
+      const indicator = list.querySelector(".tab-indicator");
+      if (!active || !indicator) return;
+      indicator.style.width = `${active.offsetWidth}px`;
+      indicator.style.height = `${active.offsetHeight}px`;
+      indicator.style.transform = `translate(${active.offsetLeft}px, ${active.offsetTop}px)`;
+      list.classList.add("has-pill");
+    });
+  };
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       tabs.forEach((item) => {
@@ -721,15 +728,30 @@
       panels.forEach((panel) => {
         panel.hidden = panel.dataset.panel !== tab.dataset.tab;
       });
+      placeTabPill();
     });
   });
+  placeTabPill();
+  window.addEventListener("resize", placeTabPill);
+  document.fonts?.ready.then(placeTabPill);
 
+  document.querySelectorAll(".acc").forEach((item) => {
+    const button = item.querySelector("button");
+    const panelBody = item.querySelector(".acc-panel");
+    const on = item.classList.contains("is-open");
+    button?.setAttribute("aria-expanded", String(on));
+    panelBody?.setAttribute("aria-hidden", String(!on));
+  });
   document.querySelectorAll(".acc button").forEach((button) => {
     button.addEventListener("click", () => {
       const item = button.closest(".acc");
       const panel = item.parentElement;
+      const open = !item.classList.contains("is-open");
       panel.querySelectorAll(".acc").forEach((other) => {
-        other.classList.toggle("is-open", other === item && !item.classList.contains("is-open"));
+        const on = other === item && open;
+        other.classList.toggle("is-open", on);
+        other.querySelector("button")?.setAttribute("aria-expanded", String(on));
+        other.querySelector(".acc-panel")?.setAttribute("aria-hidden", String(!on));
       });
     });
   });
@@ -1230,4 +1252,72 @@
   });
 
   renderCart();
+
+  const cookieKey = "get3d-cookie";
+  const cookieEl = document.getElementById("cookie");
+  const cookieCard = cookieEl.querySelector(".cookie-card");
+  const cookieMain = cookieEl.querySelector("[data-cookie-view='main']");
+  const cookiePrefs = cookieEl.querySelector("[data-cookie-view='prefs']");
+  let cookieSaved = null;
+  try { cookieSaved = JSON.parse(localStorage.getItem(cookieKey)); } catch (error) { cookieSaved = null; }
+
+  const closeCookie = (value) => {
+    localStorage.setItem(cookieKey, JSON.stringify(value));
+    cookieEl.hidden = true;
+    document.body.classList.remove("cookie-open");
+  };
+  const showCookieView = (name) => {
+    const prefs = name === "prefs";
+    cookieMain.hidden = prefs;
+    cookiePrefs.hidden = !prefs;
+    cookieCard.classList.toggle("is-wide", prefs);
+    cookieCard.setAttribute("aria-labelledby", prefs ? "cookie-prefs-title" : "cookie-title");
+    const focusTarget = prefs
+      ? cookiePrefs.querySelector("input:not(:disabled)")
+      : cookieMain.querySelector(".btn");
+    if (focusTarget) focusTarget.focus();
+  };
+
+  if (!cookieSaved || typeof cookieSaved !== "object") {
+    cookieEl.hidden = false;
+    document.body.classList.add("cookie-open");
+  }
+
+  cookieEl.addEventListener("click", (event) => {
+    const action = event.target.closest("[data-cookie]");
+    if (!action) return;
+    if (action.dataset.cookie === "all") closeCookie({ necessary: true, preferences: true, statistics: true, marketing: true });
+    if (action.dataset.cookie === "deny") closeCookie({ necessary: true, preferences: false, statistics: false, marketing: false });
+    if (action.dataset.cookie === "prefs") showCookieView("prefs");
+    if (action.dataset.cookie === "save") {
+      closeCookie({
+        necessary: true,
+        preferences: cookiePrefs.querySelector("[name='preferences']").checked,
+        statistics: cookiePrefs.querySelector("[name='statistics']").checked,
+        marketing: cookiePrefs.querySelector("[name='marketing']").checked
+      });
+    }
+  });
+
+  const makers = document.querySelector("[data-makers]");
+  if (makers) {
+    const track = makers.querySelector(".makers-track");
+    const prev = makers.querySelector("[data-makers-dir='-1']");
+    const next = makers.querySelector("[data-makers-dir='1']");
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+    const step = () => {
+      const card = track.querySelector(".maker-unit");
+      if (!card) return track.clientWidth;
+      return card.getBoundingClientRect().width + (parseFloat(getComputedStyle(track).columnGap) || 0);
+    };
+    const updateMakers = () => {
+      const max = track.scrollWidth - track.clientWidth - 2;
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= max;
+    };
+    prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: motion }));
+    next.addEventListener("click", () => track.scrollBy({ left: step(), behavior: motion }));
+    track.addEventListener("scroll", updateMakers, { passive: true });
+    updateMakers();
+  }
 })();

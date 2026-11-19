@@ -1,32 +1,28 @@
 (() => {
-  document.querySelectorAll(".btn, .bf-cta, .account-login, .account-register, .cart-outline, .hero-caption-btn").forEach((el) => {
+  document.querySelectorAll(".btn, .bf-cta, .mega-cart, .hero-caption-btn").forEach((el) => {
+    if (el.querySelector(".btn-chip")) return;
     const text = [...el.childNodes].find((node) => node.nodeType === 3 && node.textContent.trim());
-    if (!text || el.querySelector(".btn-clip")) return;
-    const label = text.textContent.trim();
-    const chars = [...label];
-    const center = (chars.length - 1) / 2;
-    const reach = Math.max(center, 1);
-    const face = (hidden) => {
-      const span = document.createElement("span");
-      span.className = "btn-face";
-      if (hidden) span.setAttribute("aria-hidden", "true");
-      chars.forEach((char, index) => {
-        const piece = document.createElement("span");
-        piece.className = "btn-char";
-        piece.textContent = char === " " ? "\u00a0" : char;
-        piece.style.transitionDelay = `${(Math.abs(index - center) / reach * 0.18).toFixed(3)}s`;
-        span.append(piece);
-      });
-      return span;
-    };
-    const clip = document.createElement("span");
-    clip.className = "btn-clip";
-    clip.setAttribute("aria-hidden", "true");
-    clip.append(face(false), face(true));
-    text.replaceWith(clip);
-    if (!el.getAttribute("aria-label") && !el.getAttribute("aria-labelledby")) {
-      el.setAttribute("aria-label", label);
-    }
+    if (!text) return;
+    const icon = el.querySelector(":scope > .icon");
+    const textLink = (el.classList.contains("btn-line") && !el.classList.contains("btn-block"))
+      || (el.classList.contains("hero-caption-btn-line") && !icon);
+    const chipHost = !textLink && (
+      el.matches(".btn-dark, .btn-red, .mega-cart, .bf-cta, .hero-caption-btn-solid, .btn-block")
+      || (el.classList.contains("hero-caption-btn") && icon)
+    );
+    if (!chipHost) return;
+    const label = document.createElement("span");
+    label.className = "btn-label";
+    label.textContent = text.textContent.trim();
+    text.replaceWith(label);
+    const chip = document.createElement("span");
+    chip.className = "btn-chip";
+    chip.setAttribute("aria-hidden", "true");
+    const glyph = document.createElement("span");
+    glyph.className = icon ? "btn-glyph" : "btn-glyph btn-glyph-arrow";
+    if (icon) glyph.append(icon);
+    chip.append(glyph);
+    el.append(chip);
   });
 
   document.querySelectorAll(".sg-scroll form").forEach((form) => {
