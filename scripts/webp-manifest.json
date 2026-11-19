@@ -1,0 +1,208 @@
+[
+  {
+    "maker": "bambu-lab",
+    "src": "assets\\makers\\new\\BambuLab_photo.png",
+    "dst": "assets\\makers\\photos\\bambu-lab.webp",
+    "src_bytes": 6693450,
+    "dst_bytes": 168204
+  },
+  {
+    "maker": "bigrep",
+    "src": "assets\\makers\\new\\BigRep_ONE-4-scaled.jpg",
+    "dst": "assets\\makers\\photos\\bigrep.webp",
+    "src_bytes": 144795,
+    "dst_bytes": 64842
+  },
+  {
+    "maker": "desktop-metal",
+    "src": "assets\\makers\\new\\desktop_metal_photo.jpg",
+    "dst": "assets\\makers\\photos\\desktop-metal.webp",
+    "src_bytes": 2949844,
+    "dst_bytes": 189842
+  },
+  {
+    "maker": "eufymake",
+    "src": "assets\\makers\\new\\eufymake_photo.webp",
+    "dst": "assets\\makers\\photos\\eufymake.webp",
+    "copied": true
+  },
+  {
+    "maker": "formlabs",
+    "src": "assets\\makers\\new\\formlabs_photo.webp",
+    "dst": "assets\\makers\\photos\\formlabs.webp",
+    "copied": true
+  },
+  {
+    "maker": "minifactory",
+    "src": "assets\\makers\\new\\miniFactory_photo.jpg",
+    "dst": "assets\\makers\\photos\\minifactory.webp",
+    "src_bytes": 214722,
+    "dst_bytes": 59700
+  },
+  {
+    "maker": "prusa",
+    "src": "assets\\makers\\new\\prusa_photo.jpg",
+    "dst": "assets\\makers\\photos\\prusa.webp",
+    "src_bytes": 533547,
+    "dst_bytes": 93330
+  },
+  {
+    "maker": "raise3d",
+    "src": "assets\\makers\\new\\raise3d_photo.jpeg",
+    "dst": "assets\\makers\\photos\\raise3d.webp",
+    "src_bytes": 1334378,
+    "dst_bytes": 158366
+  },
+  {
+    "maker": "sinterit",
+    "src": "assets\\makers\\new\\sinterit_photo.jpeg",
+    "dst": "assets\\makers\\photos\\sinterit.webp",
+    "src_bytes": 1242090,
+    "dst_bytes": 111014
+  },
+  {
+    "maker": "ultimaker",
+    "src": "assets\\makers\\new\\ultimaker_photo.jpg",
+    "dst": "assets\\makers\\photos\\ultimaker.webp",
+    "src_bytes": 384800,
+    "dst_bytes": 119832
+  },
+  {
+    "src": "assets\\drukarka-3d-bambu-lab-a1-combo.png",
+    "dst": "assets\\drukarka-3d-bambu-lab-a1-combo.webp",
+    "src_bytes": 138029,
+    "dst_bytes": 33206
+  },
+  {
+    "src": "assets\\hero-drukarka.jpg",
+    "dst": "assets\\hero-drukarka.webp",
+    "src_bytes": 115823,
+    "dst_bytes": 45328
+  },
+  {
+    "src": "assets\\bambu-lab-ams-2-pro.png",
+    "dst": "assets\\bambu-lab-ams-2-pro.webp",
+    "src_bytes": 187371,
+    "dst_bytes": 19404
+  },
+  {
+    "src": "assets\\images\\get3d-drukarki3d.png",
+    "dst": "assets\\images\\get3d-drukarki3d.webp",
+    "src_bytes": 530499,
+    "dst_bytes": 86844
+  },
+  {
+    "src": "assets\\images\\get3d-formierki3d.png",
+    "dst": "assets\\images\\get3d-formierki3d.webp",
+    "src_bytes": 667211,
+    "dst_bytes": 102182
+  },
+  {
+    "src": "assets\\images\\get3d-filamenty.png",
+    "dst": "assets\\images\\get3d-filamenty.webp",
+    "src_bytes": 2485071,
+    "dst_bytes": 188524
+  },
+  {
+    "src": "assets\\images\\get3d-zywice.png",
+    "dst": "assets\\images\\get3d-zywice.webp",
+    "src_bytes": 1459976,
+    "dst_bytes": 75070
+  },
+  {
+    "src": "assets\\images\\get3d-akcesoria.png",
+    "dst": "assets\\images\\get3d-akcesoria.webp",
+    "src_bytes": 633541,
+    "dst_bytes": 104104
+  },
+  {
+    "src": "assets\\images\\get3d-szkolenia.png",
+    "dst": "assets\\images\\get3d-szkolenia.webp",
+    "src_bytes": 849985,
+    "dst_bytes": 139022
+  },
+  {
+    "src": "assets\\images\\get3d-serwis.png",
+    "dst": "assets\\images\\get3d-serwis.webp",
+    "src_bytes": 705361,
+    "dst_bytes": 123912
+  },
+  {
+    "src": "assets\\images\\magnific_uzyj-zaaczonego-zdjecia-drukarki-bambu-lab-a2l-combo_9ZH3B3aNYZ.jpg",
+    "dst": "assets\\images\\magnific_uzyj-zaaczonego-zdjecia-drukarki-bambu-lab-a2l-combo_9ZH3B3aNYZ.webp",
+    "src_bytes": 425620,
+    "dst_bytes": 169188
+  },
+  {
+    "src": "assets\\faq\\zespol-1.png",
+    "dst": "assets\\faq\\zespol-1.webp",
+    "src_bytes": 164446,
+    "dst_bytes": 19624
+  },
+  {
+    "src": "assets\\faq\\zespol-2.png",
+    "dst": "assets\\faq\\zespol-2.webp",
+    "src_bytes": 177785,
+    "dst_bytes": 17618
+  },
+  {
+    "src": "assets\\faq\\zespol-3.png",
+    "dst": "assets\\faq\\zespol-3.webp",
+    "src_bytes": 150134,
+    "dst_bytes": 12322
+  },
+  {
+    "src": "assets\\faq\\zespol-4.png",
+    "dst": "assets\\faq\\zespol-4.webp",
+    "src_bytes": 223935,
+    "dst_bytes": 29206
+  },
+  {
+    "src": "assets\\makers\\new\\bigrep-logo-mobile-header-opt.png",
+    "dst": "assets\\makers\\new\\bigrep-logo-mobile-header-opt.webp",
+    "src_bytes": 1016,
+    "dst_bytes": 1692
+  },
+  {
+    "src": "assets\\makers\\eufymake.png",
+    "dst": "assets\\makers\\eufymake.webp",
+    "src_bytes": 1504,
+    "dst_bytes": 988
+  },
+  {
+    "src": "assets\\makers\\formlabs.png",
+    "dst": "assets\\makers\\formlabs.webp",
+    "src_bytes": 1030,
+    "dst_bytes": 976
+  },
+  {
+    "src": "assets\\makers\\minifactory.png",
+    "dst": "assets\\makers\\minifactory.webp",
+    "src_bytes": 1282,
+    "dst_bytes": 1032
+  },
+  {
+    "src": "assets\\makers\\prusa.png",
+    "dst": "assets\\makers\\prusa.webp",
+    "src_bytes": 1351,
+    "dst_bytes": 1566
+  },
+  {
+    "src": "assets\\makers\\raise3d.png",
+    "dst": "assets\\makers\\raise3d.webp",
+    "src_bytes": 1441,
+    "dst_bytes": 1342
+  },
+  {
+    "src": "assets\\makers\\sinterit.png",
+    "dst": "assets\\makers\\sinterit.webp",
+    "src_bytes": 1064,
+    "dst_bytes": 1254
+  },
+  {
+    "src": "assets\\makers\\ultimaker.png",
+    "dst": "assets\\makers\\ultimaker.webp",
+    "src_bytes": 1262,
+    "dst_bytes": 1178
+  }
+]

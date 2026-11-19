@@ -1302,22 +1302,110 @@
   const makers = document.querySelector("[data-makers]");
   if (makers) {
     const track = makers.querySelector(".makers-track");
+    const scrollBar = makers.querySelector("[data-makers-scroll]");
+    const scrollSpacer = makers.querySelector("[data-makers-scroll-spacer]");
     const prev = makers.querySelector("[data-makers-dir='-1']");
     const next = makers.querySelector("[data-makers-dir='1']");
-    const motion = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+    if (track && prev && next) {
+    const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let makersGrab = null;
+    let makersSyncing = false;
+    let makersTween = null;
     const step = () => {
       const card = track.querySelector(".maker-unit");
       if (!card) return track.clientWidth;
       return card.getBoundingClientRect().width + (parseFloat(getComputedStyle(track).columnGap) || 0);
     };
+    const scrollMakersTo = (target) => {
+      const max = Math.max(0, track.scrollWidth - track.clientWidth);
+      const nextLeft = Math.max(0, Math.min(max, target));
+      if (!motionOk || Math.abs(nextLeft - track.scrollLeft) < 2) {
+        track.scrollLeft = nextLeft;
+        updateMakers();
+        return;
+      }
+      if (makersTween) cancelAnimationFrame(makersTween.frame);
+      const start = track.scrollLeft;
+      const delta = nextLeft - start;
+      const duration = 320;
+      const t0 = performance.now();
+      const tick = (now) => {
+        const p = Math.min(1, (now - t0) / duration);
+        const eased = 1 - (1 - p) ** 3;
+        track.scrollLeft = start + delta * eased;
+        if (p < 1) makersTween = { frame: requestAnimationFrame(tick) };
+        else {
+          makersTween = null;
+          updateMakers();
+        }
+      };
+      makersTween = { frame: requestAnimationFrame(tick) };
+    };
+    const scrollMakersBy = (dir) => scrollMakersTo(track.scrollLeft + dir * step());
+    const syncScrollSpacer = () => {
+      if (!scrollSpacer) return;
+      scrollSpacer.style.width = `${track.scrollWidth}px`;
+    };
+    const syncScrollBars = (source) => {
+      if (!scrollBar || makersSyncing) return;
+      makersSyncing = true;
+      if (source === "track") scrollBar.scrollLeft = track.scrollLeft;
+      else track.scrollLeft = scrollBar.scrollLeft;
+      makersSyncing = false;
+    };
     const updateMakers = () => {
       const max = track.scrollWidth - track.clientWidth - 2;
       prev.disabled = track.scrollLeft <= 2;
       next.disabled = track.scrollLeft >= max;
+      syncScrollSpacer();
+      syncScrollBars("track");
     };
-    prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: motion }));
-    next.addEventListener("click", () => track.scrollBy({ left: step(), behavior: motion }));
+    const releaseMakers = (event) => {
+      if (!makersGrab || event.pointerId !== makersGrab.id) return;
+      const moved = makersGrab.moved;
+      makersGrab = null;
+      track.classList.remove("is-grabbing");
+      if (moved) track.dataset.makersSwiped = "1";
+    };
+    prev.addEventListener("click", () => scrollMakersBy(-1));
+    next.addEventListener("click", () => scrollMakersBy(1));
     track.addEventListener("scroll", updateMakers, { passive: true });
+    track.addEventListener("dragstart", (event) => event.preventDefault());
+    track.addEventListener("pointerdown", (event) => {
+      if (event.button !== 0) return;
+      if (event.target.closest("button, [data-makers-dir]")) return;
+      makersGrab = {
+        id: event.pointerId,
+        x: event.clientX,
+        left: track.scrollLeft,
+        moved: false
+      };
+      track.setPointerCapture(event.pointerId);
+      track.classList.add("is-grabbing");
+    });
+    track.addEventListener("pointermove", (event) => {
+      if (!makersGrab || event.pointerId !== makersGrab.id) return;
+      const dx = event.clientX - makersGrab.x;
+      if (Math.abs(dx) > 4) makersGrab.moved = true;
+      track.scrollLeft = makersGrab.left - dx;
+    });
+    track.addEventListener("pointerup", releaseMakers);
+    track.addEventListener("pointercancel", releaseMakers);
+    track.addEventListener("click", (event) => {
+      if (track.dataset.makersSwiped !== "1") return;
+      delete track.dataset.makersSwiped;
+      event.preventDefault();
+      event.stopPropagation();
+    }, true);
+    if (scrollBar) {
+      scrollBar.addEventListener("scroll", () => {
+        if (makersSyncing) return;
+        syncScrollBars("bar");
+        updateMakers();
+      }, { passive: true });
+    }
+    window.addEventListener("resize", updateMakers);
     updateMakers();
+    }
   }
 })();
