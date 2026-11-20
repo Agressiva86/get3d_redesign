@@ -10,10 +10,12 @@ const newsTitleClass = "m-0 mb-3 text-[32px] leading-[1.1]";
 
 const newsLeadClass = "m-0 max-w-[48ch] text-[15px] leading-normal text-stone-700";
 
-const formClass = "mt-[22px] flex flex-col items-stretch gap-2.5";
+const formClass = "mt-9 flex flex-col items-stretch gap-5";
 
 const newsFieldsClass =
   "flex min-h-14 items-center rounded-[22px] bg-white py-1 pr-1 pl-[18px] focus-within:outline focus-within:outline-2 focus-within:outline-offset-0 focus-within:outline-stone-300 max-[980px]:min-w-0 [&_.btn:focus]:outline-none [&_.btn:focus-visible]:outline-none [&_input:focus]:outline-none [&_input:focus-visible]:outline-none";
+
+const newsFieldsInvalidClass = "newsletter-fields--invalid";
 
 const newsInputClass =
   "h-11 min-w-0 flex-1 rounded-none border-0 bg-transparent pr-3 pl-0 text-ink max-[980px]:min-w-0";
@@ -70,9 +72,9 @@ const markSvgClass =
       <div class={newsClass}>
         <h2 class={newsTitleClass}>Newsletter</h2>
         <p class={newsLeadClass}>Zapisz się na listę get3D. Nowości o drukarkach, filamentach i akcesoriach oraz krótkie notatki z pracowni. Za pierwsze zakupy po zapisaniu −5%.</p>
-        <form id="newsletter">
-          <div class={newsFieldsClass}>
-            <input type="email" name="email" required placeholder="Wpisz swój adres e-mail" aria-label="E-mail" class={newsInputClass} />
+        <form id="newsletter" class={formClass} novalidate>
+          <div class={newsFieldsClass} data-newsletter-fields>
+            <input type="email" name="email" required placeholder="Wpisz swój adres e-mail" aria-label="E-mail" class={newsInputClass} inputmode="email" autocomplete="email" />
             <button class="btn btn-dark shrink-0" type="submit">Zapisz się</button>
           </div>
           <label class={newsConsentClass}>
@@ -138,3 +140,46 @@ const markSvgClass =
         <path d="M104.27 0.742262C103.422 0.305642 102.53 0.0436707 101.548 0.0436707H86.2444C86.289 0.829586 86.3336 1.52818 86.1998 2.31409L82.6751 21.0451C82.452 22.224 82.1397 23.2718 81.6489 24.4071H97.4879C100.7 24.4071 103.02 22.093 103.6 19.0803L105.92 6.85494C106.367 4.49719 106.411 1.92114 104.27 0.742262ZM98.6479 5.85071L96.6401 16.2859L96.0155 19.3859C95.837 20.0845 95.2124 20.5211 94.4985 20.5211H90.2153L93.3385 3.92959H97.7109C98.2017 3.92959 98.6033 4.23522 98.6925 4.7155C98.7371 5.10846 98.7371 5.45776 98.6479 5.85071Z"/>
       </svg>
     </div>
+
+<script is:inline define:vars={{ newsFieldsInvalidClass }}>
+  (() => {
+    const form = document.getElementById("newsletter");
+    if (!form) return;
+    const fields = form.querySelector("[data-newsletter-fields]");
+    const emailInput = form.querySelector('input[name="email"]');
+    if (!fields || !emailInput) return;
+
+    const setEmailError = (on) => {
+      fields.classList.toggle(newsFieldsInvalidClass, on);
+      emailInput.setAttribute("aria-invalid", on ? "true" : "false");
+    };
+
+    const emailIsValid = () => emailInput.checkValidity();
+
+    emailInput.addEventListener("input", () => {
+      if (emailIsValid()) setEmailError(false);
+    });
+
+    form.addEventListener(
+      "submit",
+      (event) => {
+        const consent = form.querySelector('input[name="consent"]');
+        const emailOk = emailIsValid();
+        setEmailError(!emailOk);
+        if (!emailOk) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          emailInput.focus();
+          return;
+        }
+        if (!consent?.checked) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          consent?.focus();
+        }
+      },
+      true,
+    );
+  })();
+</script>
+</footer>

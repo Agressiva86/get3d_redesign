@@ -1,1 +1,5 @@
-/* Przeniesione do utilities: sections/footer lub osobny plik */
+@layer components {
+  .newsletter-fields--invalid {
+    @apply outline outline-2 outline-offset-0 outline-red-200 focus-within:outline-red-200;
+  }
+}
