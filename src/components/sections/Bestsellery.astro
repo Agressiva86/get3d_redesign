@@ -1,0 +1,439 @@
+---
+type Product = {
+  href: string;
+  img: string;
+  alt: string;
+  name: string;
+  badges: string[];
+  price: string;
+  from?: boolean;
+  save?: string;
+  low?: string;
+  variants?: string;
+  buy?: { id: string; name: string; price: string };
+};
+
+const sectionClass = "bestsellery py-7 pb-12";
+
+const cardClass =
+  "hero-slide relative flex min-w-0 w-full flex-col rounded-[22px] border border-stone-100 bg-white p-4";
+
+const wrapClass = "mx-auto w-full max-w-[1500px] px-[30px]";
+
+const layoutClass = "bs-layout";
+
+const panelHeadClass = "bs-panel-head";
+
+const tabsClass =
+  "tabs relative flex w-full flex-row flex-wrap items-center justify-start gap-1 bg-transparent p-0 min-[981px]:w-auto min-[981px]:flex-none min-[981px]:justify-end";
+
+const tabBtnClass =
+  "relative z-[1] min-h-10 rounded-[calc(52px*0.25)] border-0 bg-transparent px-4 font-heading text-[15px] font-medium tracking-normal text-stone-500 transition-[background-color,color] duration-200 ease-out [&.is-active]:bg-dark-2 [&.is-active]:text-white";
+
+const panelsClass = "bestsellery-panels grid [&[hidden]]:hidden";
+
+const deal = {
+  id: "ams-2-pro-deal",
+  name: "Bambu Lab AMS 2 Pro – Automatic Material System",
+  img: "assets/drukarka-3d-bambu-lab-a1-combo.webp",
+  alt: "Drukarka 3D Bambu Lab A1 Combo",
+  price: "990",
+  save: "170",
+  lowest: "1 110,00",
+  href: "https://get3d.pl/drukarki-3d/bambu-lab-ams-2-pro/",
+  badges: ["372×280×226 mm", "Suszenie 65°C", "RFID"],
+};
+
+const drukarki: Product[] = [
+  {
+    href: "#drukarki",
+    img: "assets/drukarka-3d-bambu-lab-a1-combo.webp",
+    alt: "Drukarka 3D Bambu Lab A1 Combo",
+    name: "Bambu Lab A1 Combo",
+    badges: ["256×256×256 mm", "AMS", "WiFi"],
+    price: "1\u00a0160",
+    from: true,
+    save: "150",
+    low: "1\u00a0310,00",
+    variants: "3 warianty",
+  },
+  {
+    href: "#drukarki",
+    img: "assets/drukarka-3d-bambu-lab-a1-combo.webp",
+    alt: "Drukarka 3D Bambu Lab A1",
+    name: "Bambu Lab A1",
+    badges: ["256×256×256 mm", "AMS", "WiFi"],
+    price: "1\u00a0160",
+    from: true,
+    variants: "2 warianty",
+  },
+  {
+    href: "#drukarki",
+    img: "assets/drukarka-3d-bambu-lab-a1-combo.webp",
+    alt: "Drukarka 3D Bambu Lab A1 mini",
+    name: "Bambu Lab A1 mini",
+    badges: ["180×180×180 mm", "AMS", "WiFi"],
+    price: "845",
+    from: true,
+    variants: "4 warianty",
+  },
+  {
+    href: "#drukarki",
+    img: "assets/drukarka-3d-bambu-lab-a1-combo.webp",
+    alt: "Drukarka 3D Bambu Lab X2D Combo",
+    name: "Bambu Lab X2D Combo",
+    badges: ["256×256×260 mm", "AMS", "WiFi"],
+    price: "3\u00a0379",
+    save: "400",
+    low: "3\u00a0779,00",
+    buy: { id: "x2d-combo", name: "Bambu Lab X2D Combo", price: "3379" },
+  },
+  {
+    href: "https://get3d.pl/drukarki-3d/bambu-lab-ams-2-pro/",
+    img: "assets/drukarka-3d-bambu-lab-a1-combo.webp",
+    alt: "Bambu Lab AMS 2 Pro",
+    name: "Bambu Lab AMS 2 Pro",
+    badges: ["372×280×226 mm", "Suszenie 65°C", "RFID"],
+    price: "990",
+    save: "300",
+    low: "1\u00a0110,00",
+    buy: { id: "ams-2-pro", name: "Bambu Lab AMS 2 Pro", price: "990" },
+  },
+  {
+    href: "#drukarki",
+    img: "assets/drukarka-3d-bambu-lab-a1-combo.webp",
+    alt: "Drukarka 3D Bambu Lab P1S Combo",
+    name: "Bambu Lab P1S Combo",
+    badges: ["256×256×256 mm", "AMS", "WiFi"],
+    price: "2\u00a0899",
+    from: true,
+    save: "200",
+    low: "3\u00a0099,00",
+    variants: "2 warianty",
+  },
+];
+
+const filamenty: Product[] = [
+  {
+    href: "#materialy",
+    img: "assets/drukarka-3d-bambu-lab-a1-combo.webp",
+    alt: "PLA Basic",
+    name: "PLA Basic 1 kg",
+    badges: ["1,75 mm", "PLA", "1 kg"],
+    price: "79",
+    from: true,
+    variants: "12 wariantów",
+  },
+  {
+    href: "#materialy",
+    img: "assets/drukarka-3d-bambu-lab-a1-combo.webp",
+    alt: "PETG Natural",
+    name: "PETG Natural 1 kg",
+    badges: ["1,75 mm", "PETG", "1 kg"],
+    price: "89",
+    save: "10",
+    low: "99,00",
+    buy: { id: "petg-natural", name: "PETG Natural 1 kg", price: "89" },
+  },
+  {
+    href: "#materialy",
+    img: "assets/drukarka-3d-bambu-lab-a1-combo.webp",
+    alt: "ABS Black",
+    name: "ABS Black 1 kg",
+    badges: ["1,75 mm", "ABS", "1 kg"],
+    price: "89",
+    from: true,
+    variants: "4 warianty",
+  },
+  {
+    href: "#materialy",
+    img: "assets/drukarka-3d-bambu-lab-a1-combo.webp",
+    alt: "TPU 95A",
+    name: "TPU 95A 1 kg",
+    badges: ["1,75 mm", "TPU", "1 kg"],
+    price: "119",
+    from: true,
+    low: "119,00",
+    variants: "3 warianty",
+  },
+  {
+    href: "#materialy",
+    img: "assets/drukarka-3d-bambu-lab-a1-combo.webp",
+    alt: "Żywica Tough Grey",
+    name: "Żywica Tough Grey 1 kg",
+    badges: ["405 nm", "Tough", "1 kg"],
+    price: "149",
+    save: "20",
+    low: "169,00",
+    buy: { id: "resin-tough-grey", name: "Żywica Tough Grey 1 kg", price: "149" },
+  },
+  {
+    href: "#materialy",
+    img: "assets/drukarka-3d-bambu-lab-a1-combo.webp",
+    alt: "PLA Silk",
+    name: "PLA Silk 1 kg",
+    badges: ["1,75 mm", "Silk", "1 kg"],
+    price: "99",
+    from: true,
+    variants: "6 wariantów",
+  },
+];
+
+const akcesoria: Product[] = [
+  {
+    href: "https://get3d.pl/drukarki-3d/bambu-lab-ams-2-pro/",
+    img: "assets/drukarka-3d-bambu-lab-a1-combo.webp",
+    alt: "Bambu Lab AMS 2 Pro",
+    name: "Bambu Lab AMS 2 Pro",
+    badges: ["372×280×226 mm", "Suszenie 65°C", "RFID"],
+    price: "990",
+    save: "300",
+    low: "1\u00a0110,00",
+    buy: { id: "ams-2-pro", name: "Bambu Lab AMS 2 Pro", price: "990" },
+  },
+  {
+    href: "#akcesoria",
+    img: "assets/drukarka-3d-bambu-lab-a1-combo.webp",
+    alt: "Stół PEI dwustronny",
+    name: "Stół PEI dwustronny",
+    badges: ["256 mm", "PEI", "Dwustronny"],
+    price: "129",
+    from: true,
+    variants: "2 warianty",
+  },
+  {
+    href: "#akcesoria",
+    img: "assets/drukarka-3d-bambu-lab-a1-combo.webp",
+    alt: "Zestaw dysz hardened",
+    name: "Zestaw dysz hardened 0,4 mm",
+    badges: ["0,4 mm", "Hardened", "Zestaw"],
+    price: "89",
+    save: "20",
+    low: "109,00",
+    buy: { id: "nozzle-04", name: "Zestaw dysz hardened 0,4 mm", price: "89" },
+  },
+  {
+    href: "#akcesoria",
+    img: "assets/drukarka-3d-bambu-lab-a1-combo.webp",
+    alt: "Suszarka filamentów",
+    name: "Suszarka filamentów",
+    badges: ["65°C", "Filament", "RFID"],
+    price: "449",
+    from: true,
+    variants: "2 warianty",
+  },
+  {
+    href: "#akcesoria",
+    img: "assets/drukarka-3d-bambu-lab-a1-combo.webp",
+    alt: "Obudowa filamentu",
+    name: "Obudowa filamentu z wagą",
+    badges: ["Waga", "Obudowa", "1 szpula"],
+    price: "229",
+    low: "229,00",
+    buy: { id: "spool-box", name: "Obudowa filamentu z wagą", price: "229" },
+  },
+  {
+    href: "#akcesoria",
+    img: "assets/drukarka-3d-bambu-lab-a1-combo.webp",
+    alt: "Zestaw narzędzi",
+    name: "Zestaw narzędzi do usuwania modeli",
+    badges: ["Nóż", "Szpachelka", "Zestaw"],
+    price: "59",
+    save: "10",
+    low: "69,00",
+    buy: { id: "tool-kit", name: "Zestaw narzędzi do usuwania modeli", price: "59" },
+  },
+];
+
+const categories = [
+  { id: "drukarki", label: "Drukarki 3D", items: drukarki },
+  { id: "filamenty", label: "Filamenty", items: filamenty },
+  { id: "akcesoria", label: "Akcesoria", items: akcesoria },
+];
+---
+
+<section class={sectionClass} id="bestsellery" aria-labelledby="bestsellery-title" data-bestsellery>
+  <div class={wrapClass}>
+    <div class={layoutClass}>
+      <article class="bs-deal">
+        <header class="bs-deal-head">
+          <h2 class="bs-deal-kicker">Oferta dnia</h2>
+          <p class="bs-deal-badge">Oszczędź <strong>{deal.save}&nbsp;zł</strong></p>
+        </header>
+        <div class="hero-slide">
+          <div class="product-shot">
+            <img src={deal.img} alt={deal.alt} width="220" height="220" loading="lazy" />
+          </div>
+          <p class="hero-slide-name">{deal.name}</p>
+          <ul class="product-badges">
+            {deal.badges.map((badge) => <li>{badge}</li>)}
+            <li><span class="icon icon-cube" aria-hidden="true"></span> Wysyłamy w 24h</li>
+          </ul>
+          <div class="mega-buy">
+            <p class="mega-price">
+              <span class="mega-amount">{deal.price}<sup>00</sup> <span class="mega-currency">zł</span></span>
+              <span class="mega-save">-{deal.save}&nbsp;zł</span>
+            </p>
+            <div class="card-actions">
+              <a class="mini-link card-details" href={deal.href}>Szczegóły</a>
+              <button
+                class="mega-cart"
+                type="button"
+                data-add
+                data-id={deal.id}
+                data-name={deal.name}
+                data-price="990"
+              >
+                <span class="icon icon-cart" aria-hidden="true"></span> Kup teraz
+              </button>
+            </div>
+            <p class="mega-low">Najniższa cena: {deal.lowest}&nbsp;zł</p>
+          </div>
+        </div>
+        <div class="bs-deal-timer">
+          <p class="bs-deal-timer-label">Do końca promocji</p>
+          <div class="bs-deal-timer-grid" data-deal-countdown aria-live="polite">
+            <div class="bs-deal-timer-unit">
+              <span class="bs-deal-timer-num" data-days>00</span>
+              <span class="bs-deal-timer-cap">dni</span>
+            </div>
+            <div class="bs-deal-timer-unit">
+              <span class="bs-deal-timer-num" data-hours>00</span>
+              <span class="bs-deal-timer-cap">godziny</span>
+            </div>
+            <div class="bs-deal-timer-unit">
+              <span class="bs-deal-timer-num" data-minutes>00</span>
+              <span class="bs-deal-timer-cap">minuty</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="bs-panel">
+        <div class={panelHeadClass}>
+          <h2 id="bestsellery-title" class="bs-panel-title">Bestsellery</h2>
+          <div class={tabsClass} role="tablist" aria-label="Kategorie bestsellerów" data-bestsellery-tabs>
+          <span class="tab-indicator" aria-hidden="true"></span>
+          {
+            categories.map((cat, index) => (
+              <button
+                type="button"
+                class={`${tabBtnClass}${index === 0 ? " is-active" : ""}`}
+                role="tab"
+                aria-selected={index === 0 ? "true" : "false"}
+                data-btab={cat.id}
+              >
+                {cat.label}
+              </button>
+            ))
+          }
+          </div>
+        </div>
+        {
+          categories.map((cat, index) => (
+            <div class={panelsClass} data-bpanel={cat.id} hidden={index !== 0}>
+              <div class="bestsellery-grid" role="list">
+                {
+                  cat.items.map((product) => (
+                    <article class={cardClass} role="listitem">
+                      <div class="product-shot">
+                        <img src={product.img} alt={product.alt} loading="lazy" />
+                        {product.variants ? <span class="variant-count">{product.variants}</span> : null}
+                      </div>
+                      <p class="hero-slide-name">{product.name}</p>
+                      <ul class="product-badges">
+                        {product.badges.map((badge) => <li>{badge}</li>)}
+                        <li><span class="icon icon-cube" aria-hidden="true"></span> Wysyłamy w 24h</li>
+                      </ul>
+                      <div class="mega-buy">
+                        <p class="mega-price">
+                          <span class="mega-amount">
+                            {product.from ? <small>od</small> : null}
+                            {product.price}<sup>00</sup> <span class="mega-currency">zł</span>
+                          </span>
+                          {product.save ? <span class="mega-save">-{product.save}&nbsp;zł</span> : null}
+                        </p>
+                        <div class="card-actions">
+                          <a class="mini-link card-details" href={product.href}>Szczegóły</a>
+                          {product.buy ? (
+                            <button class="mega-cart" type="button" data-add data-id={product.buy.id} data-name={product.buy.name} data-price={product.buy.price}>
+                              <span class="icon icon-cart" aria-hidden="true"></span> Kup teraz
+                            </button>
+                          ) : (
+                            <a class="mega-cart mega-cart-variant" href={product.href}>
+                              <span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant
+                            </a>
+                          )}
+                        </div>
+                        {product.low ? <p class="mega-low">Najniższa cena: {product.low}&nbsp;zł</p> : null}
+                      </div>
+                    </article>
+                  ))
+                }
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const section = document.querySelector("[data-bestsellery]");
+  if (section) {
+    const list = section.querySelector("[data-bestsellery-tabs]");
+    const tabs = section.querySelectorAll("[data-btab]");
+    const panels = section.querySelectorAll("[data-bpanel]");
+
+    const placeTabPill = () => {
+      if (!list) return;
+      const active = list.querySelector(".is-active");
+      const indicator = list.querySelector(".tab-indicator");
+      if (!active || !indicator) return;
+      indicator.style.width = `${active.offsetWidth}px`;
+      indicator.style.height = `${active.offsetHeight}px`;
+      indicator.style.transform = `translate(${active.offsetLeft}px, ${active.offsetTop}px)`;
+      list.classList.add("has-pill");
+    };
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((item) => {
+          const on = item === tab;
+          item.classList.toggle("is-active", on);
+          item.setAttribute("aria-selected", String(on));
+        });
+        panels.forEach((panel) => {
+          panel.hidden = panel.dataset.bpanel !== tab.dataset.btab;
+        });
+        placeTabPill();
+      });
+    });
+
+    placeTabPill();
+    window.addEventListener("resize", placeTabPill);
+    document.fonts?.ready.then(placeTabPill);
+
+    const countdown = section.querySelector("[data-deal-countdown]");
+    if (countdown) {
+      const end = new Date();
+      end.setHours(23, 59, 59, 999);
+      const daysEl = countdown.querySelector("[data-days]");
+      const hoursEl = countdown.querySelector("[data-hours]");
+      const minutesEl = countdown.querySelector("[data-minutes]");
+      const pad = (n) => String(n).padStart(2, "0");
+      const tick = () => {
+        const diff = Math.max(0, end.getTime() - Date.now());
+        const d = Math.floor(diff / 86_400_000);
+        const h = Math.floor((diff % 86_400_000) / 3_600_000);
+        const m = Math.floor((diff % 3_600_000) / 60_000);
+        if (daysEl) daysEl.textContent = pad(d);
+        if (hoursEl) hoursEl.textContent = pad(h);
+        if (minutesEl) minutesEl.textContent = pad(m);
+      };
+      tick();
+      window.setInterval(tick, 1000);
+    }
+  }
+</script>

@@ -570,6 +570,9 @@ body.nav-fixed .nav {
   font-weight: 600;
   line-height: 1;
 }
+.mega-price:not(:has(.mega-save)) {
+  color: var(--stone-900);
+}
 .mega-amount { white-space: nowrap; }
 .mega-price small {
   margin-right: 1px;

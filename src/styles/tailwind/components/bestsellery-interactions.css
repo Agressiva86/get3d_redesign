@@ -1,0 +1,26 @@
+@layer components {
+.bestsellery .tab-indicator {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  border-radius: calc(52px * 0.25);
+  background: var(--dark-2);
+  box-shadow: 0 8px 18px rgba(21, 0, 41, 0.16);
+  pointer-events: none;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), width 0.5s cubic-bezier(0.22, 1, 0.36, 1), height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.bestsellery .tabs.has-pill button.is-active,
+.bestsellery .tabs.has-pill button.is-active:hover {
+  background: transparent;
+  color: #fff;
+}
+.bestsellery .tabs button:not(.is-active):hover,
+.bestsellery .tabs button:not(.is-active):focus-visible {
+  background: var(--accent);
+  color: #fff;
+}
+.bestsellery-panels:not([hidden]) {
+  animation: faq-in 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+}

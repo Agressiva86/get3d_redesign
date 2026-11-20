@@ -8,6 +8,8 @@
 @import "./components/header.css";
 @import "./components/hero.css";
 @import "./components/cat-picks.css";
+@import "./components/bestsellery.css";
+@import "./components/bestsellery-interactions.css";
 @import "./components/print-guide.css";
 @import "./components/brand-spot.css";
 @import "./components/brand-spot-primitives.css";

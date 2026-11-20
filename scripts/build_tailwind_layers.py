@@ -12,6 +12,7 @@ TAILWIND_MARKUP = frozenset({
     "skip-link",
     "header",
     "cat-picks",
+    "bestsellery",
     "print-guide",
     "why-get3d",
     "hero",
@@ -25,6 +26,7 @@ TAILWIND_MARKUP = frozenset({
 
 # Sidecar CSS (niewyciągane z styles.css) — import po danym slug-u sekcji.
 SECTION_INTERACTIONS = {
+    "cat-picks": ("bestsellery.css", "bestsellery-interactions.css"),
     "brand-spot": ("brand-spot-primitives.css",),
     "faq": ("faq-interactions.css",),
     "cookies": ("cookies-interactions.css",),
