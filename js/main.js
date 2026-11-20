@@ -1521,6 +1521,7 @@
     track.addEventListener("dragstart", (event) => event.preventDefault());
     track.addEventListener("pointerdown", (event) => {
       if (event.button !== 0) return;
+      if (event.pointerType === "touch") return;
       if (event.target.closest("button, [data-makers-dir]")) return;
       makersGrab = {
         id: event.pointerId,

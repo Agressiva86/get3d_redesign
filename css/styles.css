@@ -3021,6 +3021,10 @@ body.nav-fixed .nav {
     flex-wrap: wrap;
     align-items: flex-start;
   }
+  .makers-track {
+    touch-action: pan-y;
+    overscroll-behavior-x: contain;
+  }
   .maker-unit { flex-basis: min(360px, 86vw); }
   .maker-card { min-height: 420px; }
 }
