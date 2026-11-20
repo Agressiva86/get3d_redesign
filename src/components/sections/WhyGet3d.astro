@@ -1,36 +1,76 @@
 ---
+const sectionClass =
+  "[&_.eyebrow_i]:normal-case [&_.eyebrow_i]:tracking-normal mx-5 mb-10 mt-8 w-[calc(100%-40px)] rounded-[22px] bg-stone-50 px-[max(10px,calc((100%-1500px)/2-20px))] py-12 pb-[52px] max-[980px]:mx-3 max-[980px]:mb-7 max-[980px]:mt-5 max-[980px]:w-[calc(100%-24px)] max-[980px]:py-9 max-[980px]:pb-10";
+
+const layoutClass =
+  "grid grid-cols-[minmax(260px,0.68fr)_minmax(0,1.32fr)] items-start gap-x-16 gap-y-8 max-[980px]:grid-cols-1 max-[980px]:gap-7";
+
+const titleClass =
+  "mt-[22px] max-w-[10em] text-left text-[clamp(34px,3.6vw,52px)] font-semibold leading-[1.06] tracking-normal max-[980px]:max-w-none";
+
+const gridClass = "grid grid-cols-2 gap-3.5 max-[980px]:grid-cols-1";
+
+const cardClass =
+  "flex h-full flex-col items-start rounded-lg bg-white px-6 pb-[26px] pt-6";
+
+const markClass =
+  "grid size-9 shrink-0 place-items-center rounded-full border-0 bg-white text-ink shadow-[0_6px_14px_rgba(21,0,41,0.16)] after:mt-[-2px] after:h-[5px] after:w-[9px] after:-rotate-45 after:border-b-2 after:border-l-2 after:border-current after:content-['']";
+
+const cardTitleClass =
+  "mt-4 font-heading text-[clamp(18px,1.4vw,21px)] font-semibold leading-tight tracking-normal text-ink";
+
+const cardTextClass =
+  "mb-8 mt-2.5 max-w-[36ch] flex-1 text-[14.5px] font-light leading-[1.55] text-stone-600";
+
+const cards = [
+  {
+    title: "Jesteśmy autoryzowanym dystrybutorem",
+    text: "Sprzedajemy drukarki 3D wiodących marek z oficjalną gwarancją i wsparciem producenta — od wyboru modelu po pierwsze wydruki.",
+    href: "https://get3d.pl/drukarki-3d/",
+    cta: "Zobacz drukarki 3D",
+  },
+  {
+    title: "Organizujemy szkolenia",
+    text: "Prowadzimy zajęcia dla operatorów, szkół i firm: obsługa maszyny, materiały, kalibracja i codzienna praca na flocie drukarek.",
+    href: "https://paulinabyczkowska.my.canva.site/get3d-tech",
+    cta: "Poznaj szkolenia",
+  },
+  {
+    title: "Mamy własny serwis drukarek 3D",
+    text: "Naprawy, przeglądy i części zamienne z polskiego magazynu. Uruchamiamy maszyny zdalnie lub na miejscu — bez czekania na import.",
+    href: "https://get3d.pl/serwis/",
+    cta: "Przejdź do serwisu",
+  },
+  {
+    title: "Mamy własny showroom w Łodzi",
+    text: "Zobacz drukarki i materiały na żywo przy ul. Wróblewskiego 70/72. Odbierzesz zamówienie od 250 zł z darmową dostawą do showroomu.",
+    href: "https://get3d.pl/kontakt/",
+    cta: "Odwiedź showroom",
+  },
+];
 ---
-<section class="why-get3d" id="dlaczego-get3d" aria-labelledby="why-get3d-title">
-<div class="wrap why-get3d-layout">
-        <div class="why-get3d-intro">
-          <span class="eyebrow"><i>get3D</i> nasze zalety</span>
-          <h2 id="why-get3d-title">Dlaczego warto wybrać get3D?</h2>
-        </div>
-        <div class="why-get3d-grid">
-          <article class="why-get3d-card">
-            <span class="why-get3d-mark" aria-hidden="true"></span>
-            <h3>Jesteśmy autoryzowanym dystrybutorem</h3>
-            <p>Sprzedajemy drukarki 3D wiodących marek z oficjalną gwarancją i wsparciem producenta — od wyboru modelu po pierwsze wydruki.</p>
-            <a class="btn btn-dark" href="https://get3d.pl/drukarki-3d/">Zobacz drukarki 3D</a>
-          </article>
-          <article class="why-get3d-card">
-            <span class="why-get3d-mark" aria-hidden="true"></span>
-            <h3>Organizujemy szkolenia</h3>
-            <p>Prowadzimy zajęcia dla operatorów, szkół i firm: obsługa maszyny, materiały, kalibracja i codzienna praca na flocie drukarek.</p>
-            <a class="btn btn-dark" href="https://paulinabyczkowska.my.canva.site/get3d-tech">Poznaj szkolenia</a>
-          </article>
-          <article class="why-get3d-card">
-            <span class="why-get3d-mark" aria-hidden="true"></span>
-            <h3>Mamy własny serwis drukarek 3D</h3>
-            <p>Naprawy, przeglądy i części zamienne z polskiego magazynu. Uruchamiamy maszyny zdalnie lub na miejscu — bez czekania na import.</p>
-            <a class="btn btn-dark" href="https://get3d.pl/serwis/">Przejdź do serwisu</a>
-          </article>
-          <article class="why-get3d-card">
-            <span class="why-get3d-mark" aria-hidden="true"></span>
-            <h3>Mamy własny showroom w Łodzi</h3>
-            <p>Zobacz drukarki i materiały na żywo przy ul. Wróblewskiego 70/72. Odbierzesz zamówienie od 250&nbsp;zł z darmową dostawą do showroomu.</p>
-            <a class="btn btn-dark" href="https://get3d.pl/kontakt/">Odwiedź showroom</a>
-          </article>
-        </div>
+
+<section class={sectionClass} id="dlaczego-get3d" aria-labelledby="why-get3d-title">
+  <div class="mx-auto w-full max-w-[1500px] px-[30px]">
+    <div class={layoutClass}>
+      <div>
+        <span class="eyebrow"><i>get3D</i> nasze zalety</span>
+        <h2 id="why-get3d-title" class={titleClass}>Dlaczego warto wybrać get3D?</h2>
       </div>
+      <div class={gridClass}>
+        {
+          cards.map((card) => (
+            <article class={cardClass}>
+              <span class={markClass} aria-hidden="true" />
+              <h3 class={cardTitleClass}>{card.title}</h3>
+              <p class={cardTextClass}>{card.text}</p>
+              <a class="btn btn-dark mt-auto self-start text-[15px] [--btn-h:44px]" href={card.href}>
+                {card.cta}
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
 </section>

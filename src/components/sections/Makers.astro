@@ -1,9 +1,74 @@
 ---
+const sectionClass = "makers py-[72px] pb-7 max-[760px]:pt-12";
+
+const wrapClass = "mx-auto w-full max-w-[1500px] px-[30px]";
+
+const headClass =
+  "makers-head flex items-center justify-between gap-4 max-[760px]:flex-wrap max-[760px]:items-start";
+
+const titleClass =
+  "m-0 max-w-[18em] text-[clamp(28px,3vw,40px)] font-semibold leading-[1.15] tracking-normal [&_span]:font-medium [&_span]:text-stone-500";
+
+const navClass =
+  "makers-nav flex flex-none gap-2.5 [&_.hero-slider-arrow:disabled]:cursor-default [&_.hero-slider-arrow:disabled]:opacity-35 [&_.hero-slider-arrow:disabled:hover]:bg-white [&_.hero-slider-arrow:disabled:hover]:text-ink";
+
+const trackClass =
+  "makers-track mt-7 flex cursor-grab gap-[18px] overflow-x-auto scroll-auto px-[max(30px,calc((100%-var(--container))/2))] pb-3 pt-0.5 [-ms-overflow-style:none] [scrollbar-width:none] touch-pan-x [&::-webkit-scrollbar]:hidden [&.is-grabbing]:cursor-grabbing [&.is-grabbing]:select-none [&.is-grabbing_a]:pointer-events-none";
+
+const unitClass =
+  "maker-unit flex flex-[0_0_360px] flex-col text-ink max-[760px]:basis-[min(360px,86vw)]";
+
+const heroClass = "maker-hero block text-inherit no-underline";
+
+const brandClass = "maker-brand bg-white px-0.5 pb-3.5 pt-0";
+
+const nameClass = "maker-name m-0 leading-none";
+
+const logoClass = "maker-logo block h-9 w-auto max-w-[220px] object-contain object-left";
+
+const cardClass =
+  "maker-card relative block min-h-[420px] flex-1 overflow-hidden rounded-[22px] bg-stone-200 max-[760px]:min-h-[420px]";
+
+const shotClass =
+  "maker-shot absolute inset-0 h-full w-full max-w-none object-cover object-center";
+
+const captionClass =
+  "maker-caption absolute inset-x-0 bottom-0 z-[1] flex flex-col items-start gap-2.5 px-5 pb-[18px] pt-[88px] before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-t before:from-[rgba(21,0,41,0.55)] before:from-0% before:via-[rgba(21,0,41,0.32)] before:via-[55%] before:to-transparent before:to-100% before:backdrop-blur-[16px] before:backdrop-saturate-[1.4] before:[mask-image:linear-gradient(to_top,#000_0%,#000_52%,transparent_100%)] before:[-webkit-mask-image:linear-gradient(to_top,#000_0%,#000_52%,transparent_100%)]";
+
+const lineClass = "maker-line relative m-0 text-inherit";
+
+const captionBtnClass =
+  "hero-caption-btn hero-caption-btn-solid pointer-events-none relative mt-0.5 max-w-full text-sm [--btn-h:44px] inline-flex min-h-10 items-center gap-2 rounded-full border border-white/45 bg-transparent px-4 font-[Familjen_Grotesk,Geist,Arial,sans-serif] font-medium leading-none tracking-normal whitespace-nowrap text-white no-underline transition-[background-color,border-color,box-shadow] duration-200 ease-out after:h-4 after:w-4 after:shrink-0 after:bg-current after:content-[''] after:[-webkit-mask:url('/assets/icons/arrow-right-down.svg')_center/contain_no-repeat] after:[mask:url('/assets/icons/arrow-right-down.svg')_center/contain_no-repeat]";
+
+const productsClass = "maker-products mt-3.5 flex flex-col gap-2 px-0.5";
+
+const productClass =
+  "maker-product grid grid-cols-[76px_minmax(0,1fr)] items-center gap-3 rounded-[14px] bg-stone-50 px-3 py-2.5 text-inherit no-underline transition-[background-color,box-shadow] duration-200 ease-out hover:bg-white hover:shadow-[inset_0_0_0_1px_var(--stone-200)] focus-visible:bg-white focus-visible:shadow-[inset_0_0_0_1px_var(--stone-200)]";
+
+const productShotClass =
+  "maker-product-shot block aspect-square overflow-hidden rounded-[10px] bg-white [&_img]:h-full [&_img]:w-full [&_img]:object-contain";
+
+const productBodyClass = "maker-product-body flex min-w-0 flex-col items-start gap-1.5";
+
+const productNameClass =
+  "maker-product-name block font-heading text-sm font-semibold leading-[1.25] text-ink";
+
+const pricingClass =
+  "maker-product-pricing flex w-full flex-col items-start gap-0.5 [&_.mega-currency]:text-xs [&_.mega-low]:m-0 [&_.mega-low]:text-[11px] [&_.mega-low]:leading-[1.35] [&_.mega-price]:text-[22px] [&_.mega-price:not(:has(.mega-save))]:text-stone-900 [&_.mega-price_small]:text-[11px] [&_.mega-price_sup]:-top-[0.65em] [&_.mega-price_sup]:text-[10px] [&_.mega-save]:text-[11px] [&_.mega-save]:leading-[14px]";
+
+const allClass = "mini-link maker-all mt-3 self-start";
+
+const scrollWrapClass = "makers-scroll-wrap mt-4 pb-1";
+
+const scrollClass =
+  "makers-scroll h-3.5 overflow-x-auto overflow-y-hidden [scrollbar-color:var(--sb-thumb-color)_var(--sb-track-color)] [scrollbar-width:thin] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-button]:hidden [&::-webkit-scrollbar-thumb]:rounded-[15px] [&::-webkit-scrollbar-thumb]:bg-[var(--sb-thumb-color)] [&::-webkit-scrollbar-track]:rounded-[15px] [&::-webkit-scrollbar-track]:bg-[var(--sb-track-color)]";
+
+const spacerClass = "makers-scroll-spacer h-px pointer-events-none";
 ---
-<section class="makers" data-makers aria-labelledby="makers-title">
-<div class="wrap makers-head">
-        <h2 id="makers-title">Drukarki 3D od renomowanych producentów</h2>
-        <div class="makers-nav">
+<section class={sectionClass} data-makers aria-labelledby="makers-title">
+<div class={`${wrapClass} ${headClass}`}>
+        <h2 id="makers-title" class={titleClass}>Drukarki 3D od renomowanych producentów</h2>
+        <div class={navClass}>
           <button class="hero-slider-arrow" type="button" data-makers-dir="-1" aria-label="Poprzedni producenci" disabled>
             <span class="icon icon-back" aria-hidden="true"></span>
           </button>
@@ -12,391 +77,391 @@
           </button>
         </div>
       </div>
-      <div class="makers-track" tabindex="0" role="region" aria-label="Producenci drukarek 3D">
-        <div class="maker-unit">
-          <a class="maker-hero" href="#drukarki">
-            <span class="maker-brand">
-              <h3 class="maker-name"><img class="maker-logo" src="assets/makers/new/BambuLab_logo.svg.webp" alt="Bambu Lab" width="132" height="36"></h3>
+      <div class={trackClass} tabindex="0" role="region" aria-label="Producenci drukarek 3D">
+        <div class={unitClass}>
+          <a class={heroClass} href="#drukarki">
+            <span class={brandClass}>
+              <h3 class={nameClass}><img class={logoClass} src="assets/makers/new/BambuLab_logo.svg.webp" alt="Bambu Lab" width="132" height="36"></h3>
             </span>
-            <span class="maker-card">
-              <img class="maker-shot" src="assets/makers/photos/bambu-lab.webp" alt="">
-              <span class="maker-caption">
-                <p class="maker-line">Drukarki Bambu Lab to demony szybkości z wysoką jakością wydruków. AMS pozwala drukować nawet w 16 kolorach, a stosunkowo niska cena sprawia, że te maszyny szybko zdobyły światowe rynki.</p>
-                <span class="hero-caption-btn hero-caption-btn-solid">Poznaj produkty Bambu Lab</span>
+            <span class={cardClass}>
+              <img class={shotClass} src="assets/makers/photos/bambu-lab.webp" alt="">
+              <span class={captionClass}>
+                <p class={lineClass}>Drukarki Bambu Lab to demony szybkości z wysoką jakością wydruków. AMS pozwala drukować nawet w 16 kolorach, a stosunkowo niska cena sprawia, że te maszyny szybko zdobyły światowe rynki.</p>
+                <span class={captionBtnClass}>Poznaj produkty Bambu Lab</span>
               </span>
             </span>
           </a>
-          <div class="maker-products">
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Bambu Lab A1 Combo</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></span><p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p></span>
+          <div class={productsClass}>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Bambu Lab A1 Combo</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></span><p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p></span>
             </span>
           </a>
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Bambu Lab A1 mini</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 845<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Bambu Lab A1 mini</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 845<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/bambu-lab-ams-2-pro.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Bambu Lab AMS 2 Pro</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount">990<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-300&nbsp;zł</span></span><p class="mega-low">Najniższa cena: 1&nbsp;110,00&nbsp;zł</p></span>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/bambu-lab-ams-2-pro.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Bambu Lab AMS 2 Pro</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount">990<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-300&nbsp;zł</span></span><p class="mega-low">Najniższa cena: 1&nbsp;110,00&nbsp;zł</p></span>
             </span>
           </a>
           </div>
-          <a class="mini-link maker-all" href="#drukarki">Zobacz wszystkie produkty</a>
+          <a class={allClass} href="#drukarki">Zobacz wszystkie produkty</a>
         </div>
-        <div class="maker-unit">
-          <a class="maker-hero" href="#drukarki">
-            <span class="maker-brand">
-              <h3 class="maker-name"><img class="maker-logo" src="assets/makers/new/bigrep-logo-mobile-header-opt.webp" alt="BigRep" width="120" height="36"></h3>
+        <div class={unitClass}>
+          <a class={heroClass} href="#drukarki">
+            <span class={brandClass}>
+              <h3 class={nameClass}><img class={logoClass} src="assets/makers/new/bigrep-logo-mobile-header-opt.webp" alt="BigRep" width="120" height="36"></h3>
             </span>
-            <span class="maker-card">
-              <img class="maker-shot" src="assets/makers/photos/bigrep.webp" alt="">
-              <span class="maker-caption">
-                <p class="maker-line">Drukarki BigRep to coś więcej niż wielkoformatowy sprzęt do dużych elementów. Niemiecka jakość, wysoka wydajność i konkurencyjna cena upraszczają produkcję oraz prototypowanie w firmie.</p>
-                <span class="hero-caption-btn hero-caption-btn-solid">Poznaj produkty BigRep</span>
+            <span class={cardClass}>
+              <img class={shotClass} src="assets/makers/photos/bigrep.webp" alt="">
+              <span class={captionClass}>
+                <p class={lineClass}>Drukarki BigRep to coś więcej niż wielkoformatowy sprzęt do dużych elementów. Niemiecka jakość, wysoka wydajność i konkurencyjna cena upraszczają produkcję oraz prototypowanie w firmie.</p>
+                <span class={captionBtnClass}>Poznaj produkty BigRep</span>
               </span>
             </span>
           </a>
-          <div class="maker-products">
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">BigRep ONE</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 62&nbsp;900<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <div class={productsClass}>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>BigRep ONE</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 62&nbsp;900<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">BigRep Studio</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 48&nbsp;500<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>BigRep Studio</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 48&nbsp;500<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">BigRep Pro</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 89&nbsp;000<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>BigRep Pro</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 89&nbsp;000<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
           </div>
-          <a class="mini-link maker-all" href="#drukarki">Zobacz wszystkie produkty</a>
+          <a class={allClass} href="#drukarki">Zobacz wszystkie produkty</a>
         </div>
-        <div class="maker-unit">
-          <a class="maker-hero" href="#drukarki">
-            <span class="maker-brand">
-              <h3 class="maker-name"><img class="maker-logo" src="assets/makers/new/desktop_metal_BIG.svg" alt="Desktop Metal" width="168" height="36"></h3>
+        <div class={unitClass}>
+          <a class={heroClass} href="#drukarki">
+            <span class={brandClass}>
+              <h3 class={nameClass}><img class={logoClass} src="assets/makers/new/desktop_metal_BIG.svg" alt="Desktop Metal" width="168" height="36"></h3>
             </span>
-            <span class="maker-card">
-              <img class="maker-shot" src="assets/makers/photos/desktop-metal.webp" alt="">
-              <span class="maker-caption">
-                <p class="maker-line">Systemy Desktop Metal służą do druku 3D z metalu. W ofercie get3D znajdziesz rozwiązania od warsztatu po produkcję seryjną precyzyjnych elementów metalowych dla przemysłu i inżynierii.</p>
-                <span class="hero-caption-btn hero-caption-btn-solid">Poznaj produkty Desktop Metal</span>
+            <span class={cardClass}>
+              <img class={shotClass} src="assets/makers/photos/desktop-metal.webp" alt="">
+              <span class={captionClass}>
+                <p class={lineClass}>Systemy Desktop Metal służą do druku 3D z metalu. W ofercie get3D znajdziesz rozwiązania od warsztatu po produkcję seryjną precyzyjnych elementów metalowych dla przemysłu i inżynierii.</p>
+                <span class={captionBtnClass}>Poznaj produkty Desktop Metal</span>
               </span>
             </span>
           </a>
-          <div class="maker-products">
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Desktop Metal Studio System</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 189&nbsp;000<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <div class={productsClass}>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Desktop Metal Studio System</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 189&nbsp;000<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Desktop Metal Shop System</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 325&nbsp;000<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Desktop Metal Shop System</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 325&nbsp;000<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Desktop Metal PureSinter</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 420&nbsp;000<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Desktop Metal PureSinter</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 420&nbsp;000<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
           </div>
-          <a class="mini-link maker-all" href="#drukarki">Zobacz wszystkie produkty</a>
+          <a class={allClass} href="#drukarki">Zobacz wszystkie produkty</a>
         </div>
-        <div class="maker-unit">
-          <a class="maker-hero" href="#drukarki">
-            <span class="maker-brand">
-              <h3 class="maker-name"><img class="maker-logo" src="assets/makers/eufymake.webp" alt="eufyMake" width="120" height="36"></h3>
+        <div class={unitClass}>
+          <a class={heroClass} href="#drukarki">
+            <span class={brandClass}>
+              <h3 class={nameClass}><img class={logoClass} src="assets/makers/eufymake.webp" alt="eufyMake" width="120" height="36"></h3>
             </span>
-            <span class="maker-card">
-              <img class="maker-shot" src="assets/makers/photos/eufymake.webp" alt="">
-              <span class="maker-caption">
-                <p class="maker-line">eufyMake E1 to kompaktowa drukarka 3D do domu i małego warsztatu. Prosta w obsłudze, z szybkim startem i jakością wystarczającą do codziennych projektów twórczych oraz pierwszych serii.</p>
-                <span class="hero-caption-btn hero-caption-btn-solid">Poznaj produkty eufyMake</span>
+            <span class={cardClass}>
+              <img class={shotClass} src="assets/makers/photos/eufymake.webp" alt="">
+              <span class={captionClass}>
+                <p class={lineClass}>eufyMake E1 to kompaktowa drukarka 3D do domu i małego warsztatu. Prosta w obsłudze, z szybkim startem i jakością wystarczającą do codziennych projektów twórczych oraz pierwszych serii.</p>
+                <span class={captionBtnClass}>Poznaj produkty eufyMake</span>
               </span>
             </span>
           </a>
-          <div class="maker-products">
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">eufyMake E1</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 2&nbsp;199<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <div class={productsClass}>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>eufyMake E1</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 2&nbsp;199<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Zestaw startowy eufyMake</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 2&nbsp;499<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Zestaw startowy eufyMake</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 2&nbsp;499<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Filament eufyMake PLA</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount">89<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Filament eufyMake PLA</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount">89<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
           </div>
-          <a class="mini-link maker-all" href="#drukarki">Zobacz wszystkie produkty</a>
+          <a class={allClass} href="#drukarki">Zobacz wszystkie produkty</a>
         </div>
-        <div class="maker-unit">
-          <a class="maker-hero" href="#drukarki">
-            <span class="maker-brand">
-              <h3 class="maker-name"><img class="maker-logo" src="assets/makers/formlabs.webp" alt="Formlabs" width="140" height="36"></h3>
+        <div class={unitClass}>
+          <a class={heroClass} href="#drukarki">
+            <span class={brandClass}>
+              <h3 class={nameClass}><img class={logoClass} src="assets/makers/formlabs.webp" alt="Formlabs" width="140" height="36"></h3>
             </span>
-            <span class="maker-card">
-              <img class="maker-shot" src="assets/makers/photos/formlabs.webp" alt="">
-              <span class="maker-caption">
-                <p class="maker-line">Urządzenia Formlabs pracują w technologii LFS. To jedne z najpopularniejszych drukarek żywicznych w medycynie – gabinety stomatologiczne i laboratoria wybierają je wraz z oprogramowaniem i żywicą.</p>
-                <span class="hero-caption-btn hero-caption-btn-solid">Poznaj produkty Formlabs</span>
+            <span class={cardClass}>
+              <img class={shotClass} src="assets/makers/photos/formlabs.webp" alt="">
+              <span class={captionClass}>
+                <p class={lineClass}>Urządzenia Formlabs pracują w technologii LFS. To jedne z najpopularniejszych drukarek żywicznych w medycynie – gabinety stomatologiczne i laboratoria wybierają je wraz z oprogramowaniem i żywicą.</p>
+                <span class={captionBtnClass}>Poznaj produkty Formlabs</span>
               </span>
             </span>
           </a>
-          <div class="maker-products">
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Formlabs Form 4</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 18&nbsp;900<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <div class={productsClass}>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Formlabs Form 4</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 18&nbsp;900<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Formlabs Form 4L</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 32&nbsp;500<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Formlabs Form 4L</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 32&nbsp;500<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Formlabs Form 3+</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 14&nbsp;200<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Formlabs Form 3+</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 14&nbsp;200<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
           </div>
-          <a class="mini-link maker-all" href="#drukarki">Zobacz wszystkie produkty</a>
+          <a class={allClass} href="#drukarki">Zobacz wszystkie produkty</a>
         </div>
-        <div class="maker-unit">
-          <a class="maker-hero" href="#drukarki">
-            <span class="maker-brand">
-              <h3 class="maker-name"><img class="maker-logo" src="assets/makers/minifactory.webp" alt="miniFactory" width="160" height="36"></h3>
+        <div class={unitClass}>
+          <a class={heroClass} href="#drukarki">
+            <span class={brandClass}>
+              <h3 class={nameClass}><img class={logoClass} src="assets/makers/minifactory.webp" alt="miniFactory" width="160" height="36"></h3>
             </span>
-            <span class="maker-card">
-              <img class="maker-shot" src="assets/makers/photos/minifactory.webp" alt="">
-              <span class="maker-caption">
-                <p class="maker-line">PEEK, PEKK, ULTEM, PPSU, PEI… druk z ultrapolimerów wymaga wysokich temperatur i grzanej komory. miniFactory łączy precyzję, suszenie filamentu i monitoring procesu AARNI bez kompromisów.</p>
-                <span class="hero-caption-btn hero-caption-btn-solid">Poznaj produkty miniFactory</span>
+            <span class={cardClass}>
+              <img class={shotClass} src="assets/makers/photos/minifactory.webp" alt="">
+              <span class={captionClass}>
+                <p class={lineClass}>PEEK, PEKK, ULTEM, PPSU, PEI… druk z ultrapolimerów wymaga wysokich temperatur i grzanej komory. miniFactory łączy precyzję, suszenie filamentu i monitoring procesu AARNI bez kompromisów.</p>
+                <span class={captionBtnClass}>Poznaj produkty miniFactory</span>
               </span>
             </span>
           </a>
-          <div class="maker-products">
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">miniFactory Ignite</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 89&nbsp;000<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <div class={productsClass}>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>miniFactory Ignite</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 89&nbsp;000<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">miniFactory Ultra 2</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 124&nbsp;000<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>miniFactory Ultra 2</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 124&nbsp;000<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Zestaw suszenia filamentu</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 12&nbsp;400<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Zestaw suszenia filamentu</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 12&nbsp;400<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
           </div>
-          <a class="mini-link maker-all" href="#drukarki">Zobacz wszystkie produkty</a>
+          <a class={allClass} href="#drukarki">Zobacz wszystkie produkty</a>
         </div>
-        <div class="maker-unit">
-          <a class="maker-hero" href="#drukarki">
-            <span class="maker-brand">
-              <h3 class="maker-name"><img class="maker-logo" src="assets/makers/prusa.webp" alt="Prusa" width="140" height="36"></h3>
+        <div class={unitClass}>
+          <a class={heroClass} href="#drukarki">
+            <span class={brandClass}>
+              <h3 class={nameClass}><img class={logoClass} src="assets/makers/prusa.webp" alt="Prusa" width="140" height="36"></h3>
             </span>
-            <span class="maker-card">
-              <img class="maker-shot" src="assets/makers/photos/prusa.webp" alt="">
-              <span class="maker-caption">
-                <p class="maker-line">Wyjmij drukarkę z pudełka, podłącz, przeprowadź Selftest i drukuj. Automatyczna kalibracja, idealna pierwsza warstwa i druk jednym kliknięciem – Prusa do domu, warsztatu lub firmy.</p>
-                <span class="hero-caption-btn hero-caption-btn-solid">Poznaj produkty Prusa</span>
+            <span class={cardClass}>
+              <img class={shotClass} src="assets/makers/photos/prusa.webp" alt="">
+              <span class={captionClass}>
+                <p class={lineClass}>Wyjmij drukarkę z pudełka, podłącz, przeprowadź Selftest i drukuj. Automatyczna kalibracja, idealna pierwsza warstwa i druk jednym kliknięciem – Prusa do domu, warsztatu lub firmy.</p>
+                <span class={captionBtnClass}>Poznaj produkty Prusa</span>
               </span>
             </span>
           </a>
-          <div class="maker-products">
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Original Prusa MK4S</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 4&nbsp;240<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <div class={productsClass}>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Original Prusa MK4S</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 4&nbsp;240<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Original Prusa CORE One+</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 5&nbsp;800<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Original Prusa CORE One+</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 5&nbsp;800<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Original Prusa XL</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 11&nbsp;000<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Original Prusa XL</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 11&nbsp;000<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
           </div>
-          <a class="mini-link maker-all" href="#drukarki">Zobacz wszystkie produkty</a>
+          <a class={allClass} href="#drukarki">Zobacz wszystkie produkty</a>
         </div>
-        <div class="maker-unit">
-          <a class="maker-hero" href="#drukarki">
-            <span class="maker-brand">
-              <h3 class="maker-name"><img class="maker-logo" src="assets/makers/raise3d.webp" alt="Raise3D" width="132" height="36"></h3>
+        <div class={unitClass}>
+          <a class={heroClass} href="#drukarki">
+            <span class={brandClass}>
+              <h3 class={nameClass}><img class={logoClass} src="assets/makers/raise3d.webp" alt="Raise3D" width="132" height="36"></h3>
             </span>
-            <span class="maker-card">
-              <img class="maker-shot" src="assets/makers/photos/raise3d.webp" alt="">
-              <span class="maker-caption">
-                <p class="maker-line">Raise3D oferuje drukarki dwugłowicowe do warsztatu i produkcji. Seria Pro łączy duże pole robocze, niezawodność oraz możliwość łączenia dwóch materiałów lub kolorów w jednym wydruku.</p>
-                <span class="hero-caption-btn hero-caption-btn-solid">Poznaj produkty Raise3D</span>
+            <span class={cardClass}>
+              <img class={shotClass} src="assets/makers/photos/raise3d.webp" alt="">
+              <span class={captionClass}>
+                <p class={lineClass}>Raise3D oferuje drukarki dwugłowicowe do warsztatu i produkcji. Seria Pro łączy duże pole robocze, niezawodność oraz możliwość łączenia dwóch materiałów lub kolorów w jednym wydruku.</p>
+                <span class={captionBtnClass}>Poznaj produkty Raise3D</span>
               </span>
             </span>
           </a>
-          <div class="maker-products">
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Raise3D Pro3</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 24&nbsp;900<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <div class={productsClass}>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Raise3D Pro3</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 24&nbsp;900<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Raise3D Pro3 HS</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 28&nbsp;900<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Raise3D Pro3 HS</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 28&nbsp;900<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Raise3D E3</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 5&nbsp;890<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-500&nbsp;zł</span></span><p class="mega-low">Najniższa cena: 6&nbsp;390,00&nbsp;zł</p></span>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Raise3D E3</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 5&nbsp;890<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-500&nbsp;zł</span></span><p class="mega-low">Najniższa cena: 6&nbsp;390,00&nbsp;zł</p></span>
             </span>
           </a>
           </div>
-          <a class="mini-link maker-all" href="#drukarki">Zobacz wszystkie produkty</a>
+          <a class={allClass} href="#drukarki">Zobacz wszystkie produkty</a>
         </div>
-        <div class="maker-unit">
-          <a class="maker-hero" href="#drukarki">
-            <span class="maker-brand">
-              <h3 class="maker-name"><img class="maker-logo" src="assets/makers/sinterit.webp" alt="Sinterit" width="132" height="36"></h3>
+        <div class={unitClass}>
+          <a class={heroClass} href="#drukarki">
+            <span class={brandClass}>
+              <h3 class={nameClass}><img class={logoClass} src="assets/makers/sinterit.webp" alt="Sinterit" width="132" height="36"></h3>
             </span>
-            <span class="maker-card">
-              <img class="maker-shot" src="assets/makers/photos/sinterit.webp" alt="">
-              <span class="maker-caption">
-                <p class="maker-line">Technologia SLS pozwala uzyskać wydruki o doskonałym odwzorowaniu kształtów. W get3D kupisz urządzenia polskiej firmy Sinterit – zastosowania w branżach są praktycznie nieograniczone.</p>
-                <span class="hero-caption-btn hero-caption-btn-solid">Poznaj produkty Sinterit</span>
+            <span class={cardClass}>
+              <img class={shotClass} src="assets/makers/photos/sinterit.webp" alt="">
+              <span class={captionClass}>
+                <p class={lineClass}>Technologia SLS pozwala uzyskać wydruki o doskonałym odwzorowaniu kształtów. W get3D kupisz urządzenia polskiej firmy Sinterit – zastosowania w branżach są praktycznie nieograniczone.</p>
+                <span class={captionBtnClass}>Poznaj produkty Sinterit</span>
               </span>
             </span>
           </a>
-          <div class="maker-products">
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Sinterit Lisa X</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 89&nbsp;000<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <div class={productsClass}>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Sinterit Lisa X</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 89&nbsp;000<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Sinterit Suzy</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 54&nbsp;900<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Sinterit Suzy</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 54&nbsp;900<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">Zestaw startowy proszków</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 4&nbsp;200<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>Zestaw startowy proszków</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 4&nbsp;200<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
           </div>
-          <a class="mini-link maker-all" href="#drukarki">Zobacz wszystkie produkty</a>
+          <a class={allClass} href="#drukarki">Zobacz wszystkie produkty</a>
         </div>
-        <div class="maker-unit">
-          <a class="maker-hero" href="#drukarki">
-            <span class="maker-brand">
-              <h3 class="maker-name"><img class="maker-logo" src="assets/makers/ultimaker.webp" alt="UltiMaker" width="152" height="36"></h3>
+        <div class={unitClass}>
+          <a class={heroClass} href="#drukarki">
+            <span class={brandClass}>
+              <h3 class={nameClass}><img class={logoClass} src="assets/makers/ultimaker.webp" alt="UltiMaker" width="152" height="36"></h3>
             </span>
-            <span class="maker-card">
-              <img class="maker-shot" src="assets/makers/photos/ultimaker.webp" alt="">
-              <span class="maker-caption">
-                <p class="maker-line">Dwugłowicowe drukarki UltiMaker, takie jak S3 i S5, służą do druku z dwóch filamentów. Sprawdzają się w farmach drukarek oraz w firmach przemysłowych i produkcyjnych w Polsce.</p>
-                <span class="hero-caption-btn hero-caption-btn-solid">Poznaj produkty UltiMaker</span>
+            <span class={cardClass}>
+              <img class={shotClass} src="assets/makers/photos/ultimaker.webp" alt="">
+              <span class={captionClass}>
+                <p class={lineClass}>Dwugłowicowe drukarki UltiMaker, takie jak S3 i S5, służą do druku z dwóch filamentów. Sprawdzają się w farmach drukarek oraz w firmach przemysłowych i produkcyjnych w Polsce.</p>
+                <span class={captionBtnClass}>Poznaj produkty UltiMaker</span>
               </span>
             </span>
           </a>
-          <div class="maker-products">
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">UltiMaker S5</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 19&nbsp;900<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <div class={productsClass}>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>UltiMaker S5</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 19&nbsp;900<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">UltiMaker Factor 4</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 42&nbsp;500<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>UltiMaker Factor 4</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 42&nbsp;500<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
-          <a class="maker-product" href="#drukarki">
-            <span class="maker-product-shot"><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
-            <span class="maker-product-body">
-              <span class="maker-product-name">UltiMaker S3</span>
-              <span class="maker-product-pricing"><span class="mega-price"><span class="mega-amount"><small>od</small> 15&nbsp;900<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
+          <a class={productClass} href="#drukarki">
+            <span class={productShotClass}><img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt=""></span>
+            <span class={productBodyClass}>
+              <span class={productNameClass}>UltiMaker S3</span>
+              <span class={pricingClass}><span class="mega-price"><span class="mega-amount"><small>od</small> 15&nbsp;900<sup>00</sup> <span class="mega-currency">zł</span></span></span></span>
             </span>
           </a>
           </div>
-          <a class="mini-link maker-all" href="#drukarki">Zobacz wszystkie produkty</a>
+          <a class={allClass} href="#drukarki">Zobacz wszystkie produkty</a>
         </div>
       </div>
-      <div class="wrap makers-scroll-wrap">
-        <div class="makers-scroll" data-makers-scroll tabindex="0" aria-label="Pasek przewijania producentów">
-          <div class="makers-scroll-spacer" data-makers-scroll-spacer></div>
+      <div class={`${wrapClass} ${scrollWrapClass}`}>
+        <div class={scrollClass} data-makers-scroll tabindex="0" aria-label="Pasek przewijania producentów">
+          <div class={spacerClass} data-makers-scroll-spacer></div>
         </div>
       </div>
 </section>

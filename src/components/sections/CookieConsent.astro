@@ -1,78 +1,130 @@
 ---
+const shellClass =
+  "cookie fixed inset-0 z-80 grid place-items-center bg-[rgba(250,250,249,0.32)] p-6 backdrop-blur-[8px]";
+
+const cardClass =
+  "cookie-card max-h-[calc(100vh-48px)] w-[min(560px,100%)] overflow-auto rounded-[22px] bg-white px-8 pt-8 pb-6 shadow-[0_24px_70px_rgba(21,0,41,0.22)]";
+
+const titleClass = "m-0 text-center text-[28px] leading-[1.15]";
+
+const bodyTextClass = "mt-3.5 text-sm leading-[1.55] text-stone-600";
+
+const actionsClass =
+  "mt-[22px] flex flex-wrap items-center justify-center gap-x-[22px] gap-y-2";
+
+const textBtnClass =
+  "cookie-text cursor-pointer border-0 bg-transparent px-0.5 py-2 font-heading text-base font-medium tracking-normal text-ink hover:text-accent focus-visible:text-accent";
+
+const legalClass =
+  "mt-[22px] flex flex-wrap gap-x-4 gap-y-2 border-t border-stone-200 pt-4";
+
+const legalLinkClass =
+  "text-xs text-stone-500 underline underline-offset-2 hover:text-ink focus-visible:text-ink";
+
+const layoutClass =
+  "mt-[18px] grid grid-cols-[minmax(200px,0.85fr)_minmax(280px,1.35fr)_190px] items-start gap-x-8 gap-y-7 max-[860px]:grid-cols-1";
+
+const introClass = "flex min-h-full flex-col";
+
+const introTextClass = "m-0 mt-0 text-sm leading-[1.55] text-stone-600";
+
+const introLegalClass = `${legalClass} mt-auto border-t-0 pt-[22px]`;
+
+const catsClass = "grid";
+
+const catClass =
+  "cookie-cat [&+&]:mt-3.5 [&+&]:border-t [&+&]:border-stone-200 [&+&]:pt-3.5";
+
+const catHeadClass = "flex items-center justify-between gap-3";
+
+const catTitleClass = "m-0 text-base font-semibold leading-snug";
+
+const catTextClass = "m-0 mt-2 text-[13px] leading-[1.45] text-stone-500";
+
+const alwaysClass = "shrink-0 text-[13px] font-medium text-stone-600";
+
+const sideClass =
+  "flex flex-col items-stretch gap-2 [&_.cookie-text]:text-center max-[860px]:flex-row max-[860px]:flex-wrap max-[860px]:justify-center";
+
+const sideBtnClass = "w-full max-[860px]:w-auto";
+
+const saveClass =
+  "cookie-save min-h-12 w-full cursor-pointer rounded-xl border border-stone-300 bg-white font-heading text-base font-medium tracking-normal text-ink hover:border-ink focus-visible:border-ink max-[860px]:w-auto";
 ---
-<div class="cookie" id="cookie" hidden>
-    <div class="cookie-card" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+
+<div class={shellClass} id="cookie" hidden>
+    <div class={cardClass} role="dialog" aria-modal="true" aria-labelledby="cookie-title">
       <div data-cookie-view="main">
-        <h2 id="cookie-title">Zarządzaj zgodą</h2>
-        <p>Aby zapewnić jak najlepsze wrażenia, korzystamy z technologii, takich jak pliki cookie, do przechowywania i/lub uzyskiwania dostępu do informacji o urządzeniu. Zgoda na te technologie pozwoli nam przetwarzać dane, takie jak zachowanie podczas przeglądania lub unikalne identyfikatory na tej stronie. Brak wyrażenia zgody lub wycofanie zgody może niekorzystnie wpłynąć na niektóre cechy i funkcje.</p>
-        <div class="cookie-actions">
+        <h2 id="cookie-title" class={titleClass}>Zarządzaj zgodą</h2>
+        <p class={bodyTextClass}>Aby zapewnić jak najlepsze wrażenia, korzystamy z technologii, takich jak pliki cookie, do przechowywania i/lub uzyskiwania dostępu do informacji o urządzeniu. Zgoda na te technologie pozwoli nam przetwarzać dane, takie jak zachowanie podczas przeglądania lub unikalne identyfikatory na tej stronie. Brak wyrażenia zgody lub wycofanie zgody może niekorzystnie wpłynąć na niektóre cechy i funkcje.</p>
+        <div class={actionsClass}>
           <button class="btn btn-dark" type="button" data-cookie="all">Akceptuję</button>
-          <button class="cookie-text" type="button" data-cookie="deny">Odmów</button>
-          <button class="cookie-text" type="button" data-cookie="prefs">Zobacz preferencje</button>
+          <button class={textBtnClass} type="button" data-cookie="deny">Odmów</button>
+          <button class={textBtnClass} type="button" data-cookie="prefs">Zobacz preferencje</button>
         </div>
-        <nav class="cookie-legal" aria-label="Dokumenty cookies">
-          <a href="https://get3d.pl/polityka-plikow-cookies-eu/">Polityka plików cookies</a>
-          <a href="https://get3d.pl/oswiadczenie-o-ochronie-prywatnosci-eu/">Oświadczenie o ochronie prywatności</a>
-          <a href="https://get3d.pl/kontakt/">Imprint</a>
+        <nav class={legalClass} aria-label="Dokumenty cookies">
+          <a class={legalLinkClass} href="https://get3d.pl/polityka-plikow-cookies-eu/">Polityka plików cookies</a>
+          <a class={legalLinkClass} href="https://get3d.pl/oswiadczenie-o-ochronie-prywatnosci-eu/">Oświadczenie o ochronie prywatności</a>
+          <a class={legalLinkClass} href="https://get3d.pl/kontakt/">Imprint</a>
         </nav>
       </div>
       <div data-cookie-view="prefs" hidden>
-        <h2 id="cookie-prefs-title">Zarządzaj zgodą</h2>
-        <div class="cookie-layout">
-          <div class="cookie-intro">
-            <p>Aby zapewnić jak najlepsze wrażenia, korzystamy z technologii, takich jak pliki cookie, do przechowywania i/lub uzyskiwania dostępu do informacji o urządzeniu. Zgoda na te technologie pozwoli nam przetwarzać dane, takie jak zachowanie podczas przeglądania lub unikalne identyfikatory na tej stronie. Brak wyrażenia zgody lub wycofanie zgody może niekorzystnie wpłynąć na niektóre cechy i funkcje.</p>
-            <nav class="cookie-legal" aria-label="Dokumenty cookies">
-              <a href="https://get3d.pl/polityka-plikow-cookies-eu/">Polityka plików cookies</a>
-              <a href="https://get3d.pl/oswiadczenie-o-ochronie-prywatnosci-eu/">Oświadczenie o ochronie prywatności</a>
-              <a href="https://get3d.pl/kontakt/">Imprint</a>
+        <h2 id="cookie-prefs-title" class={titleClass}>Zarządzaj zgodą</h2>
+        <div class={layoutClass}>
+          <div class={introClass}>
+            <p class={introTextClass}>Aby zapewnić jak najlepsze wrażenia, korzystamy z technologii, takich jak pliki cookie, do przechowywania i/lub uzyskiwania dostępu do informacji o urządzeniu. Zgoda na te technologie pozwoli nam przetwarzać dane, takie jak zachowanie podczas przeglądania lub unikalne identyfikatory na tej stronie. Brak wyrażenia zgody lub wycofanie zgody może niekorzystnie wpłynąć na niektóre cechy i funkcje.</p>
+            <nav class={introLegalClass} aria-label="Dokumenty cookies">
+              <a class={legalLinkClass} href="https://get3d.pl/polityka-plikow-cookies-eu/">Polityka plików cookies</a>
+              <a class={legalLinkClass} href="https://get3d.pl/oswiadczenie-o-ochronie-prywatnosci-eu/">Oświadczenie o ochronie prywatności</a>
+              <a class={legalLinkClass} href="https://get3d.pl/kontakt/">Imprint</a>
             </nav>
           </div>
-          <div class="cookie-cats">
-            <section class="cookie-cat">
-              <div class="cookie-cat-head">
-                <h3>Funkcjonalne</h3>
-                <span class="cookie-always">Zawsze aktywne</span>
+          <div class={catsClass}>
+            <section class={catClass}>
+              <div class={catHeadClass}>
+                <h3 class={catTitleClass}>Funkcjonalne</h3>
+                <span class={alwaysClass}>Zawsze aktywne</span>
               </div>
-              <p>Przechowywanie lub dostęp do danych technicznych jest ściśle konieczny do uzasadnionego celu umożliwienia korzystania z konkretnej usługi wyraźnie żądanej przez subskrybenta lub użytkownika, lub wyłącznie w celu przeprowadzenia transmisji komunikatu przez sieć łączności elektronicznej.</p>
+              <p class={catTextClass}>Przechowywanie lub dostęp do danych technicznych jest ściśle konieczny do uzasadnionego celu umożliwienia korzystania z konkretnej usługi wyraźnie żądanej przez subskrybenta lub użytkownika, lub wyłącznie w celu przeprowadzenia transmisji komunikatu przez sieć łączności elektronicznej.</p>
             </section>
-            <section class="cookie-cat">
-              <div class="cookie-cat-head">
-                <h3>Preferencje</h3>
+            <section class={catClass}>
+              <div class={catHeadClass}>
+                <h3 class={catTitleClass}>Preferencje</h3>
                 <label class="cookie-switch">
-                  <input type="checkbox" name="preferences" checked>
+                  <input type="checkbox" name="preferences" checked />
                   <span class="cookie-switch-ui" aria-hidden="true"></span>
                   <span class="sr">Preferencje</span>
                 </label>
               </div>
-              <p>Przechowywanie lub dostęp techniczny jest niezbędny do uzasadnionego celu przechowywania preferencji, o które nie prosi subskrybent lub użytkownik.</p>
+              <p class={catTextClass}>Przechowywanie lub dostęp techniczny jest niezbędny do uzasadnionego celu przechowywania preferencji, o które nie prosi subskrybent lub użytkownik.</p>
             </section>
-            <section class="cookie-cat">
-              <div class="cookie-cat-head">
-                <h3>Statystyka</h3>
+            <section class={catClass}>
+              <div class={catHeadClass}>
+                <h3 class={catTitleClass}>Statystyka</h3>
                 <label class="cookie-switch">
-                  <input type="checkbox" name="statistics" checked>
+                  <input type="checkbox" name="statistics" checked />
                   <span class="cookie-switch-ui" aria-hidden="true"></span>
                   <span class="sr">Statystyka</span>
                 </label>
               </div>
-              <p>Przechowywanie techniczne lub dostęp, który jest używany wyłącznie do celów statystycznych.</p>
+              <p class={catTextClass}>Przechowywanie techniczne lub dostęp, który jest używany wyłącznie do celów statystycznych.</p>
             </section>
-            <section class="cookie-cat">
-              <div class="cookie-cat-head">
-                <h3>Marketing</h3>
+            <section class={catClass}>
+              <div class={catHeadClass}>
+                <h3 class={catTitleClass}>Marketing</h3>
                 <label class="cookie-switch">
-                  <input type="checkbox" name="marketing" checked>
+                  <input type="checkbox" name="marketing" checked />
                   <span class="cookie-switch-ui" aria-hidden="true"></span>
                   <span class="sr">Marketing</span>
                 </label>
               </div>
-              <p>Przechowywanie lub dostęp techniczny jest wymagany do tworzenia profili użytkowników w celu wysyłania reklam lub śledzenia użytkownika na stronie internetowej lub na kilku stronach internetowych w podobnych celach marketingowych.</p>
+              <p class={catTextClass}>Przechowywanie lub dostęp techniczny jest wymagany do tworzenia profili użytkowników w celu wysyłania reklam lub śledzenia użytkownika na stronie internetowej lub na kilku stronach internetowych w podobnych celach marketingowych.</p>
             </section>
           </div>
-          <div class="cookie-side">
-            <button class="btn btn-dark" type="button" data-cookie="all">Akceptuję</button>
-            <button class="cookie-text" type="button" data-cookie="deny">Odmów</button>
-            <button class="cookie-save" type="button" data-cookie="save">Zapisz preferencje</button>
+          <div class={sideClass}>
+            <button class={`btn btn-dark ${sideBtnClass}`} type="button" data-cookie="all">Akceptuję</button>
+            <button class={textBtnClass} type="button" data-cookie="deny">Odmów</button>
+            <button class={saveClass} type="button" data-cookie="save">Zapisz preferencje</button>
           </div>
         </div>
       </div>

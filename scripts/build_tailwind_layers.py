@@ -8,7 +8,28 @@ SRC = ROOT / "css" / "styles.css"
 OUT = ROOT / "src" / "styles" / "tailwind"
 
 # Sekcje przepisane na utilities w .astro — nie generujemy dla nich warstwy components.
-TAILWIND_MARKUP = frozenset({"skip-link", "cat-picks"})
+TAILWIND_MARKUP = frozenset({
+    "skip-link",
+    "header",
+    "cat-picks",
+    "print-guide",
+    "why-get3d",
+    "hero",
+    "brand-spot",
+    "makers",
+    "faq",
+    "footer",
+    "cookies",
+    "cart",
+})
+
+# Sidecar CSS (niewyciągane z styles.css) — import po danym slug-u sekcji.
+SECTION_INTERACTIONS = {
+    "brand-spot": ("brand-spot-primitives.css",),
+    "faq": ("faq-interactions.css",),
+    "cookies": ("cookies-interactions.css",),
+    "cart": ("cart-interactions.css",),
+}
 
 # Sekcje usunięte z witryny — nie generuj CSS.
 REMOVED_SECTIONS = frozenset(
@@ -100,6 +121,11 @@ def main() -> None:
     why_start = next(i for i, line in enumerate(lines) if "/* Dlaczego get3D */" in line)
     faq_start = next(i for i, line in enumerate(lines) if line.startswith(".faq {"))
     cta_start = next(i for i, line in enumerate(lines) if "/* CTA */" in line)
+    footer_start = next(i for i, line in enumerate(lines) if "/* Footer */" in line)
+    cookies_start = next(i for i, line in enumerate(lines) if "/* Cookies */" in line)
+    cart_start = next(
+        i for i, line in enumerate(lines) if line.startswith(".overlay {") or "/* Cart */" in line
+    )
 
     fonts = "".join(lines[0:65])
     write(OUT / "fonts.css", fonts)
@@ -177,13 +203,13 @@ def main() -> None:
         ("quote-banner", 2436, 2459),
         ("features", 2459, 2532),
         ("pricing", 2532, 2626),
-        ("testimonials", 2626, 2661),
-        ("makers", 2661, why_start),
+        ("testimonials", 2626, 2665),
+        ("makers", 2665, why_start),
         ("why-get3d", why_start, faq_start),
         ("faq", faq_start, cta_start),
-        ("footer", 3216, 3402),
-        ("cookies", 3402, 3586),
-        ("cart", 3586, responsive_start),
+        ("footer", footer_start, cookies_start),
+        ("cookies", cookies_start, cart_start),
+        ("cart", cart_start, responsive_start),
     ]
 
     comp_dir = OUT / "components"
@@ -209,9 +235,13 @@ def main() -> None:
         '@import "./base.css";',
         '@import "./components/layout.css";',
         '@import "./components/primitives.css";',
+        '@import "./components/header-icons.css";',
+        '@import "./components/header-interactions.css";',
     ]
     for name, _, _ in sections:
         imports.append(f'@import "./components/{name}.css";')
+        for extra in SECTION_INTERACTIONS.get(name, ()):
+            imports.append(f'@import "./components/{extra}";')
     imports.append('@import "./responsive.css";')
     write(OUT / "index.css", "\n".join(imports) + "\n")
 

@@ -1,0 +1,74 @@
+@layer components {
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  flex: none;
+  background-color: currentColor;
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
+}
+.icon-caret { --icon: url("/assets/icons/small-caret-down.svg"); width: 14px; height: 14px; }
+.icon-arrow-corner { --icon: url("/assets/icons/arrow-right-down.svg"); }
+.icon-user { --icon: url("/assets/icons/user.svg"); }
+.icon-cart { --icon: url("/assets/icons/cart.svg"); }
+.icon-cart-plus { --icon: url("/assets/icons/cart-plus.svg"); }
+.icon-arrow { --icon: url("/assets/icons/arrow-right.svg"); width: 16px; height: 16px; }
+.icon-back { --icon: url("/assets/icons/arrow-left.svg"); width: 18px; height: 18px; }
+.icon-mode { --icon: url("/assets/icons/dark-light-mode.svg"); }
+.icon-check { --icon: url("/assets/icons/shield-check.svg"); }
+.icon-box { --icon: url("/assets/icons/box.svg"); }
+.icon-cube { --icon: url("/assets/icons/cube.svg"); }
+.icon-trend { --icon: url("/assets/icons/trending-up.svg"); }
+.icon-shield { --icon: url("/assets/icons/shield.svg"); }
+.icon-star { --icon: url("/assets/icons/star.svg"); }
+.icon-chart { --icon: url("/assets/icons/chart.svg"); }
+.icon-crown { --icon: url("/assets/icons/crown.svg"); }
+.icon-lightning { --icon: url("/assets/icons/lightning.svg"); }
+.icon-catalog { --icon: url("/assets/icons/catalog.svg"); }
+.icon-search { --icon: url("/assets/icons/search.svg"); }
+.icon-briefcase { --icon: url("/assets/icons/briefcase.svg"); }
+.icon-share { --icon: url("/assets/icons/share.svg"); }
+.icon-network { --icon: url("/assets/icons/share-network.svg"); }
+.icon-send { --icon: url("/assets/icons/send.svg"); }
+.icon-headphones { --icon: url("/assets/icons/headphones-micro.svg"); }
+.icon-receipt { --icon: url("/assets/icons/receipt.svg"); }
+.icon-refresh { --icon: url("/assets/icons/refresh.svg"); }
+.icon-heart { --icon: url("/assets/icons/heart.svg"); }
+.icon-comment { --icon: url("/assets/icons/comment.svg"); }
+.icon-pin { --icon: url("/assets/icons/map-pin.svg"); }
+.icon-wrench { --icon: url("/assets/icons/wrench.svg"); }
+.icon-out { --icon: url("/assets/icons/sign-out.svg"); }
+.icon-mail { --icon: url("/assets/icons/mail.svg"); }
+.icon-phone { --icon: url("/assets/icons/phone.svg"); }
+.icon-house { --icon: url("/assets/icons/house.svg"); }
+.icon-facebook { --icon: url("/assets/icons/social-media/facebook-f-brands-solid-full.svg"); }
+.icon-x { --icon: url("/assets/icons/social-media/x-twitter-brands-solid-full.svg"); }
+.icon-youtube { --icon: url("/assets/icons/social-media/youtube-brands-solid-full.svg"); }
+.icon-linkedin { --icon: url("/assets/icons/social-media/linkedin-in-brands-solid-full.svg"); }
+.icon-instagram { --icon: url("/assets/icons/social-media/instagram-brands-solid-full.svg"); }
+.icon-tiktok { --icon: url("/assets/icons/social-media/tiktok-brands-solid-full.svg"); }
+.icon-flag { --icon: url("/assets/icons/flag.svg"); }
+.icon-card { --icon: url("/assets/icons/card.svg"); }
+.icon-fire { --icon: url("/assets/icons/fire.svg"); }
+.icon-percent { --icon: url("/assets/icons/percent.svg"); }
+.icon-layers { --icon: url("/assets/icons/layers.svg"); }
+.burger span {
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-color: currentColor;
+  -webkit-mask: url("/assets/icons/sort-down.svg") center / contain no-repeat;
+  mask: url("/assets/icons/sort-down.svg") center / contain no-repeat;
+}
+}

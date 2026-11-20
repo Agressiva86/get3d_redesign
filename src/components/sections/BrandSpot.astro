@@ -1,16 +1,59 @@
 ---
+const sectionClass = "py-2 pb-12";
+
+const layoutClass =
+  "mx-auto grid w-full max-w-[1500px] grid-cols-[minmax(280px,0.86fr)_minmax(0,1.14fr)] items-stretch gap-[18px] px-[30px] max-[980px]:grid-cols-1";
+
+const photoClass =
+  "@container relative m-0 min-h-full overflow-hidden rounded-[22px] bg-stone-200 max-[980px]:min-h-0 max-[980px]:aspect-[4/5]";
+
+const photoImgClass =
+  "absolute inset-0 h-full w-full max-w-none object-cover object-[82%_center]";
+
+const markClass =
+  "hero-mark pointer-events-none absolute top-[18px] right-[18px] z-[2] h-[21px] w-7 fill-white [&_path:nth-child(1)]:opacity-50 [&_path:nth-child(2)]:opacity-30 [&_path:nth-child(3)]:opacity-10";
+
+const captionClass =
+  "hero-caption absolute inset-x-0 bottom-0 z-[1] flex flex-col items-start gap-2 pt-[92px] pr-[22px] pb-5 pl-[22px] before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-t before:from-[rgba(21,0,41,0.55)] before:from-0% before:via-[rgba(21,0,41,0.32)] before:via-[55%] before:to-transparent before:to-100% before:backdrop-blur-[16px] before:backdrop-saturate-[1.4] before:[mask-image:linear-gradient(to_top,#000_0%,#000_52%,transparent_100%)] before:[-webkit-mask-image:linear-gradient(to_top,#000_0%,#000_52%,transparent_100%)]";
+
+const wordmarkClass = "brand-wordmark mb-3.5 block h-auto w-[148px]";
+
+const captionTitleClass =
+  "m-0 w-[calc(70cqw-22px)] max-w-full font-display text-[26px] font-medium leading-[1.05] text-white max-[980px]:w-full";
+
+const captionTextClass =
+  "m-0 w-[calc(70cqw-22px)] max-w-full text-[13px] leading-[1.4] text-white max-[980px]:w-full";
+
+const captionActionsClass =
+  "hero-caption-actions mt-1.5 flex w-auto max-w-full flex-wrap gap-2 max-[980px]:w-full";
+
+const captionBtnBase =
+  "hero-caption-btn inline-flex min-h-10 items-center gap-2 rounded-full border border-white/45 bg-transparent px-4 font-[Familjen_Grotesk,Geist,Arial,sans-serif] text-sm font-medium leading-none tracking-normal whitespace-nowrap text-white no-underline transition-[background-color,border-color,box-shadow] duration-200 ease-out after:h-4 after:w-4 after:shrink-0 after:bg-current after:content-[''] after:[-webkit-mask:url('/assets/icons/arrow-right-down.svg')_center/contain_no-repeat] after:[mask:url('/assets/icons/arrow-right-down.svg')_center/contain_no-repeat] hover:border-transparent hover:bg-stone-900 hover:text-white hover:shadow-[0_8px_18px_rgba(21,0,41,0.38)] focus-visible:border-transparent focus-visible:bg-stone-900 focus-visible:text-white focus-visible:shadow-[0_8px_18px_rgba(21,0,41,0.38)]";
+
+const panelClass = "flex min-w-0 flex-col rounded-[22px] bg-stone-100 p-[18px]";
+
+const pairSliderClass = "pair-slider mt-0 min-w-0";
+
+const viewportClass =
+  "pair-slider-viewport min-w-0 cursor-grab overflow-hidden touch-pan-y [&.is-grabbing]:cursor-grabbing [&.is-grabbing_.hero-slide]:cursor-grabbing [&.is-grabbing_.hero-slide]:select-none";
+
+const trackClass =
+  "pair-slider-track flex w-full gap-3.5 transition-transform duration-[550ms] ease-[cubic-bezier(0.22,1,0.36,1)]";
+
+const slideClass =
+  "hero-slide relative flex min-w-0 flex-[0_0_calc((100%-14px)/2)] flex-col w-[calc((100%-14px)/2)] rounded-[22px] bg-white p-4 max-[760px]:w-full max-[760px]:flex-[0_0_100%]";
 ---
-<section class="brand-spot" aria-label="Bambu Lab">
-<div class="wrap brand-spot-layout">
-        <figure class="brand-spot-photo">
-          <img src="assets/images/magnific_uzyj-zaaczonego-zdjecia-drukarki-bambu-lab-a2l-combo_9ZH3B3aNYZ.webp" alt="Drukarka Bambu Lab na biurku w studiu">
-          <svg class="hero-mark" viewBox="105.9 0.4 32.3 23.8" aria-hidden="true">
+<section class={sectionClass} aria-label="Bambu Lab">
+<div class={layoutClass}>
+        <figure class={photoClass}>
+          <img class={photoImgClass} src="assets/images/magnific_uzyj-zaaczonego-zdjecia-drukarki-bambu-lab-a2l-combo_9ZH3B3aNYZ.webp" alt="Drukarka Bambu Lab na biurku w studiu">
+          <svg class={markClass} viewBox="105.9 0.4 32.3 23.8" aria-hidden="true">
             <path d="M138 3.09999C138.089 4.62816 137.197 5.8507 135.635 6.24366H111.899C110.382 6.19999 109.311 4.67183 109.267 3.3183C109.267 2.00845 110.338 0.436615 111.899 0.436615H135.368C136.885 0.436615 137.911 1.87746 138 3.09999Z"/>
             <path d="M128.72 12.1817C128.72 13.6662 127.827 14.8887 126.266 15.238H110.293C108.776 15.1944 107.661 13.7535 107.616 12.4C107.571 11.0465 108.642 9.431 110.204 9.431H126.132C127.649 9.431 128.63 10.9155 128.72 12.1817Z"/>
             <path d="M119.529 23.1408C119.038 23.7084 118.19 24.1451 117.253 24.1451H108.776C107.214 24.1451 106.054 22.7915 105.965 21.3507C105.92 19.9535 106.947 18.3817 108.553 18.3817H117.789C118.949 18.3817 119.886 19.5606 120.109 20.6084C120.332 21.569 120.109 22.4422 119.529 23.1408Z"/>
           </svg>
-          <div class="hero-caption">
-            <svg class="brand-wordmark" viewBox="0 18 485.05 140" aria-hidden="true">
+          <div class={captionClass}>
+            <svg class={wordmarkClass} viewBox="0 18 485.05 140" aria-hidden="true">
               <g fill="#fff">
                 <polygon points="160.26,143.47 160.26,101.95 148.62,101.95 148.62,153.19 191.24,153.19 187.6,143.47"/>
                 <path d="M240.56,112.15h-40.93l3.34,8.83h37.18c0.63,0,1.13,0.51,1.13,1.13l-0.01,5.21h-33.18c-6.26,0-11.34,5.08-11.34,11.34v3.19c0,6.26,5.08,11.34,11.34,11.34h43.8l0.01-29.74C251.9,117.19,246.83,112.15,240.56,112.15z M241.26,144.27H208.5c-0.63,0-1.13-0.51-1.13-1.13v-5.82c0-0.63,0.51-1.13,1.13-1.13h32.76V144.27z"/>
@@ -27,20 +70,20 @@
                 <path d="M183.03,34c-2.43,0-13.77,0-22.77,0v9.13l-11.64,4.47v39.81h41.28c0.08,0,0.16,0.01,0.24,0.01c0.08,0,0.16-0.01,0.24-0.01c8.28-0.13,14.95-6.87,14.95-15.18c0-4.69-2.12-8.87-5.46-11.66c0.07-0.08,0.13-0.17,0.19-0.26c2.02-2.67,3.24-5.98,3.24-9.58c0-6.79-4.27-12.57-10.27-14.84c0,0,0,0,0,0c-2.75-1.18-5.89-1.85-9.16-1.89C183.75,34,183.33,34,183.03,34z M160.26,43.13h13.21h11.52c0.73,0,1.43,0.16,2.07,0.44c2.34,0.92,4.01,3.2,4.01,5.88c0,0-0.05,0.89-0.14,1.32c-0.34,2.04-1.7,3.66-3.53,4.42c-0.81,0.37-1.7,0.59-2.65,0.59h-12.39h-12.1V43.13z M186.61,78.5h-10.29h-16.05V64.86h16.6h3.32h6.42c1.55,0,2.98,0.53,4.12,1.4c1.63,1.25,2.69,3.21,2.69,5.42C193.42,75.45,190.37,78.5,186.61,78.5z"/>
               </g>
             </svg>
-            <h2>Nowe Bambu Lab do domu</h2>
-            <p>Maszyna, filament i akcesoria w jednym miejscu. Od pierwszego wydruku po codzienną serię.</p>
-            <div class="hero-caption-actions">
-              <a class="hero-caption-btn hero-caption-btn-solid" href="#drukarki">Najczęściej kupowane drukarki</a>
-              <a class="hero-caption-btn hero-caption-btn-line" href="#serwis">Serwis drukarek Bambu Lab</a>
+            <h2 class={captionTitleClass}>Nowe Bambu Lab do domu</h2>
+            <p class={captionTextClass}>Maszyna, filament i akcesoria w jednym miejscu. Od pierwszego wydruku po codzienną serię.</p>
+            <div class={captionActionsClass}>
+              <a class={`${captionBtnBase} hero-caption-btn-solid`} href="#drukarki">Najczęściej kupowane drukarki</a>
+              <a class={`${captionBtnBase} hero-caption-btn-line`} href="#serwis">Serwis drukarek Bambu Lab</a>
             </div>
           </div>
         </figure>
-        <div class="brand-spot-panel">
-          <div class="pair-slider" data-pair-slider>
-            <div class="pair-slider-frame">
-              <div class="pair-slider-viewport">
-                <div class="pair-slider-track">
-                  <article class="hero-slide">
+        <div class={panelClass}>
+          <div class={pairSliderClass} data-pair-slider>
+            <div class="pair-slider-frame min-w-0">
+              <div class={viewportClass}>
+                <div class={trackClass}>
+                  <article class={slideClass}>
                     <div class="product-shot">
                       <img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt="Drukarka 3D Bambu Lab A1 Combo">
                       <span class="variant-count">3 warianty</span>
@@ -63,7 +106,7 @@
                       <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
                     </div>
                   </article>
-                  <article class="hero-slide">
+                  <article class={slideClass}>
                     <div class="product-shot">
                       <img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt="Drukarka 3D Bambu Lab A1">
                       <span class="variant-count">2 warianty</span>
@@ -85,7 +128,7 @@
                       </div>
                     </div>
                   </article>
-                  <article class="hero-slide">
+                  <article class={slideClass}>
                     <div class="product-shot">
                       <img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt="Drukarka 3D Bambu Lab A1 mini">
                       <span class="variant-count">4 warianty</span>
@@ -107,7 +150,7 @@
                       </div>
                     </div>
                   </article>
-                  <article class="hero-slide">
+                  <article class={slideClass}>
                     <div class="product-shot">
                       <img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt="Drukarka 3D Bambu Lab X2D Combo">
                     </div>
@@ -129,7 +172,7 @@
                       <p class="mega-low">Najniższa cena: 3&nbsp;779,00&nbsp;zł</p>
                     </div>
                   </article>
-                  <article class="hero-slide">
+                  <article class={slideClass}>
                     <div class="product-shot">
                       <img src="assets/bambu-lab-ams-2-pro.webp" alt="Bambu Lab AMS 2 Pro">
                     </div>

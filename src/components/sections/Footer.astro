@@ -1,75 +1,140 @@
 ---
+const footerClass = "mx-5 rounded-t-[22px] bg-stone-100 pt-16 pb-0";
+
+const topClass =
+  "mx-auto grid w-[min(1500px,calc(100%-48px))] grid-cols-[minmax(320px,1.45fr)_minmax(118px,0.48fr)_minmax(128px,0.55fr)_minmax(220px,0.78fr)] items-stretch gap-x-7 gap-y-8 max-[980px]:grid-cols-2 max-[980px]:gap-x-6 max-[980px]:gap-y-7";
+
+const newsClass = "flex flex-col max-[980px]:col-span-full";
+
+const newsTitleClass = "m-0 mb-3 text-[32px] leading-[1.1]";
+
+const newsLeadClass = "m-0 max-w-[48ch] text-[15px] leading-normal text-stone-700";
+
+const formClass = "mt-[22px] flex flex-col items-stretch gap-2.5";
+
+const newsFieldsClass =
+  "flex min-h-14 items-center rounded-[22px] bg-white py-1 pr-1 pl-[18px] focus-within:outline focus-within:outline-2 focus-within:outline-offset-0 focus-within:outline-stone-300 max-[980px]:min-w-0 [&_.btn:focus]:outline-none [&_.btn:focus-visible]:outline-none [&_input:focus]:outline-none [&_input:focus-visible]:outline-none";
+
+const newsInputClass =
+  "h-11 min-w-0 flex-1 rounded-none border-0 bg-transparent pr-3 pl-0 text-ink max-[980px]:min-w-0";
+
+const newsConsentClass =
+  "flex cursor-pointer items-start gap-2 text-[11px] font-normal leading-[1.45] text-stone-500";
+
+const newsConsentInputClass = "mt-px h-3.5 w-3.5 shrink-0 accent-accent";
+
+const newsConsentLinkClass =
+  "text-inherit underline underline-offset-2 hover:text-ink focus-visible:text-ink";
+
+const newsNoteClass = "m-0 mt-2.5 min-h-0 text-sm font-normal text-ink";
+
+const linksClass = "flex flex-col gap-[11px]";
+
+const linksAnchorClass =
+  "text-[13px] font-normal leading-snug text-stone-700 hover:text-stone-900 focus-visible:text-stone-900";
+
+const companyClass =
+  "flex w-max max-w-full flex-col items-start justify-self-end text-left text-ink max-[980px]:col-span-full max-[980px]:w-auto max-[980px]:justify-self-start";
+
+const logoClass = "block leading-none";
+
+const logoImgClass = "h-[26px] w-auto";
+
+const legalClass = "m-0 mt-4 text-[13px] leading-snug text-stone-600";
+
+const phoneClass =
+  "mt-[22px] flex items-center gap-2.5 whitespace-nowrap font-heading text-[26px] font-semibold leading-none tracking-normal text-ink hover:text-accent focus-visible:text-accent [&_.icon]:h-[22px] [&_.icon]:w-[22px]";
+
+const lineClass =
+  "mt-[18px] flex items-start gap-2.5 text-[15px] font-medium leading-[1.35] text-ink hover:text-accent focus-visible:text-accent [&_.icon]:mt-px [&_.icon]:h-5 [&_.icon]:w-5";
+
+const baseClass =
+  "mx-auto mt-10 flex w-[min(1500px,calc(100%-48px))] items-center justify-between gap-6";
+
+const copyClass = "m-0 min-w-0 flex-1 max-w-none text-xs leading-[1.45] text-stone-500";
+
+const socialClass = "flex shrink-0 items-center gap-2.5";
+
+const socialLinkClass = "grid place-items-center text-stone-500 hover:text-accent";
+
+const socialIconWrapClass = "[&_.icon]:h-4 [&_.icon]:w-4";
+
+const markClass = "mt-9 overflow-hidden leading-none";
+
+const markSvgClass =
+  "-mb-[7%] -ml-[6%] block h-auto w-[112%] max-w-none max-[980px]:-ml-[23%] max-[980px]:w-[146%] [&_path]:fill-stone-300";
 ---
-<footer class="footer">
-    <div class="wrap footer-top">
-      <div class="footer-news">
-        <h2>Newsletter</h2>
-        <p>Zapisz się na listę get3D. Nowości o drukarkach, filamentach i akcesoriach oraz krótkie notatki z pracowni. Za pierwsze zakupy po zapisaniu −5%.</p>
+
+<footer class={footerClass}>
+    <div class={topClass}>
+      <div class={newsClass}>
+        <h2 class={newsTitleClass}>Newsletter</h2>
+        <p class={newsLeadClass}>Zapisz się na listę get3D. Nowości o drukarkach, filamentach i akcesoriach oraz krótkie notatki z pracowni. Za pierwsze zakupy po zapisaniu −5%.</p>
         <form id="newsletter">
-          <div class="news-fields">
-            <input type="email" name="email" required placeholder="Wpisz swój adres e-mail" aria-label="E-mail">
-            <button class="btn btn-dark" type="submit">Zapisz się</button>
+          <div class={newsFieldsClass}>
+            <input type="email" name="email" required placeholder="Wpisz swój adres e-mail" aria-label="E-mail" class={newsInputClass} />
+            <button class="btn btn-dark shrink-0" type="submit">Zapisz się</button>
           </div>
-          <label class="news-consent">
-            <input type="checkbox" name="consent" required>
-            <span>Wyrażam zgodę na otrzymywanie od get3D Sp. z o.o. na podany adres e-mail newslettera zawierającego informacje o produktach, nowościach, promocjach, wydarzeniach i ofercie związanej z technologią druku 3D. Wiem, że zgodę mogę wycofać w dowolnym momencie. <a href="https://get3d.pl/polityka-prywatnosci/">Polityka prywatności</a>.</span>
+          <label class={newsConsentClass}>
+            <input type="checkbox" name="consent" required class={newsConsentInputClass} />
+            <span>Wyrażam zgodę na otrzymywanie od get3D Sp. z o.o. na podany adres e-mail newslettera zawierającego informacje o produktach, nowościach, promocjach, wydarzeniach i ofercie związanej z technologią druku 3D. Wiem, że zgodę mogę wycofać w dowolnym momencie. <a href="https://get3d.pl/polityka-prywatnosci/" class={newsConsentLinkClass}>Polityka prywatności</a>.</span>
           </label>
         </form>
-        <p class="form-note" id="news-note" role="status"></p>
+        <p class={newsNoteClass} id="news-note" role="status"></p>
       </div>
-      <nav class="footer-links" aria-label="Produkty i wiedza">
-        <a href="https://get3d.pl/drukarki-3d/">Drukarki 3D / UV</a>
-        <a href="https://get3d.pl/formierki-3d/">Formierki 3D</a>
-        <a href="https://get3d.pl/filamenty/">Filamenty</a>
-        <a href="https://get3d.pl/zywice/">Żywice UV</a>
-        <a href="https://get3d.pl/akcesoria/">Akcesoria</a>
-        <a href="https://get3d.pl/serwis/">Serwis</a>
-        <a href="https://get3d.pl/poradniki/">Poradniki</a>
-        <a href="https://get3d.pl/tech-zone/">Tech Zone</a>
-        <a href="https://paulinabyczkowska.my.canva.site/get3d-tech">Szkolenia</a>
-        <a href="https://get3d.pl/blog/">Blog</a>
+      <nav class={linksClass} aria-label="Produkty i wiedza">
+        <a class={linksAnchorClass} href="https://get3d.pl/drukarki-3d/">Drukarki 3D / UV</a>
+        <a class={linksAnchorClass} href="https://get3d.pl/formierki-3d/">Formierki 3D</a>
+        <a class={linksAnchorClass} href="https://get3d.pl/filamenty/">Filamenty</a>
+        <a class={linksAnchorClass} href="https://get3d.pl/zywice/">Żywice UV</a>
+        <a class={linksAnchorClass} href="https://get3d.pl/akcesoria/">Akcesoria</a>
+        <a class={linksAnchorClass} href="https://get3d.pl/serwis/">Serwis</a>
+        <a class={linksAnchorClass} href="https://get3d.pl/poradniki/">Poradniki</a>
+        <a class={linksAnchorClass} href="https://get3d.pl/tech-zone/">Tech Zone</a>
+        <a class={linksAnchorClass} href="https://paulinabyczkowska.my.canva.site/get3d-tech">Szkolenia</a>
+        <a class={linksAnchorClass} href="https://get3d.pl/blog/">Blog</a>
       </nav>
-      <nav class="footer-links" aria-label="Regulaminy i informacje">
-        <a href="https://get3d.pl/regulamin/">Regulamin</a>
-        <a href="https://get3d.pl/polityka-prywatnosci/">Polityka prywatności</a>
-        <a href="https://get3d.pl/polityka-plikow-cookies-eu/">Polityka plików cookies</a>
-        <a href="https://get3d.pl/oswiadczenie-o-ochronie-prywatnosci-eu/">Oświadczenie o prywatności</a>
-        <a href="https://get3d.pl/wylaczenie-odpowiedzialnosci/">Wyłączenie odpowiedzialności</a>
-        <a href="mailto:biuro@get3d.pl">E-mail</a>
-        <a href="https://get3d.pl/kontakt/">Kontakt</a>
-        <a href="https://get3d.pl/wspolpraca/">Współpraca</a>
-        <a href="https://get3d.pl/kariera/">Kariera</a>
-        <a href="https://get3d.pl/sprawdz-swoje-zamowienie/">Sprawdź swoje zamówienie</a>
+      <nav class={linksClass} aria-label="Regulaminy i informacje">
+        <a class={linksAnchorClass} href="https://get3d.pl/regulamin/">Regulamin</a>
+        <a class={linksAnchorClass} href="https://get3d.pl/polityka-prywatnosci/">Polityka prywatności</a>
+        <a class={linksAnchorClass} href="https://get3d.pl/polityka-plikow-cookies-eu/">Polityka plików cookies</a>
+        <a class={linksAnchorClass} href="https://get3d.pl/oswiadczenie-o-ochronie-prywatnosci-eu/">Oświadczenie o prywatności</a>
+        <a class={linksAnchorClass} href="https://get3d.pl/wylaczenie-odpowiedzialnosci/">Wyłączenie odpowiedzialności</a>
+        <a class={linksAnchorClass} href="mailto:biuro@get3d.pl">E-mail</a>
+        <a class={linksAnchorClass} href="https://get3d.pl/kontakt/">Kontakt</a>
+        <a class={linksAnchorClass} href="https://get3d.pl/wspolpraca/">Współpraca</a>
+        <a class={linksAnchorClass} href="https://get3d.pl/kariera/">Kariera</a>
+        <a class={linksAnchorClass} href="https://get3d.pl/sprawdz-swoje-zamowienie/">Sprawdź swoje zamówienie</a>
       </nav>
-      <div class="footer-company">
-        <a class="footer-logo" href="#start" aria-label="get3D, strona główna">
-          <img src="assets/get3d%20logo.svg" alt="get3D">
+      <div class={companyClass}>
+        <a class={logoClass} href="#start" aria-label="get3D, strona główna">
+          <img class={logoImgClass} src="assets/get3d%20logo.svg" alt="get3D" />
         </a>
-        <p class="footer-legal">get3D Sp. z o.o.</p>
-        <a class="footer-phone" href="tel:+48426305050"><span class="icon icon-phone" aria-hidden="true"></span><span>42 630 50 50</span></a>
-        <a class="footer-line" href="mailto:biuro@get3d.pl"><span class="icon icon-mail" aria-hidden="true"></span><span>biuro@get3d.pl</span></a>
-        <a class="footer-line" href="https://get3d.pl/kontakt/"><span class="icon icon-pin" aria-hidden="true"></span><span>Wróblewskiego 70/72<br>93-566 Łódź</span></a>
+        <p class={legalClass}>get3D Sp. z o.o.</p>
+        <a class={phoneClass} href="tel:+48426305050"><span class="icon icon-phone" aria-hidden="true"></span><span>42 630 50 50</span></a>
+        <a class={lineClass} href="mailto:biuro@get3d.pl"><span class="icon icon-mail" aria-hidden="true"></span><span>biuro@get3d.pl</span></a>
+        <a class={lineClass} href="https://get3d.pl/kontakt/"><span class="icon icon-pin" aria-hidden="true"></span><span>Wróblewskiego 70/72<br>93-566 Łódź</span></a>
       </div>
     </div>
-    <div class="footer-base">
-      <p class="footer-copy">© 2015–2026 get3D. Wszystkie prawa zastrzeżone. Design &amp; development by Spacers.</p>
-      <nav class="footer-social" aria-label="Social media">
-        <a href="https://www.youtube.com/@get3dlab" target="_blank" rel="noopener" aria-label="YouTube"><span class="icon icon-youtube" aria-hidden="true"></span></a>
-        <a href="https://www.linkedin.com/company/18726552/" target="_blank" rel="noopener" aria-label="LinkedIn"><span class="icon icon-linkedin" aria-hidden="true"></span></a>
-        <a href="https://www.facebook.com/get3dpl" target="_blank" rel="noopener" aria-label="Facebook"><span class="icon icon-facebook" aria-hidden="true"></span></a>
-        <a href="https://www.instagram.com/get3d/" target="_blank" rel="noopener" aria-label="Instagram"><span class="icon icon-instagram" aria-hidden="true"></span></a>
-        <a href="https://www.tiktok.com/@get3d_lab" target="_blank" rel="noopener" aria-label="TikTok"><span class="icon icon-tiktok" aria-hidden="true"></span></a>
+    <div class={baseClass}>
+      <p class={copyClass}>© 2015–2026 get3D. Wszystkie prawa zastrzeżone. Design &amp; development by Spacers.</p>
+      <nav class={socialClass} aria-label="Social media">
+        <a class={`${socialLinkClass} ${socialIconWrapClass}`} href="https://www.youtube.com/@get3dlab" target="_blank" rel="noopener" aria-label="YouTube"><span class="icon icon-youtube" aria-hidden="true"></span></a>
+        <a class={`${socialLinkClass} ${socialIconWrapClass}`} href="https://www.linkedin.com/company/18726552/" target="_blank" rel="noopener" aria-label="LinkedIn"><span class="icon icon-linkedin" aria-hidden="true"></span></a>
+        <a class={`${socialLinkClass} ${socialIconWrapClass}`} href="https://www.facebook.com/get3dpl" target="_blank" rel="noopener" aria-label="Facebook"><span class="icon icon-facebook" aria-hidden="true"></span></a>
+        <a class={`${socialLinkClass} ${socialIconWrapClass}`} href="https://www.instagram.com/get3d/" target="_blank" rel="noopener" aria-label="Instagram"><span class="icon icon-instagram" aria-hidden="true"></span></a>
+        <a class={`${socialLinkClass} ${socialIconWrapClass}`} href="https://www.tiktok.com/@get3d_lab" target="_blank" rel="noopener" aria-label="TikTok"><span class="icon icon-tiktok" aria-hidden="true"></span></a>
       </nav>
     </div>
-    <div class="footer-mark">
-      <svg viewBox="0 0 138 31" role="img" aria-label="get3D">
+    <div class={markClass}>
+      <svg class={markSvgClass} viewBox="0 0 138 31" role="img" aria-label="get3D">
         <path d="M82.9428 4.80282L82.095 9.12535C81.7381 11.0465 80.4888 11.6141 78.5257 11.8761C79.195 12.138 79.9534 12.269 80.4888 12.793C81.1135 13.4479 81.2027 14.3648 81.0689 15.1944L80.0873 20.3901C79.9534 21.2197 79.6857 22.0493 79.1503 22.7042C78.258 23.8394 76.9195 24.3634 75.4025 24.407H63.356L64.1144 20.4775H71.7439C72.1901 20.4338 72.5917 20.0845 72.6809 19.6479L73.5286 15.0197C73.5286 14.4521 73.2163 14.0155 72.5917 14.0155H68.2192L68.9777 10.0859H73.6625C74.1532 9.99859 74.5102 9.60563 74.5994 9.08169L75.3133 5.02113C75.3579 4.75916 75.2687 4.45352 75.1348 4.27887C75.001 4.06056 74.7333 3.92958 74.3763 3.92958H65.2299L65.9437 0H79.6857C80.6227 0.130986 81.515 0.349296 82.1843 0.960563C83.1659 1.8338 83.1659 3.4493 82.9428 4.80282Z"/>
         <path d="M56.128 18.1197L55.8603 19.9972C55.9049 20.6521 56.3957 21.1761 57.1096 21.1324H60.322L62.419 20.9577L61.7498 24.407H52.1125C51.0863 24.407 50.1494 24.1014 49.3909 23.4465C48.4539 22.6606 48.2308 20.8268 48.4539 19.4732L50.2386 9.99859H46.8477L47.4724 6.68028H50.8186L51.5325 2.7507H58.8943L58.225 6.68028H64.516L63.8914 9.99859H57.6004L56.128 18.1197Z"/>
         <path d="M45.7323 9.12534C45.5092 7.9028 44.5723 6.89858 43.323 6.81125L41.5829 6.68027H30.2949C28.5994 6.68027 27.0378 7.55351 26.1455 8.90703C25.4316 9.95492 25.1639 11.0901 24.9408 12.269L23.7808 18.2507C23.4685 19.9535 23.0669 22.2676 24.227 23.4465C24.8962 24.1014 25.8332 24.407 26.8148 24.407H42.5199L43.5015 20.8704C42.5645 21.0014 41.7168 21.1324 40.6906 21.1324H32.2134C31.4995 21.1324 30.9641 20.6084 31.0534 19.8662L31.4995 17.2901H44.7061L45.7323 11.6141C45.8662 10.7845 45.9108 9.95491 45.7323 9.12534ZM37.8797 14.0155H32.1242L32.6596 11.1775C32.838 10.3915 33.5965 9.91125 34.3996 9.95492H37.4336C38.0582 9.95492 38.4598 10.4352 38.4151 11.0465L37.8797 14.0155Z"/>
         <path d="M17.6237 6.68027L16.8206 8.12111C16.7759 7.29154 16.1959 6.72393 15.3482 6.72393H8.03104C6.51406 6.72393 5.04171 7.3352 4.10475 8.47041C3.1678 9.56196 2.72163 10.8718 2.49855 12.269L1.16004 19.5605C0.981571 20.3465 0.981571 21.176 1.16004 21.962C1.47236 23.3155 2.58778 24.3197 4.06014 24.3634H11.6004C12.582 24.3197 13.2512 23.8394 13.6974 23.0098L13.2066 26.1535C13.0727 26.9394 12.3589 27.5507 11.5112 27.638H0.669253L0 31H15.5267C19.0068 30.476 20.2114 28.2929 20.7915 25.1056L23.6916 9.47463C23.87 8.51407 24.227 7.68449 24.6285 6.68027H17.6237ZM14.3666 19.5169C14.2328 20.2591 13.8312 20.8267 13.0727 21.0887H9.72648C9.05723 21.0887 8.47721 20.5211 8.61106 19.7789L10.1726 11.3521C10.3065 10.5225 11.065 9.99858 11.9127 9.99858H14.8574C15.4821 9.99858 16.0175 10.5662 15.8836 11.2648L14.3666 19.5169Z"/>
         <path d="M138 3.09999C138.089 4.62816 137.197 5.8507 135.635 6.24366H111.899C110.382 6.19999 109.311 4.67183 109.267 3.3183C109.267 2.00845 110.338 0.436615 111.899 0.436615H135.368C136.885 0.436615 137.911 1.87746 138 3.09999Z"/>
         <path d="M128.72 12.1817C128.72 13.6662 127.827 14.8887 126.266 15.238H110.293C108.776 15.1944 107.661 13.7535 107.616 12.4C107.571 11.0465 108.642 9.431 110.204 9.431H126.132C127.649 9.431 128.63 10.9155 128.72 12.1817Z"/>
-        <path d="M119.529 23.1408C119.038 23.7084 118.19 24.1451 117.253 24.1451H108.776C107.214 24.1451 106.054 22.7915 105.965 21.3507C105.92 19.9535 106.947 18.3817 108.553 18.3817H117.789C118.949 18.3817 119.886 19.5606 120.109 20.6084C120.332 21.569 120.109 22.4422 119.529 23.1408Z"/>
+        <path d="M119.529 23.1408C119.038 23.7084 118.19 24.1451 117.253 24.1451H108.776C107.214 24.1451 106.054 22.7915 105.965 21.3507C105.920 19.9535 106.947 18.3817 108.553 18.3817H117.789C118.949 18.3817 119.886 19.5606 120.109 20.6084C120.332 21.569 120.109 22.4422 119.529 23.1408Z"/>
         <path d="M104.27 0.742262C103.422 0.305642 102.53 0.0436707 101.548 0.0436707H86.2444C86.289 0.829586 86.3336 1.52818 86.1998 2.31409L82.6751 21.0451C82.452 22.224 82.1397 23.2718 81.6489 24.4071H97.4879C100.7 24.4071 103.02 22.093 103.6 19.0803L105.92 6.85494C106.367 4.49719 106.411 1.92114 104.27 0.742262ZM98.6479 5.85071L96.6401 16.2859L96.0155 19.3859C95.837 20.0845 95.2124 20.5211 94.4985 20.5211H90.2153L93.3385 3.92959H97.7109C98.2017 3.92959 98.6033 4.23522 98.6925 4.7155C98.7371 5.10846 98.7371 5.45776 98.6479 5.85071Z"/>
       </svg>
     </div>

@@ -1,0 +1,43 @@
+@layer components {
+/* Cookies — stany JS, przełączniki */
+body.cookie-open { overflow: hidden; }
+.cookie[hidden] { display: none; }
+.cookie-card.is-wide { width: min(1040px, 100%); }
+.cookie-switch {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  cursor: pointer;
+}
+.cookie-switch input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+.cookie-switch-ui {
+  width: 44px;
+  height: 26px;
+  border-radius: 999px;
+  background: var(--stone-300);
+  position: relative;
+}
+.cookie-switch-ui::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.2s ease;
+}
+.cookie-switch input:checked + .cookie-switch-ui { background: var(--accent); }
+.cookie-switch input:checked + .cookie-switch-ui::after { transform: translateX(18px); }
+.cookie-switch input:disabled + .cookie-switch-ui { background: var(--stone-800); }
+.cookie-switch input:focus-visible + .cookie-switch-ui {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+}

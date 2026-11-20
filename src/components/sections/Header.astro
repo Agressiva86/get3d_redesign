@@ -1,46 +1,152 @@
 ---
+/** Powłoka nagłówka — bez utilities (stany .is-compact / .is-open w header-interactions + responsive). */
+const navClass = "nav";
+const infoBarClass = "info-bar";
+const navTopClass = "nav-top";
+const logoClass = "logo";
+const burgerClass = "burger";
+const burgerLabelClass = "burger-label";
+const navSearchClass = "nav-search";
+const searchPopClass = "search-pop";
+const navToolsClass = "nav-tools";
+const toolClass = "tool";
+const toolBtnClass = "tool-btn";
+
+const toolLabelClass = "tool-label";
+
+const accountPopClass = "account-pop";
+
+const sheetBarClass = "sheet-bar";
+const sheetTitleClass = "sheet-title";
+const sheetXClass = "sheet-x";
+
+const accountLoginClass =
+  "account-login min-h-12 w-full border-0 bg-stone-900 text-white hover:bg-stone-800";
+const accountRegisterClass =
+  "account-register min-h-12 w-full border-0 bg-stone-100 text-ink hover:bg-stone-200";
+const accountOrClass =
+  "account-or my-3 mt-3 flex items-center gap-3 text-sm text-stone-500 before:h-px before:flex-1 before:bg-stone-200 after:h-px after:flex-1 after:bg-stone-200";
+const accountBackClass =
+  "account-back border-0 bg-transparent p-0 pt-0.5 text-sm text-stone-500";
+const accountMenuClass =
+  "account-menu -mx-1 mt-3 grid border-t border-stone-200 pt-2 [&_a]:flex [&_button]:flex [&_a]:w-full [&_button]:w-full [&_a]:items-center [&_button]:items-center [&_a]:gap-3.5 [&_button]:gap-3.5 [&_a]:rounded-[var(--radius)] [&_button]:rounded-[var(--radius)] [&_a]:border-0 [&_button]:border-0 [&_a]:bg-transparent [&_button]:bg-transparent [&_a]:px-3 [&_button]:px-3 [&_a]:py-[7px] [&_button]:py-[7px] [&_a]:text-left [&_button]:text-left [&_a]:font-display [&_button]:font-display [&_a]:text-[15px] [&_button]:text-[15px] [&_a]:font-normal [&_button]:font-normal [&_a]:text-stone-800 [&_button]:text-stone-800 [&_a:hover]:bg-stone-100 [&_button:hover]:bg-stone-100 [&_.icon]:size-[22px]";
+const accountToneClass =
+  "account-tone -mx-1 mt-1.5 flex w-full items-center gap-3.5 rounded-[var(--radius)] border-0 border-t border-stone-200 bg-transparent px-3 pb-0 pt-3 text-left font-display text-[15px] font-normal text-stone-800 hover:bg-stone-100 [&_.icon]:size-[22px] [&_small]:mt-px [&_small]:block [&_small]:font-sans [&_small]:text-[13px] [&_small]:font-light [&_small]:text-stone-500";
+
+const dropBtnToolsClass = "tool-btn drop-btn";
+const helpPopClass = "drop-panel help-pop";
+const helpKickerClass =
+  "help-kicker mx-2 mb-0.5 font-display text-xs font-normal tracking-[0.06em] text-stone-600 uppercase";
+const helpTopicsClass = "help-topics grid";
+const helpTopicsLinkClass =
+  "rounded-[var(--radius)] px-2 py-1.5 font-display text-[15px] font-normal text-stone-800 hover:bg-stone-100";
+const helpContactClass = "help-contact grid";
+const helpContactLinkClass =
+  "flex items-center gap-3.5 rounded-[var(--radius)] px-2 py-[7px] font-display text-[15px] font-normal text-stone-800 hover:bg-stone-100 [&_.icon]:size-[22px] [&_small]:mt-px [&_small]:block [&_small]:font-sans [&_small]:text-[13px] [&_small]:font-light [&_small]:text-stone-500";
+const helpSocialClass =
+  "help-social mt-2 flex gap-1 border-t border-stone-200 pt-2.5";
+const helpSocialLinkClass =
+  "grid size-10 place-items-center rounded-[var(--radius)] text-stone-800 hover:bg-stone-100 [&_.icon]:size-[22px]";
+
+const cartBtnClass = "tool-btn cart-btn relative";
+const icoClass = "ico relative grid place-items-center";
+const cartCountClass = "cart-count";
+const cartPopClass = "cart-pop";
+const cartEmptyTitleClass =
+  "cart-empty-title my-1 mb-3 font-display text-[22px] font-normal leading-[1.25] text-ink";
+const cartEmptyCopyClass = "cart-empty-copy m-0 mb-[22px] text-[15px] leading-[1.45] text-stone-700";
+const cartOutlineClass =
+  "cart-outline min-h-12 w-full border border-stone-300 bg-white text-ink";
+const cartMiniClass = "cart-mini mb-3.5 grid gap-0.5 text-left";
+const toneBtnClass = "tool-btn tone-btn";
+
+const navShadeClass = "nav-shade";
+const catBarClass = "cat-bar";
+const navCatsClass = "nav-cats";
+
+const drawerBarClass = "drawer-bar";
+const drawerBackClass = "drawer-back";
+const drawerTitleClass = "drawer-title";
+const drawerCloseClass = "drawer-close";
+const drawerBodyClass = "drawer-body";
+const drawerKickerClass = "drawer-kicker";
+
+const catDropClass = "drop";
+const catDropBtnClass = "drop-btn";
+const chevClass = "chev icon icon-arrow-corner";
+const catDropPanelClass = "drop-panel";
+const dropFormierkiClass = "drop-panel drop-formierki";
+const drawerAllClass = "drawer-all";
+
+/** Bez utilities — wysokość mega-menu (w tym tryb .is-compact + JS) steruje header-interactions.css */
+const megaClass = "mega";
+const megaSideClass = "mega-side";
+const megaAllClass =
+  "mega-all flex min-h-11 items-center justify-between gap-3 rounded-[var(--radius)] py-0 pr-3 pl-3.5 font-display text-[15px] font-normal text-stone-500 min-[981px]:min-h-9 min-[981px]:px-2.5 min-[981px]:text-sm max-[980px]:hidden";
+const megaBranchClass = "mega-branch";
+const megaNameClass =
+  "mega-name flex min-h-11 items-center justify-between gap-3 rounded-[var(--radius)] py-0 pr-3 pl-3.5 font-heading text-[15px] font-semibold text-ink min-[981px]:min-h-9 min-[981px]:px-2.5 min-[981px]:text-sm max-[980px]:rounded-none max-[980px]:px-4 max-[980px]:font-semibold";
+const megaKidsClass = "mega-kids";
+const megaKickerClass =
+  "mega-kicker mx-3 mt-1 mb-2.5 font-heading text-lg font-semibold leading-tight text-ink max-[980px]:hidden";
+const megaNewClass =
+  "mega-new ml-2 inline-flex items-center justify-center border border-accent px-[5px] pt-0.5 pb-0 text-[9px] font-semibold leading-none tracking-[0.04em] text-accent uppercase";
+const megaFeatureClass = "mega-feature hero-slide";
+const megaBuyClass = "mega-buy mt-3.5 grid grid-cols-1 items-stretch gap-x-2 gap-y-1";
+const megaPriceClass =
+  "mega-price m-0 flex flex-wrap items-baseline gap-x-2 gap-y-1 font-heading text-[26px] font-semibold leading-none text-[#25a244]";
+const megaAmountClass = "mega-amount whitespace-nowrap [&_small]:mr-px [&_small]:text-[13px] [&_small]:font-medium [&_sup]:-top-[0.7em] [&_sup]:text-xs [&_sup]:font-semibold";
+const megaCurrencyClass = "mega-currency text-sm font-medium";
+const megaSaveClass =
+  "mega-save self-center rounded-[var(--radius)] bg-[rgba(37,162,68,0.12)] px-1.5 py-0.5 text-xs font-semibold leading-4 text-[#25a244]";
+const megaLowClass =
+  "mega-low col-span-full m-0 font-sans text-xs font-normal leading-[1.3] text-stone-500";
+const megaCartVariantClass = "mega-cart mega-cart-variant";
+
+const navLinkClass = "nav-link";
+const bfCtaClass = "bf-cta";
 ---
-<header class="nav" id="start">
-    <ul class="info-bar">
+<header class={navClass} id="start">
+    <ul class={infoBarClass}>
       <li><span class="icon icon-house" aria-hidden="true"></span>Darmowa dostawa do showroomu od 250 zł</li>
       <li><span class="icon icon-card" aria-hidden="true"></span>Zniżka z Kartą Łodzianina</li>
       <li><span class="icon icon-flag" aria-hidden="true"></span>Polski sklep od <span data-since="2015">11 lat</span> na rynku</li>
     </ul>
-    <div class="nav-top">
-      <a class="logo" href="#start" aria-label="get3D, strona główna">
+    <div class={navTopClass}>
+      <a class={logoClass} href="#start" aria-label="get3D, strona główna">
         <img src="assets/get3d%20logo.svg" alt="get3D">
       </a>
-      <button class="burger" type="button" aria-label="Kategorie" aria-expanded="false" aria-controls="nav-cats"><span></span><em class="burger-label">Kategorie</em></button>
-      <form class="nav-search" role="search">
+      <button class={burgerClass} type="button" aria-label="Kategorie" aria-expanded="false" aria-controls="nav-cats"><span></span><em class={burgerLabelClass}>Kategorie</em></button>
+      <form class={navSearchClass} role="search">
         <label class="sr" for="search-input">Czego szukasz?</label>
         <input id="search-input" type="search" placeholder="Czego szukasz?" autocomplete="off" aria-autocomplete="list" aria-controls="search-pop" aria-expanded="false">
         <button type="submit" aria-label="Szukaj"><span class="icon icon-search" aria-hidden="true"></span></button>
-        <div class="search-pop" id="search-pop" hidden></div>
+        <div class={searchPopClass} id="search-pop" hidden></div>
       </form>
-      <div class="nav-tools">
-        <div class="tool" id="account-tool">
-          <button class="tool-btn" type="button" id="account-open" aria-expanded="false" aria-label="Konto">
+      <div class={navToolsClass}>
+        <div class={toolClass} id="account-tool">
+          <button class={toolBtnClass} type="button" id="account-open" aria-expanded="false" aria-label="Konto">
             <span class="icon icon-user" aria-hidden="true"></span>
-            <span class="tool-label">Konto</span>
+            <span class={toolLabelClass}>Konto</span>
           </button>
-          <div class="account-pop" id="account-pop">
-            <div class="sheet-bar">
-              <p class="sheet-title">Konto</p>
-              <button class="sheet-x" type="button" data-close-sheet aria-label="Zamknij"><span></span></button>
+          <div class={accountPopClass} id="account-pop">
+            <div class={sheetBarClass}>
+              <p class={sheetTitleClass}>Konto</p>
+              <button class={sheetXClass} type="button" data-close-sheet aria-label="Zamknij"><span></span></button>
             </div>
             <div id="account-guest">
-              <button class="account-login" type="button" id="show-login">Zaloguj się</button>
-              <p class="account-or"><span>Nie masz konta?</span></p>
-              <button class="account-register" type="button" id="show-register">Załóż konto</button>
+              <button class={accountLoginClass} type="button" id="show-login">Zaloguj się</button>
+              <p class={accountOrClass}><span>Nie masz konta?</span></p>
+              <button class={accountRegisterClass} type="button" id="show-register">Załóż konto</button>
             </div>
             <form id="login-form" hidden>
               <input type="email" name="email" required placeholder="E-mail*" aria-label="E-mail">
               <input type="password" name="password" required placeholder="Hasło*" aria-label="Hasło" minlength="4">
-              <button class="account-login" type="submit">Zaloguj się</button>
-              <button class="account-back" type="button" id="login-back">Wróć</button>
+              <button class={accountLoginClass} type="submit">Zaloguj się</button>
+              <button class={accountBackClass} type="button" id="login-back">Wróć</button>
               <p class="form-note" id="login-note"></p>
             </form>
-            <nav class="account-menu" aria-label="Konto">
+            <nav class={accountMenuClass} aria-label="Konto">
               <button type="button" id="account-home"><span class="icon icon-user" aria-hidden="true"></span>Twoje konto</button>
               <a href="#cennik"><span class="icon icon-receipt" aria-hidden="true"></span>Zamówienia</a>
               <a href="#pytania"><span class="icon icon-refresh" aria-hidden="true"></span>Zwroty i reklamacje</a>
@@ -49,109 +155,109 @@
               <a href="#kontakt"><span class="icon icon-pin" aria-hidden="true"></span>Dane do zamówień</a>
               <button type="button" id="logout" hidden><span class="icon icon-out" aria-hidden="true"></span>Wyloguj</button>
             </nav>
-            <button class="account-tone" type="button" id="account-tone" aria-pressed="false">
+            <button class={accountToneClass} type="button" id="account-tone" aria-pressed="false">
               <span class="icon icon-mode" aria-hidden="true"></span>
               <span>Jaśniejsze tło<small id="tone-state">Wyłączone</small></span>
             </button>
           </div>
         </div>
-        <div class="tool drop">
-          <button class="tool-btn drop-btn" type="button" aria-expanded="false" aria-label="Pomoc">
+        <div class={`${toolClass} drop`}>
+          <button class={dropBtnToolsClass} type="button" aria-expanded="false" aria-label="Pomoc">
             <span class="icon icon-headphones" aria-hidden="true"></span>
-            <span class="tool-label">Pomoc</span>
+            <span class={toolLabelClass}>Pomoc</span>
           </button>
-          <div class="drop-panel help-pop">
-            <div class="sheet-bar">
-              <p class="sheet-title">Pomoc</p>
-              <button class="sheet-x" type="button" data-close-sheet aria-label="Zamknij"><span></span></button>
+          <div class={helpPopClass}>
+            <div class={sheetBarClass}>
+              <p class={sheetTitleClass}>Pomoc</p>
+              <button class={sheetXClass} type="button" data-close-sheet aria-label="Zamknij"><span></span></button>
             </div>
-            <p class="help-kicker">Popularne tematy</p>
-            <nav class="help-topics" aria-label="Popularne tematy">
-              <a href="#pytania">Dostawa</a>
-              <a href="#cennik">Raty</a>
-              <a href="#cennik">Leasing</a>
-              <a href="#kontakt">Zakupy dla firm</a>
-              <a href="#pytania">Zwroty</a>
-              <a href="#serwis">Reklamacje</a>
-              <a href="#serwis">Serwis</a>
-              <a href="#pytania">Najczęściej zadawane pytania</a>
+            <p class={helpKickerClass}>Popularne tematy</p>
+            <nav class={helpTopicsClass} aria-label="Popularne tematy">
+              <a class={helpTopicsLinkClass} href="#pytania">Dostawa</a>
+              <a class={helpTopicsLinkClass} href="#cennik">Raty</a>
+              <a class={helpTopicsLinkClass} href="#cennik">Leasing</a>
+              <a class={helpTopicsLinkClass} href="#kontakt">Zakupy dla firm</a>
+              <a class={helpTopicsLinkClass} href="#pytania">Zwroty</a>
+              <a class={helpTopicsLinkClass} href="#serwis">Reklamacje</a>
+              <a class={helpTopicsLinkClass} href="#serwis">Serwis</a>
+              <a class={helpTopicsLinkClass} href="#pytania">Najczęściej zadawane pytania</a>
             </nav>
-            <p class="help-kicker">Skontaktuj się z nami</p>
-            <div class="help-contact">
-              <a href="#kontakt"><span class="icon icon-headphones" aria-hidden="true"></span>Kontakt</a>
-              <a href="#kontakt"><span class="icon icon-house" aria-hidden="true"></span><span>Showroom<small>Wróblewskiego 70/72, 93-566 Łódź</small></span></a>
-              <a href="mailto:biuro@get3d.pl"><span class="icon icon-mail" aria-hidden="true"></span>biuro@get3d.pl</a>
-              <a href="tel:+48426305050"><span class="icon icon-phone" aria-hidden="true"></span>42 630 50 50</a>
+            <p class={helpKickerClass}>Skontaktuj się z nami</p>
+            <div class={helpContactClass}>
+              <a class={helpContactLinkClass} href="#kontakt"><span class="icon icon-headphones" aria-hidden="true"></span>Kontakt</a>
+              <a class={helpContactLinkClass} href="#kontakt"><span class="icon icon-house" aria-hidden="true"></span><span>Showroom<small>Wróblewskiego 70/72, 93-566 Łódź</small></span></a>
+              <a class={helpContactLinkClass} href="mailto:biuro@get3d.pl"><span class="icon icon-mail" aria-hidden="true"></span>biuro@get3d.pl</a>
+              <a class={helpContactLinkClass} href="tel:+48426305050"><span class="icon icon-phone" aria-hidden="true"></span>42 630 50 50</a>
             </div>
-            <div class="help-social">
-              <a href="https://www.facebook.com/get3dpl" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="icon icon-facebook" aria-hidden="true"></span></a>
-              <a href="https://x.com/get3dpl" target="_blank" rel="noopener noreferrer" aria-label="X"><span class="icon icon-x" aria-hidden="true"></span></a>
-              <a href="https://www.youtube.com/@get3dlab" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><span class="icon icon-youtube" aria-hidden="true"></span></a>
-              <a href="https://www.linkedin.com/company/18726552/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><span class="icon icon-linkedin" aria-hidden="true"></span></a>
+            <div class={helpSocialClass}>
+              <a class={helpSocialLinkClass} href="https://www.facebook.com/get3dpl" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="icon icon-facebook" aria-hidden="true"></span></a>
+              <a class={helpSocialLinkClass} href="https://x.com/get3dpl" target="_blank" rel="noopener noreferrer" aria-label="X"><span class="icon icon-x" aria-hidden="true"></span></a>
+              <a class={helpSocialLinkClass} href="https://www.youtube.com/@get3dlab" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><span class="icon icon-youtube" aria-hidden="true"></span></a>
+              <a class={helpSocialLinkClass} href="https://www.linkedin.com/company/18726552/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><span class="icon icon-linkedin" aria-hidden="true"></span></a>
             </div>
           </div>
         </div>
-        <div class="tool" id="cart-tool">
-          <button class="tool-btn cart-btn" type="button" id="cart-open" aria-expanded="false" aria-label="Koszyk">
-            <span class="ico">
+        <div class={toolClass} id="cart-tool">
+          <button class={cartBtnClass} type="button" id="cart-open" aria-expanded="false" aria-label="Koszyk">
+            <span class={icoClass}>
               <span class="icon icon-cart" aria-hidden="true"></span>
-              <span class="cart-count" data-count="0">0</span>
+              <span class={cartCountClass} data-count="0">0</span>
             </span>
-            <span class="tool-label">Koszyk</span>
+            <span class={toolLabelClass}>Koszyk</span>
           </button>
-          <div class="cart-pop" id="cart-pop">
-            <div class="sheet-bar">
-              <p class="sheet-title">Koszyk</p>
-              <button class="sheet-x" type="button" data-close-sheet aria-label="Zamknij"><span></span></button>
+          <div class={cartPopClass} id="cart-pop">
+            <div class={sheetBarClass}>
+              <p class={sheetTitleClass}>Koszyk</p>
+              <button class={sheetXClass} type="button" data-close-sheet aria-label="Zamknij"><span></span></button>
             </div>
             <div class="cart-empty" id="cart-empty">
-              <p class="cart-empty-title">Koszyk jest pusty</p>
-              <p class="cart-empty-copy"><button type="button" id="cart-login">Zaloguj się</button>, aby sprawdzić zapisane produkty lub zainspiruj się</p>
-              <a class="cart-outline" href="#cennik">Przejdź do promocji</a>
+              <p class={cartEmptyTitleClass}>Koszyk jest pusty</p>
+              <p class={cartEmptyCopyClass}><button type="button" id="cart-login">Zaloguj się</button>, aby sprawdzić zapisane produkty lub zainspiruj się</p>
+              <a class={cartOutlineClass} href="#cennik">Przejdź do promocji</a>
             </div>
             <div class="cart-filled" id="cart-filled" hidden>
-              <div class="cart-mini" id="cart-mini"></div>
-              <button class="cart-outline" type="button" id="cart-go">Przejdź do koszyka</button>
+              <div class={cartMiniClass} id="cart-mini"></div>
+              <button class={cartOutlineClass} type="button" id="cart-go">Przejdź do koszyka</button>
             </div>
           </div>
         </div>
-        <button class="tool-btn tone-btn" type="button" aria-label="Jaśniejsze tło" aria-pressed="false">
+        <button class={toneBtnClass} type="button" aria-label="Jaśniejsze tło" aria-pressed="false">
           <span class="icon icon-mode" aria-hidden="true"></span>
         </button>
       </div>
     </div>
-    <button class="nav-shade" type="button" aria-label="Zamknij menu"></button>
-    <div class="cat-bar">
-    <nav class="nav-cats" id="nav-cats" aria-label="Oferta">
-      <div class="drawer-bar">
-        <button class="drawer-back" type="button" aria-label="Wróć"><span class="icon icon-back" aria-hidden="true"></span></button>
-        <p class="drawer-title" id="drawer-title">Menu</p>
-        <button class="drawer-close" type="button" aria-label="Zamknij menu"><span></span></button>
+    <button class={navShadeClass} type="button" aria-label="Zamknij menu"></button>
+    <div class={catBarClass}>
+    <nav class={navCatsClass} id="nav-cats" aria-label="Oferta">
+      <div class={drawerBarClass}>
+        <button class={drawerBackClass} type="button" aria-label="Wróć"><span class="icon icon-back" aria-hidden="true"></span></button>
+        <p class={drawerTitleClass} id="drawer-title">Menu</p>
+        <button class={drawerCloseClass} type="button" aria-label="Zamknij menu"><span></span></button>
       </div>
-      <div class="drawer-body">
-        <p class="drawer-kicker">Kategorie</p>
-      <div class="drop">
-        <button class="drop-btn" type="button" aria-expanded="false">Drukarki 3D <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
-        <div class="drop-panel">
-          <a class="drawer-all" href="#drukarki">Pokaż drukarki 3D</a>
-          <div class="mega">
-            <div class="mega-side">
-              <a class="mega-all" href="#drukarki">Wszystkie</a>
-              <div class="mega-branch">
-                <a class="mega-name" href="#drukarki">Bambu Lab <span class="icon icon-caret chev" aria-hidden="true"></span></a>
-                <div class="mega-kids">
-                  <p class="mega-kicker">Bambu Lab</p>
+      <div class={drawerBodyClass}>
+        <p class={drawerKickerClass}>Kategorie</p>
+      <div class={catDropClass}>
+        <button class={catDropBtnClass} type="button" aria-expanded="false">Drukarki 3D <span class={chevClass} aria-hidden="true"></span></button>
+        <div class={catDropPanelClass}>
+          <a class={drawerAllClass} href="#drukarki">Pokaż drukarki 3D</a>
+          <div class={megaClass}>
+            <div class={megaSideClass}>
+              <a class={megaAllClass} href="#drukarki">Wszystkie</a>
+              <div class={megaBranchClass}>
+                <a class={megaNameClass} href="#drukarki">Bambu Lab <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class={megaKidsClass}>
+                  <p class={megaKickerClass}>Bambu Lab</p>
                   <a href="#drukarki">A1 Mini</a>
                   <a href="#drukarki">A1</a>
-                  <a href="#drukarki">A2L <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">A2L <span class={megaNewClass}>Nowe</span></a>
                   <a href="#drukarki">P1S</a>
-                  <a href="#drukarki">P2S <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">P2S <span class={megaNewClass}>Nowe</span></a>
                   <a href="#drukarki">X1E Combo</a>
-                  <a href="#drukarki">X2D Combo <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">X2D Combo <span class={megaNewClass}>Nowe</span></a>
                   <a href="#drukarki">H2S</a>
                   <a href="#drukarki">H2D</a>
-                  <a href="#drukarki">H2D Pro <span class="mega-new">Nowe</span></a>
-                  <a href="#drukarki">H2C <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">H2D Pro <span class={megaNewClass}>Nowe</span></a>
+                  <a href="#drukarki">H2C <span class={megaNewClass}>Nowe</span></a>
                   <a href="#drukarki">H3C</a>
                   <a href="#drukarki">AMS lite</a>
                   <a href="#drukarki">AMS</a>
@@ -159,39 +265,39 @@
                   <a href="#drukarki">AMS HT</a>
                 </div>
               </div>
-              <div class="mega-branch">
-                <a class="mega-name" href="#drukarki">BigRep <span class="icon icon-caret chev" aria-hidden="true"></span></a>
-                <div class="mega-kids">
-                  <p class="mega-kicker">BigRep</p>
-                  <a href="#drukarki">ALTRA 280 <span class="mega-new">Nowe</span></a>
-                  <a href="#drukarki">IPSO 105 <span class="mega-new">Nowe</span></a>
-                  <a href="#drukarki">Pro <span class="mega-new">Nowe</span></a>
-                  <a href="#drukarki">VIIO 250 <span class="mega-new">Nowe</span></a>
-                  <a href="#drukarki">One <span class="mega-new">Nowe</span></a>
-                  <a href="#drukarki">Studio <span class="mega-new">Nowe</span></a>
-                  <a href="#drukarki">Drycon <span class="mega-new">Nowe</span></a>
+              <div class={megaBranchClass}>
+                <a class={megaNameClass} href="#drukarki">BigRep <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class={megaKidsClass}>
+                  <p class={megaKickerClass}>BigRep</p>
+                  <a href="#drukarki">ALTRA 280 <span class={megaNewClass}>Nowe</span></a>
+                  <a href="#drukarki">IPSO 105 <span class={megaNewClass}>Nowe</span></a>
+                  <a href="#drukarki">Pro <span class={megaNewClass}>Nowe</span></a>
+                  <a href="#drukarki">VIIO 250 <span class={megaNewClass}>Nowe</span></a>
+                  <a href="#drukarki">One <span class={megaNewClass}>Nowe</span></a>
+                  <a href="#drukarki">Studio <span class={megaNewClass}>Nowe</span></a>
+                  <a href="#drukarki">Drycon <span class={megaNewClass}>Nowe</span></a>
                 </div>
               </div>
-              <div class="mega-branch">
-                <a class="mega-name" href="#drukarki">Desktop Metal <span class="icon icon-caret chev" aria-hidden="true"></span></a>
-                <div class="mega-kids">
-                  <p class="mega-kicker">Desktop Metal</p>
-                  <a href="#drukarki">PureSinter <span class="mega-new">Nowe</span></a>
+              <div class={megaBranchClass}>
+                <a class={megaNameClass} href="#drukarki">Desktop Metal <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class={megaKidsClass}>
+                  <p class={megaKickerClass}>Desktop Metal</p>
+                  <a href="#drukarki">PureSinter <span class={megaNewClass}>Nowe</span></a>
                   <a href="#drukarki">Shop System</a>
                   <a href="#drukarki">Studio System</a>
                 </div>
               </div>
-              <div class="mega-branch">
-                <a class="mega-name" href="#drukarki">eufyMake <span class="icon icon-caret chev" aria-hidden="true"></span></a>
-                <div class="mega-kids">
-                  <p class="mega-kicker">eufyMake</p>
-                  <a href="#drukarki">eufyMake E1 <span class="mega-new">Nowe</span></a>
+              <div class={megaBranchClass}>
+                <a class={megaNameClass} href="#drukarki">eufyMake <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class={megaKidsClass}>
+                  <p class={megaKickerClass}>eufyMake</p>
+                  <a href="#drukarki">eufyMake E1 <span class={megaNewClass}>Nowe</span></a>
                 </div>
               </div>
-              <div class="mega-branch">
-                <a class="mega-name" href="#drukarki">Formlabs <span class="icon icon-caret chev" aria-hidden="true"></span></a>
-                <div class="mega-kids">
-                  <p class="mega-kicker">Formlabs</p>
+              <div class={megaBranchClass}>
+                <a class={megaNameClass} href="#drukarki">Formlabs <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class={megaKidsClass}>
+                  <p class={megaKickerClass}>Formlabs</p>
                   <a href="#drukarki">Form 3+</a>
                   <a href="#drukarki">Form 3B+</a>
                   <a href="#drukarki">Form 3BL</a>
@@ -202,84 +308,84 @@
                   <a href="#drukarki">Form Wash L</a>
                 </div>
               </div>
-              <div class="mega-branch">
-                <a class="mega-name" href="#drukarki">miniFactory <span class="icon icon-caret chev" aria-hidden="true"></span></a>
-                <div class="mega-kids">
-                  <p class="mega-kicker">miniFactory</p>
+              <div class={megaBranchClass}>
+                <a class={megaNameClass} href="#drukarki">miniFactory <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class={megaKidsClass}>
+                  <p class={megaKickerClass}>miniFactory</p>
                   <a href="#drukarki">Ignite</a>
                   <a href="#drukarki">Ultra 2</a>
                 </div>
               </div>
-              <div class="mega-branch">
-                <a class="mega-name" href="#drukarki">Prusa <span class="icon icon-caret chev" aria-hidden="true"></span></a>
-                <div class="mega-kids">
-                  <p class="mega-kicker">Prusa</p>
+              <div class={megaBranchClass}>
+                <a class={megaNameClass} href="#drukarki">Prusa <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class={megaKidsClass}>
+                  <p class={megaKickerClass}>Prusa</p>
                   <a href="#drukarki">CW1S</a>
                   <a href="#drukarki">SL1S Speed</a>
                   <a href="#drukarki">SL1S Speed Bundle</a>
                   <a href="#drukarki">MK4S</a>
-                  <a href="#drukarki">CORE One+ <span class="mega-new">Nowe</span></a>
-                  <a href="#drukarki">CORE One L <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">CORE One+ <span class={megaNewClass}>Nowe</span></a>
+                  <a href="#drukarki">CORE One L <span class={megaNewClass}>Nowe</span></a>
                   <a href="#drukarki">XL</a>
                   <a href="#drukarki">Pro HT90</a>
                 </div>
               </div>
-              <div class="mega-branch">
-                <a class="mega-name" href="#drukarki">Raise3D <span class="icon icon-caret chev" aria-hidden="true"></span></a>
-                <div class="mega-kids">
-                  <p class="mega-kicker">Raise3D</p>
-                  <a href="#drukarki">E3 <span class="mega-new">Nowe</span></a>
+              <div class={megaBranchClass}>
+                <a class={megaNameClass} href="#drukarki">Raise3D <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class={megaKidsClass}>
+                  <p class={megaKickerClass}>Raise3D</p>
+                  <a href="#drukarki">E3 <span class={megaNewClass}>Nowe</span></a>
                   <a href="#drukarki">Pro3</a>
                   <a href="#drukarki">Pro3 HS</a>
                   <a href="#drukarki">Pro3 Plus HS</a>
                 </div>
               </div>
-              <div class="mega-branch">
-                <a class="mega-name" href="#drukarki">Sinterit <span class="icon icon-caret chev" aria-hidden="true"></span></a>
-                <div class="mega-kids">
-                  <p class="mega-kicker">Sinterit</p>
+              <div class={megaBranchClass}>
+                <a class={megaNameClass} href="#drukarki">Sinterit <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class={megaKidsClass}>
+                  <p class={megaKickerClass}>Sinterit</p>
                   <a href="#drukarki">Lisa X</a>
-                  <a href="#drukarki">Suzy <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">Suzy <span class={megaNewClass}>Nowe</span></a>
                 </div>
               </div>
-              <div class="mega-branch">
-                <a class="mega-name" href="#drukarki">UltiMaker <span class="icon icon-caret chev" aria-hidden="true"></span></a>
-                <div class="mega-kids">
-                  <p class="mega-kicker">UltiMaker</p>
+              <div class={megaBranchClass}>
+                <a class={megaNameClass} href="#drukarki">UltiMaker <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class={megaKidsClass}>
+                  <p class={megaKickerClass}>UltiMaker</p>
                   <a href="#drukarki">Factor 4</a>
                   <a href="#drukarki">PVA Removal Station</a>
                   <a href="#drukarki">S3</a>
                   <a href="#drukarki">S5</a>
-                  <a href="#drukarki">S6 <span class="mega-new">Nowe</span></a>
-                  <a href="#drukarki">S6 Pro Bundle <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">S6 <span class={megaNewClass}>Nowe</span></a>
+                  <a href="#drukarki">S6 Pro Bundle <span class={megaNewClass}>Nowe</span></a>
                   <a href="#drukarki">S7</a>
                   <a href="#drukarki">S7 Pro Bundle</a>
-                  <a href="#drukarki">S8 <span class="mega-new">Nowe</span></a>
-                  <a href="#drukarki">S8 Pro Bundle <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">S8 <span class={megaNewClass}>Nowe</span></a>
+                  <a href="#drukarki">S8 Pro Bundle <span class={megaNewClass}>Nowe</span></a>
                 </div>
               </div>
-              <div class="mega-branch">
-                <a class="mega-name" href="#drukarki">AMT <span class="icon icon-caret chev" aria-hidden="true"></span></a>
-                <div class="mega-kids">
-                  <p class="mega-kicker">AMT</p>
-                  <a href="#drukarki">PostPro DPX <span class="mega-new">Nowe</span></a>
-                  <a href="#drukarki">PostPro SFX <span class="mega-new">Nowe</span></a>
+              <div class={megaBranchClass}>
+                <a class={megaNameClass} href="#drukarki">AMT <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class={megaKidsClass}>
+                  <p class={megaKickerClass}>AMT</p>
+                  <a href="#drukarki">PostPro DPX <span class={megaNewClass}>Nowe</span></a>
+                  <a href="#drukarki">PostPro SFX <span class={megaNewClass}>Nowe</span></a>
                 </div>
               </div>
-              <div class="mega-branch">
-                <a class="mega-name" href="#drukarki">Technologie druku 3D <span class="icon icon-caret chev" aria-hidden="true"></span></a>
-                <div class="mega-kids">
-                  <p class="mega-kicker">Technologie druku 3D</p>
+              <div class={megaBranchClass}>
+                <a class={megaNameClass} href="#drukarki">Technologie druku 3D <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class={megaKidsClass}>
+                  <p class={megaKickerClass}>Technologie druku 3D</p>
                   <a href="#drukarki">Filamentowe</a>
                   <a href="#drukarki">Żywiczne</a>
                 </div>
               </div>
-              <div class="mega-branch">
-                <a class="mega-name" href="#drukarki">Outlet drukarek 3D</a>
+              <div class={megaBranchClass}>
+                <a class={megaNameClass} href="#drukarki">Outlet drukarek 3D</a>
               </div>
             </div>
           </div>
-          <div class="mega-feature hero-slide">
+          <div class={megaFeatureClass}>
             <div class="product-shot">
               <img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt="Drukarka 3D Bambu Lab A1 Combo">
               <span class="variant-count">3 warianty</span>
@@ -291,39 +397,39 @@
               <li>WiFi</li>
               <li><span class="icon icon-cube" aria-hidden="true"></span> Wysyłamy w 24h</li>
             </ul>
-            <div class="mega-buy">
-              <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
+            <div class={megaBuyClass}>
+              <p class={megaPriceClass}><span class={megaAmountClass}><small>od</small> 1&nbsp;160<sup>00</sup> <span class={megaCurrencyClass}>zł</span></span> <span class={megaSaveClass}>-150&nbsp;zł</span></p>
               <div class="card-actions">
                 <a class="mini-link card-details" href="#drukarki">Szczegóły</a>
-                <a class="mega-cart mega-cart-variant" href="#drukarki">
+                <a class={megaCartVariantClass} href="#drukarki">
                   <span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant
                 </a>
               </div>
-              <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
+              <p class={megaLowClass}>Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="drop">
-        <button class="drop-btn" type="button" aria-expanded="false">Formierki 3D <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
-        <div class="drop-panel drop-formierki">
-          <a class="drawer-all" href="#drukarki">Pokaż formierki 3D</a>
-          <div class="mega">
-            <div class="mega-side">
-              <a class="mega-all" href="#kontakt">Wszystkie</a>
-              <div class="mega-branch">
-                <a class="mega-name" href="#kontakt">Formierki <span class="icon icon-caret chev" aria-hidden="true"></span></a>
-                <div class="mega-kids">
-                  <p class="mega-kicker">Formierki</p>
+      <div class={catDropClass}>
+        <button class={catDropBtnClass} type="button" aria-expanded="false">Formierki 3D <span class={chevClass} aria-hidden="true"></span></button>
+        <div class={dropFormierkiClass}>
+          <a class={drawerAllClass} href="#drukarki">Pokaż formierki 3D</a>
+          <div class={megaClass}>
+            <div class={megaSideClass}>
+              <a class={megaAllClass} href="#kontakt">Wszystkie</a>
+              <div class={megaBranchClass}>
+                <a class={megaNameClass} href="#kontakt">Formierki <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class={megaKidsClass}>
+                  <p class={megaKickerClass}>Formierki</p>
                   <a href="#kontakt">Poznaj Mayku</a>
                   <a href="#kontakt">Dla stomatologii</a>
                   <a href="#kontakt">Mayku Pioneer Program</a>
                 </div>
               </div>
-              <div class="mega-branch"><a class="mega-name" href="#kontakt">Zapytaj o stanowisko</a></div>
+              <div class={megaBranchClass}><a class={megaNameClass} href="#kontakt">Zapytaj o stanowisko</a></div>
             </div>
           </div>
-          <div class="mega-feature hero-slide">
+          <div class={megaFeatureClass}>
             <div class="product-shot">
               <img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt="Drukarka 3D Bambu Lab A1 Combo">
               <span class="variant-count">3 warianty</span>
@@ -335,48 +441,48 @@
               <li>WiFi</li>
               <li><span class="icon icon-cube" aria-hidden="true"></span> Wysyłamy w 24h</li>
             </ul>
-            <div class="mega-buy">
-              <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
+            <div class={megaBuyClass}>
+              <p class={megaPriceClass}><span class={megaAmountClass}><small>od</small> 1&nbsp;160<sup>00</sup> <span class={megaCurrencyClass}>zł</span></span> <span class={megaSaveClass}>-150&nbsp;zł</span></p>
               <div class="card-actions">
                 <a class="mini-link card-details" href="#drukarki">Szczegóły</a>
-                <a class="mega-cart mega-cart-variant" href="#drukarki">
+                <a class={megaCartVariantClass} href="#drukarki">
                   <span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant
                 </a>
               </div>
-              <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
+              <p class={megaLowClass}>Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="drop">
-        <button class="drop-btn" type="button" aria-expanded="false">Materiały <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
-        <div class="drop-panel">
-          <a class="drawer-all" href="#materialy">Pokaż materiały</a>
-          <div class="mega">
-            <div class="mega-side">
-              <a class="mega-all" href="#materialy">Wszystkie</a>
-              <div class="mega-branch">
-                <a class="mega-name" href="#materialy">Filamenty <span class="icon icon-caret chev" aria-hidden="true"></span></a>
-                <div class="mega-kids">
-                  <p class="mega-kicker">Filamenty</p>
+      <div class={catDropClass}>
+        <button class={catDropBtnClass} type="button" aria-expanded="false">Materiały <span class={chevClass} aria-hidden="true"></span></button>
+        <div class={catDropPanelClass}>
+          <a class={drawerAllClass} href="#materialy">Pokaż materiały</a>
+          <div class={megaClass}>
+            <div class={megaSideClass}>
+              <a class={megaAllClass} href="#materialy">Wszystkie</a>
+              <div class={megaBranchClass}>
+                <a class={megaNameClass} href="#materialy">Filamenty <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class={megaKidsClass}>
+                  <p class={megaKickerClass}>Filamenty</p>
                   <a href="#materialy">PLA</a>
                   <a href="#materialy">PET / PETG</a>
                   <a href="#materialy">ABS</a>
                 </div>
               </div>
-              <div class="mega-branch">
-                <a class="mega-name" href="#materialy">Żywice <span class="icon icon-caret chev" aria-hidden="true"></span></a>
-                <div class="mega-kids">
-                  <p class="mega-kicker">Żywice</p>
+              <div class={megaBranchClass}>
+                <a class={megaNameClass} href="#materialy">Żywice <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class={megaKidsClass}>
+                  <p class={megaKickerClass}>Żywice</p>
                   <a href="#materialy">Standard</a>
                   <a href="#materialy">Tough</a>
                   <a href="#materialy">Water-wash</a>
                 </div>
               </div>
-              <div class="mega-branch">
-                <a class="mega-name" href="#materialy">Marki <span class="icon icon-caret chev" aria-hidden="true"></span></a>
-                <div class="mega-kids">
-                  <p class="mega-kicker">Marki</p>
+              <div class={megaBranchClass}>
+                <a class={megaNameClass} href="#materialy">Marki <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class={megaKidsClass}>
+                  <p class={megaKickerClass}>Marki</p>
                   <a href="#materialy">Bambu Lab</a>
                   <a href="#materialy">Polymaker</a>
                   <a href="#materialy">3DXTech</a>
@@ -384,7 +490,7 @@
               </div>
             </div>
           </div>
-          <div class="mega-feature hero-slide">
+          <div class={megaFeatureClass}>
             <div class="product-shot">
               <img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt="Drukarka 3D Bambu Lab A1 Combo">
               <span class="variant-count">3 warianty</span>
@@ -396,42 +502,42 @@
               <li>WiFi</li>
               <li><span class="icon icon-cube" aria-hidden="true"></span> Wysyłamy w 24h</li>
             </ul>
-            <div class="mega-buy">
-              <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
+            <div class={megaBuyClass}>
+              <p class={megaPriceClass}><span class={megaAmountClass}><small>od</small> 1&nbsp;160<sup>00</sup> <span class={megaCurrencyClass}>zł</span></span> <span class={megaSaveClass}>-150&nbsp;zł</span></p>
               <div class="card-actions">
                 <a class="mini-link card-details" href="#drukarki">Szczegóły</a>
-                <a class="mega-cart mega-cart-variant" href="#drukarki">
+                <a class={megaCartVariantClass} href="#drukarki">
                   <span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant
                 </a>
               </div>
-              <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
+              <p class={megaLowClass}>Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="drop">
-        <button class="drop-btn" type="button" aria-expanded="false">Akcesoria <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
-        <div class="drop-panel">
-          <a class="drawer-all" href="#akcesoria">Pokaż akcesoria</a>
-          <div class="mega">
-            <div class="mega-side">
-              <a class="mega-all" href="#akcesoria">Wszystkie</a>
-              <div class="mega-branch">
-                <a class="mega-name" href="#akcesoria">Części zamienne <span class="icon icon-caret chev" aria-hidden="true"></span></a>
-                <div class="mega-kids">
-                  <p class="mega-kicker">Części zamienne</p>
+      <div class={catDropClass}>
+        <button class={catDropBtnClass} type="button" aria-expanded="false">Akcesoria <span class={chevClass} aria-hidden="true"></span></button>
+        <div class={catDropPanelClass}>
+          <a class={drawerAllClass} href="#akcesoria">Pokaż akcesoria</a>
+          <div class={megaClass}>
+            <div class={megaSideClass}>
+              <a class={megaAllClass} href="#akcesoria">Wszystkie</a>
+              <div class={megaBranchClass}>
+                <a class={megaNameClass} href="#akcesoria">Części zamienne <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class={megaKidsClass}>
+                  <p class={megaKickerClass}>Części zamienne</p>
                   <a href="#akcesoria">Dysze</a>
                   <a href="#akcesoria">Ekstrudery</a>
                   <a href="#akcesoria">Zestawy serwisowe</a>
                 </div>
               </div>
-              <div class="mega-branch"><a class="mega-name" href="#akcesoria">Chemia</a></div>
-              <div class="mega-branch"><a class="mega-name" href="#akcesoria">Kleje do druku 3D</a></div>
-              <div class="mega-branch"><a class="mega-name" href="#akcesoria">Platformy do druku</a></div>
-              <div class="mega-branch"><a class="mega-name" href="#akcesoria">Urządzenia</a></div>
+              <div class={megaBranchClass}><a class={megaNameClass} href="#akcesoria">Chemia</a></div>
+              <div class={megaBranchClass}><a class={megaNameClass} href="#akcesoria">Kleje do druku 3D</a></div>
+              <div class={megaBranchClass}><a class={megaNameClass} href="#akcesoria">Platformy do druku</a></div>
+              <div class={megaBranchClass}><a class={megaNameClass} href="#akcesoria">Urządzenia</a></div>
             </div>
           </div>
-          <div class="mega-feature hero-slide">
+          <div class={megaFeatureClass}>
             <div class="product-shot">
               <img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt="Drukarka 3D Bambu Lab A1 Combo">
               <span class="variant-count">3 warianty</span>
@@ -443,34 +549,34 @@
               <li>WiFi</li>
               <li><span class="icon icon-cube" aria-hidden="true"></span> Wysyłamy w 24h</li>
             </ul>
-            <div class="mega-buy">
-              <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
+            <div class={megaBuyClass}>
+              <p class={megaPriceClass}><span class={megaAmountClass}><small>od</small> 1&nbsp;160<sup>00</sup> <span class={megaCurrencyClass}>zł</span></span> <span class={megaSaveClass}>-150&nbsp;zł</span></p>
               <div class="card-actions">
                 <a class="mini-link card-details" href="#drukarki">Szczegóły</a>
-                <a class="mega-cart mega-cart-variant" href="#drukarki">
+                <a class={megaCartVariantClass} href="#drukarki">
                   <span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant
                 </a>
               </div>
-              <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
+              <p class={megaLowClass}>Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="drop">
-        <button class="drop-btn" type="button" aria-expanded="false">Szkolenia <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
-        <div class="drop-panel">
-          <a class="drawer-all" href="#serwis">Pokaż szkolenia</a>
-          <div class="mega">
-            <div class="mega-side">
-              <a class="mega-all" href="#serwis">Wszystkie</a>
-              <div class="mega-branch"><a class="mega-name" href="#serwis">Operatorzy</a></div>
-              <div class="mega-branch"><a class="mega-name" href="#kontakt">Grupy i szkoły</a></div>
+      <div class={catDropClass}>
+        <button class={catDropBtnClass} type="button" aria-expanded="false">Szkolenia <span class={chevClass} aria-hidden="true"></span></button>
+        <div class={catDropPanelClass}>
+          <a class={drawerAllClass} href="#serwis">Pokaż szkolenia</a>
+          <div class={megaClass}>
+            <div class={megaSideClass}>
+              <a class={megaAllClass} href="#serwis">Wszystkie</a>
+              <div class={megaBranchClass}><a class={megaNameClass} href="#serwis">Operatorzy</a></div>
+              <div class={megaBranchClass}><a class={megaNameClass} href="#kontakt">Grupy i szkoły</a></div>
             </div>
           </div>
         </div>
       </div>
-      <a class="nav-link" href="#serwis">Serwis</a>
+      <a class={navLinkClass} href="#serwis">Serwis</a>
       </div>
     </nav>
-    <a class="bf-cta" href="#cennik"><span class="icon icon-fire" aria-hidden="true"></span>Black Friday</a>
+    <a class={bfCtaClass} href="#cennik"><span class="icon icon-fire" aria-hidden="true"></span>Black Friday</a>
     </div>

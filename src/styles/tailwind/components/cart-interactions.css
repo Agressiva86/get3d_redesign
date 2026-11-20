@@ -1,0 +1,28 @@
+@layer components {
+/* Koszyk — linie wstrzykiwane z main.js */
+.cart-line {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.cart-line strong { color: var(--ink); }
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+.qty button {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: #fff;
+}
+.empty {
+  color: var(--muted);
+  padding: 24px 0;
+}
+}

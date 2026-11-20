@@ -3,11 +3,14 @@
 @import "./base.css";
 @import "./components/layout.css";
 @import "./components/primitives.css";
+@import "./components/header-icons.css";
+@import "./components/header-interactions.css";
 @import "./components/header.css";
 @import "./components/hero.css";
 @import "./components/cat-picks.css";
 @import "./components/print-guide.css";
 @import "./components/brand-spot.css";
+@import "./components/brand-spot-primitives.css";
 @import "./components/logos.css";
 @import "./components/trust.css";
 @import "./components/about.css";
@@ -19,7 +22,10 @@
 @import "./components/makers.css";
 @import "./components/why-get3d.css";
 @import "./components/faq.css";
+@import "./components/faq-interactions.css";
 @import "./components/footer.css";
 @import "./components/cookies.css";
+@import "./components/cookies-interactions.css";
 @import "./components/cart.css";
+@import "./components/cart-interactions.css";
 @import "./responsive.css";

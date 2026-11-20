@@ -1,0 +1,71 @@
+@layer components {
+.faq .tab-indicator {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  border-radius: calc(52px * 0.25);
+  background: var(--dark-2);
+  box-shadow: 0 8px 18px rgba(21, 0, 41, 0.16);
+  pointer-events: none;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), width 0.5s cubic-bezier(0.22, 1, 0.36, 1), height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.faq .tabs.has-pill button.is-active,
+.faq .tabs.has-pill button.is-active:hover { background: transparent; color: #fff; }
+.accordion:not([hidden]) { animation: faq-in 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+.acc .plus {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 6px 14px rgba(21, 0, 41, 0.16);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+.acc .plus::before,
+.acc .plus::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  border-radius: 1px;
+  transform: translate(-50%, -50%);
+}
+.acc .plus::before { width: 12px; height: 1.5px; }
+.acc .plus::after { width: 1.5px; height: 12px; }
+.acc button:hover .plus,
+.acc button:focus-visible .plus {
+  background: var(--dark-2);
+  color: #fff;
+}
+.acc.is-open .plus {
+  transform: rotate(45deg);
+  background: var(--dark-2);
+  color: #fff;
+}
+.acc-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.acc.is-open .acc-panel { grid-template-rows: 1fr; }
+.acc-panel-inner { overflow: hidden; }
+.acc-panel p {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.28s ease, transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.acc.is-open .acc-panel p {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.06s;
+}
+@keyframes faq-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+}

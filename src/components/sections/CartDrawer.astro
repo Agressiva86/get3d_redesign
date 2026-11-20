@@ -1,19 +1,40 @@
 ---
+const cartClass =
+  "cart fixed inset-y-0 right-0 z-60 flex w-[min(420px,100%)] translate-x-full flex-col bg-white p-[22px] transition-transform duration-[280ms] ease-out [&.is-open]:translate-x-0";
+
+const headClass = "flex items-center justify-between";
+
+const titleClass = "font-heading text-xl font-semibold tracking-normal";
+
+const closeBtnClass = "h-9 w-9 rounded-lg border-0 bg-stone-50";
+
+const itemsClass = "cart-items mt-4 grid flex-1 content-start gap-2.5 overflow-auto";
+
+const footClass = "grid gap-2.5 border-t border-stone-200 pt-3.5";
+
+const rowClass = "row flex justify-between font-normal text-ink";
+
+const checkoutClass = "checkout grid gap-2";
+
+const fieldClass = "rounded-lg border border-stone-200 bg-stone-50 p-3";
+
+const noteClass = "min-h-[22px] mt-2 text-sm font-normal text-ink";
 ---
-<aside class="cart" id="cart" aria-hidden="true" aria-labelledby="cart-title">
-    <div class="cart-head">
-      <h2 id="cart-title">Koszyk</h2>
-      <button class="icon-btn" type="button" data-close-cart aria-label="Zamknij koszyk">×</button>
+
+<aside class={cartClass} id="cart" aria-hidden="true" aria-labelledby="cart-title">
+    <div class={headClass}>
+      <h2 id="cart-title" class={titleClass}>Koszyk</h2>
+      <button class={closeBtnClass} type="button" data-close-cart aria-label="Zamknij koszyk">×</button>
     </div>
-    <div class="cart-items" id="cart-items"></div>
-    <div class="cart-foot">
-      <div class="row"><span>Razem</span><strong id="cart-total">0 zł</strong></div>
-      <form class="checkout" id="checkout">
-        <input name="name" required placeholder="Imię i nazwisko*" aria-label="Imię i nazwisko">
-        <input type="email" name="email" required placeholder="E-mail*" aria-label="E-mail">
-        <textarea name="note" rows="2" placeholder="Dopisek do zamówienia" aria-label="Dopisek"></textarea>
+    <div class={itemsClass} id="cart-items"></div>
+    <div class={footClass}>
+      <div class={rowClass}><span>Razem</span><strong id="cart-total">0 zł</strong></div>
+      <form class={checkoutClass} id="checkout">
+        <input class={fieldClass} name="name" required placeholder="Imię i nazwisko*" aria-label="Imię i nazwisko" />
+        <input class={fieldClass} type="email" name="email" required placeholder="E-mail*" aria-label="E-mail" />
+        <textarea class={fieldClass} name="note" rows="2" placeholder="Dopisek do zamówienia" aria-label="Dopisek"></textarea>
         <button class="btn btn-red" type="submit">Złóż zamówienie</button>
       </form>
-      <p class="form-note" id="order-note" role="status"></p>
+      <p class={noteClass} id="order-note" role="status"></p>
     </div>
   </aside>

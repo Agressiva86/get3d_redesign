@@ -91,7 +91,14 @@
       panel.style.height = "auto";
       panel.style.visibility = "hidden";
       panel.style.display = "block";
-      max = Math.max(max, panel.offsetHeight);
+      let panelMax = panel.offsetHeight;
+      const mega = panel.querySelector(".mega");
+      const feature = panel.querySelector(".mega-feature");
+      if (mega && feature) {
+        const featureEnd = feature.offsetTop + feature.offsetHeight + 16;
+        panelMax = Math.max(panelMax, mega.offsetHeight, featureEnd);
+      }
+      max = Math.max(max, panelMax);
       panel.style.height = height;
       panel.style.display = display;
       panel.style.visibility = visibility;
@@ -327,7 +334,6 @@
     }
     if (nav.classList.contains("is-compact")) {
       panel.style.height = "";
-      if (catBar) catBar.style.minHeight = "";
       const parent = panel.offsetParent || navCats;
       const parentRect = parent.getBoundingClientRect();
       const barRect = catBar.getBoundingClientRect();
@@ -379,7 +385,10 @@
       applyCompactHeight();
     });
   });
-  navCats?.addEventListener("mouseleave", clearCompactBar);
+  const bfCta = catBar?.querySelector(".bf-cta");
+  bfCta?.addEventListener("mouseenter", () => {
+    if (nav.classList.contains("is-compact") && nav.classList.contains("is-open")) applyCompactHeight();
+  });
   window.addEventListener("resize", () => {
     document.querySelectorAll(".nav-cats .drop").forEach(placeCatPanel);
   });
@@ -431,6 +440,8 @@
     closeDrops();
     closeAccount();
     closeCartPop();
+    clearCompactBar();
+    syncNav();
   };
   let compactMenuTimer = 0;
   const compactHover = () => nav.classList.contains("is-compact") && !mobileNav();
@@ -438,10 +449,15 @@
     burger.matches(":hover") ||
     burger.matches(":focus-visible") ||
     catBar?.matches(":hover") ||
-    catBar?.matches(":focus-within");
+    catBar?.matches(":focus-within") ||
+    !!document.querySelector(".nav.is-compact.is-open .nav-cats .drop.is-open .drop-panel:hover");
   const openCompactMenu = () => {
     window.clearTimeout(compactMenuTimer);
-    if (nav.classList.contains("is-menu-quiet") || !compactHover() || nav.classList.contains("is-open")) return;
+    if (nav.classList.contains("is-menu-quiet") || !compactHover()) return;
+    if (nav.classList.contains("is-open")) {
+      if (nav.classList.contains("is-compact")) applyCompactHeight();
+      return;
+    }
     nav.classList.add("is-open");
     burger.setAttribute("aria-expanded", "true");
     closeAccount();

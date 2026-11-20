@@ -1,55 +1,138 @@
 ---
+const sectionClass =
+  "mx-5 mt-2 mb-8 w-[calc(100%-40px)] rounded-[22px] bg-stone-50 px-[max(10px,calc((100%-1500px)/2-20px))] py-11 pb-[52px] max-[980px]:mx-3 max-[980px]:mt-1.5 max-[980px]:mb-6 max-[980px]:w-[calc(100%-24px)] max-[980px]:py-9 max-[980px]:pb-10";
+
+const innerClass = "mx-auto w-full max-w-[1024px]";
+
+const layoutClass =
+  "grid grid-cols-[minmax(0,1.02fr)_minmax(240px,0.98fr)] items-start gap-x-14 gap-y-12 max-[980px]:grid-cols-1 max-[980px]:gap-9";
+
+const titleClass =
+  "max-w-[14em] text-[clamp(32px,3.4vw,46px)] font-semibold leading-[1.08] tracking-normal max-[980px]:max-w-none";
+
+const listClass = "mt-7";
+
+const itemClass =
+  "border-t border-stone-200 py-[22px] first:border-t-0 first:pt-0 last:pb-0";
+
+const itemTitleClass = "text-[clamp(18px,1.5vw,21px)] font-semibold leading-tight";
+
+const itemTextClass =
+  "mt-2 max-w-[46ch] text-[15px] font-light leading-[1.55] text-stone-600";
+
+const photosClass =
+  "sticky top-[clamp(92px,11vh,132px)] grid grid-cols-2 items-start gap-x-[18px] gap-y-5 self-start max-[980px]:static max-[980px]:mx-auto max-[980px]:max-w-[520px]";
+
+const photoBaseClass =
+  "m-0 aspect-[4/5] overflow-hidden rounded-[22px] bg-stone-200";
+
+const photoImgClass = "block h-full w-full object-cover";
+
+const items = [
+  {
+    title: "Pierwsza drukarka do domu",
+    text: "Kompaktowe modele z szybkim startem, cichą pracą i gotowymi profilami — od pierwszej figurki po codzienne projekty na biurku.",
+    href: "https://get3d.pl/drukarki-3d/bambu-lab/",
+    link: "Drukarki do domu",
+  },
+  {
+    title: "Drukarka dla firmy",
+    text: "Maszyny do prototypów i krótkich serii: większe pole robocze, stabilna praca i wsparcie wdrożeniowe, gdy druk ma iść obok produkcji.",
+    href: "https://get3d.pl/drukarki-3d/raise-3d/",
+    link: "Drukarki dla firm",
+  },
+  {
+    title: "Stomatologia i medycyna",
+    text: "Drukarki żywiczne, materiały biokompatybilne i workflow pod modele, szyny i elementy protetyczne — z doradztwem przy doborze żywic.",
+    href: "https://get3d.pl/drukarki-3d/formlabs/",
+    link: "Drukarki dla stomatologii",
+  },
+  {
+    title: "Materiały techniczne",
+    text: "Urządzenia pod PA, PC, włókna i kompozyty — gdy liczy się temperatura komory, zamknięta obudowa i powtarzalność wydruku.",
+    href: "https://get3d.pl/drukarki-3d/minifactory/",
+    link: "Drukarki pod materiały techniczne",
+  },
+  {
+    title: "Druk z metalu",
+    text: "Systemy metalowe do narzędzi, wkładów i elementów funkcjonalnych — od warsztatu badawczego po przygotowanie produkcji seryjnej.",
+    href: "https://get3d.pl/drukarki-3d/desktop-metal/",
+    link: "Drukarki metalem",
+  },
+  {
+    title: "Edukacja",
+    text: "Bezpieczne zestawy dla szkół i pracowni: prosta obsługa, szkolenia operatorów i serwis, który nie wyciąga zajęć z rytmu.",
+    href: "https://get3d.pl/drukarki-3d/prusa/",
+    link: "Drukarki do edukacji",
+  },
+];
 ---
-<section class="print-guide" id="wybor-drukarki" aria-labelledby="print-guide-title">
-<div class="wrap print-guide-layout">
-        <div class="print-guide-copy">
-          <h2 id="print-guide-title">Pomożemy Ci wybrać odpowiednią drukarkę 3D</h2>
-          <div class="print-guide-list">
-            <article class="print-guide-item">
-              <h3>Pierwsza drukarka do domu</h3>
-              <p>Kompaktowe modele z szybkim startem, cichą pracą i gotowymi profilami — od pierwszej figurki po codzienne projekty na biurku.</p>
-              <a class="mini-link" href="https://get3d.pl/drukarki-3d/bambu-lab/">Drukarki do domu</a>
-            </article>
-            <article class="print-guide-item">
-              <h3>Drukarka dla firmy</h3>
-              <p>Maszyny do prototypów i krótkich serii: większe pole robocze, stabilna praca i wsparcie wdrożeniowe, gdy druk ma iść obok produkcji.</p>
-              <a class="mini-link" href="https://get3d.pl/drukarki-3d/raise-3d/">Drukarki dla firm</a>
-            </article>
-            <article class="print-guide-item">
-              <h3>Stomatologia i medycyna</h3>
-              <p>Drukarki żywiczne, materiały biokompatybilne i workflow pod modele, szyny i elementy protetyczne — z doradztwem przy doborze żywic.</p>
-              <a class="mini-link" href="https://get3d.pl/drukarki-3d/formlabs/">Drukarki dla stomatologii</a>
-            </article>
-            <article class="print-guide-item">
-              <h3>Materiały techniczne</h3>
-              <p>Urządzenia pod PA, PC, włókna i kompozyty — gdy liczy się temperatura komory, zamknięta obudowa i powtarzalność wydruku.</p>
-              <a class="mini-link" href="https://get3d.pl/drukarki-3d/minifactory/">Drukarki pod materiały techniczne</a>
-            </article>
-            <article class="print-guide-item">
-              <h3>Druk z metalu</h3>
-              <p>Systemy metalowe do narzędzi, wkładów i elementów funkcjonalnych — od warsztatu badawczego po przygotowanie produkcji seryjnej.</p>
-              <a class="mini-link" href="https://get3d.pl/drukarki-3d/desktop-metal/">Drukarki metalem</a>
-            </article>
-            <article class="print-guide-item">
-              <h3>Edukacja</h3>
-              <p>Bezpieczne zestawy dla szkół i pracowni: prosta obsługa, szkolenia operatorów i serwis, który nie wyciąga zajęć z rytmu.</p>
-              <a class="mini-link" href="https://get3d.pl/drukarki-3d/prusa/">Drukarki do edukacji</a>
-            </article>
-          </div>
-        </div>
-        <div class="print-guide-photos" aria-hidden="true">
-          <figure class="print-guide-photo print-guide-photo--1">
-            <img src="assets/makers/photos/bambu-lab.webp" alt="" width="320" height="400" loading="lazy" decoding="async">
-          </figure>
-          <figure class="print-guide-photo print-guide-photo--2">
-            <img src="assets/makers/photos/raise3d.webp" alt="" width="320" height="320" loading="lazy" decoding="async">
-          </figure>
-          <figure class="print-guide-photo print-guide-photo--3">
-            <img src="assets/makers/photos/formlabs.webp" alt="" width="320" height="400" loading="lazy" decoding="async">
-          </figure>
-          <figure class="print-guide-photo print-guide-photo--4">
-            <img src="assets/images/get3d-szkolenia.webp" alt="" width="320" height="360" loading="lazy" decoding="async">
-          </figure>
+
+<section class={sectionClass} id="wybor-drukarki" aria-labelledby="print-guide-title">
+  <div class={innerClass}>
+    <div class={layoutClass}>
+      <div>
+        <h2 id="print-guide-title" class={titleClass}>Pomożemy Ci wybrać odpowiednią drukarkę 3D</h2>
+        <div class={listClass}>
+          {
+            items.map((item) => (
+              <article class={itemClass}>
+                <h3 class={itemTitleClass}>{item.title}</h3>
+                <p class={itemTextClass}>{item.text}</p>
+                <a class="mini-link mt-3.5" href={item.href}>
+                  {item.link}
+                </a>
+              </article>
+            ))
+          }
         </div>
       </div>
+      <div class={photosClass} aria-hidden="true">
+        <figure class={`${photoBaseClass} mt-0`}>
+          <img
+            class={photoImgClass}
+            src="assets/makers/photos/bambu-lab.webp"
+            alt=""
+            width="320"
+            height="400"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+        <figure class={`${photoBaseClass} mt-12 max-[980px]:mt-0`}>
+          <img
+            class={photoImgClass}
+            src="assets/makers/photos/raise3d.webp"
+            alt=""
+            width="320"
+            height="320"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+        <figure class={`${photoBaseClass} -mt-5 max-[980px]:mt-0`}>
+          <img
+            class={photoImgClass}
+            src="assets/makers/photos/formlabs.webp"
+            alt=""
+            width="320"
+            height="400"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+        <figure class={`${photoBaseClass} mt-9 max-[980px]:mt-0`}>
+          <img
+            class={photoImgClass}
+            src="assets/images/get3d-szkolenia.webp"
+            alt=""
+            width="320"
+            height="360"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </div>
+    </div>
+  </div>
 </section>
