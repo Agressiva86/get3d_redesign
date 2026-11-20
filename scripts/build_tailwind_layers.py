@@ -8,7 +8,7 @@ SRC = ROOT / "css" / "styles.css"
 OUT = ROOT / "src" / "styles" / "tailwind"
 
 # Sekcje przepisane na utilities w .astro — nie generujemy dla nich warstwy components.
-TAILWIND_MARKUP = frozenset({"skip-link"})
+TAILWIND_MARKUP = frozenset({"skip-link", "cat-picks"})
 
 # Sekcje usunięte z witryny — nie generuj CSS.
 REMOVED_SECTIONS = frozenset(

@@ -16,15 +16,6 @@
   .footer-company { grid-column: 1 / -1; }
   .footer-company { justify-self: start; width: auto; }
   .hero-rail { width: auto; max-width: none; }
-  .cat-picks-row {
-    display: flex;
-    gap: 14px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    margin-right: -12px;
-    padding-bottom: 8px;
-  }
-  .cat-picks-row li { flex: 0 0 132px; scroll-snap-align: start; }
   .print-guide {
     width: calc(100% - 24px);
     margin: 6px 12px 24px;

@@ -1837,6 +1837,10 @@ body.nav-fixed .nav {
 .hero-slide:hover .product-shot img { transform: scale(1.05); }
 
 .cat-picks { padding: 36px 0 28px; }
+.cat-picks > .wrap {
+  width: min(var(--container), calc(100% - 60px));
+  margin-inline: auto;
+}
 .cat-picks-head {
   display: flex;
   align-items: center;
