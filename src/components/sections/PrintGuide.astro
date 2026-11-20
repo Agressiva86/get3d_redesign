@@ -1,6 +1,6 @@
 ---
 const sectionClass =
-  "mx-5 mt-2 mb-8 w-[calc(100%-40px)] rounded-[22px] bg-stone-50 px-[max(10px,calc((100%-1500px)/2-20px))] py-11 pb-[52px] max-[980px]:mx-3 max-[980px]:mt-1.5 max-[980px]:mb-6 max-[980px]:w-[calc(100%-24px)] max-[980px]:py-9 max-[980px]:pb-10";
+  "mx-5 mt-2 mb-8 w-[calc(100%-40px)] rounded-[22px] bg-stone-50 px-[max(10px,calc((100%-1500px)/2-20px))] py-11 pb-[52px] max-[980px]:mx-[30px] max-[980px]:mt-1.5 max-[980px]:mb-6 max-[980px]:w-[calc(100%-60px)] max-[980px]:p-[30px]";
 
 const innerClass = "mx-auto w-full max-w-[1024px]";
 
@@ -20,13 +20,27 @@ const itemTitleClass = "text-[clamp(18px,1.5vw,21px)] font-semibold leading-tigh
 const itemTextClass =
   "mt-2 max-w-[46ch] text-[15px] font-light leading-[1.55] text-stone-600";
 
-const photosClass =
-  "sticky top-[clamp(92px,11vh,132px)] grid grid-cols-2 items-start gap-x-[18px] gap-y-5 self-start max-[980px]:static max-[980px]:mx-auto max-[980px]:max-w-[520px]";
+const mediaClass =
+  "sticky top-[clamp(92px,11vh,132px)] w-full self-start max-[980px]:static";
 
-const photoBaseClass =
-  "m-0 aspect-[4/5] overflow-hidden rounded-[22px] bg-stone-200";
+const videoWrapClass =
+  "relative m-0 aspect-[4/5] w-full overflow-hidden rounded-[22px] bg-stone-900 @container max-[980px]:aspect-video max-[980px]:max-h-[min(42vh,380px)]";
 
-const photoImgClass = "block h-full w-full object-cover";
+const videoClass = "absolute inset-0 block h-full w-full object-cover";
+
+const captionClass =
+  "hero-caption absolute inset-x-0 bottom-0 z-[1] flex flex-col items-start gap-2 pt-[92px] pr-[22px] pb-5 pl-[22px] before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-t before:from-[rgba(21,0,41,0.55)] before:from-0% before:via-[rgba(21,0,41,0.32)] before:via-[55%] before:to-transparent before:to-100% before:backdrop-blur-[16px] before:backdrop-saturate-[1.4] before:[mask-image:linear-gradient(to_top,#000_0%,#000_52%,transparent_100%)] before:[-webkit-mask-image:linear-gradient(to_top,#000_0%,#000_52%,transparent_100%)]";
+
+const captionTitleClass =
+  "m-0 w-[calc(70cqw-22px)] max-w-full font-display text-[clamp(20px,5.5cqw,26px)] font-medium leading-[1.05] tracking-normal text-white max-[980px]:w-full";
+
+const captionTextClass =
+  "m-0 w-[calc(70cqw-22px)] max-w-full text-[13px] leading-[1.4] text-white max-[980px]:w-full";
+
+const captionActionsClass =
+  "hero-caption-actions mt-1.5 flex w-auto max-w-full flex-wrap gap-2 max-[980px]:w-full";
+
+const phoneHref = "tel:+48426305050";
 
 const items = [
   {
@@ -87,50 +101,33 @@ const items = [
           }
         </div>
       </div>
-      <div class={photosClass} aria-hidden="true">
-        <figure class={`${photoBaseClass} mt-0`}>
-          <img
-            class={photoImgClass}
-            src="assets/makers/photos/bambu-lab.webp"
-            alt=""
-            width="320"
-            height="400"
-            loading="lazy"
-            decoding="async"
-          />
-        </figure>
-        <figure class={`${photoBaseClass} mt-12 max-[980px]:mt-0`}>
-          <img
-            class={photoImgClass}
-            src="assets/makers/photos/raise3d.webp"
-            alt=""
-            width="320"
-            height="320"
-            loading="lazy"
-            decoding="async"
-          />
-        </figure>
-        <figure class={`${photoBaseClass} -mt-5 max-[980px]:mt-0`}>
-          <img
-            class={photoImgClass}
-            src="assets/makers/photos/formlabs.webp"
-            alt=""
-            width="320"
-            height="400"
-            loading="lazy"
-            decoding="async"
-          />
-        </figure>
-        <figure class={`${photoBaseClass} mt-9 max-[980px]:mt-0`}>
-          <img
-            class={photoImgClass}
-            src="assets/images/get3d-szkolenia.webp"
-            alt=""
-            width="320"
-            height="360"
-            loading="lazy"
-            decoding="async"
-          />
+      <div class={mediaClass}>
+        <figure class={videoWrapClass}>
+          <video
+            class={videoClass}
+            src="assets/video/print-guide.mp4"
+            width="1920"
+            height="1080"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            aria-hidden="true"
+          ></video>
+          <div class={captionClass}>
+            <h3 class={captionTitleClass}>Wciąż nie wiesz jakie urządzenie wybrać?</h3>
+            <p class={captionTextClass}>
+              Doradzimy przy wyborze drukarki, materiałów i konfiguracji — od pierwszych pytań po wdrożenie u
+              Ciebie w pracowni lub firmie.
+            </p>
+            <div class={captionActionsClass}>
+              <a class="hero-caption-btn hero-caption-btn-solid" href={phoneHref}>
+                <span class="btn-label">Skorzystaj z pomocy, zadzwoń</span>
+                <span class="btn-chip"><span class="icon icon-phone" aria-hidden="true"></span></span>
+              </a>
+            </div>
+          </div>
         </figure>
       </div>
     </div>

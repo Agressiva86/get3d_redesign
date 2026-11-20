@@ -1133,7 +1133,7 @@
         slide.style.zIndex = "";
         slide.style.pointerEvents = "";
         slide.style.transformOrigin = "";
-        slide.setProperty("--hero-shade", "0");
+        slide.style.setProperty("--hero-shade", "0");
       });
       track.style.transform = "";
       track.style.height = "";
@@ -1290,9 +1290,11 @@
 
   document.querySelectorAll("[data-pair-slider]").forEach((root) => {
     const track = root.querySelector(".pair-slider-track");
+    if (!track || !root.querySelector(".pair-slider-viewport") || !root.querySelector(".pair-slider-dots")) return;
     const slides = [...track.children];
     const viewport = root.querySelector(".pair-slider-viewport");
     const dotsWrap = root.querySelector(".pair-slider-dots");
+    if (!viewport || !dotsWrap) return;
     const wide = window.matchMedia("(min-width: 761px)");
     const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let index = 0;
