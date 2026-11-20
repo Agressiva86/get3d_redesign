@@ -1,0 +1,166 @@
+---
+description: Project rules for the Get3D e-commerce Astro site — isolated section edits, simple architecture, and future PHP portability
+alwaysApply: true
+---
+
+PROJECT RULES
+
+1. Project Context
+
+This is an e-commerce website built with Astro.
+
+Astro is used primarily for organizing HTML into independent components. The project may be migrated to PHP in the future.
+
+Priorities:
+
+- Clean, semantic and maintainable HTML.
+- Independent website sections.
+- Standard CSS and vanilla JavaScript.
+- Minimal Astro-specific dependencies.
+- E-commerce UX, SEO, accessibility and performance.
+- Simple architecture and future PHP compatibility.
+
+Do not overengineer.
+
+2. STRICT SCOPE — HIGHEST PRIORITY
+
+ONE TASK = ONE SECTION = ONE COMPONENT.
+
+Always edit ONLY the section explicitly specified by the user.
+
+Examples:
+
+- Hero → Hero.astro and its dedicated assets.
+- Header → Header.astro and its dedicated assets.
+- Products → Products.astro and its dedicated assets.
+
+Rules:
+
+- Never modify unrelated sections.
+- Never refactor the entire project during a section-specific task.
+- Never modify global.css, variables.css, layouts or pages unless explicitly requested or strictly necessary.
+- Do not change shared components without permission.
+- Do not make unrelated improvements.
+- If a task requires changes outside the specified section, explain why and ask for permission first.
+
+3. TOKEN AND CONTEXT EFFICIENCY
+
+Minimize unnecessary context usage.
+
+- Read only files directly relevant to the current task.
+- Do not scan or analyze the entire codebase for localized changes.
+- Do not inspect unrelated components.
+- Do not load entire folders when individual files are sufficient.
+- Do not use @codebase unless explicitly necessary.
+- Never rewrite an entire file when a localized edit is sufficient.
+- Avoid unnecessary explanations, summaries and duplicated code.
+- Do not perform additional refactoring.
+
+Before editing, identify the minimum required files.
+
+4. ASTRO AND FUTURE PHP COMPATIBILITY
+
+Use Astro as a simple component and HTML templating system.
+
+- Prefer straightforward .astro components.
+- Keep markup close to standard HTML5.
+- Use vanilla JavaScript wherever possible.
+- Avoid unnecessary Astro APIs, abstractions, props and complex component systems.
+- Avoid React, Vue, Svelte and other frameworks.
+- Do not introduce Astro Islands or client-side hydration unless required.
+- Keep presentation separate from business logic.
+- Prefer standard HTML forms and predictable data structures.
+- Avoid technology-specific patterns that complicate future PHP migration.
+
+Do not build advanced e-commerce backend functionality in Astro.
+
+5. E-COMMERCE REQUIREMENTS
+
+Follow e-commerce UX and development best practices.
+
+UX
+
+- Prioritize clear navigation and intuitive shopping journeys.
+- Use clear calls to action.
+- Maintain consistent visual hierarchy.
+- Make product information easy to scan.
+- Prioritize mobile shopping experience.
+
+SEO
+
+- Use semantic HTML5 and logical heading hierarchy.
+- Use descriptive links and image alt attributes.
+- Follow standard SEO practices.
+- Use Schema.org structured data when relevant and requested.
+
+Accessibility
+
+- Follow WCAG 2.2 AA principles.
+- Ensure keyboard accessibility and visible focus states.
+- Use accessible labels for forms and controls.
+- Maintain sufficient color contrast.
+- Never rely on color alone to communicate information.
+
+Performance
+
+- Avoid unnecessary JavaScript and dependencies.
+- Keep animations lightweight.
+- Optimize image loading.
+- Avoid unnecessary third-party scripts.
+- Preserve good Core Web Vitals.
+
+6. HTML, CSS AND JAVASCRIPT
+
+HTML
+
+- Use semantic HTML5.
+- Preserve existing classes, IDs and structure unless changes are required.
+- Avoid unnecessary wrapper elements.
+
+CSS
+
+- Keep section-specific styles inside their respective components or dedicated CSS files.
+- Use global styles only for genuinely shared rules and design tokens.
+- Reuse existing CSS variables.
+- Avoid duplicated declarations and unnecessary global selectors.
+- Preserve responsive behavior.
+
+JavaScript / GSAP
+
+- Prefer vanilla JavaScript.
+- Preserve existing GSAP and ScrollTrigger functionality.
+- Keep section-specific animation logic isolated.
+- Avoid duplicate animation initialization.
+- Never modify animations belonging to other sections.
+
+7. DESIGN PRESERVATION
+
+- Preserve the existing visual design.
+- Do not change typography, colors, spacing or layout unless requested.
+- Preserve desktop, tablet and mobile behavior.
+- Do not make subjective design improvements without permission.
+- Preserve existing interactions and animation timing unless requested.
+
+8. WORKFLOW
+
+For every task:
+
+1. Identify the exact section specified by the user.
+2. Read only its component and directly related files.
+3. Make the smallest necessary changes.
+4. Do not modify unrelated files.
+5. Verify the changes when possible.
+
+If work outside the specified scope is necessary, stop and request permission.
+
+After completion, briefly report:
+
+- Files modified.
+- Changes made.
+- Verification results or remaining issues.
+
+FINAL RULE
+
+Prioritize isolated section editing, minimal context, simple architecture and future PHP portability.
+
+Never expand the task scope without the user's permission.
