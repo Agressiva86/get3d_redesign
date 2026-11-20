@@ -1,16 +1,12 @@
 ---
 const sectionClass = "makers py-[72px] pb-7 max-[760px]:pt-12";
 
-const wrapClass = "mx-auto w-full max-w-[1500px] px-[30px]";
+const railPadClass = "w-full px-[max(30px,calc((100%-var(--container))/2))]";
 
-const headClass =
-  "makers-head flex items-center justify-between gap-4 max-[760px]:flex-wrap max-[760px]:items-start";
+const headClass = "makers-head";
 
 const titleClass =
   "m-0 max-w-[18em] text-[clamp(28px,3vw,40px)] font-semibold leading-[1.15] tracking-normal [&_span]:font-medium [&_span]:text-stone-500";
-
-const navClass =
-  "makers-nav flex flex-none gap-2.5 [&_.hero-slider-arrow:disabled]:cursor-default [&_.hero-slider-arrow:disabled]:opacity-35 [&_.hero-slider-arrow:disabled:hover]:bg-white [&_.hero-slider-arrow:disabled:hover]:text-ink";
 
 const trackClass =
   "makers-track mt-7 flex cursor-grab gap-[18px] overflow-x-auto scroll-auto px-[max(30px,calc((100%-var(--container))/2))] pb-3 pt-0.5 [-ms-overflow-style:none] [scrollbar-width:none] touch-pan-x [&::-webkit-scrollbar]:hidden [&.is-grabbing]:cursor-grabbing [&.is-grabbing]:select-none [&.is-grabbing_a]:pointer-events-none";
@@ -35,7 +31,7 @@ const shotClass =
 const captionClass =
   "maker-caption absolute inset-x-0 bottom-0 z-[1] flex flex-col items-start gap-2.5 px-5 pb-[18px] pt-[88px] before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-t before:from-[rgba(21,0,41,0.55)] before:from-0% before:via-[rgba(21,0,41,0.32)] before:via-[55%] before:to-transparent before:to-100% before:backdrop-blur-[16px] before:backdrop-saturate-[1.4] before:[mask-image:linear-gradient(to_top,#000_0%,#000_52%,transparent_100%)] before:[-webkit-mask-image:linear-gradient(to_top,#000_0%,#000_52%,transparent_100%)]";
 
-const lineClass = "maker-line relative m-0 text-inherit";
+const lineClass = "maker-line relative m-0 text-[13px] leading-[1.4] text-white";
 
 const captionBtnClass = "hero-caption-btn hero-caption-btn-solid";
 
@@ -65,16 +61,8 @@ const scrollClass =
 const spacerClass = "makers-scroll-spacer h-px pointer-events-none";
 ---
 <section class={sectionClass} data-makers aria-labelledby="makers-title">
-<div class={`${wrapClass} ${headClass}`}>
+<div class={`${railPadClass} ${headClass}`}>
         <h2 id="makers-title" class={titleClass}>Drukarki 3D od renomowanych producentów</h2>
-        <div class={navClass}>
-          <button class="hero-slider-arrow" type="button" data-makers-dir="-1" aria-label="Poprzedni producenci" disabled>
-            <span class="icon icon-back" aria-hidden="true"></span>
-          </button>
-          <button class="hero-slider-arrow" type="button" data-makers-dir="1" aria-label="Następni producenci">
-            <span class="icon icon-arrow" aria-hidden="true"></span>
-          </button>
-        </div>
       </div>
       <div class={trackClass} tabindex="0" role="region" aria-label="Producenci drukarek 3D">
         <div class={unitClass}>
@@ -458,7 +446,7 @@ const spacerClass = "makers-scroll-spacer h-px pointer-events-none";
           <a class={allClass} href="#drukarki">Zobacz wszystkie produkty</a>
         </div>
       </div>
-      <div class={`${wrapClass} ${scrollWrapClass}`}>
+      <div class={`${railPadClass} ${scrollWrapClass}`}>
         <div class={scrollClass} data-makers-scroll tabindex="0" aria-label="Pasek przewijania producentów">
           <div class={spacerClass} data-makers-scroll-spacer></div>
         </div>

@@ -1322,7 +1322,7 @@
     const scrollSpacer = makers.querySelector("[data-makers-scroll-spacer]");
     const prev = makers.querySelector("[data-makers-dir='-1']");
     const next = makers.querySelector("[data-makers-dir='1']");
-    if (track && prev && next) {
+    if (track) {
     const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let makersGrab = null;
     let makersSyncing = false;
@@ -1371,8 +1371,8 @@
     };
     const updateMakers = () => {
       const max = track.scrollWidth - track.clientWidth - 2;
-      prev.disabled = track.scrollLeft <= 2;
-      next.disabled = track.scrollLeft >= max;
+      if (prev) prev.disabled = track.scrollLeft <= 2;
+      if (next) next.disabled = track.scrollLeft >= max;
       syncScrollSpacer();
       syncScrollBars("track");
     };
@@ -1383,8 +1383,8 @@
       track.classList.remove("is-grabbing");
       if (moved) track.dataset.makersSwiped = "1";
     };
-    prev.addEventListener("click", () => scrollMakersBy(-1));
-    next.addEventListener("click", () => scrollMakersBy(1));
+    if (prev) prev.addEventListener("click", () => scrollMakersBy(-1));
+    if (next) next.addEventListener("click", () => scrollMakersBy(1));
     track.addEventListener("scroll", updateMakers, { passive: true });
     track.addEventListener("dragstart", (event) => event.preventDefault());
     track.addEventListener("pointerdown", (event) => {
