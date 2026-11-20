@@ -976,20 +976,86 @@
   if (heroSlider) {
     const track = heroSlider.querySelector(".hero-slider-track");
     const slides = [...track.children];
-    const dots = [...heroSlider.querySelectorAll("[data-hero-go]")];
+    const dotsWrap = heroSlider.querySelector(".hero-slider-dots");
+    const initialDotsHTML = dotsWrap.innerHTML;
     const viewport = heroSlider.querySelector(".hero-slider-viewport");
     const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const canHover = window.matchMedia("(hover: hover)").matches;
+    const desktopHero = window.matchMedia("(min-width: 981px)");
+    const tabletWide = window.matchMedia("(min-width: 641px)");
+    const stage = document.querySelector(".hero-stage");
+    const sliderBar = heroSlider.querySelector(".hero-slider-bar");
     let heroIndex = 0;
     let heroDrag = 0;
     let heroTimer = 0;
     let heroPaused = false;
     let heroGrab = null;
+    const isDeck = () => desktopHero.matches;
+    const visibleCount = () => (isDeck() ? 1 : tabletWide.matches ? 2 : 1);
+    const maxTrackIndex = () => Math.max(0, slides.length - visibleCount());
+    const trackGap = () => parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
+    const trackStep = () => (slides[0] ? slides[0].getBoundingClientRect().width + trackGap() : 0);
     const wrapDiff = (diff) => {
       const count = slides.length;
       let value = ((diff % count) + count) % count;
       if (value > count / 2) value -= count;
       return value;
+    };
+    const syncDots = (activeIndex) => {
+      [...dotsWrap.children].forEach((dot, index) => {
+        const on = index === activeIndex;
+        dot.classList.toggle("is-on", on);
+        if (on) dot.setAttribute("aria-current", "true");
+        else dot.removeAttribute("aria-current");
+      });
+    };
+    const updateArrowStates = () => {
+      heroSlider.querySelectorAll("[data-hero-dir]").forEach((button) => {
+        if (isDeck()) {
+          button.removeAttribute("aria-disabled");
+          return;
+        }
+        const max = maxTrackIndex();
+        const next = heroIndex + Number(button.dataset.heroDir);
+        button.toggleAttribute("aria-disabled", next < 0 || next > max);
+      });
+    };
+    const renderTrackDots = () => {
+      const count = maxTrackIndex() + 1;
+      if (dotsWrap.dataset.mode === "track" && dotsWrap.childElementCount === count) {
+        syncDots(heroIndex);
+        return;
+      }
+      dotsWrap.dataset.mode = "track";
+      dotsWrap.replaceChildren(
+        ...Array.from({ length: count }, (_, dotIndex) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.dataset.heroGo = String(dotIndex);
+          const label = slides[dotIndex]?.querySelector(".hero-slide-name")?.textContent?.trim();
+          button.setAttribute("aria-label", label || `Produkty ${dotIndex + 1}`);
+          return button;
+        })
+      );
+      syncDots(heroIndex);
+    };
+    const useDeckDots = () => {
+      if (dotsWrap.dataset.mode === "deck") return;
+      dotsWrap.innerHTML = initialDotsHTML;
+      dotsWrap.dataset.mode = "deck";
+    };
+    const placeTrack = () => {
+      const max = maxTrackIndex();
+      if (heroIndex > max) heroIndex = max;
+      renderTrackDots();
+      const distance = trackStep();
+      track.style.transform = distance ? `translate3d(${-(heroIndex + heroDrag) * distance}px, 0, 0)` : "";
+      slides.forEach((slide, slideIndex) => {
+        const shown = slideIndex >= heroIndex && slideIndex < heroIndex + visibleCount();
+        slide.setAttribute("aria-hidden", shown ? "false" : "true");
+      });
+      syncDots(heroIndex);
+      updateArrowStates();
     };
     const placeHero = () => {
       let nearest = heroIndex;
@@ -1029,12 +1095,58 @@
       });
       track.style.height = `${slides[nearest].offsetHeight}px`;
       syncStageHeight();
-      dots.forEach((dot, index) => {
-        const on = index === nearest;
-        dot.classList.toggle("is-on", on);
-        if (on) dot.setAttribute("aria-current", "true");
-        else dot.removeAttribute("aria-current");
+      syncDots(nearest);
+      updateArrowStates();
+    };
+    const placeCurrent = () => {
+      if (isDeck()) placeHero();
+      else placeTrack();
+    };
+    const showTrack = (next) => {
+      const max = maxTrackIndex();
+      let index = next;
+      if (index > max) index = 0;
+      if (index < 0) index = max;
+      heroIndex = index;
+      heroDrag = 0;
+      track.style.transition = "";
+      heroSlider.classList.remove("is-ready");
+      placeTrack();
+    };
+    const showHero = (next) => {
+      heroIndex = ((next % slides.length) + slides.length) % slides.length;
+      heroDrag = 0;
+      heroSlider.classList.add("is-ready");
+      placeHero();
+    };
+    const showSlide = (next) => {
+      if (isDeck()) showHero(next);
+      else showTrack(next);
+    };
+    const applyLayoutMode = () => {
+      heroSlider.classList.toggle("is-pair", !isDeck());
+      slides.forEach((slide) => {
+        slide.classList.remove("is-current");
+        slide.style.transition = "";
+        slide.style.transform = "";
+        slide.style.opacity = "";
+        slide.style.zIndex = "";
+        slide.style.pointerEvents = "";
+        slide.style.transformOrigin = "";
+        slide.setProperty("--hero-shade", "0");
       });
+      track.style.transform = "";
+      track.style.height = "";
+      if (isDeck()) {
+        if (heroIndex >= slides.length) heroIndex = 0;
+        useDeckDots();
+        showHero(heroIndex);
+      } else {
+        const max = maxTrackIndex();
+        if (heroIndex > max) heroIndex = max;
+        showTrack(heroIndex);
+      }
+      syncStageHeight();
     };
     const stopHero = () => {
       window.clearInterval(heroTimer);
@@ -1043,13 +1155,8 @@
     const startHero = () => {
       stopHero();
       if (heroPaused || !motionOk || document.hidden || slides.length < 2) return;
-      heroTimer = window.setInterval(() => showHero(heroIndex + 1), 5000);
-    };
-    const showHero = (next) => {
-      heroIndex = ((next % slides.length) + slides.length) % slides.length;
-      heroDrag = 0;
-      heroSlider.classList.add("is-ready");
-      placeHero();
+      if (!isDeck() && maxTrackIndex() < 1) return;
+      heroTimer = window.setInterval(() => showSlide(heroIndex + 1), 5000);
     };
     const releaseHero = (event) => {
       if (!heroGrab || event.pointerId !== heroGrab.id) return;
@@ -1058,18 +1165,23 @@
       heroGrab = null;
       viewport.classList.remove("is-grabbing");
       slides.forEach((slide) => { slide.style.transition = ""; });
+      track.style.transition = "";
       let shift = 0;
-      if (heroDrag > 0.5) shift = Math.max(1, Math.round(heroDrag));
-      else if (heroDrag < -0.5) shift = Math.min(-1, Math.round(heroDrag));
-      else if (heroDrag > 0.06 && velocity < -0.4) shift = 1;
-      else if (heroDrag < -0.06 && velocity > 0.4) shift = -1;
+      if (isDeck()) {
+        if (heroDrag > 0.5) shift = Math.max(1, Math.round(heroDrag));
+        else if (heroDrag < -0.5) shift = Math.min(-1, Math.round(heroDrag));
+        else if (heroDrag > 0.06 && velocity < -0.4) shift = 1;
+        else if (heroDrag < -0.06 && velocity > 0.4) shift = -1;
+      } else if (heroDrag > 0.18) shift = 1;
+      else if (heroDrag < -0.18) shift = -1;
       if (moved) viewport.dataset.heroSwiped = "1";
-      showHero(heroIndex + shift);
+      showSlide(heroIndex + shift);
       startHero();
     };
     viewport.addEventListener("dragstart", (event) => event.preventDefault());
     viewport.addEventListener("pointerdown", (event) => {
       if (event.button !== 0 || slides.length < 2) return;
+      if (!isDeck() && maxTrackIndex() < 1) return;
       if (event.target.closest("button, .mega-cart")) return;
       heroGrab = {
         id: event.pointerId,
@@ -1082,7 +1194,8 @@
       };
       viewport.setPointerCapture(event.pointerId);
       viewport.classList.add("is-grabbing");
-      slides.forEach((slide) => { slide.style.transition = "none"; });
+      if (isDeck()) slides.forEach((slide) => { slide.style.transition = "none"; });
+      else track.style.transition = "none";
       stopHero();
     });
     viewport.addEventListener("pointermove", (event) => {
@@ -1094,8 +1207,13 @@
       if (dt > 0) heroGrab.velocity = (event.clientX - heroGrab.lastX) / dt;
       heroGrab.lastX = event.clientX;
       heroGrab.lastT = now;
-      heroDrag = heroGrab.drag - dx / (viewport.offsetWidth || 1);
-      placeHero();
+      if (isDeck()) {
+        heroDrag = heroGrab.drag - dx / (viewport.offsetWidth || 1);
+      } else {
+        const distance = trackStep() || viewport.offsetWidth || 1;
+        heroDrag = heroGrab.drag - dx / distance;
+      }
+      placeCurrent();
     });
     viewport.addEventListener("pointerup", releaseHero);
     viewport.addEventListener("pointercancel", releaseHero);
@@ -1106,10 +1224,15 @@
       event.stopPropagation();
     }, true);
     heroSlider.querySelectorAll("[data-hero-dir]").forEach((button) => {
-      button.addEventListener("click", () => showHero(heroIndex + Number(button.dataset.heroDir)));
+      button.addEventListener("click", () => {
+        if (button.hasAttribute("aria-disabled")) return;
+        showSlide(heroIndex + Number(button.dataset.heroDir));
+      });
     });
-    dots.forEach((dot) => {
-      dot.addEventListener("click", () => showHero(Number(dot.dataset.heroGo)));
+    dotsWrap.addEventListener("click", (event) => {
+      const dot = event.target.closest("[data-hero-go]");
+      if (!dot) return;
+      showSlide(Number(dot.dataset.heroGo));
     });
     if (canHover) {
       heroSlider.addEventListener("mouseenter", () => {
@@ -1134,9 +1257,6 @@
       if (document.hidden) stopHero();
       else startHero();
     });
-    const stage = document.querySelector(".hero-stage");
-    const sliderBar = heroSlider.querySelector(".hero-slider-bar");
-    const desktopHero = window.matchMedia("(min-width: 981px)");
     const syncStageHeight = () => {
       if (!stage) return;
       if (!desktopHero.matches) {
@@ -1152,9 +1272,19 @@
       stage.style.minHeight = `${height}px`;
       stage.style.alignSelf = "start";
     };
-    window.addEventListener("resize", syncStageHeight);
+    const onHeroBreakpoint = () => {
+      applyLayoutMode();
+      startHero();
+    };
+    window.addEventListener("resize", () => {
+      syncStageHeight();
+      if (!isDeck()) placeTrack();
+    });
+    desktopHero.addEventListener("change", onHeroBreakpoint);
+    tabletWide.addEventListener("change", onHeroBreakpoint);
     if (document.fonts) document.fonts.ready.then(syncStageHeight);
-    showHero(0);
+    dotsWrap.dataset.mode = "deck";
+    applyLayoutMode();
     startHero();
   }
 

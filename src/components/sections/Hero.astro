@@ -1,17 +1,17 @@
 ---
 const sectionClass =
-  "mx-5 w-[calc(100%-40px)] rounded-[22px] bg-stone-50 px-[max(10px,calc((100%-1500px)/2-20px))] py-9 pb-12 text-left max-[640px]:pt-[42px]";
+  "mx-5 w-[calc(100%-40px)] rounded-[22px] bg-stone-50 px-[max(10px,calc((100%-1500px)/2-20px))] py-9 pb-12 text-left max-[640px]:pt-[42px] min-[641px]:max-[980px]:mx-[30px] min-[641px]:max-[980px]:w-[calc(100%-60px)] min-[641px]:max-[980px]:rounded-none min-[641px]:max-[980px]:bg-transparent min-[641px]:max-[980px]:px-0 min-[641px]:max-[980px]:py-0 min-[641px]:max-[980px]:pb-10";
 
 const layoutClass =
-  "hero-layout grid w-full grid-cols-[minmax(0,1.05fr)_minmax(0,1.15fr)_285px] items-stretch gap-[22px] max-[980px]:grid-cols-1";
+  "hero-layout grid w-full grid-cols-[minmax(0,1.05fr)_minmax(0,1.15fr)_285px] items-stretch gap-[22px] max-[980px]:grid-cols-1 min-[641px]:max-[980px]:gap-6";
 
 const copyClass =
-  "hero-copy @container flex flex-col justify-center py-3 pr-2 pl-0";
+  "hero-copy @container flex w-full min-w-0 flex-col justify-center py-3 pr-2 pl-0 max-[980px]:pr-0 min-[641px]:max-[980px]:rounded-[22px] min-[641px]:max-[980px]:bg-stone-50 min-[641px]:max-[980px]:p-[30px]";
 
 const h1Class =
-  "mt-[22px] max-w-[520px] text-[clamp(32px,12.2cqw,58px)] font-semibold leading-[1.05]";
+  "mt-[22px] max-w-[520px] max-[980px]:max-w-none text-[clamp(32px,12.2cqw,58px)] font-semibold leading-[1.05]";
 
-const leadClass = "mt-[18px] max-w-[440px] text-[17px]";
+const leadClass = "mt-[18px] max-w-[440px] max-[980px]:max-w-none text-[17px]";
 
 const actionsClass =
   "hero-actions mt-7 flex flex-wrap justify-start gap-6 max-[640px]:flex-col max-[640px]:gap-2.5";
@@ -52,18 +52,18 @@ const captionBtnSolid = "hero-caption-btn-solid";
 const captionBtnLineIcon = "hero-caption-btn-line";
 
 const railClass =
-  "hero-rail flex w-[285px] max-w-[285px] flex-col max-[980px]:w-auto max-[980px]:max-w-none";
+  "hero-rail flex w-[285px] max-w-[285px] flex-col max-[980px]:w-full max-[980px]:max-w-none";
 
-const sliderClass = "hero-slider flex h-auto flex-1 flex-col bg-transparent";
+const sliderClass = "hero-slider flex h-auto w-full flex-1 flex-col bg-transparent max-[980px]:w-full";
 
 const viewportClass =
-  "hero-slider-viewport flex-none cursor-grab overflow-visible bg-transparent touch-pan-y [clip-path:inset(0_round_22px)] [&.is-grabbing]:cursor-grabbing [&.is-grabbing_.hero-slide]:cursor-grabbing [&.is-grabbing_.hero-slide]:select-none";
+  "hero-slider-viewport flex-none cursor-grab overflow-visible bg-transparent touch-pan-y [clip-path:inset(0_round_22px)] max-[980px]:overflow-hidden max-[980px]:[clip-path:none] [&.is-grabbing]:cursor-grabbing [&.is-grabbing_.hero-slide]:cursor-grabbing [&.is-grabbing_.hero-slide]:select-none";
 
 const trackClass =
-  "hero-slider-track relative block h-auto transition-[height] duration-[650ms] ease-[cubic-bezier(0.22,1,0.36,1)]";
+  "hero-slider-track relative block h-auto transition-[height] duration-[650ms] ease-[cubic-bezier(0.22,1,0.36,1)] max-[980px]:flex max-[980px]:w-full max-[980px]:gap-3.5 max-[980px]:transition-transform max-[980px]:duration-[550ms] max-[980px]:ease-[cubic-bezier(0.22,1,0.36,1)]";
 
 const slideClass =
-  "hero-slide group absolute top-0 left-0 flex w-full min-w-0 flex-[0_0_100%] cursor-pointer flex-col rounded-[22px] bg-white p-4 [transform-style:preserve-3d] [transition:transform_0.55s_cubic-bezier(0.22,1,0.36,1),opacity_0.45s_ease,--hero-shade_0.55s_linear] first:relative [&_.card-details]:before:absolute [&_.card-details]:before:inset-0 [&_.card-details]:before:z-[1] [&_.card-details]:before:content-[''] [&_.mega-cart]:relative [&_.mega-cart]:z-[2] after:pointer-events-none after:absolute after:inset-0 after:z-[4] after:rounded-[inherit] after:bg-black after:opacity-[var(--hero-shade,0)] after:content-[''] [&_.product-shot_img]:aspect-square [&_.product-shot_img]:h-auto [&_.product-shot_img]:w-full [&_.product-shot_img]:rounded-lg [&_.product-shot_img]:bg-stone-50 [&_.product-shot_img]:object-contain [&_.product-shot_img]:transition-transform [&_.product-shot_img]:duration-[650ms] [&_.product-shot_img]:ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:[&_.product-shot_img]:scale-105";
+  "hero-slide group relative top-auto left-auto flex min-w-0 w-[calc((100%-14px)/2)] flex-[0_0_calc((100%-14px)/2)] cursor-pointer flex-col rounded-[22px] bg-white p-4 min-[981px]:absolute min-[981px]:top-0 min-[981px]:left-0 min-[981px]:w-full min-[981px]:flex-[0_0_100%] max-[640px]:w-full max-[640px]:flex-[0_0_100%] [transform-style:preserve-3d] [transition:transform_0.55s_cubic-bezier(0.22,1,0.36,1),opacity_0.45s_ease,--hero-shade_0.55s_linear] min-[981px]:first:relative [&_.card-details]:before:absolute [&_.card-details]:before:inset-0 [&_.card-details]:before:z-[1] [&_.card-details]:before:content-[''] [&_.mega-cart]:relative [&_.mega-cart]:z-[2] after:pointer-events-none after:absolute after:inset-0 after:z-[4] after:rounded-[inherit] after:bg-black after:opacity-[var(--hero-shade,0)] after:content-[''] [&_.product-shot_img]:aspect-square [&_.product-shot_img]:h-auto [&_.product-shot_img]:w-full [&_.product-shot_img]:rounded-lg [&_.product-shot_img]:bg-stone-50 [&_.product-shot_img]:object-contain [&_.product-shot_img]:transition-transform [&_.product-shot_img]:duration-[650ms] [&_.product-shot_img]:ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:[&_.product-shot_img]:scale-105";
 ---
 
 <style is:global>
@@ -72,9 +72,11 @@ const slideClass =
     inherits: false;
     initial-value: 0;
   }
-  .hero-slider.is-ready .hero-slide,
-  .hero-slider.is-ready .hero-slide:first-child {
-    position: absolute;
+  @media (min-width: 981px) {
+    .hero-slider.is-ready .hero-slide,
+    .hero-slider.is-ready .hero-slide:first-child {
+      position: absolute;
+    }
   }
 </style>
 
