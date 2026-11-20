@@ -11,7 +11,7 @@ const titleClass =
   "m-0 max-w-[18em] text-[clamp(28px,3vw,40px)] font-semibold leading-[1.15] tracking-normal [&_span]:font-medium [&_span]:text-stone-500";
 
 const trackClass =
-  "makers-track mt-7 flex cursor-grab gap-[18px] overflow-x-auto scroll-auto px-[max(30px,calc((100%-var(--container))/2))] pb-3 pt-0.5 [-ms-overflow-style:none] [scrollbar-width:none] touch-pan-x [&::-webkit-scrollbar]:hidden [&.is-grabbing]:cursor-grabbing [&.is-grabbing]:select-none [&.is-grabbing_a]:pointer-events-none";
+  "makers-track mt-7 flex cursor-grab gap-[18px] overflow-x-auto scroll-auto px-[max(30px,calc((100%-var(--container))/2))] pb-3 pt-0.5 [-ms-overflow-style:none] [scrollbar-width:none] touch-pan-x max-[760px]:touch-pan-y max-[760px]:overscroll-x-contain [&::-webkit-scrollbar]:hidden [&.is-grabbing]:cursor-grabbing [&.is-grabbing]:select-none [&.is-grabbing_a]:pointer-events-none";
 
 const unitClass =
   "maker-unit flex flex-[0_0_360px] flex-col text-ink max-[760px]:basis-[min(360px,86vw)]";
