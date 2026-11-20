@@ -713,14 +713,14 @@
   .nav.is-compact .nav-cats .drop:hover > .drop-btn > .chev,
   .nav.is-compact .nav-cats .drop.is-open > .drop-btn > .chev,
   .nav.is-compact .nav-cats .drop-btn:focus-visible > .chev {
-    --icon: url("/assets/icons/arrow-right-down.svg");
+    --icon: url("/get3d_redesign/assets/icons/arrow-right-down.svg");
     width: 11px;
     height: 11px;
     color: var(--stone-400);
     transform: none;
   }
   .nav.is-compact .mega-name .chev {
-    --icon: url("/assets/icons/arrow-right-down.svg");
+    --icon: url("/get3d_redesign/assets/icons/arrow-right-down.svg");
     width: 11px;
     height: 11px;
     color: var(--stone-400);

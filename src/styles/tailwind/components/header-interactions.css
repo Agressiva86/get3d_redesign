@@ -433,7 +433,7 @@ body.nav-fixed .nav {
 .mega-branch:focus-within > .mega-name,
 .mega-all:hover { background: var(--stone-100); }
 .mega-name .chev {
-  --icon: url("/assets/icons/arrow-right-down.svg");
+  --icon: url("/get3d_redesign/assets/icons/arrow-right-down.svg");
   width: 11px;
   height: 11px;
   color: var(--stone-400);

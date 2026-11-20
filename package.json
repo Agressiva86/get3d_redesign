@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "sync:css": "python scripts/build_tailwind_layers.py",
-    "build": "npm run sync:css && python scripts/sync_public_assets.py && astro build",
+    "sync:js": "node -e \"import fs from 'fs'; fs.mkdirSync('public/js',{recursive:true}); fs.copyFileSync('js/main.js','public/js/main.js');\"",
+    "build": "npm run sync:css && python scripts/sync_public_assets.py && npm run sync:js && astro build",
     "preview": "astro preview",
     "bootstrap:sections": "python scripts/bootstrap_astro.py"
   },

@@ -46,8 +46,46 @@ REMOVED_SECTIONS = frozenset(
 )
 
 
+# Zgodne z astro.config.mjs → base (Vite przy url(../assets/) źle liczy ścieżkę względem src/styles/).
+DEPLOY_BASE = "/get3d_redesign/"
+
+
 def fix_urls(text: str) -> str:
-    return text.replace('url("../assets/', 'url("/assets/')
+    """Absolutne URL-e assetów pod GitHub Pages (base + public/assets)."""
+    abs_url = f'url("{DEPLOY_BASE}assets/'
+    abs_url_sq = f"url('{DEPLOY_BASE}assets/"
+    for old in (
+        'url("../assets/',
+        'url("./assets/',
+        'url("/assets/',
+        "url('../assets/",
+        "url('./assets/",
+        "url('/assets/",
+    ):
+        if old.startswith('url("'):
+            text = text.replace(old, abs_url)
+        else:
+            text = text.replace(old, abs_url_sq)
+    return text
+
+
+def fix_sidecar_assets() -> None:
+    """Pliki sidecar nie są generowane z styles.css — napraw absolutne url(/assets/)."""
+    for rel in (
+        "components/header-icons.css",
+        "components/header-interactions.css",
+        "components/brand-spot-primitives.css",
+        "components/faq-interactions.css",
+        "components/cookies-interactions.css",
+        "components/cart-interactions.css",
+    ):
+        path = OUT / rel
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8")
+        fixed = fix_urls(text)
+        if fixed != text:
+            path.write_text(fixed, encoding="utf-8")
 
 
 def apply_base_enhancements(typography_block: str) -> str:
@@ -244,6 +282,8 @@ def main() -> None:
             imports.append(f'@import "./components/{extra}";')
     imports.append('@import "./responsive.css";')
     write(OUT / "index.css", "\n".join(imports) + "\n")
+
+    fix_sidecar_assets()
 
     print(f"Wrote Tailwind layers to {OUT} ({len(sections)} component files)")
 

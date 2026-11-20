@@ -66,8 +66,8 @@
   height: 11px;
   flex: none;
   background-color: currentColor;
-  -webkit-mask: url("/assets/icons/arrow-right-down.svg") center / contain no-repeat;
-  mask: url("/assets/icons/arrow-right-down.svg") center / contain no-repeat;
+  -webkit-mask: url("/get3d_redesign/assets/icons/arrow-right-down.svg") center / contain no-repeat;
+  mask: url("/get3d_redesign/assets/icons/arrow-right-down.svg") center / contain no-repeat;
   transform: translateY(3px);
 }
 .btn-line:not(.btn-block) {
@@ -81,8 +81,8 @@
   width: 16px;
   height: 16px;
   background-color: currentColor;
-  -webkit-mask: url("/assets/icons/arrow-right-down.svg") center / contain no-repeat;
-  mask: url("/assets/icons/arrow-right-down.svg") center / contain no-repeat;
+  -webkit-mask: url("/get3d_redesign/assets/icons/arrow-right-down.svg") center / contain no-repeat;
+  mask: url("/get3d_redesign/assets/icons/arrow-right-down.svg") center / contain no-repeat;
   transform: none;
 }
 .btn-line:not(.btn-block):hover,
@@ -140,8 +140,8 @@
 }
 .btn-glyph-arrow {
   background: currentColor;
-  -webkit-mask: url("/assets/icons/arrow-right-down.svg") center / 14px 14px no-repeat;
-  mask: url("/assets/icons/arrow-right-down.svg") center / 14px 14px no-repeat;
+  -webkit-mask: url("/get3d_redesign/assets/icons/arrow-right-down.svg") center / 14px 14px no-repeat;
+  mask: url("/get3d_redesign/assets/icons/arrow-right-down.svg") center / 14px 14px no-repeat;
 }
 .btn-chip .icon,
 .bf-cta:hover .btn-chip .icon,
