@@ -1,0 +1,49 @@
+@theme {
+  --font-sans: "Geist", Arial, sans-serif;
+  --font-heading: "Familjen Grotesk", "Geist", Arial, sans-serif;
+  --font-display: "Geist", Arial, sans-serif;
+  --font-serif: "Geist", Arial, sans-serif;
+
+  --color-stone-50: #faf9fa;
+  --color-stone-100: #f4f3f6;
+  --color-stone-200: #e7e5ea;
+  --color-stone-300: #d4d1da;
+  --color-stone-400: #a49caf;
+  --color-stone-500: #786d88;
+  --color-stone-600: #5a4c6d;
+  --color-stone-700: #48395d;
+  --color-stone-800: #2d1b42;
+  --color-stone-850: #27143c;
+  --color-stone-900: #220d37;
+  --color-stone-950: #150029;
+
+  --color-red-50: #fff1f1;
+  --color-red-100: #ffe1e2;
+  --color-red-200: #fdcacb;
+  --color-red-300: #f9a6aa;
+  --color-red-400: #ee747e;
+  --color-red-500: #e1415a;
+  --color-red-600: #cf3b52;
+  --color-red-700: #ac3043;
+  --color-red-800: #912637;
+  --color-red-900: #7b1f2e;
+  --color-red-950: #430d15;
+
+  --color-accent: #e1415a;
+  --color-accent-deep: #cf3b52;
+  --color-ink: #150029;
+  --color-ink-soft: #2d1b42;
+  --color-paper: #ffffff;
+
+  --breakpoint-nav: 61.25rem;
+  --breakpoint-lg: 73.75rem;
+  --breakpoint-xl: 93.75rem;
+
+  --radius-get3d: 0.5rem;
+  --radius-card: 1.375rem;
+  --radius-btn: 1.375rem;
+
+  --shadow-get3d: 0 18px 50px rgb(21 0 41 / 0.08);
+  --header-height: 12.25rem;
+  --container-get3d: 93.75rem;
+}

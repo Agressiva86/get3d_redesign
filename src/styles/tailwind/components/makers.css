@@ -1,0 +1,272 @@
+@layer components {
+/* FAQ */
+.makers { padding: 72px 0 28px; }
+.makers-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.makers h2 {
+  max-width: 18em;
+  margin: 0;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.15;
+}
+.makers h2 span {
+  color: var(--stone-500);
+  font-weight: 500;
+}
+.makers-nav {
+  display: flex;
+  flex: none;
+  gap: 10px;
+}
+.makers-nav .hero-slider-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.makers-nav .hero-slider-arrow:disabled:hover {
+  background: #fff;
+  color: var(--ink);
+}
+.makers-track {
+  display: flex;
+  gap: 18px;
+  margin-top: 28px;
+  padding: 2px max(30px, calc((100% - var(--container)) / 2)) 12px;
+  overflow-x: auto;
+  scroll-behavior: auto;
+  scrollbar-width: none;
+  cursor: grab;
+  touch-action: pan-x;
+}
+.makers-track::-webkit-scrollbar { display: none; }
+.makers-track.is-grabbing {
+  cursor: grabbing;
+  user-select: none;
+}
+.makers-track.is-grabbing a { pointer-events: none; }
+.makers-scroll-wrap {
+  margin-top: 16px;
+  padding-bottom: 4px;
+}
+.makers-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 14px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+}
+.makers-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+.makers-scroll::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.makers-scroll::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 15px;
+}
+.makers-scroll::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 15px;
+}
+.makers-scroll-spacer {
+  height: 1px;
+  pointer-events: none;
+}
+.maker-unit {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 360px;
+  color: var(--ink);
+}
+.maker-hero {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.maker-brand {
+  padding: 0 2px 14px;
+  background: #fff;
+}
+.maker-name {
+  margin: 0;
+  line-height: 0;
+}
+.maker-logo {
+  display: block;
+  height: 36px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  object-position: left center;
+}
+.maker-card {
+  position: relative;
+  display: block;
+  flex: 1;
+  min-height: 420px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--stone-200);
+}
+.maker-shot {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+}
+.maker-caption {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 88px 20px 18px;
+}
+.maker-caption::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top, rgba(21, 0, 41, 0.55) 0%, rgba(21, 0, 41, 0.32) 55%, rgba(21, 0, 41, 0) 100%);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  mask-image: linear-gradient(to top, #000 0%, #000 52%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 52%, transparent 100%);
+}
+.maker-line {
+  position: relative;
+  margin: 0;
+  color: #fff;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+.maker-caption .hero-caption-btn {
+  position: relative;
+  margin-top: 2px;
+  pointer-events: none;
+  --btn-h: 44px;
+  max-width: 100%;
+  font-size: 14px;
+}
+.maker-caption .hero-caption-btn:has(.btn-chip) {
+  --pill: rgba(255, 255, 255, 0.18);
+  --pill-on: var(--dark-2);
+  --pill-ink: #fff;
+  --chip: var(--dark-2);
+}
+.maker-hero:hover .maker-caption .hero-caption-btn:has(.btn-chip),
+.maker-hero:focus-visible .maker-caption .hero-caption-btn:has(.btn-chip) {
+  background: var(--dark-2);
+  color: #fff;
+  filter: drop-shadow(0 8px 18px rgba(21, 0, 41, 0.38));
+}
+.maker-hero:hover .maker-caption .hero-caption-btn:has(.btn-chip) .btn-chip,
+.maker-hero:focus-visible .maker-caption .hero-caption-btn:has(.btn-chip) .btn-chip {
+  color: var(--dark-2);
+}
+.maker-products {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 0 2px;
+}
+.maker-product {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: var(--stone-50);
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.maker-product:hover,
+.maker-product:focus-visible {
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--stone-200);
+}
+.maker-product-shot {
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.maker-product-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.maker-product-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+}
+.maker-product-name {
+  display: block;
+  font-family: var(--heading);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+}
+.maker-product .mega-price {
+  font-size: 22px;
+}
+.maker-product .mega-price small { font-size: 11px; }
+.maker-product .mega-price sup { font-size: 10px; top: -0.65em; }
+.maker-product .mega-currency { font-size: 12px; }
+.maker-product .mega-save {
+  font-size: 11px;
+  line-height: 14px;
+}
+.maker-product .mega-price:not(:has(.mega-save)) {
+  color: var(--stone-900);
+}
+.maker-product-pricing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  width: 100%;
+}
+.maker-product .mega-low {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.35;
+}
+.maker-unit .maker-all.mini-link {
+  align-self: flex-start;
+  margin-top: 12px;
+}
+@media (max-width: 760px) {
+  .makers { padding-top: 48px; }
+  .makers-head {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .maker-unit { flex-basis: min(360px, 86vw); }
+  .maker-card { min-height: 420px; }
+}
+}

@@ -1,0 +1,476 @@
+---
+---
+<header class="nav" id="start">
+    <ul class="info-bar">
+      <li><span class="icon icon-house" aria-hidden="true"></span>Darmowa dostawa do showroomu od 250 zł</li>
+      <li><span class="icon icon-card" aria-hidden="true"></span>Zniżka z Kartą Łodzianina</li>
+      <li><span class="icon icon-flag" aria-hidden="true"></span>Polski sklep od <span data-since="2015">11 lat</span> na rynku</li>
+    </ul>
+    <div class="nav-top">
+      <a class="logo" href="#start" aria-label="get3D, strona główna">
+        <img src="assets/get3d%20logo.svg" alt="get3D">
+      </a>
+      <button class="burger" type="button" aria-label="Kategorie" aria-expanded="false" aria-controls="nav-cats"><span></span><em class="burger-label">Kategorie</em></button>
+      <form class="nav-search" role="search">
+        <label class="sr" for="search-input">Czego szukasz?</label>
+        <input id="search-input" type="search" placeholder="Czego szukasz?" autocomplete="off" aria-autocomplete="list" aria-controls="search-pop" aria-expanded="false">
+        <button type="submit" aria-label="Szukaj"><span class="icon icon-search" aria-hidden="true"></span></button>
+        <div class="search-pop" id="search-pop" hidden></div>
+      </form>
+      <div class="nav-tools">
+        <div class="tool" id="account-tool">
+          <button class="tool-btn" type="button" id="account-open" aria-expanded="false" aria-label="Konto">
+            <span class="icon icon-user" aria-hidden="true"></span>
+            <span class="tool-label">Konto</span>
+          </button>
+          <div class="account-pop" id="account-pop">
+            <div class="sheet-bar">
+              <p class="sheet-title">Konto</p>
+              <button class="sheet-x" type="button" data-close-sheet aria-label="Zamknij"><span></span></button>
+            </div>
+            <div id="account-guest">
+              <button class="account-login" type="button" id="show-login">Zaloguj się</button>
+              <p class="account-or"><span>Nie masz konta?</span></p>
+              <button class="account-register" type="button" id="show-register">Załóż konto</button>
+            </div>
+            <form id="login-form" hidden>
+              <input type="email" name="email" required placeholder="E-mail*" aria-label="E-mail">
+              <input type="password" name="password" required placeholder="Hasło*" aria-label="Hasło" minlength="4">
+              <button class="account-login" type="submit">Zaloguj się</button>
+              <button class="account-back" type="button" id="login-back">Wróć</button>
+              <p class="form-note" id="login-note"></p>
+            </form>
+            <nav class="account-menu" aria-label="Konto">
+              <button type="button" id="account-home"><span class="icon icon-user" aria-hidden="true"></span>Twoje konto</button>
+              <a href="#cennik"><span class="icon icon-receipt" aria-hidden="true"></span>Zamówienia</a>
+              <a href="#pytania"><span class="icon icon-refresh" aria-hidden="true"></span>Zwroty i reklamacje</a>
+              <a href="#serwis"><span class="icon icon-box" aria-hidden="true"></span>Serwis</a>
+              <a href="#opinie"><span class="icon icon-comment" aria-hidden="true"></span>Opinie</a>
+              <a href="#kontakt"><span class="icon icon-pin" aria-hidden="true"></span>Dane do zamówień</a>
+              <button type="button" id="logout" hidden><span class="icon icon-out" aria-hidden="true"></span>Wyloguj</button>
+            </nav>
+            <button class="account-tone" type="button" id="account-tone" aria-pressed="false">
+              <span class="icon icon-mode" aria-hidden="true"></span>
+              <span>Jaśniejsze tło<small id="tone-state">Wyłączone</small></span>
+            </button>
+          </div>
+        </div>
+        <div class="tool drop">
+          <button class="tool-btn drop-btn" type="button" aria-expanded="false" aria-label="Pomoc">
+            <span class="icon icon-headphones" aria-hidden="true"></span>
+            <span class="tool-label">Pomoc</span>
+          </button>
+          <div class="drop-panel help-pop">
+            <div class="sheet-bar">
+              <p class="sheet-title">Pomoc</p>
+              <button class="sheet-x" type="button" data-close-sheet aria-label="Zamknij"><span></span></button>
+            </div>
+            <p class="help-kicker">Popularne tematy</p>
+            <nav class="help-topics" aria-label="Popularne tematy">
+              <a href="#pytania">Dostawa</a>
+              <a href="#cennik">Raty</a>
+              <a href="#cennik">Leasing</a>
+              <a href="#kontakt">Zakupy dla firm</a>
+              <a href="#pytania">Zwroty</a>
+              <a href="#serwis">Reklamacje</a>
+              <a href="#serwis">Serwis</a>
+              <a href="#pytania">Najczęściej zadawane pytania</a>
+            </nav>
+            <p class="help-kicker">Skontaktuj się z nami</p>
+            <div class="help-contact">
+              <a href="#kontakt"><span class="icon icon-headphones" aria-hidden="true"></span>Kontakt</a>
+              <a href="#kontakt"><span class="icon icon-house" aria-hidden="true"></span><span>Showroom<small>Wróblewskiego 70/72, 93-566 Łódź</small></span></a>
+              <a href="mailto:biuro@get3d.pl"><span class="icon icon-mail" aria-hidden="true"></span>biuro@get3d.pl</a>
+              <a href="tel:+48426305050"><span class="icon icon-phone" aria-hidden="true"></span>42 630 50 50</a>
+            </div>
+            <div class="help-social">
+              <a href="https://www.facebook.com/get3dpl" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="icon icon-facebook" aria-hidden="true"></span></a>
+              <a href="https://x.com/get3dpl" target="_blank" rel="noopener noreferrer" aria-label="X"><span class="icon icon-x" aria-hidden="true"></span></a>
+              <a href="https://www.youtube.com/@get3dlab" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><span class="icon icon-youtube" aria-hidden="true"></span></a>
+              <a href="https://www.linkedin.com/company/18726552/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><span class="icon icon-linkedin" aria-hidden="true"></span></a>
+            </div>
+          </div>
+        </div>
+        <div class="tool" id="cart-tool">
+          <button class="tool-btn cart-btn" type="button" id="cart-open" aria-expanded="false" aria-label="Koszyk">
+            <span class="ico">
+              <span class="icon icon-cart" aria-hidden="true"></span>
+              <span class="cart-count" data-count="0">0</span>
+            </span>
+            <span class="tool-label">Koszyk</span>
+          </button>
+          <div class="cart-pop" id="cart-pop">
+            <div class="sheet-bar">
+              <p class="sheet-title">Koszyk</p>
+              <button class="sheet-x" type="button" data-close-sheet aria-label="Zamknij"><span></span></button>
+            </div>
+            <div class="cart-empty" id="cart-empty">
+              <p class="cart-empty-title">Koszyk jest pusty</p>
+              <p class="cart-empty-copy"><button type="button" id="cart-login">Zaloguj się</button>, aby sprawdzić zapisane produkty lub zainspiruj się</p>
+              <a class="cart-outline" href="#cennik">Przejdź do promocji</a>
+            </div>
+            <div class="cart-filled" id="cart-filled" hidden>
+              <div class="cart-mini" id="cart-mini"></div>
+              <button class="cart-outline" type="button" id="cart-go">Przejdź do koszyka</button>
+            </div>
+          </div>
+        </div>
+        <button class="tool-btn tone-btn" type="button" aria-label="Jaśniejsze tło" aria-pressed="false">
+          <span class="icon icon-mode" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <button class="nav-shade" type="button" aria-label="Zamknij menu"></button>
+    <div class="cat-bar">
+    <nav class="nav-cats" id="nav-cats" aria-label="Oferta">
+      <div class="drawer-bar">
+        <button class="drawer-back" type="button" aria-label="Wróć"><span class="icon icon-back" aria-hidden="true"></span></button>
+        <p class="drawer-title" id="drawer-title">Menu</p>
+        <button class="drawer-close" type="button" aria-label="Zamknij menu"><span></span></button>
+      </div>
+      <div class="drawer-body">
+        <p class="drawer-kicker">Kategorie</p>
+      <div class="drop">
+        <button class="drop-btn" type="button" aria-expanded="false">Drukarki 3D <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
+        <div class="drop-panel">
+          <a class="drawer-all" href="#drukarki">Pokaż drukarki 3D</a>
+          <div class="mega">
+            <div class="mega-side">
+              <a class="mega-all" href="#drukarki">Wszystkie</a>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">Bambu Lab <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Bambu Lab</p>
+                  <a href="#drukarki">A1 Mini</a>
+                  <a href="#drukarki">A1</a>
+                  <a href="#drukarki">A2L <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">P1S</a>
+                  <a href="#drukarki">P2S <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">X1E Combo</a>
+                  <a href="#drukarki">X2D Combo <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">H2S</a>
+                  <a href="#drukarki">H2D</a>
+                  <a href="#drukarki">H2D Pro <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">H2C <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">H3C</a>
+                  <a href="#drukarki">AMS lite</a>
+                  <a href="#drukarki">AMS</a>
+                  <a href="#drukarki">AMS 2 Pro</a>
+                  <a href="#drukarki">AMS HT</a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">BigRep <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">BigRep</p>
+                  <a href="#drukarki">ALTRA 280 <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">IPSO 105 <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">Pro <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">VIIO 250 <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">One <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">Studio <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">Drycon <span class="mega-new">Nowe</span></a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">Desktop Metal <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Desktop Metal</p>
+                  <a href="#drukarki">PureSinter <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">Shop System</a>
+                  <a href="#drukarki">Studio System</a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">eufyMake <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">eufyMake</p>
+                  <a href="#drukarki">eufyMake E1 <span class="mega-new">Nowe</span></a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">Formlabs <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Formlabs</p>
+                  <a href="#drukarki">Form 3+</a>
+                  <a href="#drukarki">Form 3B+</a>
+                  <a href="#drukarki">Form 3BL</a>
+                  <a href="#drukarki">Form 3L</a>
+                  <a href="#drukarki">Form 4</a>
+                  <a href="#drukarki">Form 4L</a>
+                  <a href="#drukarki">Form Cure L</a>
+                  <a href="#drukarki">Form Wash L</a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">miniFactory <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">miniFactory</p>
+                  <a href="#drukarki">Ignite</a>
+                  <a href="#drukarki">Ultra 2</a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">Prusa <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Prusa</p>
+                  <a href="#drukarki">CW1S</a>
+                  <a href="#drukarki">SL1S Speed</a>
+                  <a href="#drukarki">SL1S Speed Bundle</a>
+                  <a href="#drukarki">MK4S</a>
+                  <a href="#drukarki">CORE One+ <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">CORE One L <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">XL</a>
+                  <a href="#drukarki">Pro HT90</a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">Raise3D <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Raise3D</p>
+                  <a href="#drukarki">E3 <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">Pro3</a>
+                  <a href="#drukarki">Pro3 HS</a>
+                  <a href="#drukarki">Pro3 Plus HS</a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">Sinterit <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Sinterit</p>
+                  <a href="#drukarki">Lisa X</a>
+                  <a href="#drukarki">Suzy <span class="mega-new">Nowe</span></a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">UltiMaker <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">UltiMaker</p>
+                  <a href="#drukarki">Factor 4</a>
+                  <a href="#drukarki">PVA Removal Station</a>
+                  <a href="#drukarki">S3</a>
+                  <a href="#drukarki">S5</a>
+                  <a href="#drukarki">S6 <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">S6 Pro Bundle <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">S7</a>
+                  <a href="#drukarki">S7 Pro Bundle</a>
+                  <a href="#drukarki">S8 <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">S8 Pro Bundle <span class="mega-new">Nowe</span></a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">AMT <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">AMT</p>
+                  <a href="#drukarki">PostPro DPX <span class="mega-new">Nowe</span></a>
+                  <a href="#drukarki">PostPro SFX <span class="mega-new">Nowe</span></a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">Technologie druku 3D <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Technologie druku 3D</p>
+                  <a href="#drukarki">Filamentowe</a>
+                  <a href="#drukarki">Żywiczne</a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#drukarki">Outlet drukarek 3D</a>
+              </div>
+            </div>
+          </div>
+          <div class="mega-feature hero-slide">
+            <div class="product-shot">
+              <img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt="Drukarka 3D Bambu Lab A1 Combo">
+              <span class="variant-count">3 warianty</span>
+            </div>
+            <p class="hero-slide-name">Bambu Lab A1 Combo</p>
+            <ul class="product-badges">
+              <li>256×256×256 mm</li>
+              <li>AMS</li>
+              <li>WiFi</li>
+              <li><span class="icon icon-cube" aria-hidden="true"></span> Wysyłamy w 24h</li>
+            </ul>
+            <div class="mega-buy">
+              <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
+              <div class="card-actions">
+                <a class="mini-link card-details" href="#drukarki">Szczegóły</a>
+                <a class="mega-cart mega-cart-variant" href="#drukarki">
+                  <span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant
+                </a>
+              </div>
+              <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <button class="drop-btn" type="button" aria-expanded="false">Formierki 3D <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
+        <div class="drop-panel drop-formierki">
+          <a class="drawer-all" href="#drukarki">Pokaż formierki 3D</a>
+          <div class="mega">
+            <div class="mega-side">
+              <a class="mega-all" href="#kontakt">Wszystkie</a>
+              <div class="mega-branch">
+                <a class="mega-name" href="#kontakt">Formierki <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Formierki</p>
+                  <a href="#kontakt">Poznaj Mayku</a>
+                  <a href="#kontakt">Dla stomatologii</a>
+                  <a href="#kontakt">Mayku Pioneer Program</a>
+                </div>
+              </div>
+              <div class="mega-branch"><a class="mega-name" href="#kontakt">Zapytaj o stanowisko</a></div>
+            </div>
+          </div>
+          <div class="mega-feature hero-slide">
+            <div class="product-shot">
+              <img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt="Drukarka 3D Bambu Lab A1 Combo">
+              <span class="variant-count">3 warianty</span>
+            </div>
+            <p class="hero-slide-name">Bambu Lab A1 Combo</p>
+            <ul class="product-badges">
+              <li>256×256×256 mm</li>
+              <li>AMS</li>
+              <li>WiFi</li>
+              <li><span class="icon icon-cube" aria-hidden="true"></span> Wysyłamy w 24h</li>
+            </ul>
+            <div class="mega-buy">
+              <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
+              <div class="card-actions">
+                <a class="mini-link card-details" href="#drukarki">Szczegóły</a>
+                <a class="mega-cart mega-cart-variant" href="#drukarki">
+                  <span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant
+                </a>
+              </div>
+              <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <button class="drop-btn" type="button" aria-expanded="false">Materiały <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
+        <div class="drop-panel">
+          <a class="drawer-all" href="#materialy">Pokaż materiały</a>
+          <div class="mega">
+            <div class="mega-side">
+              <a class="mega-all" href="#materialy">Wszystkie</a>
+              <div class="mega-branch">
+                <a class="mega-name" href="#materialy">Filamenty <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Filamenty</p>
+                  <a href="#materialy">PLA</a>
+                  <a href="#materialy">PET / PETG</a>
+                  <a href="#materialy">ABS</a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#materialy">Żywice <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Żywice</p>
+                  <a href="#materialy">Standard</a>
+                  <a href="#materialy">Tough</a>
+                  <a href="#materialy">Water-wash</a>
+                </div>
+              </div>
+              <div class="mega-branch">
+                <a class="mega-name" href="#materialy">Marki <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Marki</p>
+                  <a href="#materialy">Bambu Lab</a>
+                  <a href="#materialy">Polymaker</a>
+                  <a href="#materialy">3DXTech</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mega-feature hero-slide">
+            <div class="product-shot">
+              <img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt="Drukarka 3D Bambu Lab A1 Combo">
+              <span class="variant-count">3 warianty</span>
+            </div>
+            <p class="hero-slide-name">Bambu Lab A1 Combo</p>
+            <ul class="product-badges">
+              <li>256×256×256 mm</li>
+              <li>AMS</li>
+              <li>WiFi</li>
+              <li><span class="icon icon-cube" aria-hidden="true"></span> Wysyłamy w 24h</li>
+            </ul>
+            <div class="mega-buy">
+              <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
+              <div class="card-actions">
+                <a class="mini-link card-details" href="#drukarki">Szczegóły</a>
+                <a class="mega-cart mega-cart-variant" href="#drukarki">
+                  <span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant
+                </a>
+              </div>
+              <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <button class="drop-btn" type="button" aria-expanded="false">Akcesoria <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
+        <div class="drop-panel">
+          <a class="drawer-all" href="#akcesoria">Pokaż akcesoria</a>
+          <div class="mega">
+            <div class="mega-side">
+              <a class="mega-all" href="#akcesoria">Wszystkie</a>
+              <div class="mega-branch">
+                <a class="mega-name" href="#akcesoria">Części zamienne <span class="icon icon-caret chev" aria-hidden="true"></span></a>
+                <div class="mega-kids">
+                  <p class="mega-kicker">Części zamienne</p>
+                  <a href="#akcesoria">Dysze</a>
+                  <a href="#akcesoria">Ekstrudery</a>
+                  <a href="#akcesoria">Zestawy serwisowe</a>
+                </div>
+              </div>
+              <div class="mega-branch"><a class="mega-name" href="#akcesoria">Chemia</a></div>
+              <div class="mega-branch"><a class="mega-name" href="#akcesoria">Kleje do druku 3D</a></div>
+              <div class="mega-branch"><a class="mega-name" href="#akcesoria">Platformy do druku</a></div>
+              <div class="mega-branch"><a class="mega-name" href="#akcesoria">Urządzenia</a></div>
+            </div>
+          </div>
+          <div class="mega-feature hero-slide">
+            <div class="product-shot">
+              <img src="assets/drukarka-3d-bambu-lab-a1-combo.webp" alt="Drukarka 3D Bambu Lab A1 Combo">
+              <span class="variant-count">3 warianty</span>
+            </div>
+            <p class="hero-slide-name">Bambu Lab A1 Combo</p>
+            <ul class="product-badges">
+              <li>256×256×256 mm</li>
+              <li>AMS</li>
+              <li>WiFi</li>
+              <li><span class="icon icon-cube" aria-hidden="true"></span> Wysyłamy w 24h</li>
+            </ul>
+            <div class="mega-buy">
+              <p class="mega-price"><span class="mega-amount"><small>od</small> 1&nbsp;160<sup>00</sup> <span class="mega-currency">zł</span></span> <span class="mega-save">-150&nbsp;zł</span></p>
+              <div class="card-actions">
+                <a class="mini-link card-details" href="#drukarki">Szczegóły</a>
+                <a class="mega-cart mega-cart-variant" href="#drukarki">
+                  <span class="icon icon-layers" aria-hidden="true"></span> Wybierz wariant
+                </a>
+              </div>
+              <p class="mega-low">Najniższa cena: 1&nbsp;310,00&nbsp;zł</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="drop">
+        <button class="drop-btn" type="button" aria-expanded="false">Szkolenia <span class="icon icon-arrow-corner chev" aria-hidden="true"></span></button>
+        <div class="drop-panel">
+          <a class="drawer-all" href="#serwis">Pokaż szkolenia</a>
+          <div class="mega">
+            <div class="mega-side">
+              <a class="mega-all" href="#serwis">Wszystkie</a>
+              <div class="mega-branch"><a class="mega-name" href="#serwis">Operatorzy</a></div>
+              <div class="mega-branch"><a class="mega-name" href="#kontakt">Grupy i szkoły</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="nav-link" href="#serwis">Serwis</a>
+      </div>
+    </nav>
+    <a class="bf-cta" href="#cennik"><span class="icon icon-fire" aria-hidden="true"></span>Black Friday</a>
+    </div>

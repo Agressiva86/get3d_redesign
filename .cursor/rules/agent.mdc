@@ -38,7 +38,9 @@ Rules:
 
 - Never modify unrelated sections.
 - Never refactor the entire project during a section-specific task.
-- Never modify global.css, variables.css, layouts or pages unless explicitly requested or strictly necessary.
+- Never modify app.css, layouts or pages unless explicitly requested or strictly necessary.
+- Tailwind v4: tokeny w `src/styles/tailwind/theme.css`, sekcje w `src/styles/tailwind/components/<nazwa>.css` (`@layer components`).
+- Po zmianie `css/styles.css` uruchom `npm run sync:css`. W HTML nowych elementów używaj utilities Tailwind.
 - Do not change shared components without permission.
 - Do not make unrelated improvements.
 - If a task requires changes outside the specified section, explain why and ask for permission first.

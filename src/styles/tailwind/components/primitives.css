@@ -1,0 +1,221 @@
+@layer components {
+.btn,
+.bf-cta,
+.add-mini,
+.account-login,
+.account-register,
+.cart-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 22px;
+  font-family: "Familjen Grotesk", Geist, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 1;
+  padding: 15px 28px 17px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.btn {
+  min-height: 48px;
+  border: 1px solid transparent;
+}
+@property --pill {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+@property --pill-ink {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #fff;
+}
+.btn-red {
+  --pill: var(--accent);
+  --pill-on: var(--dark-2);
+  --pill-ink: #fff;
+  --btn-h: 52px;
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  filter: drop-shadow(0 8px 18px rgba(225, 65, 90, 0.22));
+}
+.btn-dark {
+  --pill: var(--dark-2);
+  --pill-on: var(--accent);
+  --pill-ink: #fff;
+  --btn-h: 52px;
+  background: var(--dark-2);
+  color: #fff;
+  border-color: var(--dark-2);
+  filter: drop-shadow(0 8px 14px rgba(21, 0, 41, 0.18));
+}
+.btn-line {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--stone-300);
+}
+.btn-red::after,
+.btn-line::after,
+.btn-dark::after {
+  content: "";
+  width: 11px;
+  height: 11px;
+  flex: none;
+  background-color: currentColor;
+  -webkit-mask: url("/assets/icons/arrow-right-down.svg") center / contain no-repeat;
+  mask: url("/assets/icons/arrow-right-down.svg") center / contain no-repeat;
+  transform: translateY(3px);
+}
+.btn-line:not(.btn-block) {
+  min-height: 0;
+  padding: 0 2px;
+  gap: 6px;
+  border-color: transparent;
+  font-weight: 500;
+}
+.btn-line:not(.btn-block)::after {
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  -webkit-mask: url("/assets/icons/arrow-right-down.svg") center / contain no-repeat;
+  mask: url("/assets/icons/arrow-right-down.svg") center / contain no-repeat;
+  transform: none;
+}
+.btn-line:not(.btn-block):hover,
+.btn-line:not(.btn-block):focus-visible { color: var(--accent); }
+.btn:has(.btn-chip),
+.bf-cta:has(.btn-chip),
+.mega-cart:has(.btn-chip),
+.hero-caption-btn:has(.btn-chip) {
+  --btn-h: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: calc(var(--btn-h) * 0.28);
+  height: var(--btn-h);
+  min-height: 0;
+  padding: calc(var(--btn-h) * 0.125) calc(var(--btn-h) * 0.125) calc(var(--btn-h) * 0.125) calc(var(--btn-h) * 0.38);
+  border: 0;
+  border-radius: calc(var(--btn-h) * 0.25);
+  background: var(--pill);
+  color: var(--pill-ink);
+  font-family: "Familjen Grotesk", Geist, Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0;
+  box-shadow: none;
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+.btn:has(.btn-chip)::after,
+.hero-caption-btn:has(.btn-chip)::after { content: none; }
+.btn-label {
+  display: block;
+  font-weight: 500;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+.btn-block:has(.btn-chip) {
+  width: 100%;
+  justify-content: space-between;
+}
+.btn-chip {
+  display: grid;
+  place-items: center;
+  flex: none;
+  margin-left: auto;
+  width: calc(var(--btn-h) * 0.75);
+  height: calc(var(--btn-h) * 0.75);
+  border-radius: calc(var(--btn-h) * 0.162);
+  background: #fff;
+  color: var(--chip, var(--pill));
+}
+.btn-glyph {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
+.btn-glyph-arrow {
+  background: currentColor;
+  -webkit-mask: url("/assets/icons/arrow-right-down.svg") center / 14px 14px no-repeat;
+  mask: url("/assets/icons/arrow-right-down.svg") center / 14px 14px no-repeat;
+}
+.btn-chip .icon,
+.bf-cta:hover .btn-chip .icon,
+.mega-cart:hover .btn-chip .icon,
+.hero-caption-btn:hover .btn-chip .icon {
+  width: 14px;
+  height: 14px;
+  color: inherit;
+}
+.btn:has(.btn-chip):hover,
+.btn:has(.btn-chip):focus-visible,
+.bf-cta:has(.btn-chip):hover,
+.bf-cta:has(.btn-chip):focus-visible,
+.mega-cart:has(.btn-chip):hover,
+.mega-cart:has(.btn-chip):focus-visible,
+.hero-caption-btn:has(.btn-chip):hover,
+.hero-caption-btn:has(.btn-chip):focus-visible {
+  background: var(--pill-on);
+  color: var(--pill-ink);
+}
+.btn:has(.btn-chip):hover .btn-chip,
+.btn:has(.btn-chip):focus-visible .btn-chip,
+.bf-cta:has(.btn-chip):hover .btn-chip,
+.bf-cta:has(.btn-chip):focus-visible .btn-chip,
+.mega-cart:has(.btn-chip):hover .btn-chip,
+.mega-cart:has(.btn-chip):focus-visible .btn-chip,
+.hero-caption-btn:has(.btn-chip):hover .btn-chip,
+.hero-caption-btn:has(.btn-chip):focus-visible .btn-chip {
+  color: var(--pill-on);
+}
+.btn-block { width: 100%; }
+.btn-line.btn-block {
+  --pill: transparent;
+  --pill-on: var(--accent);
+  --pill-ink: var(--ink);
+  --btn-h: 52px;
+  --chip: var(--ink);
+  filter: none;
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--stone-300);
+}
+.btn-line.btn-block:hover,
+.btn-line.btn-block:focus-visible {
+  --pill-ink: #fff;
+  --chip: #fff;
+  box-shadow: none;
+}
+.btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  max-width: 100%;
+  background: var(--stone-100);
+  color: var(--stone-700);
+  border-radius: var(--radius);
+  padding: 5px 12px 5px 6px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.eyebrow i {
+  font-style: normal;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 3px 8px;
+  letter-spacing: 0.06em;
+  font-size: 10px;
+}
+}

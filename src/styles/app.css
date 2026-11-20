@@ -1,0 +1,8 @@
+/* Tailwind v4 — kolejność: framework → tokeny → base → komponenty → responsywność */
+@import "tailwindcss";
+
+/* Breakpoint sklepu (nawigacja / layout, jak dawne 980px) */
+@custom-variant nav (@media (width >= 61.25rem));
+@custom-variant max-nav (@media (width < 61.25rem));
+
+@import "./tailwind/index.css";

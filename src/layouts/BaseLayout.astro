@@ -1,0 +1,32 @@
+---
+import "../styles/app.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "get3D — drukarki, filamenty i akcesoria",
+  description = "get3D sprzedaje drukarki 3D, materiały eksploatacyjne i akcesoria. Zestawy dla pracowni, biur projektowych i produkcji.",
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
+    <link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/geist-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/familjen-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/familjen-grotesk-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <slot />
+    <script src="/js/main.js" is:inline></script>
+  </body>
+</html>
