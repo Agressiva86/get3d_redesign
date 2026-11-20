@@ -220,31 +220,50 @@ def main() -> None:
 """
     write(OUT / "theme.css", theme)
 
+    def line_index(pred) -> int:
+        return next(i for i, line in enumerate(lines) if pred(line))
+
+    header_start = line_index(lambda l: l.startswith("/* Header */"))
+    hero_start = line_index(lambda l: l.startswith("/* Hero */"))
+    cat_picks_start = line_index(lambda l: l.startswith(".cat-picks {"))
+    print_guide_start = line_index(lambda l: "/* Wybór drukarki */" in l)
+    brand_spot_start = line_index(lambda l: l.startswith(".brand-spot {"))
+    marquee_start = line_index(lambda l: l.startswith("/* Marquee"))
+    trust_start = line_index(lambda l: l.startswith("/* Trust */"))
+    about_start = line_index(lambda l: l.startswith("/* About */"))
+    benefits_start = line_index(lambda l: l.startswith("/* Benefits */"))
+    quote_banner_start = line_index(lambda l: l.startswith(".quote-banner {"))
+    features_start = line_index(lambda l: l.startswith("/* Features */"))
+    pricing_start = line_index(lambda l: l.startswith("/* Pricing */"))
+    testimonials_start = line_index(lambda l: l.startswith("/* Testimonials */"))
+    makers_start = line_index(lambda l: l.startswith(".makers {"))
+    faq_block_start = line_index(lambda l: l.startswith(".faq {"))
+
     root_tokens = "".join(lines[65:139])
     typography = apply_base_enhancements("".join(lines[139:181]))
     layout = "".join(lines[183:196])
-    primitives = "".join(lines[196:416])
+    primitives = "".join(lines[196:header_start])
     write(OUT / "base.css", wrap("base", root_tokens + typography))
     write(OUT / "components" / "layout.css", wrap("components", layout))
     write(OUT / "components" / "primitives.css", wrap("components", primitives))
 
     sections: list[tuple[str, int, int]] = [
-        ("header", 416, 1504),
-        ("hero", 1504, 1838),
-        ("cat-picks", 1838, 1901),
-        ("print-guide", 1901, 1977),
-        ("brand-spot", 1977, 2266),
-        ("logos", 2266, 2301),
-        ("trust", 2301, 2371),
-        ("about", 2371, 2408),
-        ("benefits", 2408, 2436),
-        ("quote-banner", 2436, 2459),
-        ("features", 2459, 2532),
-        ("pricing", 2532, 2626),
-        ("testimonials", 2626, 2665),
-        ("makers", 2665, why_start),
-        ("why-get3d", why_start, faq_start),
-        ("faq", faq_start, cta_start),
+        ("header", header_start, hero_start),
+        ("hero", hero_start, cat_picks_start),
+        ("cat-picks", cat_picks_start, print_guide_start),
+        ("print-guide", print_guide_start, brand_spot_start),
+        ("brand-spot", brand_spot_start, marquee_start),
+        ("logos", marquee_start, trust_start),
+        ("trust", trust_start, about_start),
+        ("about", about_start, benefits_start),
+        ("benefits", benefits_start, quote_banner_start),
+        ("quote-banner", quote_banner_start, features_start),
+        ("features", features_start, pricing_start),
+        ("pricing", pricing_start, testimonials_start),
+        ("testimonials", testimonials_start, makers_start),
+        ("makers", makers_start, why_start),
+        ("why-get3d", why_start, faq_block_start),
+        ("faq", faq_block_start, cta_start),
         ("footer", footer_start, cookies_start),
         ("cookies", cookies_start, cart_start),
         ("cart", cart_start, responsive_start),

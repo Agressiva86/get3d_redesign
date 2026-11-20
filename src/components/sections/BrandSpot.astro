@@ -27,8 +27,7 @@ const captionTextClass =
 const captionActionsClass =
   "hero-caption-actions mt-1.5 flex w-auto max-w-full flex-wrap gap-2 max-[980px]:w-full";
 
-const captionBtnBase =
-  "hero-caption-btn inline-flex min-h-10 items-center gap-2 rounded-full border border-white/45 bg-transparent px-4 font-[Familjen_Grotesk,Geist,Arial,sans-serif] text-sm font-medium leading-none tracking-normal whitespace-nowrap text-white no-underline transition-[background-color,border-color,box-shadow] duration-200 ease-out after:h-4 after:w-4 after:shrink-0 after:bg-current after:content-[''] after:[-webkit-mask:url('/get3d_redesign/assets/icons/arrow-right-down.svg')_center/contain_no-repeat] after:[mask:url('/get3d_redesign/assets/icons/arrow-right-down.svg')_center/contain_no-repeat] hover:border-transparent hover:bg-stone-900 hover:text-white hover:shadow-[0_8px_18px_rgba(21,0,41,0.38)] focus-visible:border-transparent focus-visible:bg-stone-900 focus-visible:text-white focus-visible:shadow-[0_8px_18px_rgba(21,0,41,0.38)]";
+const captionBtnBase = "hero-caption-btn";
 
 const panelClass = "flex min-w-0 flex-col rounded-[22px] bg-stone-100 p-[18px]";
 
@@ -74,7 +73,7 @@ const slideClass =
             <p class={captionTextClass}>Maszyna, filament i akcesoria w jednym miejscu. Od pierwszego wydruku po codzienną serię.</p>
             <div class={captionActionsClass}>
               <a class={`${captionBtnBase} hero-caption-btn-solid`} href="#drukarki">Najczęściej kupowane drukarki</a>
-              <a class={`${captionBtnBase} hero-caption-btn-line`} href="#serwis">Serwis drukarek Bambu Lab</a>
+              <a class={`${captionBtnBase} hero-caption-btn-solid`} href="#serwis">Serwis drukarek Bambu Lab</a>
             </div>
           </div>
         </figure>
